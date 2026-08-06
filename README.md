@@ -1,6 +1,5 @@
-# DOBE Story Blueprint
+# Dobe一日渐进规划
 
-DOBE 一日线分钟级剧情、系统循环与帮派树设计页面。
+Dobe 一日版本的已确定信息、渐进规划、版本分流与帮派树关系页面。
 
 在线页面：<https://sherlock3rd.github.io/dobe-story-blueprint/>
-
