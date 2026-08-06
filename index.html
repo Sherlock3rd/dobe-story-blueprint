@@ -1130,7 +1130,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       background:
         linear-gradient(180deg, color-mix(in srgb, var(--viz-series-1) 7%, var(--background)) 0, var(--background) 310px);
     }
-    #dobe-compressed-loops .dc-wrap { max-width: 1480px; }
+    #dobe-compressed-loops .dc-wrap { width: 100%; max-width: min(1480px, 100%); }
     #dobe-compressed-loops .dc-kicker {
       color: var(--foreground);
       font-size: 1.35rem;
@@ -1385,6 +1385,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     #dobe-compressed-loops .dc-source { line-height: 1.6; }
 
     @media (max-width: 1100px) {
+      #dobe-compressed-loops .dc-link-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       #dobe-compressed-loops .dc-overview { grid-template-columns: repeat(3, 1fr); }
       #dobe-compressed-loops .dc-act-chip { min-height: 104px; border-bottom: 1px solid var(--border); }
       #dobe-compressed-loops .dc-act-head { grid-template-columns: 135px 1fr; }
