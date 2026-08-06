@@ -5,18 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="no-referrer">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
-<title>DOBE 一日线 · 分钟级剧情与系统循环</title>
+<title>Dobe一日渐进规划</title>
 <style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
 </head>
 <body>
-<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="DOBE 一日线 · 分钟级剧情与系统循环" srcdoc="&lt;!doctype html&gt;
+<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="Dobe一日渐进规划" srcdoc="&lt;!doctype html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
 &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
 &lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
-&lt;title&gt;DOBE 一日线 · 分钟级剧情与系统循环&lt;/title&gt;
+&lt;title&gt;Dobe一日渐进规划&lt;/title&gt;
 &lt;style&gt;:root {
   color-scheme: light dark;
   background-color: var(
@@ -1149,7 +1149,25 @@ html&gt;body{padding:0}&lt;/style&gt;
       line-height: 1.35;
       margin: 0 0 8px;
     }
+    #dobe-compressed-loops h1 {
+      margin: 2px 0 28px;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      line-height: 1.2;
+      font-weight: 500;
+      letter-spacing: -.02em;
+    }
     #dobe-compressed-loops h3 { font-size: 1.08rem; font-weight: 500; }
+    #dobe-compressed-loops .dc-part { padding-top: 10px; }
+    #dobe-compressed-loops .dc-part &gt; h2 { padding-bottom: 10px; border-bottom: 2px solid var(--border); }
+    #dobe-compressed-loops .dc-part &gt; h3 { margin: 28px 0 8px; }
+    #dobe-compressed-loops .dc-link-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 12px 0 22px; }
+    #dobe-compressed-loops .dc-link-list a { display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; border-left: 4px solid var(--viz-series-1); background: var(--surface-1); color: var(--foreground); text-decoration: none; }
+    #dobe-compressed-loops .dc-link-list a:hover,
+    #dobe-compressed-loops .dc-link-list a:focus-visible { background: var(--surface-2); }
+    #dobe-compressed-loops .dc-link-list span { color: var(--muted-foreground); }
+    #dobe-compressed-loops .dc-confirmed-table th:first-child { width: 150px; }
+    #dobe-compressed-loops .dc-confirmed-table th:nth-child(2) { width: 40%; }
+    #dobe-compressed-loops .dc-building-table th:first-child { width: 260px; }
     #dobe-compressed-loops .dc-note { color: color-mix(in srgb, var(--foreground) 68%, transparent); }
     #dobe-compressed-loops .dc-rules { gap: 10px; margin: 18px 0 28px; }
     #dobe-compressed-loops .dc-rule {
@@ -1374,6 +1392,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     }
     @media (max-width: 720px) {
       #dobe-compressed-loops { padding: 14px; }
+      #dobe-compressed-loops .dc-link-list { grid-template-columns: 1fr; }
       #dobe-compressed-loops .dc-overview { grid-template-columns: repeat(2, 1fr); border-radius: 8px; }
       #dobe-compressed-loops .dc-track { grid-template-columns: 1fr; }
       #dobe-compressed-loops .dc-track-label { padding: 0; }
@@ -1410,34 +1429,55 @@ html&gt;body{padding:0}&lt;/style&gt;
       &lt;nav id=&quot;dobe-toc-nav&quot; aria-label=&quot;快速定位&quot;&gt;&lt;/nav&gt;
     &lt;/aside&gt;
   &lt;div class=&quot;dc-wrap&quot; id=&quot;dc-overview&quot;&gt;
-    &lt;div class=&quot;dc-kicker&quot;&gt;压缩版 · 一日线 90 分钟排布&lt;/div&gt;
-    &lt;p class=&quot;dc-lead&quot;&gt;纯演出全部控制在 10–30 秒；SUP 保持约 1 分钟。每次晋升都通过已有玩法取代一个既有席位；三席同级层只协作不互相管辖，升入上一级管理岗后才统辖完整三席。第三幕后继续复用 SUP、推关、城建、议会、小游戏与既有养成，不新增系统。&lt;/p&gt;
-    &lt;div class=&quot;dc-rules&quot;&gt;
-      &lt;span class=&quot;dc-rule&quot;&gt;&lt;strong&gt;纯演出：&lt;/strong&gt;单次 10–30s&lt;/span&gt;
-      &lt;span class=&quot;dc-rule&quot;&gt;&lt;strong&gt;SUP：&lt;/strong&gt;单次约 60s&lt;/span&gt;
-      &lt;span class=&quot;dc-rule&quot;&gt;&lt;strong&gt;推关：&lt;/strong&gt;26:00 首组，30:00 常驻&lt;/span&gt;
-      &lt;span class=&quot;dc-rule&quot;&gt;&lt;strong&gt;建筑：&lt;/strong&gt;45–60 min 前全部推出&lt;/span&gt;
-      &lt;span class=&quot;dc-rule&quot;&gt;&lt;strong&gt;归属：&lt;/strong&gt;全城建筑始终属于我方帮派；接管只做内部交接&lt;/span&gt;
-      &lt;span class=&quot;dc-rule&quot;&gt;&lt;strong&gt;职位：&lt;/strong&gt;所有晋升都取代既有席位，并有交接玩法&lt;/span&gt;
-      &lt;span class=&quot;dc-rule&quot;&gt;&lt;strong&gt;管辖：&lt;/strong&gt;同级三席互不管辖；升任管理岗后统辖三席&lt;/span&gt;
-      &lt;span class=&quot;dc-rule&quot;&gt;&lt;strong&gt;T2 下属：&lt;/strong&gt;每名 Full Patch 管理 3 名 T1；开局瓦尔特所辖包含雨果、玩家与 1 个空席&lt;/span&gt;
-      &lt;span class=&quot;dc-rule&quot;&gt;&lt;strong&gt;分流：&lt;/strong&gt;60:00 正式版大地图 / 一日版复玩&lt;/span&gt;
-      &lt;span class=&quot;dc-rule&quot;&gt;&lt;strong&gt;小游戏：&lt;/strong&gt;3:15 起常驻；0–26 min 集中教学，单次 45–90s&lt;/span&gt;
-      &lt;span class=&quot;dc-rule&quot;&gt;&lt;strong&gt;系统范围：&lt;/strong&gt;SUP / 推关 / 模拟经营与城建 / 小游戏 / 车辆、枪械、英雄养成 / 帮派与议会&lt;/span&gt;
-      &lt;span class=&quot;dc-rule&quot;&gt;&lt;strong&gt;资源说明：&lt;/strong&gt;“三资”不是系统，只指钱、油、物资；页面直接写资源名称&lt;/span&gt;
-    &lt;/div&gt;
+    &lt;div class=&quot;dc-kicker&quot;&gt;一日版本 · 90 分钟渐进体验&lt;/div&gt;
+    &lt;h1&gt;Dobe一日渐进规划&lt;/h1&gt;
 
-    &lt;div class=&quot;dc-overview&quot; aria-label=&quot;压缩后的六幕时间分配&quot;&gt;
-      &lt;div class=&quot;dc-act-chip&quot;&gt;&lt;span&gt;0–7&lt;/span&gt;&lt;b&gt;序幕&lt;/b&gt;&lt;span&gt;被卷入&lt;br&gt;4循环&lt;/span&gt;&lt;/div&gt;
-      &lt;div class=&quot;dc-act-chip&quot;&gt;&lt;span&gt;7–16&lt;/span&gt;&lt;b&gt;第一幕&lt;/b&gt;&lt;span&gt;见习打工/押送/转正&lt;br&gt;6循环&lt;/span&gt;&lt;/div&gt;
-      &lt;div class=&quot;dc-act-chip&quot;&gt;&lt;span&gt;16–30&lt;/span&gt;&lt;b&gt;第二幕&lt;/b&gt;&lt;span&gt;正式接管改装厂/商业街&lt;br&gt;6循环&lt;/span&gt;&lt;/div&gt;
-      &lt;div class=&quot;dc-act-chip&quot;&gt;&lt;span&gt;30–45&lt;/span&gt;&lt;b&gt;第三幕&lt;/b&gt;&lt;span&gt;赛事/叛徒/救援&lt;br&gt;Roadman→Road Captain&lt;/span&gt;&lt;/div&gt;
-      &lt;div class=&quot;dc-act-chip&quot;&gt;&lt;span&gt;45–60&lt;/span&gt;&lt;b&gt;第四幕&lt;/b&gt;&lt;span&gt;加油站/物流中心&lt;br&gt;Treasurer&lt;/span&gt;&lt;/div&gt;
-      &lt;div class=&quot;dc-act-chip&quot;&gt;&lt;span&gt;60–90&lt;/span&gt;&lt;b&gt;第五幕&lt;/b&gt;&lt;span&gt;SUP/推关/议会复用&lt;br&gt;武装队长→会长&lt;/span&gt;&lt;/div&gt;
-    &lt;/div&gt;
+    &lt;section class=&quot;dc-section dc-part&quot; id=&quot;dc-part-1&quot; aria-labelledby=&quot;dc-part-1-title&quot;&gt;
+      &lt;h2 id=&quot;dc-part-1-title&quot;&gt;Part 1 · 目前已确定的信息&lt;/h2&gt;
+      &lt;p class=&quot;dc-note&quot;&gt;以下内容整理自《一日渐进线汇总一图流》的有效“基础信息”框；帮派树结构统一放到 Part 4。&lt;/p&gt;
 
-    &lt;section class=&quot;dc-section&quot;&gt;
-      &lt;h2&gt;整体剧情因果&lt;/h2&gt;
+      &lt;h3 id=&quot;dc-confirmed-docs&quot;&gt;关联文档&lt;/h3&gt;
+      &lt;div class=&quot;dc-link-list&quot;&gt;
+        &lt;a href=&quot;https://t6bdpf8yjg.feishu.cn/wiki/ZjSowGJvPiXaA5k3nokcHjHEnhe&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;&lt;strong&gt;Dobe 记忆点梳理&lt;/strong&gt;&lt;span&gt;叙事与记忆点来源&lt;/span&gt;&lt;/a&gt;
+        &lt;a href=&quot;https://t6bdpf8yjg.feishu.cn/wiki/OMqDwrtSaizj4lkssBHcH4R2nxd?sheet=JmzW2M&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;&lt;strong&gt;DOBE世界观方案 - 摩托帮&lt;/strong&gt;&lt;span&gt;帮派世界观与职级命名来源&lt;/span&gt;&lt;/a&gt;
+        &lt;a href=&quot;https://t6bdpf8yjg.feishu.cn/sheets/XDBMs2LLnhcjB1tTWZ5c570fnbd?sheet=d4nknv&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;&lt;strong&gt;帮派树与章节体与会议&lt;/strong&gt;&lt;span&gt;章节节点与会议结构来源&lt;/span&gt;&lt;/a&gt;
+      &lt;/div&gt;
+
+      &lt;h3 id=&quot;dc-confirmed-framework&quot;&gt;内容与成长框架&lt;/h3&gt;
+      &lt;div class=&quot;table-responsive&quot;&gt;&lt;table class=&quot;table table-sm dc-confirmed-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;范围&lt;/th&gt;&lt;th&gt;已确定内容&lt;/th&gt;&lt;th&gt;备注&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+        &lt;tr&gt;&lt;td&gt;叙事&lt;/td&gt;&lt;td&gt;以“记忆点”组织叙事推进&lt;/td&gt;&lt;td&gt;具体元素见《Dobe 记忆点梳理》&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;车配件养成&lt;/td&gt;&lt;td&gt;等级、品质&lt;/td&gt;&lt;td&gt;作为载具成长线&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;枪械养成&lt;/td&gt;&lt;td&gt;等级；星级仍待确认&lt;/td&gt;&lt;td&gt;只记录基础信息框中的当前口径&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;英雄养成&lt;/td&gt;&lt;td&gt;等级、技能；星级仍待确认&lt;/td&gt;&lt;td&gt;不在本页扩写新系统&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;SUP&lt;/td&gt;&lt;td&gt;竞速、枪战关、碰撞型枪战异化关&lt;/td&gt;&lt;td&gt;单局约 1 分钟；开场首先使用竞速&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;推关&lt;/td&gt;&lt;td&gt;独立战斗循环&lt;/td&gt;&lt;td&gt;本规划在 26:00 首次引入，30:00 前后成为常驻&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;城建&lt;/td&gt;&lt;td&gt;接管、碎片化升级、升级&lt;/td&gt;&lt;td&gt;建筑始终归我方帮派，接管是内部管理权转移&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;待确认项&lt;/td&gt;&lt;td&gt;模拟经营、小游戏&lt;/td&gt;&lt;td&gt;基础信息框带问号，本页只保留已排入时间轴的出现位置，不展开专项设计&lt;/td&gt;&lt;/tr&gt;
+      &lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+
+      &lt;h3 id=&quot;dc-confirmed-buildings&quot;&gt;确定建筑与功能&lt;/h3&gt;
+      &lt;div class=&quot;table-responsive&quot;&gt;&lt;table class=&quot;table table-sm dc-building-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;建筑名&lt;/th&gt;&lt;th&gt;确定功能&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+        &lt;tr&gt;&lt;td&gt;Clubhouse&lt;/td&gt;&lt;td&gt;帮派议会演出 / 帮派管理（之后模拟经营小人）/ 推关挂机产出&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;修车厂&lt;/td&gt;&lt;td&gt;载具改装；第一个解锁建筑&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;废车回收场&lt;/td&gt;&lt;td&gt;高级资源：零件；产载具部件&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;商业街&lt;/td&gt;&lt;td&gt;基础资源：钱&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;物资中转站 / 运输公司&lt;/td&gt;&lt;td&gt;基础资源：物资&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;加油站&lt;/td&gt;&lt;td&gt;基础资源：汽油（统一资源口径：油）&lt;/td&gt;&lt;/tr&gt;
+      &lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+
+      &lt;h3 id=&quot;dc-confirmed-anchors&quot;&gt;版本锚点&lt;/h3&gt;
+      &lt;div class=&quot;dc-rules&quot;&gt;
+        &lt;span class=&quot;dc-rule&quot;&gt;&lt;strong&gt;一日版本终点：&lt;/strong&gt;玩家成为 President（会长）&lt;/span&gt;
+        &lt;span class=&quot;dc-rule&quot;&gt;&lt;strong&gt;正式版预期：&lt;/strong&gt;取得 Clubhouse 后解锁第二段帮派树，节点可能对应联盟玩法解锁&lt;/span&gt;
+        &lt;span class=&quot;dc-rule&quot;&gt;&lt;strong&gt;一日版调整：&lt;/strong&gt;Clubhouse 的取得位置允许灵活调整&lt;/span&gt;
+        &lt;span class=&quot;dc-rule&quot;&gt;&lt;strong&gt;前 10 分钟：&lt;/strong&gt;允许先使用功能，但不代表真正取得对应建筑&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;dc-section dc-part&quot; id=&quot;dc-part-2&quot; aria-labelledby=&quot;dc-part-2-title&quot;&gt;
+      &lt;h2 id=&quot;dc-part-2-title&quot;&gt;Part 2 · 渐进规划&lt;/h2&gt;
+      &lt;p class=&quot;dc-note&quot;&gt;先看整体因果与六幕承接关系，再逐幕查看分钟级循环。&lt;/p&gt;
+      &lt;h3 id=&quot;dc-story-causal-title&quot;&gt;整体剧情因果&lt;/h3&gt;
       &lt;div class=&quot;dc-causal&quot;&gt;
         &lt;div&gt;&lt;b&gt;送货竞速&lt;/b&gt;&lt;br&gt;&lt;span&gt;速度被看见&lt;/span&gt;&lt;/div&gt;
         &lt;div&gt;&lt;b&gt;死亡名单&lt;/b&gt;&lt;br&gt;&lt;span&gt;个人无法自保&lt;/span&gt;&lt;/div&gt;
@@ -1447,23 +1487,15 @@ html&gt;body{padding:0}&lt;/style&gt;
         &lt;div&gt;&lt;b&gt;补齐产业产出&lt;/b&gt;&lt;br&gt;&lt;span&gt;钱、油、物资进入循环&lt;/span&gt;&lt;/div&gt;
         &lt;div&gt;&lt;b&gt;复玩与晋升&lt;/b&gt;&lt;br&gt;&lt;span&gt;证明能领导全帮&lt;/span&gt;&lt;/div&gt;
       &lt;/div&gt;
-    &lt;/section&gt;
-
-    &lt;section class=&quot;dc-section&quot; aria-labelledby=&quot;minigame-title&quot;&gt;
-      &lt;h2 id=&quot;minigame-title&quot;&gt;小游戏出现与复用关系&lt;/h2&gt;
-      &lt;p class=&quot;dc-note&quot;&gt;本阶段只标记小游戏出现在哪，以及哪些循环复用同一个小游戏。具体规则、操作步骤和关卡目标留到小游戏专项设计。&lt;/p&gt;
-      &lt;div class=&quot;table-responsive&quot;&gt;
-        &lt;table class=&quot;table table-sm mg-types&quot;&gt;
-          &lt;thead&gt;&lt;tr&gt;&lt;th&gt;编号&lt;/th&gt;&lt;th&gt;同一小游戏类型&lt;/th&gt;&lt;th&gt;时间轴出现位置&lt;/th&gt;&lt;th&gt;说明&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-          &lt;tbody&gt;
-            &lt;tr&gt;&lt;td&gt;&lt;strong&gt;MG-A&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;改装 / 维修&lt;/td&gt;&lt;td&gt;L03、L06、L07、L18&lt;/td&gt;&lt;td&gt;同一个小游戏；L03 试用，Prospect 后可使用，Full Patch 完成城建后进入正式经营状态&lt;/td&gt;&lt;/tr&gt;
-            &lt;tr&gt;&lt;td&gt;&lt;strong&gt;MG-B&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;商业经营 / 查账&lt;/td&gt;&lt;td&gt;L14&lt;/td&gt;&lt;td&gt;候选小游戏，只标记出现位置&lt;/td&gt;&lt;/tr&gt;
-            &lt;tr&gt;&lt;td&gt;&lt;strong&gt;MG-C&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;拆解 / 分拣&lt;/td&gt;&lt;td&gt;L24&lt;/td&gt;&lt;td&gt;候选；不制作时替换为普通建设操作&lt;/td&gt;&lt;/tr&gt;
-            &lt;tr&gt;&lt;td&gt;&lt;strong&gt;MG-D&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;路线 / 调度&lt;/td&gt;&lt;td&gt;L26&lt;/td&gt;&lt;td&gt;候选；不制作时替换为普通建设操作&lt;/td&gt;&lt;/tr&gt;
-          &lt;/tbody&gt;
-        &lt;/table&gt;
+      &lt;h3 id=&quot;dc-act-relations-title&quot;&gt;六幕关系&lt;/h3&gt;
+      &lt;div class=&quot;dc-overview&quot; aria-label=&quot;六幕时间分配与承接关系&quot;&gt;
+        &lt;div class=&quot;dc-act-chip&quot;&gt;&lt;span&gt;0–7&lt;/span&gt;&lt;b&gt;序幕&lt;/b&gt;&lt;span&gt;被卷入&lt;br&gt;4 循环&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;dc-act-chip&quot;&gt;&lt;span&gt;7–16&lt;/span&gt;&lt;b&gt;第一幕&lt;/b&gt;&lt;span&gt;见习打工 / 押送 / 转正&lt;br&gt;6 循环&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;dc-act-chip&quot;&gt;&lt;span&gt;16–30&lt;/span&gt;&lt;b&gt;第二幕&lt;/b&gt;&lt;span&gt;接管改装厂 / 商业街&lt;br&gt;6 循环&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;dc-act-chip&quot;&gt;&lt;span&gt;30–45&lt;/span&gt;&lt;b&gt;第三幕&lt;/b&gt;&lt;span&gt;赛事 / 叛徒 / 救援&lt;br&gt;6 循环&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;dc-act-chip&quot;&gt;&lt;span&gt;45–60&lt;/span&gt;&lt;b&gt;第四幕&lt;/b&gt;&lt;span&gt;加油站 / 物流中心&lt;br&gt;5 循环&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;dc-act-chip&quot;&gt;&lt;span&gt;60–90&lt;/span&gt;&lt;b&gt;第五幕&lt;/b&gt;&lt;span&gt;复用既有玩法并晋升会长&lt;br&gt;6 循环&lt;/span&gt;&lt;/div&gt;
       &lt;/div&gt;
-      &lt;div class=&quot;mg-principle&quot;&gt;&lt;strong&gt;已确认：&lt;/strong&gt;MG-A 改装 / 维修产出钱。其他小游戏如何游玩及产出什么，本轮不展开。&lt;/div&gt;
     &lt;/section&gt;
 
     &lt;section class=&quot;dc-act&quot; data-series=&quot;1&quot;&gt;
@@ -1537,7 +1569,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     &lt;/section&gt;
 
     &lt;section class=&quot;dc-section&quot;&gt;
-      &lt;h2&gt;60 分钟后的版本替换&lt;/h2&gt;
+      &lt;h2&gt;Part 3 · 一日版本与正式版本分流&lt;/h2&gt;
       &lt;div class=&quot;dc-branch&quot;&gt;
         &lt;div&gt;&lt;h3&gt;正式版：官职链衔接大地图&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;60–64：枪战 SUP 切磋 → Sergeant-at-Arms，获得下级英雄并沿用英雄养成。&lt;/li&gt;&lt;li&gt;64–70：用已有英雄完成推关/SUP形式的大地图防卫 → Senior Members。&lt;/li&gt;&lt;li&gt;70–76：议会选择地图目标并完成推关/SUP。&lt;/li&gt;&lt;li&gt;76–82：竞速 SUP → Vice President，获得 Clubhouse 帮派管理权限。&lt;/li&gt;&lt;li&gt;82–89:30：以副会长身份完成一次大地图任务。&lt;/li&gt;&lt;li&gt;89:30–90：通过议会完成 President 交接。&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
         &lt;div&gt;&lt;h3&gt;一日版：同一官职链，重复既有玩法&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;60–64：枪战 SUP 完成武装队长切磋。&lt;/li&gt;&lt;li&gt;64–70：重复推关/SUP完成产业防卫。&lt;/li&gt;&lt;li&gt;70–76：议会选择一个本地任务，再完成推关/SUP。&lt;/li&gt;&lt;li&gt;76–82：竞速 SUP 完成副会长挑战。&lt;/li&gt;&lt;li&gt;82–89:30：重复推关/SUP并恢复建筑。&lt;/li&gt;&lt;li&gt;89:30–90：通过议会完成 President 交接。&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
@@ -1546,7 +1578,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     &lt;/section&gt;
 
     &lt;section class=&quot;dc-section&quot; aria-labelledby=&quot;gang-tree-title&quot;&gt;
-      &lt;h2 id=&quot;gang-tree-title&quot;&gt;帮派树：具体席位与管辖结构&lt;/h2&gt;
+      &lt;h2 id=&quot;gang-tree-title&quot;&gt;Part 4 · 帮派树关系&lt;/h2&gt;
       &lt;p class=&quot;dc-note&quot;&gt;开局快照：瓦尔特·维尔所在的 T2 Full Patch 席位向下管理 3 名 T1 Prospect——雨果·维尔、玩家角色和一个未命名见习席。T2 的三个同级席位仍分别直接连接 T3。&lt;/p&gt;
       &lt;div class=&quot;org-legend&quot; aria-label=&quot;帮派树图例&quot;&gt;&lt;span&gt;&lt;i class=&quot;org-line&quot;&gt;&lt;/i&gt;玩家晋升路线&lt;/span&gt;&lt;span&gt;&lt;i class=&quot;org-line org-line-command&quot;&gt;&lt;/i&gt;直属管理/上级连接&lt;/span&gt;&lt;span&gt;玩家当前：T1 见习&lt;/span&gt;&lt;span&gt;未命名席位留空&lt;/span&gt;&lt;/div&gt;
       &lt;div class=&quot;org-scroll&quot;&gt;
@@ -1626,8 +1658,8 @@ html&gt;body{padding:0}&lt;/style&gt;
       &lt;div class=&quot;gt-foot&quot;&gt;职级名称参考“帮派树”revision 3872，功能参考“帮派树详细”revision 888；席位与管辖结构按本轮确认规则重画。&lt;/div&gt;
     &lt;/section&gt;
 
-    &lt;section class=&quot;dc-section succession-part&quot; aria-labelledby=&quot;succession-title&quot;&gt;
-      &lt;h2 id=&quot;succession-title&quot;&gt;Part：全职位晋升的游戏内表现&lt;/h2&gt;
+    &lt;section class=&quot;dc-section succession-part&quot; id=&quot;dc-promotion-scenes&quot; aria-labelledby=&quot;succession-title&quot;&gt;
+      &lt;h3 id=&quot;succession-title&quot;&gt;全职位晋升的游戏内表现&lt;/h3&gt;
       &lt;p class=&quot;dc-note&quot;&gt;本 Part 描述玩家在游戏中实际看到和操作的完整场景：任务进入、玩法证明、角色反应、职位交接、界面反馈与新权限首次使用。职位交接只是场景中的一个环节，建筑接管仍放在后续独立循环。&lt;/p&gt;
       &lt;div class=&quot;table-responsive&quot;&gt;&lt;table class=&quot;table table-sm dc-promotion-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;晋升目标&lt;/th&gt;&lt;th&gt;玩法 TAG&lt;/th&gt;&lt;th&gt;席位与原职位关系&lt;/th&gt;&lt;th&gt;玩法证明&lt;/th&gt;&lt;th&gt;游戏内表现&lt;/th&gt;&lt;th&gt;取代结果与立即解锁&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
         &lt;tr&gt;&lt;td&gt;T1 Prospect&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;rc-tag rc-meeting&quot;&gt;会议&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平&lt;/span&gt;&lt;/td&gt;&lt;td&gt;原 Prospect 晋升或转任，入门席位空出&lt;/td&gt;&lt;td&gt;帮规确认与入会任务&lt;/td&gt;&lt;td&gt;杰森确认玩家可以留下，博为玩家戴上见习背章；帮派树弹出并聚焦 T1 与改装厂使用权。&lt;span class=&quot;dc-transfer dc-transfer-peace&quot;&gt;背章交接&lt;/span&gt;&lt;/td&gt;&lt;td&gt;取代入门席；获得改装厂使用权，无管理/城建权限&lt;/td&gt;&lt;/tr&gt;
@@ -1649,7 +1681,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       &lt;/div&gt;
     &lt;/section&gt;
 
-    &lt;div class=&quot;dc-source&quot;&gt;依据《一日渐进线》有效画板 revision 66、《DOBE世界观方案－摩托帮》revision 3872 与《帮派树详细》revision 888 调整。演出时间仅统计不可操作的纯演出；系统教学、选择、改装、领取、骑行与结算均计入可玩时间。&lt;/div&gt;
+    &lt;div class=&quot;dc-source&quot;&gt;依据《一日渐进线汇总一图流》revision 67 中首个有效“基础信息”画板、《DOBE世界观方案－摩托帮》revision 3872 与《帮派树详细》revision 888 调整；文档内标注“草稿，废弃不用”的后续画板未纳入。演出时间仅统计不可操作的纯演出；系统教学、选择、改装、领取、骑行与结算均计入可玩时间。&lt;/div&gt;
   &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
@@ -1658,11 +1690,8 @@ html&gt;body{padding:0}&lt;/style&gt;
   const root = document.getElementById(&#x27;dobe-compressed-loops&#x27;);
   if (!root) return;
   const sectionIds = {
-    &#x27;整体剧情因果&#x27;:&#x27;dc-story-causal&#x27;,
-    &#x27;小游戏出现与复用关系&#x27;:&#x27;dc-minigames&#x27;,
-    &#x27;60 分钟后的版本替换&#x27;:&#x27;dc-version-branch&#x27;,
-    &#x27;帮派树：具体席位与管辖结构&#x27;:&#x27;dc-gang-tree&#x27;,
-    &#x27;Part：全职位晋升的游戏内表现&#x27;:&#x27;dc-promotion-scenes&#x27;
+    &#x27;Part 3 · 一日版本与正式版本分流&#x27;:&#x27;dc-version-branch&#x27;,
+    &#x27;Part 4 · 帮派树关系&#x27;:&#x27;dc-gang-tree&#x27;
   };
   root.querySelectorAll(&#x27;.dc-section&#x27;).forEach(section =&gt; {
     const heading = section.querySelector(&#x27;h2&#x27;);
@@ -1683,21 +1712,27 @@ html&gt;body{padding:0}&lt;/style&gt;
   if (rankFunctionHeading) rankFunctionHeading.id = &#x27;dc-rank-functions&#x27;;
 
   const tocItems = [
-    { id:&#x27;dc-overview&#x27;, label:&#x27;总览&#x27;, level:2 },
-    { id:&#x27;dc-story-causal&#x27;, label:&#x27;整体剧情因果&#x27;, level:2 },
-    { id:&#x27;dc-minigames&#x27;, label:&#x27;小游戏出现与复用&#x27;, level:2 },
-    { id:&#x27;dc-act-prologue&#x27;, label:&#x27;序幕 · 被卷入&#x27;, level:2 },
-    { id:&#x27;dc-act-1&#x27;, label:&#x27;第一幕 · 见习与转正&#x27;, level:2 },
-    { id:&#x27;dc-act-2&#x27;, label:&#x27;第二幕 · 改装厂与商业街&#x27;, level:2 },
-    { id:&#x27;dc-act-3&#x27;, label:&#x27;第三幕 · 赛事与叛徒&#x27;, level:2 },
-    { id:&#x27;dc-act-4&#x27;, label:&#x27;第四幕 · 加油站与物流&#x27;, level:2 },
-    { id:&#x27;dc-act-5&#x27;, label:&#x27;第五幕 · 高阶晋升&#x27;, level:2 },
-    { id:&#x27;dc-version-branch&#x27;, label:&#x27;60 分钟版本分流&#x27;, level:2 },
+    { id:&#x27;dc-overview&#x27;, label:&#x27;Dobe一日渐进规划&#x27;, level:2 },
+    { id:&#x27;dc-part-1&#x27;, label:&#x27;Part 1 · 已确定信息&#x27;, level:2 },
+    { id:&#x27;dc-confirmed-docs&#x27;, label:&#x27;关联文档&#x27;, level:3 },
+    { id:&#x27;dc-confirmed-framework&#x27;, label:&#x27;内容与成长框架&#x27;, level:3 },
+    { id:&#x27;dc-confirmed-buildings&#x27;, label:&#x27;确定建筑与功能&#x27;, level:3 },
+    { id:&#x27;dc-confirmed-anchors&#x27;, label:&#x27;版本锚点&#x27;, level:3 },
+    { id:&#x27;dc-part-2&#x27;, label:&#x27;Part 2 · 渐进规划&#x27;, level:2 },
+    { id:&#x27;dc-story-causal-title&#x27;, label:&#x27;整体剧情因果&#x27;, level:3 },
+    { id:&#x27;dc-act-relations-title&#x27;, label:&#x27;六幕关系&#x27;, level:3 },
+    { id:&#x27;dc-act-prologue&#x27;, label:&#x27;序幕 · 被卷入&#x27;, level:3 },
+    { id:&#x27;dc-act-1&#x27;, label:&#x27;第一幕 · 见习与转正&#x27;, level:3 },
+    { id:&#x27;dc-act-2&#x27;, label:&#x27;第二幕 · 改装厂与商业街&#x27;, level:3 },
+    { id:&#x27;dc-act-3&#x27;, label:&#x27;第三幕 · 赛事与叛徒&#x27;, level:3 },
+    { id:&#x27;dc-act-4&#x27;, label:&#x27;第四幕 · 加油站与物流&#x27;, level:3 },
+    { id:&#x27;dc-act-5&#x27;, label:&#x27;第五幕 · 高阶晋升&#x27;, level:3 },
+    { id:&#x27;dc-version-branch&#x27;, label:&#x27;Part 3 · 版本分流&#x27;, level:2 },
     { id:&#x27;dc-version-formal&#x27;, label:&#x27;正式版大地图&#x27;, level:3 },
-    { id:&#x27;dc-version-one-day&#x27;, label:&#x27;一日版代理循环&#x27;, level:3 },
-    { id:&#x27;dc-gang-tree&#x27;, label:&#x27;帮派树结构&#x27;, level:2 },
+    { id:&#x27;dc-version-one-day&#x27;, label:&#x27;一日版重复游玩&#x27;, level:3 },
+    { id:&#x27;dc-gang-tree&#x27;, label:&#x27;Part 4 · 帮派树关系&#x27;, level:2 },
     { id:&#x27;dc-rank-functions&#x27;, label:&#x27;职级对应功能&#x27;, level:3 },
-    { id:&#x27;dc-promotion-scenes&#x27;, label:&#x27;全职位游戏内表现&#x27;, level:2 }
+    { id:&#x27;dc-promotion-scenes&#x27;, label:&#x27;全职位游戏内表现&#x27;, level:3 }
   ].filter(item =&gt; document.getElementById(item.id));
   const tocNav = root.querySelector(&#x27;#dobe-toc-nav&#x27;);
   const tocList = document.createElement(&#x27;ul&#x27;);
