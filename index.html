@@ -129,9 +129,17 @@
       let activePlan = null;
 
       function getReadingWindow(plan) {
-        const outerWindow = frames[plan]?.contentWindow;
-        const innerFrame = outerWindow?.document.querySelector('iframe');
-        return innerFrame?.contentWindow || outerWindow;
+        let readingWindow = frames[plan]?.contentWindow;
+        for (let depth = 0; depth < 5 && readingWindow; depth += 1) {
+          try {
+            const innerFrame = readingWindow.document?.querySelector('iframe');
+            if (!innerFrame?.contentWindow) break;
+            readingWindow = innerFrame.contentWindow;
+          } catch {
+            break;
+          }
+        }
+        return readingWindow;
       }
 
       function readProgress(plan) {
