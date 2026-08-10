@@ -84,21 +84,21 @@
   <header class="plan-switcher" aria-label="剧情方案切换">
     <div class="plan-title">
       <strong>Dobe一日渐进规划｜A/B方案对比</strong>
-      <span>临时方案对比 · 两套内容独立保存</span>
+      <span>两种开局身份与剧情路径对比</span>
     </div>
     <nav class="plan-tabs" aria-label="选择方案">
       <button class="plan-tab" type="button" data-plan="a" aria-pressed="true">
         <strong>方案 A</strong>
-        <span>外乡人转化 · 当前本地修改</span>
+        <span>外乡人转化</span>
       </button>
       <button class="plan-tab" type="button" data-plan="b" aria-pressed="false">
         <strong>方案 B</strong>
-        <span>本地见习生 · 云端基线</span>
+        <span>本地见习生</span>
       </button>
     </nav>
     <div class="plan-state" aria-live="polite">
       <b id="active-plan-name">正在查看：方案 A · 外乡人转化</b>
-      <span id="active-plan-note">本地重写版本，不影响云端基线</span>
+      <span id="active-plan-note">切换方案查看完整规划</span>
     </div>
   </header>
 
@@ -112,11 +112,11 @@
       const plans = {
         a: {
           name: '正在查看：方案 A · 外乡人转化',
-          note: '本地重写版本，不影响云端基线'
+          note: '切换方案查看完整规划'
         },
         b: {
           name: '正在查看：方案 B · 本地见习生',
-          note: '取自当前线上 Page 的冻结快照'
+          note: '切换方案查看完整规划'
         }
       };
       const buttons = [...document.querySelectorAll('[data-plan]')];
