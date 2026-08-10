@@ -1,0 +1,2157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Dobe一日渐进规划</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+</head>
+<body>
+<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="Dobe一日渐进规划" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
+&lt;title&gt;Dobe一日渐进规划&lt;/title&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(
+    --background,
+    var(--color-background-primary, light-dark(rgb(255 255 255), rgb(24 24 24)))
+  ) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --color-background-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --card: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  --card-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --popover: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255), rgb(45 45 45))
+  );
+  --popover-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --primary: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --primary-foreground: var(
+    --color-text-inverse,
+    light-dark(rgb(255 255 255), rgb(13 13 13))
+  );
+  --secondary: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%))
+  );
+  --secondary-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: var(
+    --color-text-secondary,
+    light-dark(rgb(26 28 31 / 49.4%), rgb(255 255 255 / 49.8%))
+  );
+  --accent: var(
+    --color-background-info,
+    light-dark(rgb(229 242 255), rgb(13 39 63))
+  );
+  --accent-foreground: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --destructive: var(
+    --color-text-warning,
+    light-dark(rgb(226 85 7), rgb(255 133 73))
+  );
+  --border: var(
+    --color-border-secondary,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+  --input: var(
+    --color-border-primary,
+    light-dark(
+      rgb(26 28 31 / 11.8%),
+      color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+    )
+  );
+  --ring: var(
+    --color-ring-primary,
+    light-dark(rgb(51 156 255), rgb(131 195 255 / 76%))
+  );
+  --font-size-base: var(--font-text-md-size, 14px);
+  --red: light-dark(rgb(186 38 35), rgb(250 66 62));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --radius: var(--border-radius-lg, 12.5px);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; viewBox=&#x27;0 0 17 17&#x27;%3E%3Cpath d=&#x27;M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z&#x27;/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  /* Preserve MCP aliases for older inline renderers without creating :root cycles. */
+  --color-background-primary: var(
+    --background,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --color-text-primary: var(
+    --foreground,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --color-border-secondary: var(
+    --border,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+
+  margin: 0;
+  padding: 5px;
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: pointer;
+  font-weight: var(--font-weight-medium, 500);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.table-responsive &gt; .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead th {
+  padding-block: 8px;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 16%, transparent);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 6px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align=&quot;right&quot;]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align=&quot;center&quot;]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: superellipse(1.5);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+#widget &gt; :not(.card) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: superellipse(1.5);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+    [aria-pressed=&quot;true&quot;],
+    [aria-selected=&quot;true&quot;],
+    .is-selected
+  ) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+/* Model-authored chart rules can otherwise stretch icons after these styles load. */
+svg.lucide {
+  display: block;
+  width: 16px !important;
+  height: 16px !important;
+  flex: none;
+  margin: 0 !important;
+  stroke-width: 1.6;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;dobe-compressed-loops&quot;&gt;
+  &lt;style&gt;
+    #dobe-compressed-loops {
+      color-scheme: light dark;
+      --background: light-dark(rgb(255 255 255), rgb(24 24 24));
+      --foreground: light-dark(rgb(26 28 31), rgb(255 255 255));
+      --muted-foreground: light-dark(rgb(26 28 31 / 58%), rgb(255 255 255 / 62%));
+      --border: light-dark(rgb(26 28 31 / 13%), rgb(255 255 255 / 14%));
+      --destructive: light-dark(rgb(226 85 7), rgb(255 133 73));
+      --viz-series-1: light-dark(rgb(51 156 255), rgb(131 195 255));
+      --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+      --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+      --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+      --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+      --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+      color: var(--foreground);
+      background: var(--background);
+      padding: 24px;
+      font-family: &quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, system-ui, sans-serif;
+    }
+    #dobe-compressed-loops * { box-sizing: border-box; }
+    #dobe-compressed-loops .dc-layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 28px; align-items: start; max-width: 1840px; margin: 0 auto; }
+    #dobe-compressed-loops .dc-wrap { min-width: 0; max-width: 1580px; margin: 0 auto; }
+    #dobe-compressed-loops .dc-toc { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow: auto; padding: 2px 12px 16px 0; border-right: 1px solid var(--border); scrollbar-width: thin; }
+    #dobe-compressed-loops .dc-toc-head { margin: 0 0 8px; padding: 8px 10px; font-weight: 500; color: var(--foreground); }
+    #dobe-compressed-loops .dc-toc-list { list-style: none; margin: 0; padding: 0; }
+    #dobe-compressed-loops .dc-toc-item { margin: 1px 0; }
+    #dobe-compressed-loops .dc-toc-link { display: block; padding: 7px 10px; border-left: 2px solid transparent; color: var(--muted-foreground); text-decoration: none; line-height: 1.45; transition: color .16s ease, background-color .16s ease, border-color .16s ease; }
+    #dobe-compressed-loops .dc-toc-link[data-level=&quot;3&quot;] { padding-left: 24px; }
+    #dobe-compressed-loops .dc-toc-link:hover,
+    #dobe-compressed-loops .dc-toc-link:focus-visible { color: var(--foreground); background: color-mix(in srgb, var(--foreground) 5%, transparent); outline: none; }
+    #dobe-compressed-loops .dc-toc-link.is-active { color: var(--foreground); border-left-color: var(--viz-series-2); background: color-mix(in srgb, var(--viz-series-2) 10%, transparent); font-weight: 500; }
+    #dobe-compressed-loops [id] { scroll-margin-top: 18px; }
+    #dobe-compressed-loops .dc-kicker, #dobe-compressed-loops .dc-note { color: var(--muted-foreground); }
+    #dobe-compressed-loops .dc-lead { max-width: 1220px; margin: 6px 0 16px; }
+    #dobe-compressed-loops .dc-rules { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 26px; }
+    #dobe-compressed-loops .dc-rule { border: 1px solid var(--border); padding: 6px 9px; }
+    #dobe-compressed-loops .dc-rule strong { font-weight: 500; }
+    #dobe-compressed-loops .dc-overview { display: grid; grid-template-columns: 7fr 9fr 14fr 15fr 15fr 30fr; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 18px 0 30px; }
+    #dobe-compressed-loops .dc-act-chip { padding: 12px 10px; border-right: 1px solid var(--border); min-height: 112px; position: relative; }
+    #dobe-compressed-loops .dc-act-chip:last-child { border-right: 0; }
+    #dobe-compressed-loops .dc-act-chip::before { content: &quot;&quot;; position: absolute; left: 0; right: 0; top: 0; height: 5px; background: var(--viz-series-1); }
+    #dobe-compressed-loops .dc-act-chip:nth-child(2)::before { background: var(--viz-series-2); }
+    #dobe-compressed-loops .dc-act-chip:nth-child(3)::before { background: var(--viz-series-3); }
+    #dobe-compressed-loops .dc-act-chip:nth-child(4)::before { background: var(--viz-series-4); }
+    #dobe-compressed-loops .dc-act-chip:nth-child(5)::before { background: var(--viz-series-5); }
+    #dobe-compressed-loops .dc-act-chip:nth-child(6)::before { background: var(--viz-series-6); }
+    #dobe-compressed-loops .dc-act-chip b { display: block; font-weight: 500; margin: 5px 0; }
+    #dobe-compressed-loops .dc-act-chip span { color: var(--muted-foreground); }
+    #dobe-compressed-loops .dc-section { margin: 34px 0; }
+    #dobe-compressed-loops .dc-section h2 { margin-bottom: 6px; }
+    #dobe-compressed-loops .dc-track { display: grid; grid-template-columns: 120px 1fr; gap: 12px; align-items: stretch; margin: 12px 0; }
+    #dobe-compressed-loops .dc-track-label { font-weight: 500; padding-top: 10px; }
+    #dobe-compressed-loops .dc-track-line { display: flex; flex-wrap: wrap; gap: 7px; border-bottom: 1px solid var(--border); padding: 5px 0 10px; }
+    #dobe-compressed-loops .dc-tag { display: inline-flex; align-items: center; gap: 6px; padding: 5px 8px; font-weight: 500; }
+    #dobe-compressed-loops .dc-tag time { font-weight: 400; opacity: .75; font-variant-numeric: tabular-nums; }
+    #dobe-compressed-loops .dc-tag-role { background: color-mix(in srgb, var(--viz-series-2) 17%, transparent); border-left: 4px solid var(--viz-series-2); }
+    #dobe-compressed-loops .dc-tag-role::before { content: &quot;职位&quot;; font-weight: 400; color: var(--muted-foreground); }
+    #dobe-compressed-loops .dc-tag-building { background: color-mix(in srgb, var(--viz-series-5) 17%, transparent); border-left: 4px solid var(--viz-series-5); }
+    #dobe-compressed-loops .dc-tag-building::before { content: &quot;建筑&quot;; font-weight: 400; color: var(--muted-foreground); }
+    #dobe-compressed-loops .dc-tag-resource { background: color-mix(in srgb, var(--viz-series-4) 17%, transparent); border-left: 4px solid var(--viz-series-4); }
+    #dobe-compressed-loops .dc-tag-resource::before { content: &quot;资源&quot;; font-weight: 400; color: var(--muted-foreground); }
+    #dobe-compressed-loops .dc-causal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-top: 14px; }
+    #dobe-compressed-loops .dc-causal div { padding: 9px; border-top: 3px solid var(--viz-series-1); background: color-mix(in srgb, var(--viz-series-1) 7%, transparent); }
+    #dobe-compressed-loops .dc-causal b { font-weight: 500; }
+    #dobe-compressed-loops .dc-causal span { color: var(--muted-foreground); }
+    #dobe-compressed-loops .dc-act { margin: 34px 0 44px; }
+    #dobe-compressed-loops .dc-act-head { display: grid; grid-template-columns: 150px minmax(280px,1.2fr) minmax(250px,1fr) 135px; gap: 14px; padding: 13px 0; border-top: 5px solid var(--viz-series-1); border-bottom: 1px solid var(--border); }
+    #dobe-compressed-loops .dc-act[data-series=&quot;2&quot;] .dc-act-head { border-top-color: var(--viz-series-2); }
+    #dobe-compressed-loops .dc-act[data-series=&quot;3&quot;] .dc-act-head { border-top-color: var(--viz-series-3); }
+    #dobe-compressed-loops .dc-act[data-series=&quot;4&quot;] .dc-act-head { border-top-color: var(--viz-series-4); }
+    #dobe-compressed-loops .dc-act[data-series=&quot;5&quot;] .dc-act-head { border-top-color: var(--viz-series-5); }
+    #dobe-compressed-loops .dc-act[data-series=&quot;6&quot;] .dc-act-head { border-top-color: var(--viz-series-6); }
+    #dobe-compressed-loops .dc-act-head b { display: block; font-weight: 500; }
+    #dobe-compressed-loops .dc-act-head span { color: var(--muted-foreground); }
+    #dobe-compressed-loops .dc-count { text-align: right; }
+    #dobe-compressed-loops .dc-table { min-width: 1280px; width: 100%; }
+    #dobe-compressed-loops .dc-table th { font-weight: 500; color: var(--muted-foreground); }
+    #dobe-compressed-loops .dc-table th:nth-child(1) { width: 92px; }
+    #dobe-compressed-loops .dc-table th:nth-child(2) { width: 165px; }
+    #dobe-compressed-loops .dc-table th:nth-child(3) { width: 210px; }
+    #dobe-compressed-loops .dc-table th:nth-child(4) { width: 105px; }
+    #dobe-compressed-loops .dc-table th:nth-child(5) { width: 185px; }
+    #dobe-compressed-loops .dc-table th:nth-child(6) { width: 340px; }
+    #dobe-compressed-loops .dc-table th:nth-child(7) { width: 215px; }
+    #dobe-compressed-loops .dc-time { white-space: nowrap; font-variant-numeric: tabular-nums; }
+    #dobe-compressed-loops .dc-loop { font-weight: 500; padding-left: 8px; border-left: 4px solid var(--border); }
+    #dobe-compressed-loops .dc-loop-sup { border-left-color: var(--viz-series-2); }
+    #dobe-compressed-loops .dc-loop-push { border-left-color: var(--viz-series-4); }
+    #dobe-compressed-loops .dc-first-system-row td { background: color-mix(in srgb, var(--viz-series-4) 13%, var(--card)); border-top: 2px solid color-mix(in srgb, var(--viz-series-4) 65%, transparent); border-bottom: 2px solid color-mix(in srgb, var(--viz-series-4) 65%, transparent); }
+    #dobe-compressed-loops .dc-first-system-row td:first-child { border-left: 5px solid var(--viz-series-4); }
+    #dobe-compressed-loops .dc-first-system-row td:last-child { border-right: 2px solid color-mix(in srgb, var(--viz-series-4) 65%, transparent); }
+    #dobe-compressed-loops .dc-system-first { display: inline-flex; align-items: center; gap: 5px; margin-top: 7px; padding: 5px 9px; border: 1px solid color-mix(in srgb, var(--viz-series-4) 70%, transparent); border-radius: 999px; background: var(--viz-series-4); color: var(--background); font-size: 11px; font-weight: 700; letter-spacing: .04em; }
+    #dobe-compressed-loops .dc-system-first::before { content: &quot;◆&quot;; font-size: 9px; }
+    #dobe-compressed-loops .dc-first-system-callout { display: block; margin: 5px 0; padding: 7px 9px; border-left: 4px solid var(--viz-series-4); background: color-mix(in srgb, var(--viz-series-4) 12%, transparent); color: var(--foreground); font-weight: 600; }
+    #dobe-compressed-loops .dc-first-meeting-row td { background: color-mix(in srgb, var(--viz-series-2) 13%, var(--card)); border-top: 2px solid color-mix(in srgb, var(--viz-series-2) 65%, transparent); border-bottom: 2px solid color-mix(in srgb, var(--viz-series-2) 65%, transparent); }
+    #dobe-compressed-loops .dc-first-meeting-row td:first-child { border-left: 5px solid var(--viz-series-2); }
+    #dobe-compressed-loops .dc-first-meeting-row td:last-child { border-right: 2px solid color-mix(in srgb, var(--viz-series-2) 65%, transparent); }
+    #dobe-compressed-loops .dc-system-first-meeting { display: inline-flex; align-items: center; gap: 5px; margin-top: 7px; padding: 5px 9px; border: 1px solid color-mix(in srgb, var(--viz-series-2) 70%, transparent); border-radius: 999px; background: var(--viz-series-2); color: var(--background); font-size: 11px; font-weight: 700; letter-spacing: .04em; }
+    #dobe-compressed-loops .dc-system-first-meeting::before { content: &quot;◆&quot;; font-size: 9px; }
+    #dobe-compressed-loops .dc-first-meeting-callout { display: block; margin: 5px 0; padding: 7px 9px; border-left: 4px solid var(--viz-series-2); background: color-mix(in srgb, var(--viz-series-2) 12%, transparent); color: var(--foreground); font-weight: 600; }
+    #dobe-compressed-loops .dc-first-gang-tree-row td { background: color-mix(in srgb, var(--viz-series-6) 13%, var(--card)); border-top: 2px solid color-mix(in srgb, var(--viz-series-6) 65%, transparent); border-bottom: 2px solid color-mix(in srgb, var(--viz-series-6) 65%, transparent); }
+    #dobe-compressed-loops .dc-first-gang-tree-row td:first-child { border-left: 5px solid var(--viz-series-6); }
+    #dobe-compressed-loops .dc-first-gang-tree-row td:last-child { border-right: 2px solid color-mix(in srgb, var(--viz-series-6) 65%, transparent); }
+    #dobe-compressed-loops .dc-system-first-gang-tree { display: inline-flex; align-items: center; gap: 5px; margin-top: 7px; padding: 5px 9px; border: 1px solid color-mix(in srgb, var(--viz-series-6) 70%, transparent); border-radius: 999px; background: var(--viz-series-6); color: var(--background); font-size: 11px; font-weight: 700; letter-spacing: .04em; }
+    #dobe-compressed-loops .dc-system-first-gang-tree::before { content: &quot;◆&quot;; font-size: 9px; }
+    #dobe-compressed-loops .dc-first-gang-tree-callout { display: block; margin: 5px 0; padding: 7px 9px; border-left: 4px solid var(--viz-series-6); background: color-mix(in srgb, var(--viz-series-6) 12%, transparent); color: var(--foreground); font-weight: 600; }
+    #dobe-compressed-loops .dc-first-sup-row td { background: color-mix(in srgb, var(--viz-series-3) 15%, var(--card)); border-top: 2px solid color-mix(in srgb, var(--viz-series-3) 70%, transparent); border-bottom: 2px solid color-mix(in srgb, var(--viz-series-3) 70%, transparent); }
+    #dobe-compressed-loops .dc-first-sup-row td:first-child { border-left: 5px solid var(--viz-series-3); }
+    #dobe-compressed-loops .dc-first-sup-row td:last-child { border-right: 2px solid color-mix(in srgb, var(--viz-series-3) 70%, transparent); }
+    #dobe-compressed-loops .dc-first-feature-row td { background: color-mix(in srgb, var(--viz-series-1) 10%, var(--card)); border-top: 1px solid color-mix(in srgb, var(--viz-series-1) 55%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--viz-series-1) 55%, transparent); }
+    #dobe-compressed-loops .dc-first-feature-row td:first-child { border-left: 4px solid var(--viz-series-1); }
+    #dobe-compressed-loops .dc-first-badge { display: inline-flex; align-items: center; gap: 5px; margin-top: 7px; padding: 5px 9px; border: 1px solid color-mix(in srgb, var(--viz-series-1) 65%, transparent); border-radius: 999px; background: var(--viz-series-1); color: var(--background); font-size: 11px; font-weight: 700; letter-spacing: .03em; }
+    #dobe-compressed-loops .dc-first-badge::before { content: &quot;◆&quot;; font-size: 9px; }
+    #dobe-compressed-loops .dc-first-sup-badge { background: var(--viz-series-3); border-color: color-mix(in srgb, var(--viz-series-3) 70%, transparent); }
+    #dobe-compressed-loops .dc-loop-building { border-left-color: var(--viz-series-5); }
+    #dobe-compressed-loops .dc-sub { display: block; color: var(--muted-foreground); margin-top: 3px; }
+    #dobe-compressed-loops .dc-minigame { display: inline-block; margin-top: 5px; padding: 3px 7px; border-left: 4px solid var(--viz-series-3); background: color-mix(in srgb, var(--viz-series-3) 14%, transparent); color: var(--foreground); font-weight: 500; }
+    #dobe-compressed-loops .dc-minigame-optional { background: transparent; border-top: 1px dashed var(--viz-series-3); border-bottom: 1px dashed var(--viz-series-3); }
+    #dobe-compressed-loops .dc-show { white-space: nowrap; }
+    #dobe-compressed-loops .dc-show strong { font-weight: 500; }
+    #dobe-compressed-loops .dc-step { display: block; padding: 2px 0; }
+    #dobe-compressed-loops .dc-step time { color: var(--muted-foreground); font-variant-numeric: tabular-nums; }
+#dobe-compressed-loops .dc-reward-role, #dobe-compressed-loops .dc-reward-building, #dobe-compressed-loops .dc-reward-vehicle { display: block; margin: 2px 0; padding-left: 7px; font-weight: 500; }
+    #dobe-compressed-loops .dc-reward-role { border-left: 4px solid var(--viz-series-2); }
+#dobe-compressed-loops .dc-reward-building { border-left: 4px solid var(--viz-series-5); }
+#dobe-compressed-loops .dc-reward-resource { display: block; margin: 2px 0; padding-left: 7px; font-weight: 500; border-left: 4px solid var(--viz-series-4); }
+#dobe-compressed-loops .dc-reward-vehicle { border-left: 4px solid var(--viz-series-1); }
+    #dobe-compressed-loops .mg-types { min-width: 1080px; width: 100%; margin: 14px 0 20px; }
+    #dobe-compressed-loops .mg-types th { color: var(--muted-foreground); font-weight: 500; }
+    #dobe-compressed-loops .mg-types td:first-child { font-weight: 500; border-left: 4px solid var(--viz-series-3); padding-left: 10px; }
+    #dobe-compressed-loops .mg-confirmed { display: inline-block; padding: 2px 6px; border-left: 4px solid var(--viz-series-5); background: color-mix(in srgb, var(--viz-series-5) 12%, transparent); }
+    #dobe-compressed-loops .mg-proposed { display: inline-block; padding: 2px 6px; border-left: 4px solid var(--viz-series-2); border-top: 1px dashed var(--viz-series-2); border-bottom: 1px dashed var(--viz-series-2); }
+    #dobe-compressed-loops .mg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+    #dobe-compressed-loops .mg-item { padding: 12px 10px; border-top: 4px solid var(--viz-series-3); background: color-mix(in srgb, var(--viz-series-3) 7%, transparent); }
+    #dobe-compressed-loops .mg-item b { display: block; font-weight: 500; margin-bottom: 5px; }
+    #dobe-compressed-loops .mg-item span { display: block; color: var(--muted-foreground); margin-top: 3px; }
+    #dobe-compressed-loops .mg-item em { font-style: normal; color: var(--foreground); }
+    #dobe-compressed-loops .mg-priority { display: inline-block; margin-bottom: 6px; padding: 2px 6px; border: 1px solid var(--border); }
+    #dobe-compressed-loops .mg-principle { margin-top: 14px; padding-left: 12px; border-left: 4px solid var(--viz-series-3); }
+    #dobe-compressed-loops .dc-branch { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 12px; }
+    #dobe-compressed-loops .dc-branch &gt; div { padding-top: 12px; border-top: 4px solid var(--viz-series-3); }
+    #dobe-compressed-loops .dc-branch &gt; div:last-child { border-top-color: var(--viz-series-5); }
+    #dobe-compressed-loops .dc-branch h3 { margin-top: 0; }
+    #dobe-compressed-loops .dc-branch li { margin-bottom: 7px; }
+    #dobe-compressed-loops .dc-warning { margin-top: 22px; padding: 10px 12px; border-left: 4px solid var(--destructive); }
+    #dobe-compressed-loops .dc-promotion-table { min-width: 1380px; width: 100%; }
+    #dobe-compressed-loops .dc-promotion-table th { color: var(--muted-foreground); font-weight: 500; }
+    #dobe-compressed-loops .dc-promotion-table th:nth-child(1) { width: 90px; }
+    #dobe-compressed-loops .dc-promotion-table th:nth-child(2) { width: 155px; }
+    #dobe-compressed-loops .dc-promotion-table th:nth-child(3) { width: 215px; }
+    #dobe-compressed-loops .dc-promotion-table th:nth-child(4) { width: 220px; }
+    #dobe-compressed-loops .dc-promotion-table th:nth-child(5) { width: 195px; }
+    #dobe-compressed-loops .dc-promotion-table th:nth-child(6) { width: 260px; }
+    #dobe-compressed-loops .dc-promotion-table th:nth-child(7) { width: 210px; }
+    #dobe-compressed-loops .dc-transfer { display: inline-block; padding: 3px 7px; margin: 2px 3px 2px 0; font-weight: 500; }
+    #dobe-compressed-loops .dc-transfer-tier { border-left: 4px solid var(--viz-series-5); background: color-mix(in srgb, var(--viz-series-5) 12%, transparent); }
+    #dobe-compressed-loops .dc-transfer-peace { border-left: 4px solid var(--viz-series-2); background: color-mix(in srgb, var(--viz-series-2) 12%, transparent); }
+    #dobe-compressed-loops .dc-transfer-sup { border-left: 4px solid var(--viz-series-3); background: color-mix(in srgb, var(--viz-series-3) 12%, transparent); }
+    #dobe-compressed-loops .dc-transfer-push { border-left: 4px solid var(--viz-series-4); background: color-mix(in srgb, var(--viz-series-4) 12%, transparent); }
+    #dobe-compressed-loops .dc-transfer-lethal { border-left: 4px solid var(--destructive); background: color-mix(in srgb, var(--destructive) 10%, transparent); }
+    #dobe-compressed-loops .dc-rank-change { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin: 0; padding: 9px 10px; border-left: 4px solid currentColor; border-radius: 6px; color: var(--viz-series-1); background: color-mix(in srgb, var(--viz-series-1) 8%, transparent); }
+    #dobe-compressed-loops .dc-act[data-series=&quot;2&quot;] .dc-rank-change { color: var(--viz-series-2); background: color-mix(in srgb, var(--viz-series-2) 8%, transparent); }
+    #dobe-compressed-loops .dc-act[data-series=&quot;3&quot;] .dc-rank-change { color: var(--viz-series-3); background: color-mix(in srgb, var(--viz-series-3) 8%, transparent); }
+    #dobe-compressed-loops .dc-act[data-series=&quot;4&quot;] .dc-rank-change { color: var(--viz-series-4); background: color-mix(in srgb, var(--viz-series-4) 8%, transparent); }
+    #dobe-compressed-loops .dc-act[data-series=&quot;5&quot;] .dc-rank-change { color: var(--viz-series-5); background: color-mix(in srgb, var(--viz-series-5) 8%, transparent); }
+    #dobe-compressed-loops .dc-act[data-series=&quot;6&quot;] .dc-rank-change { color: var(--viz-series-6); background: color-mix(in srgb, var(--viz-series-6) 8%, transparent); }
+    #dobe-compressed-loops .dc-rank-change &gt; strong { font-weight: 500; margin-right: 3px; }
+    #dobe-compressed-loops .rc-rank { font-weight: 500; }
+    #dobe-compressed-loops .rc-tag { display: inline-flex; align-items: center; padding: 3px 7px; font-weight: 500; border-left: 4px solid var(--border); }
+    #dobe-compressed-loops .rc-meeting { border-left-color: var(--viz-series-1); background: color-mix(in srgb, var(--viz-series-1) 13%, transparent); }
+    #dobe-compressed-loops .rc-peace { border-left-color: var(--viz-series-2); background: color-mix(in srgb, var(--viz-series-2) 13%, transparent); }
+    #dobe-compressed-loops .rc-sup { border-left-color: var(--viz-series-3); background: color-mix(in srgb, var(--viz-series-3) 13%, transparent); }
+    #dobe-compressed-loops .rc-push { border-left-color: var(--viz-series-4); background: color-mix(in srgb, var(--viz-series-4) 13%, transparent); }
+    #dobe-compressed-loops .dc-source { border-top: 1px solid var(--border); margin-top: 28px; padding-top: 10px; color: var(--muted-foreground); }
+    #dobe-compressed-loops .gt-legend { display: flex; flex-wrap: wrap; gap: 14px; margin: 12px 0 18px; color: var(--muted-foreground); }
+    #dobe-compressed-loops .gt-legend span { display: inline-flex; align-items: center; gap: 7px; }
+    #dobe-compressed-loops .gt-legend i { display: inline-block; width: 22px; height: 10px; border-left: 4px solid var(--viz-series-5); background: color-mix(in srgb, var(--viz-series-5) 16%, transparent); }
+    #dobe-compressed-loops .gt-legend .gt-derived-mark { border-left-color: var(--viz-series-2); background: transparent; border-top: 1px dashed var(--viz-series-2); border-bottom: 1px dashed var(--viz-series-2); }
+    #dobe-compressed-loops .gt-tree { max-width: 1180px; margin: 18px auto 0; display: flex; flex-direction: column; align-items: stretch; }
+    #dobe-compressed-loops .gt-row { display: grid; grid-template-columns: 90px minmax(270px, .85fr) 58px minmax(420px, 1.6fr); align-items: stretch; min-height: 92px; }
+    #dobe-compressed-loops .gt-tier { display: flex; justify-content: flex-end; align-items: center; padding-right: 14px; color: var(--muted-foreground); font-variant-numeric: tabular-nums; }
+    #dobe-compressed-loops .gt-rank { display: flex; flex-direction: column; justify-content: center; padding: 12px 14px; border-left: 5px solid var(--viz-series-2); background: color-mix(in srgb, var(--viz-series-2) 10%, transparent); }
+    #dobe-compressed-loops .gt-rank strong { font-weight: 500; }
+    #dobe-compressed-loops .gt-rank span { color: var(--muted-foreground); margin-top: 3px; }
+    #dobe-compressed-loops .gt-link { position: relative; }
+    #dobe-compressed-loops .gt-link::before { content: &quot;&quot;; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: var(--border); }
+    #dobe-compressed-loops .gt-link::after { content: &quot;&quot;; position: absolute; left: 0; right: 50%; top: 50%; height: 1px; background: var(--border); }
+    #dobe-compressed-loops .gt-row:first-child .gt-link::before { top: 50%; }
+    #dobe-compressed-loops .gt-row:last-child .gt-link::before { bottom: 50%; }
+    #dobe-compressed-loops .gt-unlocks { display: flex; flex-wrap: wrap; align-content: center; gap: 7px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+    #dobe-compressed-loops .gt-unlock { display: inline-flex; align-items: center; gap: 5px; padding: 5px 8px; }
+    #dobe-compressed-loops .gt-explicit { border-left: 4px solid var(--viz-series-5); background: color-mix(in srgb, var(--viz-series-5) 14%, transparent); }
+    #dobe-compressed-loops .gt-derived { border-left: 4px solid var(--viz-series-2); border-top: 1px dashed var(--viz-series-2); border-bottom: 1px dashed var(--viz-series-2); }
+    #dobe-compressed-loops .gt-unlock small { color: var(--muted-foreground); }
+    #dobe-compressed-loops .gt-foot { max-width: 1180px; margin: 14px auto 0; color: var(--muted-foreground); }
+    #dobe-compressed-loops .org-scroll { overflow-x: auto; margin: 18px 0 24px; }
+    #dobe-compressed-loops .org-chart { display: block; width: 100%; min-width: 920px; height: auto; }
+    #dobe-compressed-loops .org-chart .org-promotion { stroke: var(--viz-series-2); stroke-width: 4; fill: none; }
+    #dobe-compressed-loops .org-chart .org-command { stroke: var(--viz-series-5); stroke-width: 2; fill: none; stroke-dasharray: 8 6; }
+    #dobe-compressed-loops .org-chart .org-player-node { fill: color-mix(in srgb, var(--viz-series-2) 18%, var(--background)); stroke: var(--viz-series-2); stroke-width: 3; }
+    #dobe-compressed-loops .org-chart .org-main-node { fill: color-mix(in srgb, var(--viz-series-3) 16%, var(--background)); stroke: var(--viz-series-3); stroke-width: 2.5; }
+    #dobe-compressed-loops .org-chart .org-peer-node { fill: color-mix(in srgb, var(--viz-series-5) 14%, var(--background)); stroke: var(--viz-series-5); stroke-width: 2; }
+    #dobe-compressed-loops .org-chart .org-empty-node { fill: transparent; stroke: var(--border); stroke-width: 1.5; stroke-dasharray: 7 6; }
+    #dobe-compressed-loops .org-chart .org-rank-text { fill: var(--foreground); font-size: 11px; font-weight: 500; text-anchor: middle; }
+    #dobe-compressed-loops .org-chart .org-sub-text { fill: var(--muted-foreground); font-size: 10.5px; text-anchor: middle; }
+    #dobe-compressed-loops .org-legend { display: flex; flex-wrap: wrap; gap: 14px; margin: 12px 0; color: var(--muted-foreground); }
+    #dobe-compressed-loops .org-legend span { display: inline-flex; align-items: center; gap: 7px; }
+    #dobe-compressed-loops .org-line { width: 28px; height: 0; border-top: 4px solid var(--viz-series-2); }
+    #dobe-compressed-loops .org-line-command { border-top: 2px dashed var(--viz-series-5); }
+    #dobe-compressed-loops .org-rule-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 16px 0 24px; }
+    #dobe-compressed-loops .org-rule-grid &gt; div { padding: 12px; border-top: 4px solid var(--viz-series-5); background: color-mix(in srgb, var(--viz-series-5) 7%, transparent); }
+    #dobe-compressed-loops .org-rule-grid b { display: block; font-weight: 500; margin-bottom: 4px; }
+    #dobe-compressed-loops .org-rule-grid span { color: var(--muted-foreground); }
+    #dobe-compressed-loops .rank-unlock-table { min-width: 1050px; width: 100%; }
+    #dobe-compressed-loops .rank-unlock-table th { color: var(--muted-foreground); font-weight: 500; }
+    #dobe-compressed-loops .succession-part { margin-top: 52px; padding-top: 26px; border-top: 6px solid var(--viz-series-2); }
+    @media (max-width: 1000px) {
+      #dobe-compressed-loops { padding: 16px; }
+      #dobe-compressed-loops .dc-overview { grid-template-columns: repeat(2,1fr); }
+      #dobe-compressed-loops .dc-act-chip { border-bottom: 1px solid var(--border); }
+      #dobe-compressed-loops .dc-causal { grid-template-columns: repeat(2,1fr); }
+      #dobe-compressed-loops .dc-act-head { grid-template-columns: 130px 1fr; }
+      #dobe-compressed-loops .dc-count { text-align: left; }
+      #dobe-compressed-loops .mg-grid { grid-template-columns: repeat(2, 1fr); }
+      #dobe-compressed-loops .org-rule-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 620px) {
+      #dobe-compressed-loops .dc-overview, #dobe-compressed-loops .dc-causal, #dobe-compressed-loops .dc-act-head, #dobe-compressed-loops .dc-branch { grid-template-columns: 1fr; }
+      #dobe-compressed-loops .dc-track { grid-template-columns: 1fr; }
+      #dobe-compressed-loops .mg-grid { grid-template-columns: 1fr; }
+      #dobe-compressed-loops .org-rule-grid { grid-template-columns: 1fr; }
+      #dobe-compressed-loops .gt-row { grid-template-columns: 48px 1fr; gap: 0; margin-bottom: 10px; }
+      #dobe-compressed-loops .gt-tier { grid-row: 1 / span 2; }
+      #dobe-compressed-loops .gt-link { display: none; }
+      #dobe-compressed-loops .gt-unlocks { grid-column: 2; padding-left: 12px; }
+    }
+
+    /* 2026-08-06 readability pass */
+    #dobe-compressed-loops {
+      --surface-1: color-mix(in srgb, var(--foreground) 4%, var(--background));
+      --surface-2: color-mix(in srgb, var(--foreground) 7%, var(--background));
+      --surface-3: color-mix(in srgb, var(--foreground) 11%, var(--background));
+      line-height: 1.62;
+      background:
+        linear-gradient(180deg, color-mix(in srgb, var(--viz-series-1) 7%, var(--background)) 0, var(--background) 310px);
+    }
+    #dobe-compressed-loops .dc-wrap { width: 100%; max-width: min(1480px, 100%); }
+    #dobe-compressed-loops .dc-kicker {
+      color: var(--foreground);
+      font-size: 1.35rem;
+      font-weight: 500;
+      letter-spacing: .02em;
+      margin-bottom: 8px;
+    }
+    #dobe-compressed-loops .dc-lead {
+      max-width: 1080px;
+      color: color-mix(in srgb, var(--foreground) 82%, transparent);
+      margin: 0 0 18px;
+    }
+    #dobe-compressed-loops h2 {
+      font-size: 1.28rem;
+      font-weight: 500;
+      line-height: 1.35;
+      margin: 0 0 8px;
+    }
+    #dobe-compressed-loops h1 {
+      margin: 2px 0 28px;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      line-height: 1.2;
+      font-weight: 500;
+      letter-spacing: -.02em;
+    }
+    #dobe-compressed-loops h3 { font-size: 1.08rem; font-weight: 500; }
+    #dobe-compressed-loops .dc-part { padding-top: 10px; }
+    #dobe-compressed-loops .dc-part &gt; h2 { padding-bottom: 10px; border-bottom: 2px solid var(--border); }
+    #dobe-compressed-loops .dc-part &gt; h3 { margin: 28px 0 8px; }
+    #dobe-compressed-loops .dc-link-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 12px 0 22px; }
+    #dobe-compressed-loops .dc-link-list a { display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; border-left: 4px solid var(--viz-series-1); background: var(--surface-1); color: var(--foreground); text-decoration: none; }
+    #dobe-compressed-loops .dc-link-list a:hover,
+    #dobe-compressed-loops .dc-link-list a:focus-visible { background: var(--surface-2); }
+    #dobe-compressed-loops .dc-link-list span { color: var(--muted-foreground); }
+    #dobe-compressed-loops .dc-confirmed-table th:first-child { width: 150px; }
+    #dobe-compressed-loops .dc-confirmed-table th:nth-child(2) { width: 40%; }
+    #dobe-compressed-loops .dc-building-table th:first-child { width: 260px; }
+    #dobe-compressed-loops .dc-note { color: color-mix(in srgb, var(--foreground) 68%, transparent); }
+    #dobe-compressed-loops .dc-rules { gap: 10px; margin: 18px 0 28px; }
+    #dobe-compressed-loops .dc-rule {
+      background: var(--surface-1);
+      border-color: color-mix(in srgb, var(--border) 70%, var(--viz-series-1));
+      border-radius: 999px;
+      padding: 7px 11px;
+      white-space: nowrap;
+    }
+    #dobe-compressed-loops .dc-overview {
+      grid-template-columns: repeat(6, minmax(145px, 1fr));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--surface-1);
+      margin: 22px 0 38px;
+      box-shadow: 0 10px 30px color-mix(in srgb, var(--foreground) 7%, transparent);
+    }
+    #dobe-compressed-loops .dc-act-chip { min-height: 124px; padding: 18px 14px 14px; }
+    #dobe-compressed-loops .dc-act-chip:nth-child(1) { background: color-mix(in srgb, var(--viz-series-1) 8%, transparent); }
+    #dobe-compressed-loops .dc-act-chip:nth-child(2) { background: color-mix(in srgb, var(--viz-series-2) 8%, transparent); }
+    #dobe-compressed-loops .dc-act-chip:nth-child(3) { background: color-mix(in srgb, var(--viz-series-3) 8%, transparent); }
+    #dobe-compressed-loops .dc-act-chip:nth-child(4) { background: color-mix(in srgb, var(--viz-series-4) 8%, transparent); }
+    #dobe-compressed-loops .dc-act-chip:nth-child(5) { background: color-mix(in srgb, var(--viz-series-5) 8%, transparent); }
+    #dobe-compressed-loops .dc-act-chip:nth-child(6) { background: color-mix(in srgb, var(--viz-series-6) 8%, transparent); }
+    #dobe-compressed-loops .dc-act-chip b { margin: 7px 0 5px; }
+    #dobe-compressed-loops .dc-section { margin: 42px 0; }
+    #dobe-compressed-loops .dc-section &gt; h2 {
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+    }
+    #dobe-compressed-loops .dc-track {
+      grid-template-columns: 110px 1fr;
+      gap: 14px;
+      margin: 10px 0;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: var(--surface-1);
+    }
+    #dobe-compressed-loops .dc-track-label {
+      padding: 7px 8px 0 0;
+      color: color-mix(in srgb, var(--foreground) 76%, transparent);
+    }
+    #dobe-compressed-loops .dc-track-line { border-bottom: 0; padding: 2px 0; gap: 8px; }
+    #dobe-compressed-loops .dc-tag {
+      border-radius: 7px;
+      padding: 6px 9px;
+      box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 8%, transparent);
+    }
+    #dobe-compressed-loops .dc-tag::before {
+      padding-right: 6px;
+      border-right: 1px solid var(--border);
+    }
+    #dobe-compressed-loops .dc-causal { gap: 10px; }
+    #dobe-compressed-loops .dc-causal div {
+      min-height: 92px;
+      padding: 13px 12px;
+      border-radius: 8px;
+      border-top-width: 4px;
+    }
+    #dobe-compressed-loops .dc-act {
+      --act-color: var(--viz-series-1);
+      margin: 44px 0 54px;
+      scroll-margin-top: 12px;
+    }
+    #dobe-compressed-loops .dc-act[data-series=&quot;2&quot;] { --act-color: var(--viz-series-2); }
+    #dobe-compressed-loops .dc-act[data-series=&quot;3&quot;] { --act-color: var(--viz-series-3); }
+    #dobe-compressed-loops .dc-act[data-series=&quot;4&quot;] { --act-color: var(--viz-series-4); }
+    #dobe-compressed-loops .dc-act[data-series=&quot;5&quot;] { --act-color: var(--viz-series-5); }
+    #dobe-compressed-loops .dc-act[data-series=&quot;6&quot;] { --act-color: var(--viz-series-6); }
+    #dobe-compressed-loops .dc-act-head {
+      grid-template-columns: 145px minmax(260px, 1.2fr) minmax(230px, 1fr) 130px;
+      gap: 18px;
+      padding: 16px 18px;
+      border: 0;
+      border-left: 7px solid var(--act-color);
+      border-radius: 10px 10px 0 0;
+      background: color-mix(in srgb, var(--act-color) 11%, var(--background));
+    }
+    #dobe-compressed-loops .dc-act-head span { color: color-mix(in srgb, var(--foreground) 68%, transparent); }
+    #dobe-compressed-loops .dc-count {
+      align-self: center;
+      padding-left: 12px;
+      border-left: 1px solid color-mix(in srgb, var(--act-color) 42%, var(--border));
+    }
+    #dobe-compressed-loops .table-responsive {
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      border: 1px solid var(--border);
+      border-radius: 0 0 10px 10px;
+      background: var(--background);
+      scrollbar-color: var(--surface-3) transparent;
+    }
+    #dobe-compressed-loops .dc-section .table-responsive { border-radius: 10px; margin-top: 14px; }
+    #dobe-compressed-loops .table {
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: .94rem;
+      line-height: 1.55;
+    }
+    #dobe-compressed-loops .table th,
+    #dobe-compressed-loops .table td {
+      padding: 12px 11px;
+      vertical-align: top;
+      border: 0;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+    }
+    #dobe-compressed-loops .table thead th {
+      position: sticky;
+      top: 0;
+      z-index: 3;
+      color: var(--foreground);
+      background: var(--surface-2);
+      box-shadow: 0 1px 0 var(--border);
+      white-space: nowrap;
+    }
+    #dobe-compressed-loops .table tbody tr:nth-child(even) td { background: var(--surface-1); }
+    #dobe-compressed-loops .table tbody tr:last-child td { border-bottom: 0; }
+    #dobe-compressed-loops .dc-table,
+    #dobe-compressed-loops .dc-promotion-table { min-width: 1180px; }
+    #dobe-compressed-loops .dc-table th:nth-child(1),
+    #dobe-compressed-loops .dc-table td:nth-child(1),
+    #dobe-compressed-loops .dc-promotion-table th:nth-child(1),
+    #dobe-compressed-loops .dc-promotion-table td:nth-child(1) {
+      position: sticky;
+      left: 0;
+      z-index: 2;
+      background: var(--background);
+      box-shadow: 1px 0 0 var(--border);
+    }
+    #dobe-compressed-loops .dc-table thead th:nth-child(1),
+    #dobe-compressed-loops .dc-promotion-table thead th:nth-child(1) {
+      z-index: 4;
+      background: var(--surface-2);
+    }
+    #dobe-compressed-loops .dc-table tbody tr:nth-child(even) td:nth-child(1),
+    #dobe-compressed-loops .dc-promotion-table tbody tr:nth-child(even) td:nth-child(1) { background: var(--surface-1); }
+    #dobe-compressed-loops .dc-time {
+      color: color-mix(in srgb, var(--foreground) 74%, transparent);
+      font-weight: 500;
+    }
+    #dobe-compressed-loops .dc-loop {
+      padding: 4px 0 4px 10px;
+      border-left-width: 5px;
+    }
+    #dobe-compressed-loops .dc-sub { margin-top: 5px; }
+    #dobe-compressed-loops .dc-minigame,
+    #dobe-compressed-loops .dc-transfer,
+    #dobe-compressed-loops .mg-confirmed,
+    #dobe-compressed-loops .mg-proposed {
+      border-radius: 6px;
+    }
+    #dobe-compressed-loops .dc-step { padding: 3px 0; }
+    #dobe-compressed-loops .dc-step time {
+      display: inline-block;
+      min-width: 92px;
+      margin-right: 5px;
+    }
+    #dobe-compressed-loops .dc-reward-role,
+#dobe-compressed-loops .dc-reward-building,
+#dobe-compressed-loops .dc-reward-resource,
+#dobe-compressed-loops .dc-reward-vehicle {
+      margin: 4px 0;
+      padding: 4px 7px 4px 9px;
+      border-radius: 0 6px 6px 0;
+    }
+    #dobe-compressed-loops .dc-reward-role { background: color-mix(in srgb, var(--viz-series-2) 9%, transparent); }
+#dobe-compressed-loops .dc-reward-building { background: color-mix(in srgb, var(--viz-series-5) 9%, transparent); }
+#dobe-compressed-loops .dc-reward-resource { background: color-mix(in srgb, var(--viz-series-4) 9%, transparent); }
+#dobe-compressed-loops .dc-reward-vehicle { background: color-mix(in srgb, var(--viz-series-1) 11%, transparent); }
+    #dobe-compressed-loops .dc-reward-note { display: block; margin: 2px 0; color: var(--muted-foreground); }
+    #dobe-compressed-loops .dc-act table { min-width: 1360px; table-layout: fixed; }
+    #dobe-compressed-loops .dc-act table th:nth-child(1), #dobe-compressed-loops .dc-act table td:nth-child(1) { width: 105px; }
+    #dobe-compressed-loops .dc-act table th:nth-child(2), #dobe-compressed-loops .dc-act table td:nth-child(2) { width: 175px; }
+    #dobe-compressed-loops .dc-act table th:nth-child(3), #dobe-compressed-loops .dc-act table td:nth-child(3) { width: 125px; }
+    #dobe-compressed-loops .dc-act table th:nth-child(4), #dobe-compressed-loops .dc-act table td:nth-child(4) { width: 335px; }
+    #dobe-compressed-loops .dc-act table th:nth-child(5), #dobe-compressed-loops .dc-act table td:nth-child(5) { width: 310px; }
+    #dobe-compressed-loops .dc-act table th:nth-child(6), #dobe-compressed-loops .dc-act table td:nth-child(6) { width: 220px; }
+    #dobe-compressed-loops .dc-act table td { line-height: 1.55; vertical-align: top; }
+    #dobe-compressed-loops .dc-act table tbody tr:nth-child(even) { background: color-mix(in srgb, var(--muted) 38%, transparent); }
+    #dobe-compressed-loops .dc-in-game-scene { display: grid; gap: 5px; }
+    #dobe-compressed-loops .dc-in-game-scene b { font-weight: 500; color: var(--foreground); }
+    #dobe-compressed-loops .mg-types { min-width: 760px; margin: 0; }
+    #dobe-compressed-loops .mg-principle {
+      margin-top: 16px;
+      padding: 10px 12px;
+      border-radius: 0 8px 8px 0;
+      background: color-mix(in srgb, var(--viz-series-3) 8%, transparent);
+    }
+    #dobe-compressed-loops .dc-branch { gap: 14px; }
+    #dobe-compressed-loops .dc-branch &gt; div {
+      padding: 16px 18px;
+      border-radius: 8px;
+      background: var(--surface-1);
+    }
+    #dobe-compressed-loops .dc-warning {
+      padding: 13px 15px;
+      border-radius: 0 8px 8px 0;
+      background: color-mix(in srgb, var(--destructive) 7%, transparent);
+    }
+    #dobe-compressed-loops .gt-tree { max-width: 1240px; gap: 5px; }
+    #dobe-compressed-loops .gt-row { min-height: 88px; }
+    #dobe-compressed-loops .gt-rank {
+      border-radius: 8px 0 0 8px;
+      padding: 14px 16px;
+    }
+    #dobe-compressed-loops .gt-unlocks {
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-left: 0;
+      border-radius: 0 8px 8px 0;
+      background: var(--surface-1);
+    }
+    #dobe-compressed-loops .gt-unlock { border-radius: 6px; }
+    #dobe-compressed-loops .gt-foot,
+    #dobe-compressed-loops .dc-source { line-height: 1.6; }
+
+    @media (max-width: 1100px) {
+      #dobe-compressed-loops .dc-link-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #dobe-compressed-loops .dc-overview { grid-template-columns: repeat(3, 1fr); }
+      #dobe-compressed-loops .dc-act-chip { min-height: 104px; border-bottom: 1px solid var(--border); }
+      #dobe-compressed-loops .dc-act-head { grid-template-columns: 135px 1fr; }
+      #dobe-compressed-loops .dc-count { text-align: left; border-left: 0; padding-left: 0; }
+    }
+    @media (max-width: 720px) {
+      #dobe-compressed-loops { padding: 14px; }
+      #dobe-compressed-loops .dc-link-list { grid-template-columns: 1fr; }
+      #dobe-compressed-loops .dc-overview { grid-template-columns: repeat(2, 1fr); border-radius: 8px; }
+      #dobe-compressed-loops .dc-track { grid-template-columns: 1fr; }
+      #dobe-compressed-loops .dc-track-label { padding: 0; }
+      #dobe-compressed-loops .dc-causal { grid-template-columns: repeat(2, 1fr); }
+      #dobe-compressed-loops .dc-act-head,
+      #dobe-compressed-loops .dc-branch { grid-template-columns: 1fr; }
+      #dobe-compressed-loops .dc-act-head { gap: 11px; }
+      #dobe-compressed-loops .gt-row { grid-template-columns: 44px 1fr; margin-bottom: 10px; }
+      #dobe-compressed-loops .gt-tier { grid-row: 1 / span 2; }
+      #dobe-compressed-loops .gt-link { display: none; }
+      #dobe-compressed-loops .gt-unlocks { grid-column: 2; border-left: 1px solid var(--border); border-radius: 0 0 8px 8px; }
+      #dobe-compressed-loops .gt-rank { border-radius: 8px 8px 0 0; }
+    }
+    @media (max-width: 430px) {
+      #dobe-compressed-loops .dc-overview,
+      #dobe-compressed-loops .dc-causal { grid-template-columns: 1fr; }
+      #dobe-compressed-loops .dc-rule { white-space: normal; }
+    }
+    @media (max-width: 1200px) {
+      #dobe-compressed-loops .dc-layout { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+      #dobe-compressed-loops .dc-toc { top: 0; z-index: 8; max-height: none; overflow-x: auto; overflow-y: hidden; padding: 8px 0; border-right: 0; border-bottom: 1px solid var(--border); background: color-mix(in srgb, var(--background) 94%, transparent); backdrop-filter: blur(10px); }
+      #dobe-compressed-loops .dc-toc-head { display: none; }
+      #dobe-compressed-loops .dc-toc-list { display: flex; width: max-content; gap: 4px; }
+      #dobe-compressed-loops .dc-toc-link,
+      #dobe-compressed-loops .dc-toc-link[data-level=&quot;3&quot;] { padding: 7px 10px; border-left: 0; border-bottom: 2px solid transparent; white-space: nowrap; }
+      #dobe-compressed-loops .dc-toc-link.is-active { border-left: 0; border-bottom-color: var(--viz-series-2); }
+      #dobe-compressed-loops [id] { scroll-margin-top: 62px; }
+    }
+  &lt;/style&gt;
+
+  &lt;div class=&quot;dc-layout&quot;&gt;
+    &lt;aside class=&quot;dc-toc&quot; aria-label=&quot;页面目录&quot;&gt;
+      &lt;div class=&quot;dc-toc-head&quot;&gt;文档目录&lt;/div&gt;
+      &lt;nav id=&quot;dobe-toc-nav&quot; aria-label=&quot;快速定位&quot;&gt;&lt;/nav&gt;
+    &lt;/aside&gt;
+  &lt;div class=&quot;dc-wrap&quot; id=&quot;dc-overview&quot;&gt;
+    &lt;div class=&quot;dc-kicker&quot;&gt;一日版本 &#183; 90 分钟渐进体验&lt;/div&gt;
+    &lt;h1&gt;Dobe一日渐进规划&lt;/h1&gt;
+
+    &lt;section class=&quot;dc-section dc-part&quot; id=&quot;dc-part-1&quot; aria-labelledby=&quot;dc-part-1-title&quot;&gt;
+      &lt;h2 id=&quot;dc-part-1-title&quot;&gt;Part 1 &#183; 目前已确定的信息&lt;/h2&gt;
+      &lt;p class=&quot;dc-note&quot;&gt;以下内容整理自《一日渐进线汇总一图流》的有效“基础信息”框；帮派树结构统一放到 Part 4。&lt;/p&gt;
+
+      &lt;h3 id=&quot;dc-confirmed-docs&quot;&gt;关联文档&lt;/h3&gt;
+      &lt;div class=&quot;dc-link-list&quot;&gt;
+        &lt;a href=&quot;https://t6bdpf8yjg.feishu.cn/wiki/ZjSowGJvPiXaA5k3nokcHjHEnhe&quot;&gt;&lt;strong&gt;Dobe 记忆点梳理&lt;/strong&gt;&lt;span&gt;叙事与记忆点来源&lt;/span&gt;&lt;/a&gt;
+        &lt;a href=&quot;https://t6bdpf8yjg.feishu.cn/wiki/OMqDwrtSaizj4lkssBHcH4R2nxd?sheet=JmzW2M&quot;&gt;&lt;strong&gt;DOBE世界观方案 - 摩托帮&lt;/strong&gt;&lt;span&gt;帮派世界观与职级命名来源&lt;/span&gt;&lt;/a&gt;
+        &lt;a href=&quot;https://t6bdpf8yjg.feishu.cn/sheets/XDBMs2LLnhcjB1tTWZ5c570fnbd?sheet=d4nknv&quot;&gt;&lt;strong&gt;帮派树与章节体与会议&lt;/strong&gt;&lt;span&gt;章节节点与会议结构来源&lt;/span&gt;&lt;/a&gt;
+        &lt;a href=&quot;https://t6bdpf8yjg.feishu.cn/wiki/Url8w5jzIi7egukzDsHcR4y1nRi?sheet=5b3ec5&amp;amp;table=tblXtHbB5XD5buPw&amp;amp;view=vewnVSvZqi&quot;&gt;&lt;strong&gt;七月 Demo 台本&lt;/strong&gt;&lt;span&gt;商业街开始后的剧情顺序与场景元素来源&lt;/span&gt;&lt;/a&gt;
+      &lt;/div&gt;
+
+      &lt;h3 id=&quot;dc-confirmed-framework&quot;&gt;内容与成长框架&lt;/h3&gt;
+      &lt;div class=&quot;table-responsive&quot;&gt;&lt;table class=&quot;table table-sm dc-confirmed-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;范围&lt;/th&gt;&lt;th&gt;已确定内容&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+        &lt;tr&gt;&lt;td&gt;叙事&lt;/td&gt;&lt;td&gt;以“记忆点”组织叙事推进&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;车配件养成&lt;/td&gt;&lt;td&gt;等级、品质&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;枪械养成&lt;/td&gt;&lt;td&gt;等级；星级仍待确认&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;英雄养成&lt;/td&gt;&lt;td&gt;等级、技能；星级仍待确认&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;SUP&lt;/td&gt;&lt;td&gt;竞速、枪战关、碰撞型枪战异化关&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;推关&lt;/td&gt;&lt;td&gt;独立战斗循环&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;城建&lt;/td&gt;&lt;td&gt;接管、碎片化升级、升级&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;模拟经营&lt;/td&gt;&lt;td&gt;确定采用小人投放：L13 首次引导玩家在帮派树接管小弟并派遣至改装厂，使建筑自动运行；后续建筑、岗位与增益数值待定&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;待确认项&lt;/td&gt;&lt;td&gt;小游戏&lt;/td&gt;&lt;/tr&gt;
+      &lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+
+      &lt;h3 id=&quot;dc-drop-overview&quot;&gt;投放总览&lt;/h3&gt;
+      &lt;p class=&quot;dc-note&quot;&gt;“3 + 1 + 1”依次指剧情线、活动签到、首充三个渠道；仅记录当前已确认的投放数量，不补充未确认渠道。&lt;/p&gt;
+      &lt;div class=&quot;table-responsive&quot;&gt;&lt;table class=&quot;table table-sm dc-confirmed-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;投放内容&lt;/th&gt;&lt;th&gt;剧情线&lt;/th&gt;&lt;th&gt;活动签到&lt;/th&gt;&lt;th&gt;首充&lt;/th&gt;&lt;th&gt;当前合计&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+        &lt;tr&gt;&lt;td&gt;英雄&lt;/td&gt;&lt;td&gt;3 个&lt;/td&gt;&lt;td&gt;1 个&lt;/td&gt;&lt;td&gt;1 个&lt;/td&gt;&lt;td&gt;5 个&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;车&lt;/td&gt;&lt;td&gt;3 辆&lt;/td&gt;&lt;td&gt;1 辆&lt;/td&gt;&lt;td&gt;1 辆&lt;/td&gt;&lt;td&gt;5 辆&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;枪&lt;/td&gt;&lt;td&gt;3 把&lt;/td&gt;&lt;td&gt;1 把&lt;/td&gt;&lt;td&gt;1 把&lt;/td&gt;&lt;td&gt;5 把&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;模拟经营小人&lt;/td&gt;&lt;td&gt;5 个以上，具体数量待定&lt;/td&gt;&lt;td&gt;未确认&lt;/td&gt;&lt;td&gt;未确认&lt;/td&gt;&lt;td&gt;5 个以上，具体数量待定&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;配件&lt;/td&gt;&lt;td&gt;有，数量待定&lt;/td&gt;&lt;td&gt;有，数量待定&lt;/td&gt;&lt;td&gt;有，数量待定&lt;/td&gt;&lt;td&gt;数量待定&lt;/td&gt;&lt;/tr&gt;
+      &lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+
+      &lt;h3 id=&quot;dc-confirmed-buildings&quot;&gt;确定建筑与功能&lt;/h3&gt;
+      &lt;div class=&quot;table-responsive&quot;&gt;&lt;table class=&quot;table table-sm dc-building-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;建筑名&lt;/th&gt;&lt;th&gt;确定功能&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+        &lt;tr&gt;&lt;td&gt;Clubhouse&lt;/td&gt;&lt;td&gt;帮派议会演出 / 帮派管理（之后模拟经营小人）/ 推关挂机产出&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;修车厂&lt;/td&gt;&lt;td&gt;载具改装；第一个解锁建筑&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;废车回收场&lt;/td&gt;&lt;td&gt;高级资源：零件；产载具部件&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;商业街&lt;/td&gt;&lt;td&gt;基础资源：钱&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;物资中转站 / 运输公司&lt;/td&gt;&lt;td&gt;基础资源：物资&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;加油站&lt;/td&gt;&lt;td&gt;基础资源：油&lt;/td&gt;&lt;/tr&gt;
+      &lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+
+      &lt;h3 id=&quot;dc-confirmed-anchors&quot;&gt;版本锚点&lt;/h3&gt;
+      &lt;div class=&quot;dc-rules&quot;&gt;
+        &lt;span class=&quot;dc-rule&quot;&gt;&lt;strong&gt;一日版本终点：&lt;/strong&gt;玩家成为 President（会长）&lt;/span&gt;
+        &lt;span class=&quot;dc-rule&quot;&gt;&lt;strong&gt;正式版预期：&lt;/strong&gt;取得 Clubhouse 后解锁第二段帮派树，节点可能对应联盟玩法解锁&lt;/span&gt;
+        &lt;span class=&quot;dc-rule&quot;&gt;&lt;strong&gt;一日版调整：&lt;/strong&gt;Clubhouse 的取得位置允许灵活调整&lt;/span&gt;
+        &lt;span class=&quot;dc-rule&quot;&gt;&lt;strong&gt;前 10 分钟：&lt;/strong&gt;允许先使用功能，但不代表真正取得对应建筑&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;dc-section dc-part&quot; id=&quot;dc-part-2&quot; aria-labelledby=&quot;dc-part-2-title&quot;&gt;
+      &lt;h2 id=&quot;dc-part-2-title&quot;&gt;Part 2 &#183; 渐进规划&lt;/h2&gt;
+      &lt;p class=&quot;dc-note&quot;&gt;先看整体因果与六幕承接关系，再逐幕查看分钟级循环。&lt;/p&gt;
+      &lt;h3 id=&quot;dc-story-causal-title&quot;&gt;整体剧情因果&lt;/h3&gt;
+      &lt;div class=&quot;dc-causal&quot;&gt;
+        &lt;div&gt;&lt;b&gt;警匪追逐&lt;/b&gt;&lt;br&gt;&lt;span&gt;玩家只能逃亡&lt;/span&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;b&gt;公路改装&lt;/b&gt;&lt;br&gt;&lt;span&gt;博帮助突破封锁&lt;/span&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;b&gt;加入与转正&lt;/b&gt;&lt;br&gt;&lt;span&gt;保护变成责任&lt;/span&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;b&gt;承接产业&lt;/b&gt;&lt;br&gt;&lt;span&gt;共同资产转交玩家管理&lt;/span&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;b&gt;竞速、追杀与复仇&lt;/b&gt;&lt;br&gt;&lt;span&gt;负责人牺牲形成职位与产业空缺&lt;/span&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;b&gt;庆功与叛徒&lt;/b&gt;&lt;br&gt;&lt;span&gt;追击比利、救回梅丽尔&lt;/span&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;b&gt;复玩与晋升&lt;/b&gt;&lt;br&gt;&lt;span&gt;证明能领导全帮&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;h3 id=&quot;dc-act-relations-title&quot;&gt;六幕关系&lt;/h3&gt;
+      &lt;div class=&quot;dc-overview&quot; aria-label=&quot;六幕时间分配与承接关系&quot;&gt;
+        &lt;div class=&quot;dc-act-chip&quot;&gt;&lt;span&gt;0–3:20&lt;/span&gt;&lt;b&gt;序幕&lt;/b&gt;&lt;span&gt;追逐 / 氮气改装 / 突围&lt;br&gt;4 循环&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;dc-act-chip&quot;&gt;&lt;span&gt;3:20–11:50&lt;/span&gt;&lt;b&gt;第一幕&lt;/b&gt;&lt;span&gt;回城入会 / 单次枪战考核 / 转正&lt;br&gt;6 循环&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;dc-act-chip&quot;&gt;&lt;span&gt;11:50–26:50&lt;/span&gt;&lt;b&gt;第二幕&lt;/b&gt;&lt;span&gt;赛车备战 / 追杀换车 / 复仇接管&lt;br&gt;15 循环&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;dc-act-chip&quot;&gt;&lt;span&gt;26:50–45&lt;/span&gt;&lt;b&gt;第三幕&lt;/b&gt;&lt;span&gt;首次推关 / Roadman / 商业街 / 比利 / 加油站&lt;br&gt;8 循环&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;dc-act-chip&quot;&gt;&lt;span&gt;45–60&lt;/span&gt;&lt;b&gt;第四幕&lt;/b&gt;&lt;span&gt;梅丽尔救援 / 物流中心&lt;br&gt;4 循环&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;dc-act-chip&quot;&gt;&lt;span&gt;60–90&lt;/span&gt;&lt;b&gt;第五幕&lt;/b&gt;&lt;span&gt;叛徒残党 / 汉克回归 / 晋升会长&lt;br&gt;6 循环&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;dc-act&quot; data-series=&quot;1&quot;&gt;
+      &lt;div class=&quot;dc-act-head&quot;&gt;&lt;div&gt;&lt;span&gt;0:00–3:20&lt;/span&gt;&lt;b&gt;序幕&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;公路逃亡&lt;/b&gt;&lt;span&gt;警方追捕、博介入、现场安装氮气并立即突破封锁。&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;可玩内容&lt;/b&gt;&lt;span&gt;SUP &#215;2、改装小游戏 &#215;1。&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-count&quot;&gt;&lt;b&gt;演出约 50s&lt;/b&gt;&lt;span&gt;SUP 各约 60s / 改装约 30s&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-rank-change&quot;&gt;&lt;strong&gt;职级变动&lt;/strong&gt;&lt;span class=&quot;rc-rank&quot;&gt;无&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;table-responsive&quot;&gt;&lt;table class=&quot;table table-sm dc-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;时间&lt;/th&gt;&lt;th&gt;循环&lt;/th&gt;&lt;th&gt;大纲&lt;/th&gt;&lt;th&gt;动机&lt;/th&gt;&lt;th&gt;纯演出&lt;/th&gt;&lt;th&gt;可玩行为 / 次数&lt;/th&gt;&lt;th&gt;奖励与接续&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+        &lt;tr class=&quot;dc-first-sup-row&quot;&gt;&lt;td class=&quot;dc-time&quot;&gt;0:00–1:20&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop dc-loop-sup&quot;&gt;L01 警匪追逐&lt;/div&gt;&lt;span class=&quot;dc-first-badge dc-first-sup-badge&quot;&gt;新玩法解锁 &#183; SUP 首次出现&lt;/span&gt;&lt;span class=&quot;dc-sub&quot;&gt;警匪追逐 SUP &#215;1&lt;/span&gt;&lt;/td&gt;&lt;td&gt;无人机航拍公路，警方频道播报正在追击科尔；镜头下拉进入汽车视角。&lt;/td&gt;&lt;td&gt;摆脱警方&lt;/td&gt;&lt;td class=&quot;dc-show&quot;&gt;&lt;strong&gt;20s&lt;/strong&gt;&lt;br&gt;航拍+警方播报+镜头接管&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;0:20–1:20&lt;/time&gt; 警匪追逐 SUP &#215;1：闪避、择路、甩脱&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-first-system-callout&quot;&gt;SUP 正式解锁：单局约 60 秒；本关不主动撞击警车&lt;/span&gt;普通车辆仍不足以突破追捕。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;1:20–1:50&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop&quot;&gt;L02 摩托帮介入&lt;/div&gt;&lt;span class=&quot;dc-sub&quot;&gt;剧情接应 &#215;1&lt;/span&gt;&lt;/td&gt;&lt;td&gt;博与摩托帮成员暂时分流警力，把玩家引入高架桥下或废弃服务区，并交出氮气罐。&lt;/td&gt;&lt;td&gt;获得喘息机会&lt;/td&gt;&lt;td class=&quot;dc-show&quot;&gt;&lt;strong&gt;30s&lt;/strong&gt;&lt;br&gt;接应+氮气罐交付&lt;/td&gt;&lt;td&gt;短距离跟随与停车操作&lt;/td&gt;&lt;td&gt;认识博；获得继续逃亡所需的剧情改装件。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr class=&quot;dc-first-feature-row&quot;&gt;&lt;td class=&quot;dc-time&quot;&gt;1:50–2:20&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop&quot;&gt;L03 公路氮气安装&lt;/div&gt;&lt;span class=&quot;dc-first-badge&quot;&gt;新玩法 &#183; 改装/维修首次出现&lt;/span&gt;&lt;span class=&quot;dc-sub&quot;&gt;无养成界面 / 无资源结算&lt;/span&gt;&lt;span class=&quot;dc-minigame&quot;&gt;MG-A 改装 / 维修&lt;/span&gt;&lt;/td&gt;&lt;td&gt;玩家在公路服务区直接把博提供的氮气罐装到当前汽车上。&lt;/td&gt;&lt;td&gt;提升逃脱能力&lt;/td&gt;&lt;td class=&quot;dc-show&quot;&gt;&lt;strong&gt;0s&lt;/strong&gt;&lt;br&gt;全程可操作&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;1:50–2:20&lt;/time&gt; MG-A &#215;1 &#183; 约 30 秒&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-reward-note&quot;&gt;SUP 内临时解锁氮气；不进入车辆养成界面，不结算钱或零件&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;2:20–3:20&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop dc-loop-sup&quot;&gt;L04 氮气突破封锁&lt;/div&gt;&lt;span class=&quot;dc-sub&quot;&gt;警匪追逐 SUP &#215;1 / 氮气教学&lt;/span&gt;&lt;/td&gt;&lt;td&gt;警方重新锁定玩家并设置道路封锁；玩家利用刚安装的氮气突破包围。&lt;/td&gt;&lt;td&gt;彻底甩掉警方&lt;/td&gt;&lt;td class=&quot;dc-show&quot;&gt;&lt;strong&gt;0s&lt;/strong&gt;&lt;br&gt;直接承接改装&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;2:20–3:20&lt;/time&gt; 警匪追逐 SUP &#215;1：氮气加速、突破封锁&lt;/span&gt;&lt;/td&gt;&lt;td&gt;甩脱警方；博认可玩家的驾驶与临场能力，决定带玩家回城。&lt;/td&gt;&lt;/tr&gt;
+      &lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;dc-act&quot; data-series=&quot;2&quot;&gt;
+      &lt;div class=&quot;dc-act-head&quot;&gt;&lt;div&gt;&lt;span&gt;3:20–11:50&lt;/span&gt;&lt;b&gt;第一幕&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;骑行入会、维修打工与单次枪战考核&lt;/b&gt;&lt;span&gt;玩家完成一次袭击车队枪战 SUP 并夺货，随后返程获邀，由议会投票转正；追杀与拆车剧情移至第二幕。&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;可玩内容&lt;/b&gt;&lt;span&gt;帮派骑行 &#215;2、SUP &#215;1、改装小游戏 &#215;3、议会 &#215;1。&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-count&quot;&gt;&lt;b&gt;总时长 8m30s&lt;/b&gt;&lt;span&gt;SUP 约 60s&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-rank-change&quot;&gt;&lt;strong&gt;职级变动&lt;/strong&gt;&lt;span class=&quot;rc-rank&quot;&gt;Prospect&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平&lt;/span&gt;&lt;span class=&quot;rc-rank&quot;&gt;Full Patch&lt;/span&gt;&lt;span class=&quot;rc-tag rc-meeting&quot;&gt;会议&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平直接提升&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;table-responsive&quot;&gt;&lt;table class=&quot;table table-sm dc-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;时间&lt;/th&gt;&lt;th&gt;循环&lt;/th&gt;&lt;th&gt;大纲&lt;/th&gt;&lt;th&gt;动机&lt;/th&gt;&lt;th&gt;纯演出&lt;/th&gt;&lt;th&gt;可玩行为 / 次数&lt;/th&gt;&lt;th&gt;奖励与接续&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+        &lt;tr class=&quot;dc-first-gang-tree-row&quot;&gt;&lt;td class=&quot;dc-time&quot;&gt;3:20–4:50&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop&quot;&gt;L05 骑行回城与入会见习&lt;/div&gt;&lt;span class=&quot;dc-first-badge&quot;&gt;新玩法 &#183; 帮派骑行首次出现&lt;/span&gt;&lt;span class=&quot;dc-system-first-gang-tree&quot;&gt;新系统解锁 &#183; 帮派树首次出现&lt;/span&gt;&lt;span class=&quot;dc-sub&quot;&gt;骑行小游戏 &#215;1 / 帮派树教学 &#215;1&lt;/span&gt;&lt;/td&gt;&lt;td&gt;玩家跟随摩托车队回城；骑行过程中博讲解帮派设定，并说明玩家遭警方追捕、在外没有安全落脚点。抵达后杰森允许玩家先以见习身份留下。&lt;/td&gt;&lt;td&gt;理解危机并获得唯一落脚点&lt;/td&gt;&lt;td class=&quot;dc-show&quot;&gt;&lt;strong&gt;20s&lt;/strong&gt;&lt;br&gt;身份确认&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;3:20–3:50&lt;/time&gt; 骑行小游戏 &#215;1 &#183; 对话随骑行推进&lt;/span&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;3:50–4:10&lt;/time&gt; 身份确认&lt;/span&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;4:10–4:50&lt;/time&gt; 帮派树教学 / 见习任务与转正路径确认&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-first-gang-tree-callout&quot;&gt;帮派树首次显示：瓦尔特所在 T2 管理雨果、玩家和一个未命名 T1 席&lt;/span&gt;&lt;span class=&quot;dc-reward-role&quot;&gt;职位：Prospect&lt;/span&gt;&lt;span class=&quot;dc-reward-building&quot;&gt;建筑：改装厂&#183;仅使用权&lt;/span&gt;先打工并完成任务，才能争取正式转正。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;4:50–6:30&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop&quot;&gt;L06 连续维修打工&lt;/div&gt;&lt;span class=&quot;dc-minigame&quot;&gt;MG-A 改装 / 维修 &#215;2&lt;/span&gt;&lt;/td&gt;&lt;td&gt;玩家在改装厂连续维修两辆帮派摩托，以技术和劳动换取资金。&lt;/td&gt;&lt;td&gt;挣钱并证明基础技术&lt;/td&gt;&lt;td class=&quot;dc-show&quot;&gt;&lt;strong&gt;10s&lt;/strong&gt;&lt;br&gt;两车委托提示&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;5:00–5:30&lt;/time&gt; 摩托 1 &#183; MG-A &#215;1&lt;/span&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;5:30–5:40&lt;/time&gt; 切换车辆&lt;/span&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;5:40–6:10&lt;/time&gt; 摩托 2 &#183; MG-A &#215;1&lt;/span&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;6:10–6:30&lt;/time&gt; 两车交付/统一结算&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-reward-resource&quot;&gt;资源：钱&#183;首次获得&lt;/span&gt;&lt;span class=&quot;dc-reward-note&quot;&gt;连续完成两辆摩托后结算资金，并引出转正任务&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;6:30–8:00&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop&quot;&gt;L07 车队袭击准备&lt;/div&gt;&lt;span class=&quot;dc-minigame&quot;&gt;MG-A 改装 / 维修&lt;/span&gt;&lt;/td&gt;&lt;td&gt;博说明转正任务是袭击一支指定车队，交给玩家一个剧情配件用于强化自己的车，随后发放枪支。&lt;/td&gt;&lt;td&gt;为枪战任务完成车辆与武器准备&lt;/td&gt;&lt;td class=&quot;dc-show&quot;&gt;&lt;strong&gt;20s&lt;/strong&gt;&lt;br&gt;任务与配件交付&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;6:50–7:20&lt;/time&gt; 强化自己的车 &#183; MG-A &#215;1&lt;/span&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;7:20–7:30&lt;/time&gt; 领取枪支&lt;/span&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;7:30–8:00&lt;/time&gt; 前往目标位置&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-reward-note&quot;&gt;任务车强化与枪支使用权开启；剧情配件不计入零件资源&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;8:00–9:30&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop dc-loop-sup&quot;&gt;L08 袭击目标车队&lt;/div&gt;&lt;span class=&quot;dc-sub&quot;&gt;枪战 SUP &#215;1&lt;/span&gt;&lt;/td&gt;&lt;td&gt;玩家袭击指定车队并夺取货物，完成转正任务；本幕不再出现武装肌肉车追杀。&lt;/td&gt;&lt;td&gt;抢到货物并完成考核&lt;/td&gt;&lt;td class=&quot;dc-show&quot;&gt;&lt;strong&gt;20s&lt;/strong&gt;&lt;br&gt;目标建立&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;8:20–9:20&lt;/time&gt; 枪战 SUP &#215;1 &#183; 袭击车队夺货&lt;/span&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;9:20–9:30&lt;/time&gt; 夺货结算&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-reward-resource&quot;&gt;资源：声望&#183;首次获得&lt;/span&gt;完成正式成员资格考核，接续返程邀请。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;9:30–10:20&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop&quot;&gt;L09 骑行返程与正式邀请&lt;/div&gt;&lt;span class=&quot;dc-sub&quot;&gt;骑行小游戏 &#215;1&lt;/span&gt;&lt;/td&gt;&lt;td&gt;玩家带着货物与成员骑行返城；过程中博和成员夸奖玩家的驾驶、改装与枪战技术，并正式邀请玩家加入。&lt;/td&gt;&lt;td&gt;带着战果返回帮派&lt;/td&gt;&lt;td class=&quot;dc-show&quot;&gt;&lt;strong&gt;0s&lt;/strong&gt;&lt;br&gt;邀请随骑行完成&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;9:30–10:00&lt;/time&gt; 返程骑行小游戏 &#215;1 &#183; 夸奖与正式邀请&lt;/span&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;10:00–10:20&lt;/time&gt; 进入 Clubhouse / 会议入口&lt;/span&gt;&lt;/td&gt;&lt;td&gt;正式入会提名成立；直接接入首次议会投票。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr class=&quot;dc-first-meeting-row&quot;&gt;&lt;td class=&quot;dc-time&quot;&gt;10:20–11:50&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop&quot;&gt;L10 首次议会&#183;投票转正&lt;/div&gt;&lt;span class=&quot;dc-system-first-meeting&quot;&gt;新系统解锁 &#183; 议会首次出现&lt;/span&gt;&lt;span class=&quot;dc-sub&quot;&gt;议会 &#215;1 / 特殊晋升 &#215;1 / 会议任务 &#215;1&lt;/span&gt;&lt;/td&gt;&lt;td&gt;成员投票确认玩家正式加入。玩家从瓦尔特所辖 T1 离开并填入一个 T2 空席；议会发布后续帮派任务，并把改装厂管理授权交给玩家。&lt;/td&gt;&lt;td&gt;获得正式身份与第一项产业职责&lt;/td&gt;&lt;td class=&quot;dc-show&quot;&gt;&lt;strong&gt;20s&lt;/strong&gt;&lt;br&gt;开场与投票&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;10:40–11:20&lt;/time&gt; 议会教学 / T2 空席填入 / 帮派树更新&lt;/span&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;11:20–11:50&lt;/time&gt; 发布会议任务 / 改装厂接管授权&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-first-meeting-callout&quot;&gt;议会系统正式解锁；帮派树显示每个 T2 管理 3 名 T1&lt;/span&gt;&lt;span class=&quot;dc-reward-role&quot;&gt;职位：Full Patch&#183;和平直接提升&lt;/span&gt;&lt;span class=&quot;dc-reward-building&quot;&gt;改装厂接管任务开启&lt;/span&gt;第一幕结束。&lt;/td&gt;&lt;/tr&gt;
+      &lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;dc-act&quot; data-series=&quot;3&quot;&gt;
+      &lt;div class=&quot;dc-act-head&quot;&gt;&lt;div&gt;&lt;span&gt;11:50–26:50&lt;/span&gt;&lt;b&gt;第二幕&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;赛车备战、追杀换车与废车场复仇&lt;/b&gt;&lt;span&gt;玩家先让改装厂自动运行，再接受赛车邀请；竞速前去废车场拆黑市车辆取零件并换件。竞速结束后逃回城市，拆解被击毁的追杀车辆、获得并改装第二辆车完成复仇；回帮开会晋升 Enforcer 后，接管、建设并派遣成员到废车厂。&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;可玩内容&lt;/b&gt;&lt;span&gt;SUP &#215;3、拆车 &#215;3、改装 &#215;2、成员接管/派遣 &#215;2、建筑接管 &#215;2、城建 &#215;2。&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-count&quot;&gt;&lt;b&gt;15 循环&lt;/b&gt;&lt;span&gt;废车厂自动经营 25:50–26:50&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-rank-change&quot;&gt;&lt;strong&gt;职级变动&lt;/strong&gt;&lt;span class=&quot;rc-rank&quot;&gt;Enforcer&lt;/span&gt;&lt;span class=&quot;rc-tag rc-sup&quot;&gt;SUP&lt;/span&gt;&lt;span class=&quot;rc-tag rc-meeting&quot;&gt;会议&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;p class=&quot;dc-note&quot;&gt;赛前拆车由废车场负责人许可，复仇准备发生在玩家逃回城市之后；L22 会议授予 Enforcer 职位和建筑权限，L23–L25 再依次完成接管、建设与成员派遣。&lt;/p&gt;
+      &lt;div class=&quot;table-responsive&quot;&gt;&lt;table class=&quot;table table-sm dc-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;时间&lt;/th&gt;&lt;th&gt;循环&lt;/th&gt;&lt;th&gt;大纲&lt;/th&gt;&lt;th&gt;动机&lt;/th&gt;&lt;th&gt;纯演出&lt;/th&gt;&lt;th&gt;可玩行为 / 次数&lt;/th&gt;&lt;th&gt;奖励与接续&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+        &lt;tr class=&quot;dc-first-feature-row&quot;&gt;&lt;td class=&quot;dc-time&quot;&gt;11:50–12:20&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop dc-loop-building&quot;&gt;L11 接管改装厂&lt;/div&gt;&lt;span class=&quot;dc-first-badge&quot;&gt;新系统 &#183; 建筑接管首次出现&lt;/span&gt;&lt;span class=&quot;dc-sub&quot;&gt;点击接管 &#215;1&lt;/span&gt;&lt;/td&gt;&lt;td&gt;玩家抵达改装厂，在建筑入口点击接管，立即完成本帮内部管理权确认。&lt;/td&gt;&lt;td&gt;取得改装厂管理权&lt;/td&gt;&lt;td class=&quot;dc-show&quot;&gt;&lt;strong&gt;10s&lt;/strong&gt;&lt;br&gt;抵达与结果反馈&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;11:50–12:10&lt;/time&gt; 抵达 / 接管入口&lt;/span&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;12:10–12:20&lt;/time&gt; 点击接管 / 状态更新&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-reward-building&quot;&gt;改装厂&#183;内部接管&lt;/span&gt;立即开启 L12。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr class=&quot;dc-first-feature-row&quot;&gt;&lt;td class=&quot;dc-time&quot;&gt;12:20–13:20&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop dc-loop-building&quot;&gt;L12 修建改装厂&lt;/div&gt;&lt;span class=&quot;dc-first-badge&quot;&gt;新系统 &#183; 城建首次出现&lt;/span&gt;&lt;span class=&quot;dc-sub&quot;&gt;子建筑升级 &#215;1&lt;/span&gt;&lt;/td&gt;&lt;td&gt;玩家升级首个子建筑，完成一次城建教学。&lt;/td&gt;&lt;td&gt;开放派遣条件&lt;/td&gt;&lt;td class=&quot;dc-show&quot;&gt;&lt;strong&gt;20s&lt;/strong&gt;&lt;br&gt;目标与结果&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;12:20–12:30&lt;/time&gt; 目标提示&lt;/span&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;12:30–13:10&lt;/time&gt; 子建筑升级&lt;/span&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;13:10–13:20&lt;/time&gt; 派遣位开放&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-reward-building&quot;&gt;改装厂 Lv.1&lt;/span&gt;尚未自动运行。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr class=&quot;dc-first-feature-row&quot;&gt;&lt;td class=&quot;dc-time&quot;&gt;13:20–14:20&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop&quot;&gt;L13 小弟接管与改装厂派遣&lt;/div&gt;&lt;span class=&quot;dc-first-badge&quot;&gt;新系统 &#183; 模拟经营首次出现&lt;/span&gt;&lt;span class=&quot;dc-sub&quot;&gt;帮派树接管 &#215;1 / 派遣 &#215;1&lt;/span&gt;&lt;/td&gt;&lt;td&gt;大佬提示玩家可以带小弟；玩家在帮派树接管小弟并派遣至改装厂。&lt;/td&gt;&lt;td&gt;让改装厂自动运行&lt;/td&gt;&lt;td class=&quot;dc-show&quot;&gt;&lt;strong&gt;10s&lt;/strong&gt;&lt;br&gt;大佬提示&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;13:30–13:45&lt;/time&gt; 帮派树点击接管&lt;/span&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;13:45–14:05&lt;/time&gt; 派遣小弟&lt;/span&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;14:05–14:20&lt;/time&gt; 自动运行反馈&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-first-system-callout&quot;&gt;模拟经营首次解锁&lt;/span&gt;接到赛车邀请。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;14:20–14:40&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop&quot;&gt;L14 赛车邀请&lt;/div&gt;&lt;span class=&quot;dc-sub&quot;&gt;剧情任务 &#215;1&lt;/span&gt;&lt;/td&gt;&lt;td&gt;帮派邀请玩家参加一场 SUP 赛车，并建议赛前先去废车场拆几辆黑市车辆取配件。&lt;/td&gt;&lt;td&gt;为比赛准备车辆&lt;/td&gt;&lt;td class=&quot;dc-show&quot;&gt;&lt;strong&gt;20s&lt;/strong&gt;&lt;br&gt;邀请与备战目标&lt;/td&gt;&lt;td&gt;确认比赛目标 / 前往废车场。&lt;/td&gt;&lt;td&gt;废车回收帮助任务开启。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr class=&quot;dc-first-feature-row&quot;&gt;&lt;td class=&quot;dc-time&quot;&gt;14:40–16:00&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop&quot;&gt;L15 黑市车辆回收&lt;/div&gt;&lt;span class=&quot;dc-first-badge&quot;&gt;新玩法 &#183; 废车回收首次出现&lt;/span&gt;&lt;span class=&quot;dc-sub&quot;&gt;拆车 &#215;2&lt;/span&gt;&lt;/td&gt;&lt;td&gt;玩家到本帮废车场帮忙处理两辆黑市车辆，以获取赛车强化所需配件。&lt;/td&gt;&lt;td&gt;取得竞速强化配件&lt;/td&gt;&lt;td class=&quot;dc-show&quot;&gt;&lt;strong&gt;10s&lt;/strong&gt;&lt;br&gt;现场说明&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;14:50–15:20&lt;/time&gt; 拆车 1&lt;/span&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;15:30–16:00&lt;/time&gt; 拆车 2&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-reward-resource&quot;&gt;资源：零件&#183;首次获得&lt;/span&gt;仅获得配件，不获得废车场管理权。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;16:00–16:50&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop&quot;&gt;L16 赛前换件&lt;/div&gt;&lt;span class=&quot;dc-minigame&quot;&gt;MG-A 改装 / 维修&lt;/span&gt;&lt;/td&gt;&lt;td&gt;玩家把刚取得的配件装到当前车辆上，再前往赛场。&lt;/td&gt;&lt;td&gt;把零件转化为竞速能力&lt;/td&gt;&lt;td class=&quot;dc-show&quot;&gt;&lt;strong&gt;0s&lt;/strong&gt;&lt;br&gt;全程可操作&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;16:00–16:30&lt;/time&gt; 更换配件 &#215;1&lt;/span&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;16:30–16:50&lt;/time&gt; 前往赛场&lt;/span&gt;&lt;/td&gt;&lt;td&gt;消耗本次配件；进入竞速 SUP。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;16:50–18:20&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop dc-loop-sup&quot;&gt;L17 赛车比赛&lt;/div&gt;&lt;span class=&quot;dc-sub&quot;&gt;竞速 SUP &#215;1&lt;/span&gt;&lt;/td&gt;&lt;td&gt;玩家代表帮派完成赛车比赛，验证此前的驾驶与改装成果。&lt;/td&gt;&lt;td&gt;赢得比赛&lt;/td&gt;&lt;td class=&quot;dc-show&quot;&gt;&lt;strong&gt;20s&lt;/strong&gt;&lt;br&gt;开赛与赛果&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;17:10–18:10&lt;/time&gt; 竞速 SUP &#215;1&lt;/span&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;18:10–18:20&lt;/time&gt; 赛果反馈&lt;/span&gt;&lt;/td&gt;&lt;td&gt;竞速胜利；离场时突发追杀。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;18:20–19:50&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop dc-loop-sup&quot;&gt;L18 赛后追杀&lt;/div&gt;&lt;span class=&quot;dc-sub&quot;&gt;逃亡枪战 SUP &#215;1&lt;/span&gt;&lt;/td&gt;&lt;td&gt;黑手党战车突然扫射；废车场负责人赶来接应并在追杀中死亡，玩家边逃边击毁敌车，最终撤回城市。&lt;/td&gt;&lt;td&gt;活着脱离伏击&lt;/td&gt;&lt;td class=&quot;dc-show&quot;&gt;&lt;strong&gt;20s&lt;/strong&gt;&lt;br&gt;伏击与死亡&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;18:40–19:40&lt;/time&gt; 枪战 SUP &#215;1&lt;/span&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;19:40–19:50&lt;/time&gt; 拖车撤回城市&lt;/span&gt;&lt;/td&gt;&lt;td&gt;把被击毁的追杀车辆拖回废车场，准备谋划反击。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;19:50–20:40&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop&quot;&gt;L19 谋划反击与拆车&lt;/div&gt;&lt;span class=&quot;dc-minigame&quot;&gt;MG-C 拆解 / 分拣&lt;/span&gt;&lt;/td&gt;&lt;td&gt;玩家回城后与帮派成员制定反击计划，并拆解 L18 拖回的追杀车辆，寻找复仇车辆所需配件。&lt;/td&gt;&lt;td&gt;把敌方残车转化为反击条件&lt;/td&gt;&lt;td class=&quot;dc-show&quot;&gt;&lt;strong&gt;10s&lt;/strong&gt;&lt;br&gt;反击计划&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;20:00–20:30&lt;/time&gt; 拆解 L18 残车 &#215;1&lt;/span&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;20:30–20:40&lt;/time&gt; 配件结算&lt;/span&gt;&lt;/td&gt;&lt;td&gt;取得新车改装配件。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;20:40–21:50&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop&quot;&gt;L20 第二辆车投放与改装&lt;/div&gt;&lt;span class=&quot;dc-reward-vehicle&quot;&gt;新投放 &#183; 剧情线第 2 辆车&lt;/span&gt;&lt;span class=&quot;dc-minigame&quot;&gt;MG-A 改装 / 维修&lt;/span&gt;&lt;/td&gt;&lt;td&gt;废车场提供一辆可修复的新车；玩家使用拆出的配件完成改装并将其作为复仇车辆。&lt;/td&gt;&lt;td&gt;获得能完成复仇的新载具&lt;/td&gt;&lt;td class=&quot;dc-show&quot;&gt;&lt;strong&gt;20s&lt;/strong&gt;&lt;br&gt;新车交付&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;21:00–21:30&lt;/time&gt; 新车改装 &#215;1&lt;/span&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;21:30–21:50&lt;/time&gt; 驾车出发&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-reward-vehicle&quot;&gt;车辆投放：剧情线第 2 辆车&lt;/span&gt;进入复仇 SUP。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;21:50–23:20&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop dc-loop-sup&quot;&gt;L21 公路复仇&lt;/div&gt;&lt;span class=&quot;dc-sub&quot;&gt;枪战 SUP &#215;1&lt;/span&gt;&lt;/td&gt;&lt;td&gt;玩家驾驶新车追上伏击车队，完成枪战复仇并取回负责人遗物。&lt;/td&gt;&lt;td&gt;为负责人复仇&lt;/td&gt;&lt;td class=&quot;dc-show&quot;&gt;&lt;strong&gt;20s&lt;/strong&gt;&lt;br&gt;目标确认&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;22:10–23:10&lt;/time&gt; 枪战 SUP &#215;1&lt;/span&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;23:10–23:20&lt;/time&gt; 取回遗物&lt;/span&gt;&lt;/td&gt;&lt;td&gt;复仇完成；返回帮派召开会议。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;23:20–24:20&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop&quot;&gt;L22 复仇复盘与 Enforcer 晋升&lt;/div&gt;&lt;span class=&quot;dc-sub&quot;&gt;会议 &#215;1 / 晋升 &#215;1&lt;/span&gt;&lt;/td&gt;&lt;td&gt;玩家在会议中交回遗物并汇报；现任 Enforcer 转任，老大宣布由玩家接替，并授权其接管废车场。&lt;/td&gt;&lt;td&gt;承接战果与产业责任&lt;/td&gt;&lt;td class=&quot;dc-show&quot;&gt;&lt;strong&gt;20–30s&lt;/strong&gt;&lt;br&gt;会议任命&lt;/td&gt;&lt;td&gt;会议复盘 / Enforcer 交接 / 帮派树更新。&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-reward-role&quot;&gt;职位：Enforcer&lt;/span&gt;&lt;span class=&quot;dc-reward-building&quot;&gt;解锁废车回收厂接管&lt;/span&gt;开始管辖三名 Full Patch。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;24:20–24:50&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop dc-loop-building&quot;&gt;L23 接管废车回收厂&lt;/div&gt;&lt;span class=&quot;dc-sub&quot;&gt;点击接管 &#215;1&lt;/span&gt;&lt;/td&gt;&lt;td&gt;玩家以 Enforcer 身份返回废车场，在建筑入口点击接管。&lt;/td&gt;&lt;td&gt;把职位授权落到建筑&lt;/td&gt;&lt;td class=&quot;dc-show&quot;&gt;&lt;strong&gt;10s&lt;/strong&gt;&lt;br&gt;接管反馈&lt;/td&gt;&lt;td&gt;点击接管 / 管理状态更新。&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-reward-building&quot;&gt;废车回收厂&#183;内部接管&lt;/span&gt;进入建设循环。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;24:50–25:50&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop dc-loop-building&quot;&gt;L24 建设废车回收厂&lt;/div&gt;&lt;span class=&quot;dc-sub&quot;&gt;子建筑升级 &#215;1&lt;/span&gt;&lt;/td&gt;&lt;td&gt;玩家修复拆解工位，让废车回收厂具备正式生产条件。&lt;/td&gt;&lt;td&gt;开放成员派遣条件&lt;/td&gt;&lt;td class=&quot;dc-show&quot;&gt;&lt;strong&gt;20s&lt;/strong&gt;&lt;br&gt;建设反馈&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;25:00–25:40&lt;/time&gt; 工位升级&lt;/span&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;25:40–25:50&lt;/time&gt; 派遣位开放&lt;/span&gt;&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-reward-building&quot;&gt;废车回收厂 Lv.1&lt;/span&gt;接续成员接管与派遣。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;25:50–26:50&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop&quot;&gt;L25 接管成员与废车厂派遣&lt;/div&gt;&lt;span class=&quot;dc-sub&quot;&gt;帮派树接管 &#215;1 / 派遣 &#215;1&lt;/span&gt;&lt;/td&gt;&lt;td&gt;玩家在帮派树中接管一名 Full Patch 成员，并把他派遣到废车回收厂负责拆解工位。&lt;/td&gt;&lt;td&gt;让废车回收厂自动运行&lt;/td&gt;&lt;td class=&quot;dc-show&quot;&gt;&lt;strong&gt;10s&lt;/strong&gt;&lt;br&gt;成员安排&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;26:00–26:20&lt;/time&gt; 帮派树点击接管&lt;/span&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;26:20–26:40&lt;/time&gt; 派遣至废车厂&lt;/span&gt;&lt;span class=&quot;dc-step&quot;&gt;&lt;time&gt;26:40–26:50&lt;/time&gt; 自动运行反馈&lt;/span&gt;&lt;/td&gt;&lt;td&gt;废车回收厂模拟经营循环开启；零件稳定产出。&lt;/td&gt;&lt;/tr&gt;
+      &lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;dc-act&quot; data-series=&quot;4&quot;&gt;
+      &lt;div class=&quot;dc-act-head&quot;&gt;&lt;div&gt;&lt;span&gt;26:50–45:00&lt;/span&gt;&lt;b&gt;第三幕&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;推关调查、Roadman、商业街、比利叛变与加油站&lt;/b&gt;&lt;span&gt;玩家从追杀车辆与废车场账目查出路线泄露，以首次推关追回商业街账册；随后晋升 Roadman 并恢复商业街，揭出比利后追击处决并晋升 Road Captain，再接管加油站。&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;可玩内容&lt;/b&gt;&lt;span&gt;推关 &#215;2、SUP &#215;1、接管 &#215;2、城建 &#215;2、议会 &#215;2。&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-count&quot;&gt;&lt;b&gt;8 循环&lt;/b&gt;&lt;span&gt;首次推关 26:50–30:00&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-rank-change&quot;&gt;&lt;strong&gt;职级变动&lt;/strong&gt;&lt;span class=&quot;rc-rank&quot;&gt;Roadman&lt;/span&gt;&lt;span class=&quot;rc-tag rc-meeting&quot;&gt;会议&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平&lt;/span&gt;&lt;span class=&quot;rc-rank&quot;&gt;Road Captain&lt;/span&gt;&lt;span class=&quot;rc-tag rc-sup&quot;&gt;SUP&lt;/span&gt;&lt;span class=&quot;rc-tag rc-meeting&quot;&gt;会议&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;table-responsive&quot;&gt;&lt;table class=&quot;table table-sm dc-promotion-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;时间&lt;/th&gt;&lt;th&gt;循环&lt;/th&gt;&lt;th&gt;玩法与剧情&lt;/th&gt;&lt;th&gt;原职位关系&lt;/th&gt;&lt;th&gt;交接方式&lt;/th&gt;&lt;th&gt;为什么能够晋升&lt;/th&gt;&lt;th&gt;奖励 / 新功能&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+        &lt;tr class=&quot;dc-first-system-row&quot;&gt;&lt;td class=&quot;dc-time&quot;&gt;26:50–30:00&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop dc-loop-push&quot;&gt;L26 首组推关&lt;/div&gt;&lt;span class=&quot;dc-system-first&quot;&gt;新系统解锁 &#183; 推关首次出现&lt;/span&gt;&lt;span class=&quot;dc-sub&quot;&gt;推关 &#215;2&lt;/span&gt;&lt;/td&gt;&lt;td&gt;从 L18 拖回的追杀车辆与废车场账目发现路线泄露；玩家调查并清理两个内部藏点，追回商业街账册。&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-first-system-callout&quot;&gt;推关系统正式解锁&lt;/span&gt;Roadman 晋升议题开启。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;30:00–31:00&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop&quot;&gt;L27 Roadman 晋升&lt;/div&gt;&lt;/td&gt;&lt;td&gt;玩家提交追回的商业街账册；现任 Roadman 转任，由会议完成职位交接。&lt;/td&gt;&lt;td&gt;接管更大产业责任&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-transfer dc-transfer-peace&quot;&gt;会议交接&lt;/span&gt;&lt;/td&gt;&lt;td&gt;Enforcer 阶段完成废车场恢复与内应清理。&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-reward-role&quot;&gt;Roadman&lt;/span&gt;&lt;span class=&quot;dc-reward-building&quot;&gt;解锁商业街&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;31:00–32:30&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop dc-loop-building&quot;&gt;L28 接管商业街&lt;/div&gt;&lt;/td&gt;&lt;td&gt;玩家以 Roadman 身份带回账册，本帮前任负责人交出钥匙；梅丽尔首次出场。&lt;/td&gt;&lt;td&gt;恢复钱产业管理&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-transfer dc-transfer-peace&quot;&gt;内部交接&lt;/span&gt;&lt;/td&gt;&lt;td&gt;已先取得 Roadman 权限。&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-reward-building&quot;&gt;商业街&#183;内部接管&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;32:30–34:00&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop dc-loop-building&quot;&gt;L29 建设商业街与支付佣金&lt;/div&gt;&lt;/td&gt;&lt;td&gt;恢复商铺并收钱；警长领取佣金并确认后续帮助义务。&lt;/td&gt;&lt;td&gt;恢复钱产出&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-transfer dc-transfer-tier&quot;&gt;建设/收取&lt;/span&gt;&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-reward-building&quot;&gt;商业街 Lv.1&lt;/span&gt;钱稳定产出开启。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;34:00–36:00&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop&quot;&gt;L30 庆功与叛徒议会&lt;/div&gt;&lt;/td&gt;&lt;td&gt;成员庆功；议会公布比利泄密并投票处决，比利逃离。&lt;/td&gt;&lt;td&gt;制裁叛徒&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-transfer dc-transfer-lethal&quot;&gt;剥夺职位/制裁&lt;/span&gt;&lt;/td&gt;&lt;td&gt;比利失去 Road Captain 席位并形成空缺。&lt;/td&gt;&lt;td&gt;追击任务开启。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;36:00–39:00&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop dc-loop-sup&quot;&gt;L31 追击比利与任命&lt;/div&gt;&lt;/td&gt;&lt;td&gt;追击 SUP &#215;1 → 处决/掩护 → 取回背章 → 议会任命。&lt;/td&gt;&lt;td&gt;填补队长空缺&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-transfer dc-transfer-sup&quot;&gt;追击叛徒&lt;/span&gt;&lt;span class=&quot;dc-transfer dc-transfer-peace&quot;&gt;议会任命&lt;/span&gt;&lt;/td&gt;&lt;td&gt;玩家取代比利；原 Roadman 席位由 NPC 补位。&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-reward-role&quot;&gt;Road Captain&lt;/span&gt;&lt;span class=&quot;dc-reward-building&quot;&gt;解锁加油站&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;39:00–42:00&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop dc-loop-building&quot;&gt;L32 接管加油站&lt;/div&gt;&lt;/td&gt;&lt;td&gt;晋升后前往加油站，本帮前任负责人交出路线图与管理钥匙。&lt;/td&gt;&lt;td&gt;取得油产业&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-transfer dc-transfer-peace&quot;&gt;内部交接&lt;/span&gt;&lt;/td&gt;&lt;td&gt;Road Captain 已先解锁加油站。&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-reward-building&quot;&gt;加油站&#183;内部接管&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;42:00–45:00&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop dc-loop-building&quot;&gt;L33 建设加油站&lt;/div&gt;&lt;/td&gt;&lt;td&gt;修复泵机、安排补给路线并收取首批油。&lt;/td&gt;&lt;td&gt;恢复油产出&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-transfer dc-transfer-tier&quot;&gt;建设/收取&lt;/span&gt;&lt;/td&gt;&lt;td&gt;前任经营者继续负责现场。&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-reward-building&quot;&gt;加油站 Lv.1&lt;/span&gt;&lt;span class=&quot;dc-reward-resource&quot;&gt;资源：油&#183;首次获得&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+      &lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;dc-act&quot; data-series=&quot;5&quot;&gt;
+      &lt;div class=&quot;dc-act-head&quot;&gt;&lt;div&gt;&lt;span&gt;45:00–60:00&lt;/span&gt;&lt;b&gt;第四幕&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;梅丽尔救援与物流中心&lt;/b&gt;&lt;span&gt;比利同党绑走梅丽尔；玩家带队救援并追回物流账本，再完成 Treasurer 与物流中心循环。&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;可玩内容&lt;/b&gt;&lt;span&gt;推关 &#215;3、接管 &#215;1、城建 &#215;1、议会 &#215;1、英雄获得 &#215;1。&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-count&quot;&gt;&lt;b&gt;4 循环&lt;/b&gt;&lt;span&gt;晋升 &#215;1 / 建筑循环 &#215;2&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-rank-change&quot;&gt;&lt;strong&gt;职级变动&lt;/strong&gt;&lt;span class=&quot;rc-rank&quot;&gt;Treasurer&lt;/span&gt;&lt;span class=&quot;rc-tag rc-meeting&quot;&gt;会议&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;table-responsive&quot;&gt;&lt;table class=&quot;table table-sm dc-promotion-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;时间&lt;/th&gt;&lt;th&gt;循环&lt;/th&gt;&lt;th&gt;玩法与剧情&lt;/th&gt;&lt;th&gt;原职位关系&lt;/th&gt;&lt;th&gt;交接方式&lt;/th&gt;&lt;th&gt;为什么能够晋升&lt;/th&gt;&lt;th&gt;奖励 / 新功能&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;45:00–49:00&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop dc-loop-push&quot;&gt;L34 解救梅丽尔&lt;/div&gt;&lt;/td&gt;&lt;td&gt;比利同党绑走梅丽尔以销毁账目 → 玩家带队推关 &#215;3 → 救出梅丽尔并追回物流账本。&lt;/td&gt;&lt;td&gt;履行队长职责&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-transfer dc-transfer-push&quot;&gt;救援行动&lt;/span&gt;&lt;/td&gt;&lt;td&gt;玩家实际指挥三名 Roadman。&lt;/td&gt;&lt;td&gt;获得英雄梅丽尔；追回账本并开启 Treasurer 议题。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;49:00–51:00&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop&quot;&gt;L35 财务官晋升&lt;/div&gt;&lt;/td&gt;&lt;td&gt;玩家在议会交出账本和救援结果 → 戴尔因失察辞任并交出账册。&lt;/td&gt;&lt;td&gt;取得财务官席位&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-transfer dc-transfer-peace&quot;&gt;辞任/议会交接&lt;/span&gt;&lt;/td&gt;&lt;td&gt;玩家取代戴尔的一席；另外两席保留。&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-reward-role&quot;&gt;Treasurer&#183;三席之一&lt;/span&gt;&lt;span class=&quot;dc-reward-building&quot;&gt;解锁物流中心&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;51:00–56:00&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop dc-loop-building&quot;&gt;L36 接管物流中心&lt;/div&gt;&lt;/td&gt;&lt;td&gt;核对追回账本 → 本帮现场负责人交接仓库、车辆与排班表。&lt;/td&gt;&lt;td&gt;接管物资产线&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-transfer dc-transfer-peace&quot;&gt;内部交接&lt;/span&gt;&lt;/td&gt;&lt;td&gt;物流中心始终属于本帮，玩家已先取得职位。&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-reward-building&quot;&gt;物流中心&#183;内部接管&lt;/span&gt;进入建设循环。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;56:00–60:00&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop dc-loop-building&quot;&gt;L37 建设物流中心&lt;/div&gt;&lt;/td&gt;&lt;td&gt;修复仓位、安排首条运输并收取第一批物资。&lt;/td&gt;&lt;td&gt;建立物资产出&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-transfer dc-transfer-tier&quot;&gt;建设/运输&lt;/span&gt;&lt;/td&gt;&lt;td&gt;原负责人转为现场协作。&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-reward-resource&quot;&gt;资源：物资&#183;首次获得&lt;/span&gt;&lt;span class=&quot;dc-reward-building&quot;&gt;物流中心 Lv.1&lt;/span&gt;&lt;span class=&quot;dc-reward-note&quot;&gt;物资稳定产出开启&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+      &lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;dc-act&quot; data-series=&quot;6&quot;&gt;
+      &lt;div class=&quot;dc-act-head&quot;&gt;&lt;div&gt;&lt;span&gt;60:00–90:00&lt;/span&gt;&lt;b&gt;第五幕&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;叛徒残党、汉克回归与连续晋升&lt;/b&gt;&lt;span&gt;只用 SUP、推关、议会、城建处理本帮内部事件，不引入额外玩法系统。&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;可玩内容&lt;/b&gt;&lt;span&gt;SUP &#215;4、推关 &#215;6、议会 &#215;4、城建恢复 &#215;2。&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-count&quot;&gt;&lt;b&gt;晋升 &#215;4&lt;/b&gt;&lt;span&gt;既有玩法复用&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-rank-change&quot;&gt;&lt;strong&gt;职级变动&lt;/strong&gt;&lt;span class=&quot;rc-rank&quot;&gt;Sergeant&lt;/span&gt;&lt;span class=&quot;rc-tag rc-sup&quot;&gt;SUP&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平&lt;/span&gt;&lt;span class=&quot;rc-rank&quot;&gt;Senior&lt;/span&gt;&lt;span class=&quot;rc-tag rc-push&quot;&gt;推关战斗&lt;/span&gt;&lt;span class=&quot;rc-tag rc-meeting&quot;&gt;会议&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平&lt;/span&gt;&lt;span class=&quot;rc-rank&quot;&gt;Vice President&lt;/span&gt;&lt;span class=&quot;rc-tag rc-sup&quot;&gt;SUP&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平&lt;/span&gt;&lt;span class=&quot;rc-rank&quot;&gt;President&lt;/span&gt;&lt;span class=&quot;rc-tag rc-meeting&quot;&gt;会议&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;table-responsive&quot;&gt;&lt;table class=&quot;table table-sm dc-promotion-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;时间&lt;/th&gt;&lt;th&gt;循环&lt;/th&gt;&lt;th&gt;玩法与剧情&lt;/th&gt;&lt;th&gt;原职位关系&lt;/th&gt;&lt;th&gt;交接方式&lt;/th&gt;&lt;th&gt;为什么能够晋升&lt;/th&gt;&lt;th&gt;奖励 / 新功能&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;60:00–64:00&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop dc-loop-sup&quot;&gt;L38 武装队长切磋&lt;/div&gt;&lt;/td&gt;&lt;td&gt;议会复盘救援与产业恢复 → 使用钱、油、物资补给 → 友好枪战 SUP &#215;1。&lt;/td&gt;&lt;td&gt;证明战斗指挥能力&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-transfer dc-transfer-sup&quot;&gt;帮内切磋&lt;/span&gt;&lt;span class=&quot;dc-transfer dc-transfer-peace&quot;&gt;职位交棒&lt;/span&gt;&lt;/td&gt;&lt;td&gt;现任者转任教官；玩家原 Treasurer 席位由 NPC 补位。&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-reward-role&quot;&gt;Sergeant-at-arms&lt;/span&gt;开始管辖三名 Treasurer；沿用英雄养成。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;64:00–70:00&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop dc-loop-push&quot;&gt;L39 追回本帮物资&lt;/div&gt;&lt;/td&gt;&lt;td&gt;比利残党盗走物流中心物资 → 推关 &#215;3清理内部藏点 → SUP &#215;1护送物资返城 → 修复仓位。&lt;/td&gt;&lt;td&gt;守住本帮资产&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-transfer dc-transfer-push&quot;&gt;复合行动&lt;/span&gt;&lt;span class=&quot;dc-transfer dc-transfer-peace&quot;&gt;议会交接&lt;/span&gt;&lt;/td&gt;&lt;td&gt;完成行动后取代一名转任/退休的 Senior Members 席位。&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-reward-role&quot;&gt;Senior Members&#183;三席之一&lt;/span&gt;物资回库；不新增系统。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;70:00–76:00&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop dc-loop-sup&quot;&gt;L40 汉克回归&lt;/div&gt;&lt;/td&gt;&lt;td&gt;博邀请玩家迎接汉克出狱 → 车队护送 SUP &#215;1 → 议会确认汉克接受新的职责分工。&lt;/td&gt;&lt;td&gt;调和旧成员关系&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-transfer dc-transfer-tier&quot;&gt;元老履职&lt;/span&gt;&lt;/td&gt;&lt;td&gt;玩家与另外两名 Senior Members 同级。&lt;/td&gt;&lt;td&gt;获得副会长挑战提名；复用 SUP 与议会。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;76:00–82:00&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop dc-loop-sup&quot;&gt;L41 副会长传统挑战&lt;/div&gt;&lt;/td&gt;&lt;td&gt;汉克与元老见证 → 改装/路线选择 → 竞速 SUP &#215;1 → 带队返程。&lt;/td&gt;&lt;td&gt;赢得副会长席位&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-transfer dc-transfer-sup&quot;&gt;传统竞速&lt;/span&gt;&lt;span class=&quot;dc-transfer dc-transfer-peace&quot;&gt;主动交棒&lt;/span&gt;&lt;/td&gt;&lt;td&gt;韦恩交棒；玩家原 Senior Members 席位由 NPC 补位。&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-reward-role&quot;&gt;Vice President&lt;/span&gt;开始管辖三名 Senior Members；获得 Clubhouse 帮派管理权限。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;82:00–89:30&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop dc-loop-push&quot;&gt;L42 副会长履职&lt;/div&gt;&lt;/td&gt;&lt;td&gt;在 Clubhouse 召开议会 → 钱/油/物资补给 → 推关 &#215;3清理叛徒残余 → SUP &#215;1护送成员返城 → 修复建筑。&lt;/td&gt;&lt;td&gt;完成会长前履职&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-transfer dc-transfer-push&quot;&gt;岗位代理&lt;/span&gt;&lt;/td&gt;&lt;td&gt;杰森仍任 President，玩家代理本次内部行动。&lt;/td&gt;&lt;td&gt;触发会长提名；不新增系统。&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td class=&quot;dc-time&quot;&gt;89:30–90:00&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;dc-loop&quot;&gt;L43 会长和平交接&lt;/div&gt;&lt;/td&gt;&lt;td&gt;杰森提名科尔；全体议会表决。&lt;/td&gt;&lt;td&gt;玩家取代杰森；原 Vice President 席位由 NPC 补位&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-transfer dc-transfer-peace&quot;&gt;退位/提名/选举&lt;/span&gt;&lt;/td&gt;&lt;td&gt;副会长履职证明完整领袖能力。&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;dc-reward-role&quot;&gt;President&lt;/span&gt;统辖副会长线；获得 Clubhouse 帮派管理权限；一日版结束。&lt;/td&gt;&lt;/tr&gt;
+      &lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;dc-section&quot;&gt;
+      &lt;h2&gt;Part 3 &#183; 一日版本与正式版本分流&lt;/h2&gt;
+      &lt;div class=&quot;dc-branch&quot;&gt;
+        &lt;div&gt;&lt;h3&gt;正式版：官职链衔接大地图&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;60–64：枪战 SUP 切磋 → Sergeant-at-Arms。&lt;/li&gt;&lt;li&gt;64–70：追回本帮物资后进入大地图任务 → Senior Members。&lt;/li&gt;&lt;li&gt;70–76：迎接汉克回归并由议会选定地图目标。&lt;/li&gt;&lt;li&gt;76–82：竞速 SUP → Vice President，获得 Clubhouse 帮派管理权限。&lt;/li&gt;&lt;li&gt;82–89:30：以副会长身份完成一次大地图任务。&lt;/li&gt;&lt;li&gt;89:30–90：通过议会完成 President 交接。&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;h3&gt;一日版：同一官职链，重复既有玩法&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;60–64：枪战 SUP 完成武装队长切磋。&lt;/li&gt;&lt;li&gt;64–70：推关清理叛徒藏点，SUP 护送本帮物资返城。&lt;/li&gt;&lt;li&gt;70–76：迎接汉克回归，完成一次车队护送 SUP。&lt;/li&gt;&lt;li&gt;76–82：竞速 SUP 完成副会长挑战。&lt;/li&gt;&lt;li&gt;82–89:30：推关清理叛徒残余、SUP 护送返城并恢复建筑。&lt;/li&gt;&lt;li&gt;89:30–90：通过议会完成 President 交接。&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;dc-warning&quot;&gt;&lt;strong&gt;改编边界：&lt;/strong&gt;七月 Demo 台本后段未确认的玩法不进入本方案；对应剧情功能统一改为“叛徒残党盗运本帮物资 → 推关清理内部藏点 → SUP 护送返城 → 城建修复”。所有城市建筑始终属于我方帮派。&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;dc-section&quot; aria-labelledby=&quot;gang-tree-title&quot;&gt;
+      &lt;h2 id=&quot;gang-tree-title&quot;&gt;Part 4 &#183; 帮派树关系&lt;/h2&gt;
+      &lt;p class=&quot;dc-note&quot;&gt;开局快照：瓦尔特&#183;维尔所在的 T2 Full Patch 席位向下管理 3 名 T1 Prospect——雨果&#183;维尔、玩家角色和一个填位人。职级、人物与填位人位置逐格对照飞书《帮派树》revision 3872；T2 的三个同级席位仍分别直接连接 T3。&lt;/p&gt;
+      &lt;div class=&quot;org-legend&quot; aria-label=&quot;帮派树图例&quot;&gt;&lt;span&gt;&lt;i class=&quot;org-line&quot;&gt;&lt;/i&gt;玩家路径（T1 指向直属上级）&lt;/span&gt;&lt;span&gt;&lt;i class=&quot;org-line org-line-command&quot;&gt;&lt;/i&gt;直属管理/上级连接&lt;/span&gt;&lt;span&gt;玩家当前：T1 见习&lt;/span&gt;&lt;span&gt;未命名席位留空&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;org-scroll&quot;&gt;
+        &lt;svg class=&quot;org-chart&quot; viewBox=&quot;0 0 1000 1410&quot; role=&quot;img&quot; aria-labelledby=&quot;org-title org-desc&quot;&gt;
+          &lt;title id=&quot;org-title&quot;&gt;T1 到 T10 的帮派树&lt;/title&gt;
+          &lt;desc id=&quot;org-desc&quot;&gt;玩家默认位于 T1 见习主轴席。瓦尔特&#183;维尔所在的 T2 Full Patch 席位管理雨果&#183;维尔、玩家角色和一个填位人。各职级人物及填位人位置按飞书帮派树表逐格核对，T2 的三个席位分别直接连接 T3。&lt;/desc&gt;
+          &lt;defs&gt;
+            &lt;marker id=&quot;org-up&quot; markerWidth=&quot;10&quot; markerHeight=&quot;10&quot; refX=&quot;8&quot; refY=&quot;3&quot; orient=&quot;auto&quot;&gt;&lt;path d=&quot;M0,0 L0,6 L9,3 z&quot; fill=&quot;var(--viz-series-2)&quot;&gt;&lt;/path&gt;&lt;/marker&gt;
+            &lt;marker id=&quot;org-down&quot; markerWidth=&quot;10&quot; markerHeight=&quot;10&quot; refX=&quot;8&quot; refY=&quot;3&quot; orient=&quot;auto&quot;&gt;&lt;path d=&quot;M0,0 L0,6 L9,3 z&quot; fill=&quot;var(--viz-series-5)&quot;&gt;&lt;/path&gt;&lt;/marker&gt;
+          &lt;/defs&gt;
+
+          &lt;path class=&quot;org-promotion&quot; marker-end=&quot;url(#org-up)&quot; d=&quot;M500 1320 V1250&quot;&gt;&lt;/path&gt;
+          &lt;path class=&quot;org-promotion&quot; marker-end=&quot;url(#org-up)&quot; d=&quot;M500 1040 V970&quot;&gt;&lt;/path&gt;
+          &lt;path class=&quot;org-promotion&quot; marker-end=&quot;url(#org-up)&quot; d=&quot;M500 760 V690&quot;&gt;&lt;/path&gt;
+          &lt;path class=&quot;org-promotion&quot; marker-end=&quot;url(#org-up)&quot; d=&quot;M500 480 V410&quot;&gt;&lt;/path&gt;
+          &lt;path class=&quot;org-promotion&quot; marker-end=&quot;url(#org-up)&quot; d=&quot;M500 200 V130&quot;&gt;&lt;/path&gt;
+
+          &lt;path class=&quot;org-command&quot; marker-end=&quot;url(#org-down)&quot; d=&quot;M500 270 L160 340&quot;&gt;&lt;/path&gt;
+          &lt;path class=&quot;org-command&quot; marker-end=&quot;url(#org-down)&quot; d=&quot;M500 270 V340&quot;&gt;&lt;/path&gt;
+          &lt;path class=&quot;org-command&quot; marker-end=&quot;url(#org-down)&quot; d=&quot;M500 270 L850 340&quot;&gt;&lt;/path&gt;
+          &lt;path class=&quot;org-command&quot; marker-end=&quot;url(#org-down)&quot; d=&quot;M500 550 L160 620&quot;&gt;&lt;/path&gt;
+          &lt;path class=&quot;org-command&quot; marker-end=&quot;url(#org-down)&quot; d=&quot;M500 550 V620&quot;&gt;&lt;/path&gt;
+          &lt;path class=&quot;org-command&quot; marker-end=&quot;url(#org-down)&quot; d=&quot;M500 550 L850 620&quot;&gt;&lt;/path&gt;
+          &lt;path class=&quot;org-command&quot; marker-end=&quot;url(#org-down)&quot; d=&quot;M500 830 L160 900&quot;&gt;&lt;/path&gt;
+          &lt;path class=&quot;org-command&quot; marker-end=&quot;url(#org-down)&quot; d=&quot;M500 830 V900&quot;&gt;&lt;/path&gt;
+          &lt;path class=&quot;org-command&quot; marker-end=&quot;url(#org-down)&quot; d=&quot;M500 830 L850 900&quot;&gt;&lt;/path&gt;
+          &lt;path class=&quot;org-command&quot; marker-end=&quot;url(#org-down)&quot; d=&quot;M500 1110 L160 1180&quot;&gt;&lt;/path&gt;
+          &lt;path class=&quot;org-command&quot; marker-end=&quot;url(#org-down)&quot; d=&quot;M500 1110 V1180&quot;&gt;&lt;/path&gt;
+          &lt;path class=&quot;org-command&quot; marker-end=&quot;url(#org-down)&quot; d=&quot;M500 1110 L850 1180&quot;&gt;&lt;/path&gt;
+          &lt;path class=&quot;org-command&quot; marker-end=&quot;url(#org-down)&quot; d=&quot;M500 1250 L160 1320&quot;&gt;&lt;/path&gt;
+          &lt;path class=&quot;org-command&quot; marker-end=&quot;url(#org-down)&quot; d=&quot;M500 1250 V1320&quot;&gt;&lt;/path&gt;
+          &lt;path class=&quot;org-command&quot; marker-end=&quot;url(#org-down)&quot; d=&quot;M500 1250 L850 1320&quot;&gt;&lt;/path&gt;
+
+          &lt;g&gt;&lt;rect class=&quot;org-main-node&quot; x=&quot;390&quot; y=&quot;60&quot; width=&quot;220&quot; height=&quot;70&quot; rx=&quot;12&quot;&gt;&lt;/rect&gt;&lt;text class=&quot;org-rank-text&quot; x=&quot;500&quot; y=&quot;88&quot;&gt;T10 President（会长）&lt;/text&gt;&lt;text class=&quot;org-sub-text&quot; x=&quot;500&quot; y=&quot;112&quot;&gt;杰森“拉斯蒂”蒙哥马利&lt;/text&gt;&lt;/g&gt;
+          &lt;g&gt;&lt;rect class=&quot;org-main-node&quot; x=&quot;390&quot; y=&quot;200&quot; width=&quot;220&quot; height=&quot;70&quot; rx=&quot;12&quot;&gt;&lt;/rect&gt;&lt;text class=&quot;org-rank-text&quot; x=&quot;500&quot; y=&quot;228&quot;&gt;T9 Vice President（副会长）&lt;/text&gt;&lt;text class=&quot;org-sub-text&quot; x=&quot;500&quot; y=&quot;252&quot;&gt;韦恩&#183;“加斯”&#183;科瓦尔斯基&lt;/text&gt;&lt;/g&gt;
+          &lt;g aria-label=&quot;T8 Senior Members 空席&quot;&gt;&lt;rect class=&quot;org-empty-node&quot; x=&quot;40&quot; y=&quot;340&quot; width=&quot;220&quot; height=&quot;70&quot; rx=&quot;12&quot;&gt;&lt;/rect&gt;&lt;text class=&quot;org-rank-text&quot; x=&quot;150&quot; y=&quot;380&quot;&gt;T8 Senior Members（元老成员）&lt;/text&gt;&lt;/g&gt;
+          &lt;g&gt;&lt;rect class=&quot;org-main-node&quot; x=&quot;390&quot; y=&quot;340&quot; width=&quot;220&quot; height=&quot;70&quot; rx=&quot;12&quot;&gt;&lt;/rect&gt;&lt;text class=&quot;org-rank-text&quot; x=&quot;500&quot; y=&quot;368&quot;&gt;T8 Senior Members（元老成员）&lt;/text&gt;&lt;text class=&quot;org-sub-text&quot; x=&quot;500&quot; y=&quot;392&quot;&gt;汉克&#183;麦考密克&lt;/text&gt;&lt;/g&gt;
+          &lt;g aria-label=&quot;T8 Senior Members 空席&quot;&gt;&lt;rect class=&quot;org-empty-node&quot; x=&quot;740&quot; y=&quot;340&quot; width=&quot;220&quot; height=&quot;70&quot; rx=&quot;12&quot;&gt;&lt;/rect&gt;&lt;text class=&quot;org-rank-text&quot; x=&quot;850&quot; y=&quot;380&quot;&gt;T8 Senior Members（元老成员）&lt;/text&gt;&lt;/g&gt;
+          &lt;g&gt;&lt;rect class=&quot;org-main-node&quot; x=&quot;390&quot; y=&quot;480&quot; width=&quot;220&quot; height=&quot;70&quot; rx=&quot;12&quot;&gt;&lt;/rect&gt;&lt;text class=&quot;org-rank-text&quot; x=&quot;500&quot; y=&quot;506&quot;&gt;T7 Sergeant-at-arms&lt;/text&gt;&lt;text class=&quot;org-sub-text&quot; x=&quot;500&quot; y=&quot;525&quot;&gt;&lt;tspan x=&quot;500&quot;&gt;博&#183;蒙哥马尼 / 雷&#183;哈兰&lt;/tspan&gt;&lt;tspan x=&quot;500&quot; dy=&quot;14&quot;&gt;/ 填位人&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;
+          &lt;g&gt;&lt;rect class=&quot;org-peer-node&quot; x=&quot;40&quot; y=&quot;620&quot; width=&quot;220&quot; height=&quot;70&quot; rx=&quot;12&quot;&gt;&lt;/rect&gt;&lt;text class=&quot;org-rank-text&quot; x=&quot;150&quot; y=&quot;648&quot;&gt;T6 Treasurer（财务官）&lt;/text&gt;&lt;text class=&quot;org-sub-text&quot; x=&quot;150&quot; y=&quot;672&quot;&gt;伊莱&#183;马多克斯&lt;/text&gt;&lt;/g&gt;
+          &lt;g&gt;&lt;rect class=&quot;org-main-node&quot; x=&quot;390&quot; y=&quot;620&quot; width=&quot;220&quot; height=&quot;70&quot; rx=&quot;12&quot;&gt;&lt;/rect&gt;&lt;text class=&quot;org-rank-text&quot; x=&quot;500&quot; y=&quot;648&quot;&gt;T6 Treasurer（财务官）&lt;/text&gt;&lt;text class=&quot;org-sub-text&quot; x=&quot;500&quot; y=&quot;672&quot;&gt;戴尔&#183;万斯&lt;/text&gt;&lt;/g&gt;
+          &lt;g aria-label=&quot;T6 Treasurer 填位人&quot;&gt;&lt;rect class=&quot;org-empty-node&quot; x=&quot;740&quot; y=&quot;620&quot; width=&quot;220&quot; height=&quot;70&quot; rx=&quot;12&quot;&gt;&lt;/rect&gt;&lt;text class=&quot;org-rank-text&quot; x=&quot;850&quot; y=&quot;648&quot;&gt;T6 Treasurer（财务官）&lt;/text&gt;&lt;text class=&quot;org-sub-text&quot; x=&quot;850&quot; y=&quot;672&quot;&gt;填位人&lt;/text&gt;&lt;/g&gt;
+          &lt;g&gt;&lt;rect class=&quot;org-main-node&quot; x=&quot;390&quot; y=&quot;760&quot; width=&quot;220&quot; height=&quot;70&quot; rx=&quot;12&quot;&gt;&lt;/rect&gt;&lt;text class=&quot;org-rank-text&quot; x=&quot;500&quot; y=&quot;786&quot;&gt;T5 Road Captain（路线队长）&lt;/text&gt;&lt;text class=&quot;org-sub-text&quot; x=&quot;500&quot; y=&quot;805&quot;&gt;&lt;tspan x=&quot;500&quot;&gt;填位人 / 比利&#183;克鲁斯&lt;/tspan&gt;&lt;tspan x=&quot;500&quot; dy=&quot;14&quot;&gt;/ 填位人&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;
+          &lt;g&gt;&lt;rect class=&quot;org-peer-node&quot; x=&quot;40&quot; y=&quot;900&quot; width=&quot;220&quot; height=&quot;70&quot; rx=&quot;12&quot;&gt;&lt;/rect&gt;&lt;text class=&quot;org-rank-text&quot; x=&quot;150&quot; y=&quot;928&quot;&gt;T4 Roadman（路线成员）&lt;/text&gt;&lt;text class=&quot;org-sub-text&quot; x=&quot;150&quot; y=&quot;952&quot;&gt;斯宾塞&#183;曼森&lt;/text&gt;&lt;/g&gt;
+          &lt;g&gt;&lt;rect class=&quot;org-main-node&quot; x=&quot;390&quot; y=&quot;900&quot; width=&quot;220&quot; height=&quot;70&quot; rx=&quot;12&quot;&gt;&lt;/rect&gt;&lt;text class=&quot;org-rank-text&quot; x=&quot;500&quot; y=&quot;928&quot;&gt;T4 Roadman（路线成员）&lt;/text&gt;&lt;text class=&quot;org-sub-text&quot; x=&quot;500&quot; y=&quot;952&quot;&gt;卡莱布&#183;奥尔森&lt;/text&gt;&lt;/g&gt;
+          &lt;g aria-label=&quot;T4 Roadman 填位人&quot;&gt;&lt;rect class=&quot;org-empty-node&quot; x=&quot;740&quot; y=&quot;900&quot; width=&quot;220&quot; height=&quot;70&quot; rx=&quot;12&quot;&gt;&lt;/rect&gt;&lt;text class=&quot;org-rank-text&quot; x=&quot;850&quot; y=&quot;928&quot;&gt;T4 Roadman（路线成员）&lt;/text&gt;&lt;text class=&quot;org-sub-text&quot; x=&quot;850&quot; y=&quot;952&quot;&gt;填位人&lt;/text&gt;&lt;/g&gt;
+          &lt;g&gt;&lt;rect class=&quot;org-main-node&quot; x=&quot;390&quot; y=&quot;1040&quot; width=&quot;220&quot; height=&quot;70&quot; rx=&quot;12&quot;&gt;&lt;/rect&gt;&lt;text class=&quot;org-rank-text&quot; x=&quot;500&quot; y=&quot;1066&quot;&gt;T3 Enforcer（打手）&lt;/text&gt;&lt;text class=&quot;org-sub-text&quot; x=&quot;500&quot; y=&quot;1085&quot;&gt;&lt;tspan x=&quot;500&quot;&gt;填位人 / 科腾&#183;万斯&lt;/tspan&gt;&lt;tspan x=&quot;500&quot; dy=&quot;14&quot;&gt;/ 填位人&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;
+          &lt;g aria-label=&quot;T2 Full Patch 填位人&quot;&gt;&lt;rect class=&quot;org-empty-node&quot; x=&quot;40&quot; y=&quot;1180&quot; width=&quot;220&quot; height=&quot;70&quot; rx=&quot;12&quot;&gt;&lt;/rect&gt;&lt;text class=&quot;org-rank-text&quot; x=&quot;150&quot; y=&quot;1208&quot;&gt;T2 Full Patch（正式成员）&lt;/text&gt;&lt;text class=&quot;org-sub-text&quot; x=&quot;150&quot; y=&quot;1232&quot;&gt;填位人&lt;/text&gt;&lt;/g&gt;
+          &lt;g&gt;&lt;rect class=&quot;org-main-node&quot; x=&quot;390&quot; y=&quot;1180&quot; width=&quot;220&quot; height=&quot;70&quot; rx=&quot;12&quot;&gt;&lt;/rect&gt;&lt;text class=&quot;org-rank-text&quot; x=&quot;500&quot; y=&quot;1208&quot;&gt;T2 Full Patch（正式成员）&lt;/text&gt;&lt;text class=&quot;org-sub-text&quot; x=&quot;500&quot; y=&quot;1232&quot;&gt;瓦尔特&#183;维尔&lt;/text&gt;&lt;/g&gt;
+          &lt;g aria-label=&quot;T2 Full Patch 填位人&quot;&gt;&lt;rect class=&quot;org-empty-node&quot; x=&quot;740&quot; y=&quot;1180&quot; width=&quot;220&quot; height=&quot;70&quot; rx=&quot;12&quot;&gt;&lt;/rect&gt;&lt;text class=&quot;org-rank-text&quot; x=&quot;850&quot; y=&quot;1208&quot;&gt;T2 Full Patch（正式成员）&lt;/text&gt;&lt;text class=&quot;org-sub-text&quot; x=&quot;850&quot; y=&quot;1232&quot;&gt;填位人&lt;/text&gt;&lt;/g&gt;
+          &lt;g&gt;&lt;rect class=&quot;org-peer-node&quot; x=&quot;40&quot; y=&quot;1320&quot; width=&quot;220&quot; height=&quot;70&quot; rx=&quot;12&quot;&gt;&lt;/rect&gt;&lt;text class=&quot;org-rank-text&quot; x=&quot;150&quot; y=&quot;1348&quot;&gt;T1 Prospect（见习）&lt;/text&gt;&lt;text class=&quot;org-sub-text&quot; x=&quot;150&quot; y=&quot;1372&quot;&gt;雨果&#183;维尔&lt;/text&gt;&lt;/g&gt;
+          &lt;g&gt;&lt;rect class=&quot;org-player-node&quot; x=&quot;390&quot; y=&quot;1320&quot; width=&quot;220&quot; height=&quot;70&quot; rx=&quot;12&quot;&gt;&lt;/rect&gt;&lt;text class=&quot;org-rank-text&quot; x=&quot;500&quot; y=&quot;1348&quot;&gt;T1 Prospect（见习）&lt;/text&gt;&lt;text class=&quot;org-sub-text&quot; x=&quot;500&quot; y=&quot;1372&quot;&gt;玩家角色&lt;/text&gt;&lt;/g&gt;
+          &lt;g aria-label=&quot;T1 Prospect 填位人&quot;&gt;&lt;rect class=&quot;org-empty-node&quot; x=&quot;740&quot; y=&quot;1320&quot; width=&quot;220&quot; height=&quot;70&quot; rx=&quot;12&quot;&gt;&lt;/rect&gt;&lt;text class=&quot;org-rank-text&quot; x=&quot;850&quot; y=&quot;1348&quot;&gt;T1 Prospect（见习）&lt;/text&gt;&lt;text class=&quot;org-sub-text&quot; x=&quot;850&quot; y=&quot;1372&quot;&gt;填位人&lt;/text&gt;&lt;/g&gt;
+        &lt;/svg&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;org-rule-grid&quot;&gt;
+        &lt;div&gt;&lt;b&gt;开局 T1&lt;/b&gt;&lt;span&gt;玩家、雨果与一个未命名见习席，均直属瓦尔特所在的 T2。&lt;/span&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;b&gt;晋升 T2&lt;/b&gt;&lt;span&gt;玩家和平填入一个 T2 空席；每个 T2 管理自己的 3 名 T1。&lt;/span&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;b&gt;T2 同级关系&lt;/b&gt;&lt;span&gt;玩家不能管辖另外两个 T2；只管理本席直属的三个见习。&lt;/span&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;b&gt;晋升 T3&lt;/b&gt;&lt;span&gt;玩家取代 Enforcer 后，才统一管辖三个 T2 席位。&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;h3 id=&quot;dc-source-roster&quot;&gt;飞书席位逐级核对&lt;/h3&gt;
+      &lt;p class=&quot;dc-note&quot;&gt;下表逐格对应《DOBE世界观方案 - 摩托帮》“帮派树”工作表 C / F / J 三个位置；“填位人”和空白均按原表保留，不再自行省略或调换人物。&lt;/p&gt;
+      &lt;div class=&quot;table-responsive&quot;&gt;&lt;table class=&quot;table table-sm source-roster-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;职级&lt;/th&gt;&lt;th&gt;左位&lt;/th&gt;&lt;th&gt;主轴&lt;/th&gt;&lt;th&gt;右位&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+        &lt;tr&gt;&lt;td&gt;T10 President（会长）&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;td&gt;杰森“拉斯蒂”蒙哥马利&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T9 Vice President（副会长）&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;td&gt;韦恩&#183;“加斯”&#183;科瓦尔斯基&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T8 Senior Members（元老成员）&lt;/td&gt;&lt;td&gt;空白&lt;/td&gt;&lt;td&gt;汉克&#183;麦考密克&lt;/td&gt;&lt;td&gt;空白&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T7 Sergeant-at-arms（武装队长）&lt;/td&gt;&lt;td&gt;博&#183;蒙哥马尼&lt;/td&gt;&lt;td&gt;雷&#183;哈兰&lt;/td&gt;&lt;td&gt;填位人&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T6 Treasurer（财务官）&lt;/td&gt;&lt;td&gt;伊莱&#183;马多克斯&lt;/td&gt;&lt;td&gt;戴尔&#183;万斯&lt;/td&gt;&lt;td&gt;填位人&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T5 Road Captain（路线队长）&lt;/td&gt;&lt;td&gt;填位人&lt;/td&gt;&lt;td&gt;比利&#183;克鲁斯&lt;/td&gt;&lt;td&gt;填位人&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T4 Roadman（路线成员）&lt;/td&gt;&lt;td&gt;斯宾塞&#183;曼森&lt;/td&gt;&lt;td&gt;卡莱布&#183;奥尔森&lt;/td&gt;&lt;td&gt;填位人&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T3 Enforcer（打手）&lt;/td&gt;&lt;td&gt;填位人&lt;/td&gt;&lt;td&gt;科腾&#183;万斯&lt;/td&gt;&lt;td&gt;填位人&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T2 Full Patch（正式成员）&lt;/td&gt;&lt;td&gt;填位人&lt;/td&gt;&lt;td&gt;瓦尔特&#183;维尔&lt;/td&gt;&lt;td&gt;填位人&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T1 Prospect（见习）&lt;/td&gt;&lt;td&gt;雨果&#183;维尔&lt;/td&gt;&lt;td&gt;玩家角色&lt;/td&gt;&lt;td&gt;填位人&lt;/td&gt;&lt;/tr&gt;
+      &lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+
+      &lt;h3&gt;职级对应功能&lt;/h3&gt;
+      &lt;div class=&quot;table-responsive&quot;&gt;&lt;table class=&quot;table table-sm rank-unlock-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;层级&lt;/th&gt;&lt;th&gt;职级&lt;/th&gt;&lt;th&gt;席位结构&lt;/th&gt;&lt;th&gt;建筑 / 系统解锁&lt;/th&gt;&lt;th&gt;功能解锁&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+        &lt;tr&gt;&lt;td&gt;T1&lt;/td&gt;&lt;td&gt;Prospect / 见习&lt;/td&gt;&lt;td&gt;每个 T2 下属 3 席；开局为雨果、玩家、1 个空席&lt;/td&gt;&lt;td&gt;改装厂&#183;仅使用权&lt;/td&gt;&lt;td&gt;打工、改车、MG-A；无管理/城建权限&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T2&lt;/td&gt;&lt;td&gt;Full Patch / 正式成员&lt;/td&gt;&lt;td&gt;三席同级层；每席管理 3 名 T1&lt;/td&gt;&lt;td&gt;改装厂&#183;正式接管/城建&lt;/td&gt;&lt;td&gt;管理直属见习、议会、正式成员任务、Enforcer 考核&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T3&lt;/td&gt;&lt;td&gt;Enforcer / 打手&lt;/td&gt;&lt;td&gt;管理 3 名 T2&lt;/td&gt;&lt;td&gt;废车回收厂、零件&lt;/td&gt;&lt;td&gt;复仇任务、推关首次解锁&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T4&lt;/td&gt;&lt;td&gt;Roadman / 路线成员&lt;/td&gt;&lt;td&gt;三席同级层&lt;/td&gt;&lt;td&gt;商业街、钱&lt;/td&gt;&lt;td&gt;商业街内部交接、警长交易&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T5&lt;/td&gt;&lt;td&gt;Road Captain / 路线队长&lt;/td&gt;&lt;td&gt;管理 3 名 T4&lt;/td&gt;&lt;td&gt;加油站、油&lt;/td&gt;&lt;td&gt;路线调度、远程补给、下级英雄&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T6&lt;/td&gt;&lt;td&gt;Treasurer / 财务官&lt;/td&gt;&lt;td&gt;三席同级层&lt;/td&gt;&lt;td&gt;物流中心、物资&lt;/td&gt;&lt;td&gt;管理钱、油、物资的消耗与运输；不新增系统&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T7&lt;/td&gt;&lt;td&gt;Sergeant-at-arms / 武装队长&lt;/td&gt;&lt;td&gt;管理 3 名 T6&lt;/td&gt;&lt;td&gt;获得下级英雄&lt;/td&gt;&lt;td&gt;沿用英雄养成，继续游玩 SUP/推关&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T8&lt;/td&gt;&lt;td&gt;Senior Members / 元老成员&lt;/td&gt;&lt;td&gt;三席同级层&lt;/td&gt;&lt;td&gt;—&lt;/td&gt;&lt;td&gt;议会选择任务，继续游玩 SUP/推关&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T9&lt;/td&gt;&lt;td&gt;Vice President / 副会长&lt;/td&gt;&lt;td&gt;管理 3 名 T8&lt;/td&gt;&lt;td&gt;枪械/载具投放节点&lt;/td&gt;&lt;td&gt;Clubhouse 帮派管理，继续游玩 SUP/推关&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T10&lt;/td&gt;&lt;td&gt;President / 会长&lt;/td&gt;&lt;td&gt;顶层单席&lt;/td&gt;&lt;td&gt;Clubhouse、建筑升级解除限制&lt;/td&gt;&lt;td&gt;统辖副会长线；一日版终点&lt;/td&gt;&lt;/tr&gt;
+      &lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+      &lt;div class=&quot;gt-foot&quot;&gt;职级名称参考“帮派树”revision 3872，功能参考“帮派树详细”revision 888；席位与管辖结构按本轮确认规则重画。&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;dc-section succession-part&quot; id=&quot;dc-promotion-scenes&quot; aria-labelledby=&quot;succession-title&quot;&gt;
+      &lt;h3 id=&quot;succession-title&quot;&gt;全职位晋升的游戏内表现&lt;/h3&gt;
+      &lt;p class=&quot;dc-note&quot;&gt;本 Part 描述玩家在游戏中实际看到和操作的完整场景：任务进入、玩法证明、角色反应、职位交接、界面反馈与新权限首次使用。职位交接只是场景中的一个环节，建筑接管仍放在后续独立循环。&lt;/p&gt;
+      &lt;div class=&quot;table-responsive&quot;&gt;&lt;table class=&quot;table table-sm dc-promotion-table&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;晋升目标&lt;/th&gt;&lt;th&gt;玩法 TAG&lt;/th&gt;&lt;th&gt;席位与原职位关系&lt;/th&gt;&lt;th&gt;玩法证明&lt;/th&gt;&lt;th&gt;游戏内表现&lt;/th&gt;&lt;th&gt;取代结果与立即解锁&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+        &lt;tr&gt;&lt;td&gt;T1 Prospect&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;rc-tag rc-meeting&quot;&gt;会议&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平&lt;/span&gt;&lt;/td&gt;&lt;td&gt;原 Prospect 晋升或转任，入门席位空出&lt;/td&gt;&lt;td&gt;帮规确认与入会任务&lt;/td&gt;&lt;td&gt;杰森确认玩家可以留下，博为玩家戴上见习背章；帮派树弹出并聚焦 T1 与改装厂使用权。&lt;span class=&quot;dc-transfer dc-transfer-peace&quot;&gt;背章交接&lt;/span&gt;&lt;/td&gt;&lt;td&gt;取代入门席；获得改装厂使用权，无管理/城建权限&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T2 Full Patch&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;rc-tag rc-meeting&quot;&gt;会议&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平直接提升&lt;/span&gt;&lt;/td&gt;&lt;td&gt;特殊例外：玩家从瓦尔特所辖 T1 离开并填入 T2 空席，不要求原 Full Patch 离职&lt;/td&gt;&lt;td&gt;枪战 SUP 完成袭击目标车队任务，返程骑行中获得正式邀请&lt;/td&gt;&lt;td&gt;玩家首次进入议会，成员投票确认身份；帮派树显示玩家进入 T2 空席及其 3 名直属 T1，会议同时发布任务并授予改装厂管理授权。&lt;span class=&quot;dc-transfer dc-transfer-peace&quot;&gt;无职位交接&lt;/span&gt;&lt;/td&gt;&lt;td&gt;进入正式成员层；每个 T2 管理 3 名 T1；解锁改装厂现场接管与城建&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T3 Enforcer&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;rc-tag rc-sup&quot;&gt;SUP&lt;/span&gt;&lt;span class=&quot;rc-tag rc-meeting&quot;&gt;会议&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平&lt;/span&gt;&lt;/td&gt;&lt;td&gt;管理 3 名 T2；原 Enforcer 转任&lt;/td&gt;&lt;td&gt;竞速后从追杀中生还，换新车并完成枪战复仇&lt;/td&gt;&lt;td&gt;玩家驾驶第二辆车完成复仇并带回负责人遗物；回帮会议中现任 Enforcer 转任，老大完成职位与废车场管理授权交接。&lt;span class=&quot;dc-transfer dc-transfer-sup&quot;&gt;复仇证明&lt;/span&gt;&lt;span class=&quot;dc-transfer dc-transfer-peace&quot;&gt;会议交接&lt;/span&gt;&lt;/td&gt;&lt;td&gt;取代管理席；原 T2 席位补位；管辖三名 T2；解锁废车回收厂&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T4 Roadman&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;rc-tag rc-meeting&quot;&gt;会议&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平&lt;/span&gt;&lt;/td&gt;&lt;td&gt;三席之一；现任 Roadman 转任&lt;/td&gt;&lt;td&gt;以 Enforcer 身份恢复废车场并通过推关追回商业街账册&lt;/td&gt;&lt;td&gt;玩家提交账册并完成内应清理；第三幕开场会议中现任 Roadman 转任，完成背章与商业街管理权限交接。&lt;span class=&quot;dc-transfer dc-transfer-peace&quot;&gt;会议交接&lt;/span&gt;&lt;/td&gt;&lt;td&gt;取代一名 Roadman；另外两席仍为同级；解锁商业街正式接管&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T5 Road Captain&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;rc-tag rc-sup&quot;&gt;SUP&lt;/span&gt;&lt;span class=&quot;rc-tag rc-meeting&quot;&gt;会议&lt;/span&gt;&lt;/td&gt;&lt;td&gt;管理 3 名 T4；比利叛变失去席位&lt;/td&gt;&lt;td&gt;议会制裁 + SUP 追击&lt;/td&gt;&lt;td&gt;庆功后的议会公布比利罪证；玩家追上逃亡的比利，完成处决/掩护并取回背章，返程后被正式任命。&lt;span class=&quot;dc-transfer dc-transfer-lethal&quot;&gt;叛徒制裁&lt;/span&gt;&lt;span class=&quot;dc-transfer dc-transfer-peace&quot;&gt;议会任命&lt;/span&gt;&lt;/td&gt;&lt;td&gt;取代比利；原 T4 席位补位；管辖三名 T4；解锁加油站&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T6 Treasurer&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;rc-tag rc-meeting&quot;&gt;会议&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平&lt;/span&gt;&lt;/td&gt;&lt;td&gt;三席之一；戴尔持有其中一席&lt;/td&gt;&lt;td&gt;梅丽尔救援 + 追回物流账本&lt;/td&gt;&lt;td&gt;玩家交出救援中追回的账本；戴尔因失察辞任并递交财务账册，物流中心权限点亮。&lt;span class=&quot;dc-transfer dc-transfer-peace&quot;&gt;失察辞任/账册交接&lt;/span&gt;&lt;/td&gt;&lt;td&gt;取代戴尔的一席；另外两席仍是同级；解锁物流中心&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T7 Sergeant-at-arms&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;rc-tag rc-sup&quot;&gt;SUP&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平&lt;/span&gt;&lt;/td&gt;&lt;td&gt;管理 3 名 T6；现任者转任教官&lt;/td&gt;&lt;td&gt;钱/油/物资补给 + 友好枪战 SUP&lt;/td&gt;&lt;td&gt;玩家完成补给和友好枪战；议会复盘时现任者转任教官并交出指挥权。&lt;span class=&quot;dc-transfer dc-transfer-sup&quot;&gt;帮内切磋&lt;/span&gt;&lt;span class=&quot;dc-transfer dc-transfer-peace&quot;&gt;指挥权交接&lt;/span&gt;&lt;/td&gt;&lt;td&gt;取代管理席；原 T6 席位补位；管辖三名 T6；获得下级英雄并沿用英雄养成&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T8 Senior Members&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;rc-tag rc-push&quot;&gt;推关战斗&lt;/span&gt;&lt;span class=&quot;rc-tag rc-meeting&quot;&gt;会议&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平&lt;/span&gt;&lt;/td&gt;&lt;td&gt;三席之一；原席位者转任/退休&lt;/td&gt;&lt;td&gt;产业防卫&lt;/td&gt;&lt;td&gt;玩家通过推关和 SUP 完成产业防卫；原元老在议会复盘后让出席位。&lt;span class=&quot;dc-transfer dc-transfer-push&quot;&gt;复合行动&lt;/span&gt;&lt;span class=&quot;dc-transfer dc-transfer-peace&quot;&gt;会议交接&lt;/span&gt;&lt;/td&gt;&lt;td&gt;取代一席；另外两席仍是同级&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T9 Vice President&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;rc-tag rc-sup&quot;&gt;SUP&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平&lt;/span&gt;&lt;/td&gt;&lt;td&gt;管理 3 名 T8；韦恩为现任者&lt;/td&gt;&lt;td&gt;传统竞速挑战&lt;/td&gt;&lt;td&gt;玩家选择改装与路线后和韦恩竞速；胜利并带队返程，韦恩当众主动交棒。&lt;span class=&quot;dc-transfer dc-transfer-sup&quot;&gt;竞速&lt;/span&gt;&lt;span class=&quot;dc-transfer dc-transfer-peace&quot;&gt;主动交棒&lt;/span&gt;&lt;/td&gt;&lt;td&gt;取代韦恩；原 T8 席位补位；管辖三名 T8；获得 Clubhouse 帮派管理权限&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;T10 President&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;rc-tag rc-meeting&quot;&gt;会议&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平&lt;/span&gt;&lt;/td&gt;&lt;td&gt;顶层单席；杰森为现任者&lt;/td&gt;&lt;td&gt;以副会长身份完成既有玩法循环&lt;/td&gt;&lt;td&gt;全体议会中杰森提名玩家；成员完成表决，杰森交出会长席位与 Clubhouse 权限。&lt;span class=&quot;dc-transfer dc-transfer-peace&quot;&gt;提名/选举/交接&lt;/span&gt;&lt;/td&gt;&lt;td&gt;取代杰森；原 T9 席位补位；统辖副会长线；一日版结束&lt;/td&gt;&lt;/tr&gt;
+      &lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+      &lt;div class=&quot;org-rule-grid&quot;&gt;
+        &lt;div&gt;&lt;b&gt;和平交接&lt;/b&gt;&lt;span&gt;晋升、转任、退休或主动让位，仍需明确转移席位和权限。&lt;/span&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;b&gt;SUP / 切磋&lt;/b&gt;&lt;span&gt;竞速、追击、护送或枪战胜利提供取代资格。&lt;/span&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;b&gt;推关 / 叛徒&lt;/b&gt;&lt;span&gt;代理带队、救援、组织防卫或清理内部叛徒。&lt;/span&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;b&gt;会议确认&lt;/b&gt;&lt;span&gt;只承担最终任命与权限转移，纯演出控制在 10–30 秒。&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;div class=&quot;dc-source&quot;&gt;依据《一日渐进线汇总一图流》revision 67 中首个有效“基础信息”画板、《七月 Demo 台本》revision 4963、《DOBE世界观方案－摩托帮》revision 3872 与《帮派树详细》revision 888 调整；文档内标注“草稿，废弃不用”的后续画板未纳入。演出时间仅统计不可操作的纯演出；系统教学、选择、改装、领取、骑行与结算均计入可玩时间。&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+(() =&gt; {
+  const root = document.getElementById(&#39;dobe-compressed-loops&#39;);
+  if (!root) return;
+  const sectionIds = {
+    &#39;Part 3 &#183; 一日版本与正式版本分流&#39;:&#39;dc-version-branch&#39;,
+    &#39;Part 4 &#183; 帮派树关系&#39;:&#39;dc-gang-tree&#39;
+  };
+  root.querySelectorAll(&#39;.dc-section&#39;).forEach(section =&gt; {
+    const heading = section.querySelector(&#39;h2&#39;);
+    const id = heading &amp;&amp; sectionIds[heading.textContent.trim()];
+    if (!id) return;
+    section.id = id;
+    heading.id = `${id}-title`;
+    section.setAttribute(&#39;aria-labelledby&#39;, heading.id);
+  });
+  const actIds = [&#39;dc-act-prologue&#39;,&#39;dc-act-1&#39;,&#39;dc-act-2&#39;,&#39;dc-act-3&#39;,&#39;dc-act-4&#39;,&#39;dc-act-5&#39;];
+  root.querySelectorAll(&#39;.dc-act&#39;).forEach((act, index) =&gt; {
+    if (actIds[index]) act.id = actIds[index];
+  });
+  const versionHeadings = root.querySelectorAll(&#39;#dc-version-branch h3&#39;);
+  if (versionHeadings[0]) versionHeadings[0].id = &#39;dc-version-formal&#39;;
+  if (versionHeadings[1]) versionHeadings[1].id = &#39;dc-version-one-day&#39;;
+  const rankFunctionHeading = [...root.querySelectorAll(&#39;#dc-gang-tree h3&#39;)].find(node =&gt; node.textContent.trim() === &#39;职级对应功能&#39;);
+  if (rankFunctionHeading) rankFunctionHeading.id = &#39;dc-rank-functions&#39;;
+
+  const tocItems = [
+    { id:&#39;dc-overview&#39;, label:&#39;Dobe一日渐进规划&#39;, level:2 },
+    { id:&#39;dc-part-1&#39;, label:&#39;Part 1 &#183; 已确定信息&#39;, level:2 },
+    { id:&#39;dc-confirmed-docs&#39;, label:&#39;关联文档&#39;, level:3 },
+    { id:&#39;dc-confirmed-framework&#39;, label:&#39;内容与成长框架&#39;, level:3 },
+    { id:&#39;dc-drop-overview&#39;, label:&#39;投放总览&#39;, level:3 },
+    { id:&#39;dc-confirmed-buildings&#39;, label:&#39;确定建筑与功能&#39;, level:3 },
+    { id:&#39;dc-confirmed-anchors&#39;, label:&#39;版本锚点&#39;, level:3 },
+    { id:&#39;dc-part-2&#39;, label:&#39;Part 2 &#183; 渐进规划&#39;, level:2 },
+    { id:&#39;dc-story-causal-title&#39;, label:&#39;整体剧情因果&#39;, level:3 },
+    { id:&#39;dc-act-relations-title&#39;, label:&#39;六幕关系&#39;, level:3 },
+    { id:&#39;dc-act-prologue&#39;, label:&#39;序幕 &#183; 被卷入&#39;, level:3 },
+    { id:&#39;dc-act-1&#39;, label:&#39;第一幕 &#183; 见习与转正&#39;, level:3 },
+    { id:&#39;dc-act-2&#39;, label:&#39;第二幕 &#183; 追杀与废车场&#39;, level:3 },
+    { id:&#39;dc-act-3&#39;, label:&#39;第三幕 &#183; 商业街与叛徒&#39;, level:3 },
+    { id:&#39;dc-act-4&#39;, label:&#39;第四幕 &#183; 救援与物流&#39;, level:3 },
+    { id:&#39;dc-act-5&#39;, label:&#39;第五幕 &#183; 高阶晋升&#39;, level:3 },
+    { id:&#39;dc-version-branch&#39;, label:&#39;Part 3 &#183; 版本分流&#39;, level:2 },
+    { id:&#39;dc-version-formal&#39;, label:&#39;正式版大地图&#39;, level:3 },
+    { id:&#39;dc-version-one-day&#39;, label:&#39;一日版重复游玩&#39;, level:3 },
+    { id:&#39;dc-gang-tree&#39;, label:&#39;Part 4 &#183; 帮派树关系&#39;, level:2 },
+    { id:&#39;dc-source-roster&#39;, label:&#39;飞书席位逐级核对&#39;, level:3 },
+    { id:&#39;dc-rank-functions&#39;, label:&#39;职级对应功能&#39;, level:3 },
+    { id:&#39;dc-promotion-scenes&#39;, label:&#39;全职位游戏内表现&#39;, level:3 }
+  ].filter(item =&gt; document.getElementById(item.id));
+  const tocNav = root.querySelector(&#39;#dobe-toc-nav&#39;);
+  const tocList = document.createElement(&#39;ul&#39;);
+  tocList.className = &#39;dc-toc-list&#39;;
+  const links = new Map();
+  const setActive = id =&gt; {
+    links.forEach((link, key) =&gt; link.classList.toggle(&#39;is-active&#39;, key === id));
+    const active = links.get(id);
+    if (active) active.setAttribute(&#39;aria-current&#39;, &#39;location&#39;);
+    links.forEach((link, key) =&gt; { if (key !== id) link.removeAttribute(&#39;aria-current&#39;); });
+  };
+  tocItems.forEach(item =&gt; {
+    const listItem = document.createElement(&#39;li&#39;);
+    listItem.className = &#39;dc-toc-item&#39;;
+    const link = document.createElement(&#39;a&#39;);
+    link.className = &#39;dc-toc-link&#39;;
+    link.href = `#${item.id}`;
+    link.dataset.level = String(item.level);
+    link.textContent = item.label;
+    link.addEventListener(&#39;click&#39;, event =&gt; {
+      event.preventDefault();
+      const target = document.getElementById(item.id);
+      if (!target) return;
+      const behavior = window.matchMedia(&#39;(prefers-reduced-motion: reduce)&#39;).matches ? &#39;auto&#39; : &#39;smooth&#39;;
+      target.scrollIntoView({ behavior, block:&#39;start&#39; });
+      setActive(item.id);
+    });
+    listItem.appendChild(link);
+    tocList.appendChild(listItem);
+    links.set(item.id, link);
+  });
+  tocNav.appendChild(tocList);
+  setActive(&#39;dc-overview&#39;);
+  if (&#39;IntersectionObserver&#39; in window) {
+    const observer = new IntersectionObserver(entries =&gt; {
+      const visible = entries.filter(entry =&gt; entry.isIntersecting).sort((a, b) =&gt; a.boundingClientRect.top - b.boundingClientRect.top);
+      if (visible[0]) setActive(visible[0].target.id);
+    }, { rootMargin:&#39;-8% 0px -76% 0px&#39;, threshold:[0, 1] });
+    tocItems.forEach(item =&gt; observer.observe(document.getElementById(item.id)));
+  }
+
+  const headers = [&#39;时间&#39;,&#39;循环&#39;,&#39;动机&#39;,&#39;玩法与剧情 / 次数&#39;,&#39;游戏内表现&#39;,&#39;奖励与接续&#39;];
+  const promotionIds = new Set([&#39;L05&#39;,&#39;L10&#39;,&#39;L22&#39;,&#39;L27&#39;,&#39;L31&#39;,&#39;L35&#39;,&#39;L38&#39;,&#39;L39&#39;,&#39;L41&#39;,&#39;L43&#39;]);
+  const inGameScenes = {
+    L01:&#39;无人机航拍公路并叠加警方追捕播报；镜头下拉进入汽车视角，玩家完成第一次警匪追逐 SUP，以闪避、择路和甩脱为主。&#39;,
+    L02:&#39;博与摩托帮成员介入并分流部分警力，把玩家引到高架桥下或废弃服务区，亲手交给玩家一个氮气罐。&#39;,
+    L03:&#39;玩家直接在当前汽车上完成约 30 秒的氮气安装；全程不进入车库、车辆养成界面或资源结算。&#39;,
+    L04:&#39;警方重新锁定玩家并设置封锁；玩家在第二次 SUP 中使用刚装好的氮气突破包围，甩脱警方。&#39;,
+    L05:&#39;玩家完成约 30 秒骑行小游戏；博在骑行中讲解帮派和玩家无处落脚的危机，抵达后杰森允许其先以见习留下，帮派树聚焦 T1 与改装厂使用权。&#39;,
+    L06:&#39;玩家在改装厂连续维修两辆帮派摩托；每辆约 30 秒，两次交付后统一结算钱并引出转正任务。&#39;,
+    L07:&#39;博说明任务是袭击指定车队，交给玩家一个剧情配件；玩家用约 30 秒强化自己的车，随后领取枪支并出发。&#39;,
+    L08:&#39;玩家用一次枪战 SUP 袭击目标车队并夺货，完成转正任务；本幕不出现武装肌肉车追杀。&#39;,
+    L09:&#39;玩家带着货物完成约 30 秒返程骑行；博和成员沿途夸奖其驾驶、改装与枪战技术，正式邀请其加入并带入会议。&#39;,
+    L10:&#39;玩家首次进入议会；成员投票确认其正式加入并授予 Full Patch，同时发布会议任务和改装厂管理授权，要求会后自行接管。&#39;,
+    L11:&#39;玩家抵达改装厂，在建筑入口点击接管；建筑状态和管理入口随即开放，整个过程 30 秒完成。&#39;,
+    L12:&#39;玩家进入城建界面升级首个子建筑；升级结束后开放小弟派遣条件，但改装厂尚未自动运行。&#39;,
+    L13:&#39;帮派大佬提示玩家可以带小弟；玩家进入帮派树点击接管，再把小弟派遣到改装厂，看到自动运行状态生效。&#39;,
+    L14:&#39;帮派邀请玩家参加 SUP 赛车，并要求其赛前先去废车场处理黑市车辆、准备配件。&#39;,
+    L15:&#39;玩家在本帮废车场连续拆解两辆黑市车辆，每次约 30 秒，首次获得零件但不取得管理权。&#39;,
+    L16:&#39;玩家用拆车所得配件完成一次约 30 秒换件，再驾驶当前车辆前往赛场。&#39;,
+    L17:&#39;玩家完成竞速 SUP 并获胜，以比赛结果验证此前的驾驶和改装成果。&#39;,
+    L18:&#39;比赛结束后遭战车扫射；废车场负责人接应时死亡，玩家在枪战 SUP 中边逃边击毁敌车，随后拖车撤回城市。&#39;,
+    L19:&#39;玩家回城后与帮派成员制定反击计划，并拆解 L18 拖回的追杀车辆，取得改装复仇车辆所需配件。&#39;,
+    L20:&#39;废车场交付一辆可修复新车；玩家完成改装，剧情线第 2 辆车正式投放。&#39;,
+    L21:&#39;玩家驾驶新车完成枪战复仇，击溃伏击车队并取回负责人遗物。&#39;,
+    L22:&#39;玩家回帮开会并交回遗物；现任 Enforcer 转任，老大任命玩家并授权其接管废车回收厂。&#39;,
+    L23:&#39;玩家以 Enforcer 身份在废车回收厂入口点击接管，建筑管理状态即时更新。&#39;,
+    L24:&#39;玩家升级拆解工位，让废车回收厂具备正式生产条件并开放成员派遣位。&#39;,
+    L25:&#39;玩家在帮派树接管一名 Full Patch 成员，再将其派遣到废车回收厂，让拆解工位自动运行并稳定产出零件。&#39;,
+    L26:&#39;玩家完成两关推关，清理泄露路线的内部藏点并追回商业街账册。&#39;,
+    L27:&#39;玩家提交商业街账册；现任 Roadman 转任，会议完成背章与商业街权限交接。&#39;,
+    L28:&#39;玩家以 Roadman 身份接管商业街，梅丽尔首次出场。&#39;,
+    L29:&#39;玩家恢复商铺并收钱，警长领取佣金并确认帮助义务。&#39;,
+    L30:&#39;成员庆功；议会揭露比利泄密并投票处决，比利逃走。&#39;,
+    L31:&#39;玩家用 SUP 追上比利并取回背章，返程后由议会任命为 Road Captain。&#39;,
+    L32:&#39;玩家以 Road Captain 身份接管加油站。&#39;,
+    L33:&#39;玩家修复泵机和补给路线，首批油进入库存。&#39;,
+    L34:&#39;比利同党绑走梅丽尔试图销毁账目；玩家带队连续推关救出她，并取回物流账本。&#39;,
+    L35:&#39;玩家在议会交出救援结果和账本；戴尔因失察辞任并递交财务账册，物流中心权限点亮。&#39;,
+    L36:&#39;玩家用追回的账本核对库存；本帮现场负责人交接仓库、车辆与排班表。&#39;,
+    L37:&#39;玩家修复仓位、安排人员和首条物流任务；第一批物资入库，钱、油、物资均进入循环。&#39;,
+    L38:&#39;议会复盘救援与产业恢复；玩家完成补给和友好枪战 SUP，现任者转任教官并交出指挥权。&#39;,
+    L39:&#39;比利残党盗走本帮物资；玩家推关清理内部藏点，再用 SUP 护送物资返城并修复仓位。&#39;,
+    L40:&#39;博邀请玩家迎接汉克出狱；车队完成一次护送 SUP，议会确认汉克接受新的职责分工。&#39;,
+    L41:&#39;在汉克与元老见证下，玩家选择改装和路线后与韦恩竞速；带队返程时韦恩主动交棒。&#39;,
+    L42:&#39;玩家在 Clubhouse 召开议会，使用钱、油、物资补给；清理叛徒残余、护送成员返城并恢复建筑。&#39;,
+    L43:&#39;杰森在全体议会中提名玩家；成员完成表决，杰森交出会长席位与 Clubhouse 权限。&#39;
+  };
+  const promotionTags = {
+    L05:&#39;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平&lt;/span&gt;&#39;,
+    L10:&#39;&lt;span class=&quot;rc-tag rc-meeting&quot;&gt;会议&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平直接提升&lt;/span&gt;&#39;,
+    L22:&#39;&lt;span class=&quot;rc-tag rc-sup&quot;&gt;SUP&lt;/span&gt;&lt;span class=&quot;rc-tag rc-meeting&quot;&gt;会议&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平&lt;/span&gt;&#39;,
+    L27:&#39;&lt;span class=&quot;rc-tag rc-meeting&quot;&gt;会议&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平&lt;/span&gt;&#39;,
+    L31:&#39;&lt;span class=&quot;rc-tag rc-sup&quot;&gt;SUP&lt;/span&gt;&lt;span class=&quot;rc-tag rc-meeting&quot;&gt;会议&lt;/span&gt;&#39;,
+    L35:&#39;&lt;span class=&quot;rc-tag rc-meeting&quot;&gt;会议&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平&lt;/span&gt;&#39;,
+    L38:&#39;&lt;span class=&quot;rc-tag rc-sup&quot;&gt;SUP&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平&lt;/span&gt;&#39;,
+    L39:&#39;&lt;span class=&quot;rc-tag rc-push&quot;&gt;推关战斗&lt;/span&gt;&lt;span class=&quot;rc-tag rc-meeting&quot;&gt;会议&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平&lt;/span&gt;&#39;,
+    L41:&#39;&lt;span class=&quot;rc-tag rc-sup&quot;&gt;SUP&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平&lt;/span&gt;&#39;,
+    L43:&#39;&lt;span class=&quot;rc-tag rc-meeting&quot;&gt;会议&lt;/span&gt;&lt;span class=&quot;rc-tag rc-peace&quot;&gt;和平&lt;/span&gt;&#39;
+  };
+  const motives = {
+    L14:&#39;接受赛车邀请&#39;, L15:&#39;取得赛前配件&#39;, L16:&#39;强化当前车辆&#39;, L17:&#39;赢得比赛&#39;,
+    L18:&#39;逃回城市&#39;, L19:&#39;谋划反击并取得配件&#39;, L20:&#39;准备新车&#39;, L21:&#39;为负责人复仇&#39;,
+    L22:&#39;取得 Enforcer 席位&#39;, L23:&#39;接管废车回收厂&#39;, L24:&#39;开放废车厂派遣条件&#39;, L25:&#39;派遣成员实现自动经营&#39;, L26:&#39;清理路线内应&#39;,
+    L27:&#39;取得 Roadman 席位&#39;, L28:&#39;接管商业街&#39;, L29:&#39;恢复钱产出&#39;, L30:&#39;制裁叛徒&#39;,
+    L31:&#39;填补队长空缺&#39;, L32:&#39;取得加油站管理权&#39;, L33:&#39;恢复油产出&#39;, L34:&#39;救回梅丽尔&#39;,
+    L35:&#39;取得财务官席位&#39;, L36:&#39;接管物资产线&#39;, L37:&#39;建立物流产出&#39;, L38:&#39;证明战斗指挥能力&#39;,
+    L39:&#39;追回本帮物资&#39;, L40:&#39;调和旧成员关系&#39;, L41:&#39;赢得副会长席位&#39;, L42:&#39;完成副会长履职&#39;, L43:&#39;正式统领分会&#39;
+  };
+  const sceneCell = id =&gt; `&lt;div class=&quot;dc-in-game-scene&quot;&gt;&lt;span&gt;${inGameScenes[id] || &#39;玩家在场景中完成当前目标并获得即时反馈。&#39;}&lt;/span&gt;${promotionIds.has(id) ? `&lt;b&gt;玩法 TAG&lt;/b&gt;&lt;span&gt;${promotionTags[id]}&lt;/span&gt;` : &#39;&#39;}&lt;/div&gt;`;
+  const setHead = table =&gt; {
+    table.querySelector(&#39;thead tr&#39;).innerHTML = headers.map(x =&gt; `&lt;th&gt;${x}&lt;/th&gt;`).join(&#39;&#39;);
+  };
+  document.querySelectorAll(&#39;.dc-act .dc-table&#39;).forEach(table =&gt; {
+    setHead(table);
+    table.querySelectorAll(&#39;tbody tr&#39;).forEach(row =&gt; {
+      const c = [...row.children];
+      const id = (c[1].textContent.match(/L\d{2}/) || [&#39;&#39;])[0];
+      const play = `${c[2].innerHTML}&lt;div class=&quot;dc-sub&quot;&gt;${c[4].innerHTML}&lt;/div&gt;${c[5].innerHTML}`;
+      row.innerHTML = `&lt;td class=&quot;dc-time&quot;&gt;${c[0].innerHTML}&lt;/td&gt;&lt;td&gt;${c[1].innerHTML}&lt;/td&gt;&lt;td&gt;${c[3].innerHTML}&lt;/td&gt;&lt;td&gt;${play}&lt;/td&gt;&lt;td&gt;${sceneCell(id)}&lt;/td&gt;&lt;td&gt;${c[6].innerHTML}&lt;/td&gt;`;
+    });
+  });
+  document.querySelectorAll(&#39;.dc-act .dc-promotion-table&#39;).forEach(table =&gt; {
+    setHead(table);
+    table.querySelectorAll(&#39;tbody tr&#39;).forEach(row =&gt; {
+      const c = [...row.children];
+      const id = (c[1].textContent.match(/L\d{2}/) || [&#39;&#39;])[0];
+      row.innerHTML = `&lt;td class=&quot;dc-time&quot;&gt;${c[0].innerHTML}&lt;/td&gt;&lt;td&gt;${c[1].innerHTML}&lt;/td&gt;&lt;td&gt;${motives[id] || &#39;推进当前任务&#39;}&lt;/td&gt;&lt;td&gt;${c[2].innerHTML}&lt;/td&gt;&lt;td&gt;${sceneCell(id)}&lt;/td&gt;&lt;td&gt;${c[6].innerHTML}&lt;/td&gt;`;
+    });
+  });
+})();
+&lt;/script&gt;
+
+&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set([&quot;top&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+
+  const getTrigger = (target) =&gt;
+    target?.nodeType === Node.ELEMENT_NODE
+      ? target.closest(&quot;[data-tooltip]&quot;)
+      : null;
+  const containsTarget = (trigger, target) =&gt;
+    target?.nodeType != null &amp;&amp; trigger.contains(target);
+  const getContent = (trigger) =&gt;
+    trigger.getAttribute(&quot;data-tooltip&quot;)?.trim() ?? &quot;&quot;;
+  const getPlacement = (trigger) =&gt; {
+    const placement = trigger.getAttribute(&quot;data-tooltip-placement&quot;);
+    return tooltipPlacements.has(placement) ? placement : &quot;top&quot;;
+  };
+  const getTooltip = () =&gt; {
+    if (tooltip == null) {
+      tooltip = document.createElement(&quot;div&quot;);
+      tooltip.id = tooltipId;
+      tooltip.className = &quot;tooltip&quot;;
+      tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) =&gt; {
+    const ids = new Set(
+      (trigger.getAttribute(&quot;aria-describedby&quot;) ?? &quot;&quot;)
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute(&quot;aria-describedby&quot;);
+    } else {
+      trigger.setAttribute(&quot;aria-describedby&quot;, [...ids].join(&quot; &quot;));
+    }
+  };
+  const clearOpenTimeout = () =&gt; {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) =&gt; {
+    clearOpenTimeout();
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) =&gt; {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-width&quot;,
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-height&quot;,
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: &quot;fixed&quot;,
+    })
+      .then(({ x, y }) =&gt; {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = &quot;visible&quot;;
+      })
+      .catch(() =&gt; {
+        if (activeTrigger === trigger &amp;&amp; request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) =&gt; {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = &quot;hidden&quot;;
+    floating.style.transform = &quot;translate(0, 0)&quot;;
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () =&gt; {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) =&gt; {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() &lt; skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() =&gt; {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) =&gt; {
+    if (event.pointerType === &quot;touch&quot;) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handleLeave = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger?.matches(&quot;:focus-visible&quot;)) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) =&gt; {
+    if (event.key === &quot;Escape&quot;) {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const destroy = () =&gt; {
+    closeTooltip(false);
+    document.removeEventListener(&quot;pointerover&quot;, handlePointerOpen);
+    document.removeEventListener(&quot;pointerout&quot;, handleLeave);
+    document.removeEventListener(&quot;focusin&quot;, handleFocusIn);
+    document.removeEventListener(&quot;focusout&quot;, handleLeave);
+    document.removeEventListener(&quot;keydown&quot;, handleKeyDown);
+    document.removeEventListener(&quot;contextmenu&quot;, handleContextMenu);
+    tooltip = null;
+  };
+
+  document.addEventListener(&quot;pointerover&quot;, handlePointerOpen);
+  document.addEventListener(&quot;pointerout&quot;, handleLeave);
+  document.addEventListener(&quot;focusin&quot;, handleFocusIn);
+  document.addEventListener(&quot;focusout&quot;, handleLeave);
+  document.addEventListener(&quot;keydown&quot;, handleKeyDown);
+  document.addEventListener(&quot;contextmenu&quot;, handleContextMenu);
+  window.addEventListener(&quot;pagehide&quot;, destroy, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-lucide&quot; async src=&quot;https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const initialize = () =&gt; {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById(&quot;codex-visualization-lucide&quot;)
+    ?.addEventListener(&quot;load&quot;, initialize, { once: true });
+})();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+</body>
+</html>
+
+
