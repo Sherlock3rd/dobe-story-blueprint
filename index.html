@@ -126,7 +126,15 @@
       };
       const name = document.getElementById('active-plan-name');
       const note = document.getElementById('active-plan-note');
+      const progressByPlan = { a: null, b: null };
       let activePlan = null;
+
+      window.addEventListener('message', event => {
+        const plan = Object.entries(frames).find(([, frame]) => frame.contentWindow === event.source)?.[0];
+        if (!plan || event.data?.type !== 'dobe-reading-progress') return;
+        const progress = Number(event.data.progress);
+        if (Number.isFinite(progress)) progressByPlan[plan] = Math.min(Math.max(progress, 0), 1);
+      });
 
       function getReadingWindow(plan) {
         let readingWindow = frames[plan]?.contentWindow;
@@ -176,13 +184,16 @@
 
       function selectPlan(plan, updateUrl = true) {
         const next = plans[plan] ? plan : 'a';
-        const progress = activePlan && activePlan !== next ? readProgress(activePlan) : null;
+        const progress = activePlan && activePlan !== next ? (progressByPlan[activePlan] ?? readProgress(activePlan)) : null;
         buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.plan === next)));
         Object.entries(frames).forEach(([key, frame]) => { frame.hidden = key !== next; });
         name.textContent = plans[next].name;
         note.textContent = plans[next].note;
         activePlan = next;
-        if (progress != null) requestAnimationFrame(() => applyProgress(next, progress));
+        if (progress != null) requestAnimationFrame(() => {
+          frames[next].contentWindow?.postMessage({ type:'dobe-apply-progress', progress }, '*');
+          applyProgress(next, progress);
+        });
         if (updateUrl) {
           const url = new URL(window.location.href);
           url.searchParams.set('plan', next.toUpperCase());

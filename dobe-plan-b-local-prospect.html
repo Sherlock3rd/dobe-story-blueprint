@@ -2167,9 +2167,49 @@ html&gt;body{padding:0}&lt;/style&gt;
 })();
 &lt;/script&gt;
 
+&lt;script&gt;
+(() =&gt; {
+  const reportProgress = () =&gt; {
+    const root = document.documentElement;
+    const body = document.body;
+    const height = Math.max(root.scrollHeight, body?.scrollHeight || 0);
+    const maxScroll = Math.max(height - window.innerHeight, 1);
+    const top = window.scrollY || root.scrollTop || body?.scrollTop || 0;
+    window.parent.postMessage({ type:&#39;dobe-reading-progress&#39;, progress:Math.min(Math.max(top / maxScroll, 0), 1) }, &#39;*&#39;);
+  };
+  let pending = false;
+  window.addEventListener(&#39;scroll&#39;, () =&gt; {
+    if (pending) return;
+    pending = true;
+    requestAnimationFrame(() =&gt; { pending = false; reportProgress(); });
+  }, { passive:true });
+  window.addEventListener(&#39;message&#39;, event =&gt; {
+    if (event.data?.type !== &#39;dobe-apply-progress&#39;) return;
+    const progress = Number(event.data.progress);
+    if (!Number.isFinite(progress)) return;
+    const height = Math.max(document.documentElement.scrollHeight, document.body?.scrollHeight || 0);
+    window.scrollTo(0, Math.round(Math.max(height - window.innerHeight, 0) * Math.min(Math.max(progress, 0), 1)));
+    requestAnimationFrame(reportProgress);
+  });
+  requestAnimationFrame(reportProgress);
+})();
+&lt;/script&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;
 "></iframe>
+<script>
+(() => {
+  const child = document.querySelector('iframe');
+  window.addEventListener('message', event => {
+    if (event.source === child?.contentWindow && event.data?.type === 'dobe-reading-progress') {
+      window.parent.postMessage(event.data, '*');
+    } else if (event.source === window.parent && event.data?.type === 'dobe-apply-progress') {
+      child?.contentWindow?.postMessage(event.data, '*');
+    }
+  });
+})();
+</script>
 </body>
 </html>
 
