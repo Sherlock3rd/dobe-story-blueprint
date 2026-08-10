@@ -1440,6 +1440,24 @@ html&gt;body{padding:0}&lt;/style&gt;
     #dobe-compressed-loops .dc-journey-copy .dc-player-goal span { color: var(--foreground); font-weight: 700; }
     #dobe-compressed-loops .dc-journey-copy .dc-player-pursuit span { color: var(--journey-accent); font-weight: 800; }
     #dobe-compressed-loops .dc-journey-outcome { margin-top: 14px; padding: 12px 14px; border-radius: 12px; background: var(--journey-accent-soft); color: var(--foreground); font-size: 13px; font-weight: 700; text-align: center; }
+    #dobe-compressed-loops .dc-first30 .dc-journey-image { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid color-mix(in srgb, var(--journey-accent) 30%, var(--border)); border-radius: 14px; }
+    #dobe-compressed-loops .dc-density-scale { display: flex; align-items: center; gap: 9px; margin: 14px 0; padding: 10px 12px; overflow-x: auto; border-radius: 12px; background: linear-gradient(90deg, color-mix(in srgb, var(--journey-accent) 22%, var(--background)), color-mix(in srgb, var(--journey-accent) 3%, var(--background))); font-size: 12px; white-space: nowrap; }
+    #dobe-compressed-loops .dc-density-scale b { color: var(--journey-accent); }
+    #dobe-compressed-loops .dc-density-scale i { opacity: .55; font-style: normal; }
+    #dobe-compressed-loops .dc-first30-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+    #dobe-compressed-loops .dc-first30-grid article { padding: 14px; border: 1px solid color-mix(in srgb, var(--journey-accent) 24%, var(--border)); border-radius: 12px; background: color-mix(in srgb, var(--background) 90%, var(--journey-accent-soft)); }
+    #dobe-compressed-loops .dc-first30-grid article &gt; span { color: var(--journey-accent); font-size: 11px; font-weight: 900; }
+    #dobe-compressed-loops .dc-first30-grid h3 { margin: 6px 0 8px; font-size: 15px; }
+    #dobe-compressed-loops .dc-first30-grid p { min-height: 54px; margin: 0 0 10px; color: var(--muted-foreground); font-size: 12px; line-height: 1.5; }
+    #dobe-compressed-loops .dc-first30-grid article &gt; b { display: block; padding-top: 9px; border-top: 1px solid var(--border); color: var(--journey-accent); font-size: 12px; }
+    #dobe-compressed-loops .dc-part &gt; h2 { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    #dobe-compressed-loops .dc-part-toggle { flex: none; min-width: 78px; padding: 7px 12px; border: 1px solid color-mix(in srgb, var(--viz-series-2) 36%, var(--border)); border-radius: 999px; background: color-mix(in srgb, var(--viz-series-2) 10%, var(--background)); color: var(--foreground); font: inherit; font-size: 12px; font-weight: 800; cursor: pointer; }
+    #dobe-compressed-loops .dc-part-toggle::before { content: &quot;− &quot;; }
+    #dobe-compressed-loops .dc-part-toggle[aria-expanded=&quot;false&quot;]::before { content: &quot;+ &quot;; }
+    #dobe-compressed-loops .dc-part-body[hidden] { display: none; }
+    #dobe-compressed-loops .dc-part.is-collapsed { padding-bottom: 18px; }
+    @media (max-width: 900px) { #dobe-compressed-loops .dc-first30-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 560px) { #dobe-compressed-loops .dc-first30-grid { grid-template-columns: 1fr; } #dobe-compressed-loops .dc-first30-grid p { min-height: 0; } }
     @media (max-width: 900px) { #dobe-compressed-loops .dc-journey-route { grid-template-columns: repeat(6, 170px); min-width: 1060px; } }
     @media (max-width: 1200px) {
       #dobe-compressed-loops .dc-layout { grid-template-columns: minmax(0, 1fr); gap: 14px; }
@@ -1461,19 +1479,6 @@ html&gt;body{padding:0}&lt;/style&gt;
   &lt;div class=&quot;dc-wrap&quot; id=&quot;dc-overview&quot;&gt;
     &lt;div class=&quot;dc-kicker&quot;&gt;一日版本 &#183; 90 分钟渐进体验&lt;/div&gt;
     &lt;h1&gt;Dobe一日渐进规划&lt;/h1&gt;
-
-    &lt;figure class=&quot;dc-journey-map&quot; id=&quot;dc-journey-map&quot; aria-labelledby=&quot;dc-journey-map-title&quot;&gt;
-      &lt;figcaption&gt;&lt;div&gt;&lt;b id=&quot;dc-journey-map-title&quot;&gt;方案 A &#183; 外乡人转化全流程&lt;/b&gt;&lt;span&gt;从独行逃亡者到帮派会长：玩家目标、阶段追求与系统承接一图总览&lt;/span&gt;&lt;/div&gt;&lt;span class=&quot;dc-journey-badge&quot;&gt;0–90 分钟&lt;/span&gt;&lt;/figcaption&gt;
-      &lt;div class=&quot;dc-journey-scroll&quot;&gt;&lt;div class=&quot;dc-journey-route&quot;&gt;
-        &lt;article class=&quot;dc-journey-stage&quot; data-step=&quot;01&quot;&gt;&lt;span class=&quot;dc-journey-time&quot;&gt;0:00–3:20 &#183; 序幕&lt;/span&gt;&lt;h3&gt;逃出生天&lt;/h3&gt;&lt;div class=&quot;dc-journey-copy&quot;&gt;&lt;div class=&quot;dc-player-goal&quot;&gt;&lt;b&gt;玩家目标&lt;/b&gt;&lt;span&gt;甩掉警方、保住货物，在黑手党伏击中活着回城&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-player-pursuit&quot;&gt;&lt;b&gt;核心追求&lt;/b&gt;&lt;span&gt;生存、掌控摩托、找到临时落脚点&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/article&gt;
-        &lt;article class=&quot;dc-journey-stage&quot; data-step=&quot;02&quot;&gt;&lt;span class=&quot;dc-journey-time&quot;&gt;3:20–14:00 &#183; 第一幕&lt;/span&gt;&lt;h3&gt;从独行者到 Prospect&lt;/h3&gt;&lt;div class=&quot;dc-journey-copy&quot;&gt;&lt;div class=&quot;dc-player-goal&quot;&gt;&lt;b&gt;玩家目标&lt;/b&gt;&lt;span&gt;修车、竞速、强化并反击袭击者，为金发 NPC 复仇&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-player-pursuit&quot;&gt;&lt;b&gt;核心追求&lt;/b&gt;&lt;span&gt;获得庇护、兄弟身份与反击资格&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/article&gt;
-        &lt;article class=&quot;dc-journey-stage&quot; data-step=&quot;03&quot;&gt;&lt;span class=&quot;dc-journey-time&quot;&gt;14:00–30:50 &#183; 第二幕&lt;/span&gt;&lt;h3&gt;资格证明与双产业&lt;/h3&gt;&lt;div class=&quot;dc-journey-copy&quot;&gt;&lt;div class=&quot;dc-player-goal&quot;&gt;&lt;b&gt;玩家目标&lt;/b&gt;&lt;span&gt;完成见习复仇、议会转正，经营改装厂并接管废车场&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-player-pursuit&quot;&gt;&lt;b&gt;核心追求&lt;/b&gt;&lt;span&gt;正式成员身份、自动资源生产、Enforcer 责任&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/article&gt;
-        &lt;article class=&quot;dc-journey-stage&quot; data-step=&quot;04&quot;&gt;&lt;span class=&quot;dc-journey-time&quot;&gt;30:50–46:00 &#183; 第三幕&lt;/span&gt;&lt;h3&gt;首次推关与内奸清理&lt;/h3&gt;&lt;div class=&quot;dc-journey-copy&quot;&gt;&lt;div class=&quot;dc-player-goal&quot;&gt;&lt;b&gt;玩家目标&lt;/b&gt;&lt;span&gt;攻打接头点找线索、追回账册、处决比利并恢复产业&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-player-pursuit&quot;&gt;&lt;b&gt;核心追求&lt;/b&gt;&lt;span&gt;Roadman / Road Captain 晋升与产业扩张&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/article&gt;
-        &lt;article class=&quot;dc-journey-stage&quot; data-step=&quot;05&quot;&gt;&lt;span class=&quot;dc-journey-time&quot;&gt;46:00–60:30 &#183; 第四幕&lt;/span&gt;&lt;h3&gt;带队救援与物流&lt;/h3&gt;&lt;div class=&quot;dc-journey-copy&quot;&gt;&lt;div class=&quot;dc-player-goal&quot;&gt;&lt;b&gt;玩家目标&lt;/b&gt;&lt;span&gt;连续推关救出梅丽尔、追回物流账本并恢复物流中心&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-player-pursuit&quot;&gt;&lt;b&gt;核心追求&lt;/b&gt;&lt;span&gt;指挥权、英雄伙伴、Treasurer 资源权&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/article&gt;
-        &lt;article class=&quot;dc-journey-stage&quot; data-step=&quot;06&quot;&gt;&lt;span class=&quot;dc-journey-time&quot;&gt;60:30–90:00 &#183; 第五幕&lt;/span&gt;&lt;h3&gt;推关闭环与会长交接&lt;/h3&gt;&lt;div class=&quot;dc-journey-copy&quot;&gt;&lt;div class=&quot;dc-player-goal&quot;&gt;&lt;b&gt;玩家目标&lt;/b&gt;&lt;span&gt;清理残党、护送物资、修复产业并完成连续履职&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-player-pursuit&quot;&gt;&lt;b&gt;核心追求&lt;/b&gt;&lt;span&gt;从 Sergeant 走到 President，掌控整个组织&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/article&gt;
-      &lt;/div&gt;&lt;/div&gt;
-      &lt;div class=&quot;dc-journey-outcome&quot;&gt;整条渐进的欲望升级：活下来 → 被组织接纳 → 拥有资源与下属 → 掌握产业与情报 → 指挥行动 → 成为 President&lt;/div&gt;
-    &lt;/figure&gt;
 
     &lt;section class=&quot;dc-section dc-part&quot; id=&quot;dc-part-1&quot; aria-labelledby=&quot;dc-part-1-title&quot;&gt;
       &lt;h2 id=&quot;dc-part-1-title&quot;&gt;Part 1 &#183; 目前已确定的信息&lt;/h2&gt;
@@ -1531,6 +1536,18 @@ html&gt;body{padding:0}&lt;/style&gt;
 
     &lt;section class=&quot;dc-section dc-part&quot; id=&quot;dc-part-2&quot; aria-labelledby=&quot;dc-part-2-title&quot;&gt;
       &lt;h2 id=&quot;dc-part-2-title&quot;&gt;Part 2 &#183; 渐进规划&lt;/h2&gt;
+      &lt;figure class=&quot;dc-journey-map dc-first30&quot; id=&quot;dc-journey-map&quot; aria-labelledby=&quot;dc-journey-map-title&quot;&gt;
+        &lt;figcaption&gt;&lt;div&gt;&lt;b id=&quot;dc-journey-map-title&quot;&gt;方案 A &#183; 前 30 分钟体验收束&lt;/b&gt;&lt;span&gt;定制剧情密度逐段下降；每段只锚定一个可追踪的系统数值&lt;/span&gt;&lt;/div&gt;&lt;span class=&quot;dc-journey-badge&quot;&gt;0–30 分钟&lt;/span&gt;&lt;/figcaption&gt;
+        &lt;img class=&quot;dc-journey-image&quot; src=&quot;assets/plan-a-first30-flow.png&quot; alt=&quot;外乡人开局从高密度追逃剧情，经帮派接纳与产业经营，逐渐过渡到常规 SLG 推关的四阶段示意图&quot;&gt;
+        &lt;div class=&quot;dc-density-scale&quot; aria-label=&quot;定制化内容密度递减&quot;&gt;&lt;b&gt;定制化内容密度&lt;/b&gt;&lt;span&gt;高 &#183; 专属追逃与角色演出&lt;/span&gt;&lt;i&gt;→&lt;/i&gt;&lt;span&gt;中高 &#183; 专属入帮流程&lt;/span&gt;&lt;i&gt;→&lt;/i&gt;&lt;span&gt;中 &#183; 系统教学承接&lt;/span&gt;&lt;i&gt;→&lt;/i&gt;&lt;span&gt;低 &#183; 常规 SLG 循环&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;dc-first30-grid&quot;&gt;
+          &lt;article&gt;&lt;span&gt;0:00–3:20&lt;/span&gt;&lt;h3&gt;带货逃亡&lt;/h3&gt;&lt;p&gt;追警、伏击、回城均为强定制内容。&lt;/p&gt;&lt;b&gt;核心追求：货物资源&lt;/b&gt;&lt;/article&gt;
+          &lt;article&gt;&lt;span&gt;3:20–14:00&lt;/span&gt;&lt;h3&gt;修车、竞速与入帮&lt;/h3&gt;&lt;p&gt;角色演出仍密集，但开始由养成与身份系统承接。&lt;/p&gt;&lt;b&gt;核心追求：帮派树等级（Prospect）&lt;/b&gt;&lt;/article&gt;
+          &lt;article&gt;&lt;span&gt;14:00–22:00&lt;/span&gt;&lt;h3&gt;转正与改装厂&lt;/h3&gt;&lt;p&gt;定制任务减少，进入可复用的经营教学。&lt;/p&gt;&lt;b&gt;核心追求：城建等级（改装厂 1 级）&lt;/b&gt;&lt;/article&gt;
+          &lt;article&gt;&lt;span&gt;22:00–30:00&lt;/span&gt;&lt;h3&gt;废车场与推关准备&lt;/h3&gt;&lt;p&gt;剧情只保留动机，玩法重心转向资源与战力准备。&lt;/p&gt;&lt;b&gt;核心追求：零件资源&lt;/b&gt;&lt;/article&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;dc-journey-outcome&quot;&gt;30 分钟后进入推关：核心追求切换为“推关进度”，定制内容降至常规 SLG 事件包装。&lt;/div&gt;
+      &lt;/figure&gt;
       &lt;p class=&quot;dc-note&quot;&gt;先看整体因果与六幕承接关系，再逐幕查看分钟级循环。&lt;/p&gt;
       &lt;h3 id=&quot;dc-memory-structure-title&quot;&gt;帮派体验记忆结构&lt;/h3&gt;
       &lt;p class=&quot;dc-note&quot;&gt;&lt;strong&gt;核心幻想是归属感。&lt;/strong&gt;现有剧情结构不变，用四类场景表现增强每个关键节点。&lt;/p&gt;
@@ -1804,9 +1821,37 @@ html&gt;body{padding:0}&lt;/style&gt;
   const rankFunctionHeading = [...root.querySelectorAll(&#39;#dc-gang-tree h3&#39;)].find(node =&gt; node.textContent.trim() === &#39;职级对应功能&#39;);
   if (rankFunctionHeading) rankFunctionHeading.id = &#39;dc-rank-functions&#39;;
 
+  const partSelector = &#39;#dc-part-1, #dc-part-2, #dc-version-branch, #dc-gang-tree&#39;;
+  root.querySelectorAll(partSelector).forEach(section =&gt; {
+    section.classList.add(&#39;dc-part&#39;);
+    const heading = [...section.children].find(node =&gt; node.tagName === &#39;H2&#39;);
+    if (!heading) return;
+    const body = document.createElement(&#39;div&#39;);
+    body.className = &#39;dc-part-body&#39;;
+    while (heading.nextSibling) body.appendChild(heading.nextSibling);
+    section.appendChild(body);
+    const toggle = document.createElement(&#39;button&#39;);
+    toggle.type = &#39;button&#39;;
+    toggle.className = &#39;dc-part-toggle&#39;;
+    const setOpen = open =&gt; {
+      toggle.setAttribute(&#39;aria-expanded&#39;, String(open));
+      toggle.textContent = open ? &#39;收起&#39; : &#39;展开&#39;;
+      body.hidden = !open;
+      section.classList.toggle(&#39;is-collapsed&#39;, !open);
+    };
+    toggle._setPartOpen = setOpen;
+    toggle.addEventListener(&#39;click&#39;, () =&gt; setOpen(toggle.getAttribute(&#39;aria-expanded&#39;) !== &#39;true&#39;));
+    heading.appendChild(toggle);
+    setOpen(section.id !== &#39;dc-part-1&#39;);
+  });
+  const expandContainingPart = target =&gt; {
+    const section = target.matches(partSelector) ? target : target.closest(partSelector);
+    const toggle = section &amp;&amp; section.querySelector(&#39;.dc-part-toggle&#39;);
+    if (toggle &amp;&amp; toggle._setPartOpen) toggle._setPartOpen(true);
+  };
+
   const tocItems = [
     { id:&#39;dc-overview&#39;, label:&#39;Dobe一日渐进规划&#39;, level:2 },
-    { id:&#39;dc-journey-map&#39;, label:&#39;方案 A &#183; 全流程一图&#39;, level:3 },
     { id:&#39;dc-part-1&#39;, label:&#39;Part 1 &#183; 已确定信息&#39;, level:2 },
     { id:&#39;dc-confirmed-docs&#39;, label:&#39;关联文档&#39;, level:3 },
     { id:&#39;dc-confirmed-framework&#39;, label:&#39;内容与成长框架&#39;, level:3 },
@@ -1814,6 +1859,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     { id:&#39;dc-confirmed-buildings&#39;, label:&#39;确定建筑与功能&#39;, level:3 },
     { id:&#39;dc-confirmed-anchors&#39;, label:&#39;版本锚点&#39;, level:3 },
     { id:&#39;dc-part-2&#39;, label:&#39;Part 2 &#183; 渐进规划&#39;, level:2 },
+    { id:&#39;dc-journey-map&#39;, label:&#39;方案 A &#183; 前 30 分钟一图&#39;, level:3 },
     { id:&#39;dc-memory-structure-title&#39;, label:&#39;帮派体验记忆结构&#39;, level:3 },
     { id:&#39;dc-story-causal-title&#39;, label:&#39;整体剧情因果&#39;, level:3 },
     { id:&#39;dc-act-relations-title&#39;, label:&#39;六幕关系&#39;, level:3 },
@@ -1853,6 +1899,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       event.preventDefault();
       const target = document.getElementById(item.id);
       if (!target) return;
+      expandContainingPart(target);
       const behavior = window.matchMedia(&#39;(prefers-reduced-motion: reduce)&#39;).matches ? &#39;auto&#39; : &#39;smooth&#39;;
       target.scrollIntoView({ behavior, block:&#39;start&#39; });
       setActive(item.id);
