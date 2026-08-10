@@ -1421,6 +1421,26 @@ html&gt;body{padding:0}&lt;/style&gt;
       #dobe-compressed-loops .dc-causal { grid-template-columns: 1fr; }
       #dobe-compressed-loops .dc-rule { white-space: normal; }
     }
+    #dobe-compressed-loops .dc-journey-map { --journey-accent: var(--viz-series-4); --journey-accent-soft: color-mix(in srgb, var(--viz-series-4) 13%, var(--background)); margin: 18px 0 26px; padding: 22px; border: 1px solid color-mix(in srgb, var(--journey-accent) 34%, var(--border)); border-radius: 18px; background: radial-gradient(circle at top left, color-mix(in srgb, var(--journey-accent) 18%, transparent), transparent 32%), linear-gradient(145deg, color-mix(in srgb, var(--card) 92%, transparent), var(--background)); box-shadow: 0 18px 45px color-mix(in srgb, var(--foreground) 8%, transparent); overflow: hidden; }
+    #dobe-compressed-loops .dc-journey-map figcaption { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 18px; }
+    #dobe-compressed-loops .dc-journey-map figcaption b { display: block; font-size: clamp(20px, 2.2vw, 30px); line-height: 1.1; }
+    #dobe-compressed-loops .dc-journey-map figcaption span { color: var(--muted-foreground); font-size: 13px; }
+    #dobe-compressed-loops .dc-journey-badge { flex: none; padding: 7px 11px; border: 1px solid color-mix(in srgb, var(--journey-accent) 42%, var(--border)); border-radius: 999px; color: var(--journey-accent); background: var(--journey-accent-soft); font-weight: 800; font-size: 12px; }
+    #dobe-compressed-loops .dc-journey-scroll { overflow-x: auto; padding: 4px 2px 10px; }
+    #dobe-compressed-loops .dc-journey-route { position: relative; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; min-width: 0; padding-top: 34px; }
+    #dobe-compressed-loops .dc-journey-route::before { content: &quot;&quot;; position: absolute; top: 17px; left: 8%; right: 8%; height: 3px; border-radius: 999px; background: linear-gradient(90deg, var(--journey-accent), var(--viz-series-2), var(--viz-series-5)); opacity: .7; }
+    #dobe-compressed-loops .dc-journey-stage { position: relative; min-height: 222px; padding: 16px 14px 14px; border: 1px solid color-mix(in srgb, var(--journey-accent) 24%, var(--border)); border-radius: 14px; background: color-mix(in srgb, var(--background) 86%, var(--journey-accent-soft)); }
+    #dobe-compressed-loops .dc-journey-stage::before { content: attr(data-step); position: absolute; top: -30px; left: 50%; width: 28px; height: 28px; display: grid; place-items: center; transform: translateX(-50%); border: 3px solid var(--background); border-radius: 50%; background: var(--journey-accent); color: var(--background); font-size: 12px; font-weight: 900; box-shadow: 0 0 0 1px color-mix(in srgb, var(--journey-accent) 42%, transparent); }
+    #dobe-compressed-loops .dc-journey-time { display: inline-block; margin-bottom: 8px; color: var(--journey-accent); font-size: 11px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
+    #dobe-compressed-loops .dc-journey-stage h3 { margin: 0 0 10px; font-size: 16px; line-height: 1.25; }
+    #dobe-compressed-loops .dc-journey-copy { display: grid; gap: 9px; }
+    #dobe-compressed-loops .dc-journey-copy div { padding-top: 9px; border-top: 1px solid color-mix(in srgb, var(--border) 72%, transparent); }
+    #dobe-compressed-loops .dc-journey-copy b { display: block; margin-bottom: 3px; color: var(--muted-foreground); font-size: 10px; letter-spacing: .08em; }
+    #dobe-compressed-loops .dc-journey-copy span { font-size: 12px; line-height: 1.45; }
+    #dobe-compressed-loops .dc-journey-copy .dc-player-goal span { color: var(--foreground); font-weight: 700; }
+    #dobe-compressed-loops .dc-journey-copy .dc-player-pursuit span { color: var(--journey-accent); font-weight: 800; }
+    #dobe-compressed-loops .dc-journey-outcome { margin-top: 14px; padding: 12px 14px; border-radius: 12px; background: var(--journey-accent-soft); color: var(--foreground); font-size: 13px; font-weight: 700; text-align: center; }
+    @media (max-width: 900px) { #dobe-compressed-loops .dc-journey-route { grid-template-columns: repeat(6, 170px); min-width: 1060px; } }
     @media (max-width: 1200px) {
       #dobe-compressed-loops .dc-layout { grid-template-columns: minmax(0, 1fr); gap: 14px; }
       #dobe-compressed-loops .dc-toc { top: 0; z-index: 8; max-height: none; overflow-x: auto; overflow-y: hidden; padding: 8px 0; border-right: 0; border-bottom: 1px solid var(--border); background: color-mix(in srgb, var(--background) 94%, transparent); backdrop-filter: blur(10px); }
@@ -1441,6 +1461,19 @@ html&gt;body{padding:0}&lt;/style&gt;
   &lt;div class=&quot;dc-wrap&quot; id=&quot;dc-overview&quot;&gt;
     &lt;div class=&quot;dc-kicker&quot;&gt;一日版本 &#183; 90 分钟渐进体验&lt;/div&gt;
     &lt;h1&gt;Dobe一日渐进规划&lt;/h1&gt;
+
+    &lt;figure class=&quot;dc-journey-map&quot; id=&quot;dc-journey-map&quot; aria-labelledby=&quot;dc-journey-map-title&quot;&gt;
+      &lt;figcaption&gt;&lt;div&gt;&lt;b id=&quot;dc-journey-map-title&quot;&gt;方案 B &#183; 本地见习生全流程&lt;/b&gt;&lt;span&gt;从帮派边缘成员到帮派会长：玩家目标、阶段追求与系统承接一图总览&lt;/span&gt;&lt;/div&gt;&lt;span class=&quot;dc-journey-badge&quot;&gt;0–90 分钟&lt;/span&gt;&lt;/figcaption&gt;
+      &lt;div class=&quot;dc-journey-scroll&quot;&gt;&lt;div class=&quot;dc-journey-route&quot;&gt;
+        &lt;article class=&quot;dc-journey-stage&quot; data-step=&quot;01&quot;&gt;&lt;span class=&quot;dc-journey-time&quot;&gt;0:00–3:20 &#183; 序幕&lt;/span&gt;&lt;h3&gt;被帮派接住&lt;/h3&gt;&lt;div class=&quot;dc-journey-copy&quot;&gt;&lt;div class=&quot;dc-player-goal&quot;&gt;&lt;b&gt;玩家目标&lt;/b&gt;&lt;span&gt;配合分流警方、反击黑手党并把受损车辆拖回改装厂&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-player-pursuit&quot;&gt;&lt;b&gt;核心追求&lt;/b&gt;&lt;span&gt;安全回城、完成第一项见习证明&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/article&gt;
+        &lt;article class=&quot;dc-journey-stage&quot; data-step=&quot;02&quot;&gt;&lt;span class=&quot;dc-journey-time&quot;&gt;3:20–11:50 &#183; 第一幕&lt;/span&gt;&lt;h3&gt;见习转正&lt;/h3&gt;&lt;div class=&quot;dc-journey-copy&quot;&gt;&lt;div class=&quot;dc-player-goal&quot;&gt;&lt;b&gt;玩家目标&lt;/b&gt;&lt;span&gt;修好自己的车、维修打工并完成袭击车队考核&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-player-pursuit&quot;&gt;&lt;b&gt;核心追求&lt;/b&gt;&lt;span&gt;赢得成员认可，成为 Full Patch&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/article&gt;
+        &lt;article class=&quot;dc-journey-stage&quot; data-step=&quot;03&quot;&gt;&lt;span class=&quot;dc-journey-time&quot;&gt;11:50–26:50 &#183; 第二幕&lt;/span&gt;&lt;h3&gt;经营、赛车与复仇&lt;/h3&gt;&lt;div class=&quot;dc-journey-copy&quot;&gt;&lt;div class=&quot;dc-player-goal&quot;&gt;&lt;b&gt;玩家目标&lt;/b&gt;&lt;span&gt;自动化改装厂、赢下赛车、复仇并接管废车场&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-player-pursuit&quot;&gt;&lt;b&gt;核心追求&lt;/b&gt;&lt;span&gt;稳定资源产出、Enforcer 职位与下属&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/article&gt;
+        &lt;article class=&quot;dc-journey-stage&quot; data-step=&quot;04&quot;&gt;&lt;span class=&quot;dc-journey-time&quot;&gt;26:50–45:00 &#183; 第三幕&lt;/span&gt;&lt;h3&gt;首次推关与内奸清理&lt;/h3&gt;&lt;div class=&quot;dc-journey-copy&quot;&gt;&lt;div class=&quot;dc-player-goal&quot;&gt;&lt;b&gt;玩家目标&lt;/b&gt;&lt;span&gt;攻打接头点找线索、追回账册、处决比利并恢复产业&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-player-pursuit&quot;&gt;&lt;b&gt;核心追求&lt;/b&gt;&lt;span&gt;Roadman / Road Captain 晋升与产业扩张&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/article&gt;
+        &lt;article class=&quot;dc-journey-stage&quot; data-step=&quot;05&quot;&gt;&lt;span class=&quot;dc-journey-time&quot;&gt;45:00–60:00 &#183; 第四幕&lt;/span&gt;&lt;h3&gt;带队救援与物流&lt;/h3&gt;&lt;div class=&quot;dc-journey-copy&quot;&gt;&lt;div class=&quot;dc-player-goal&quot;&gt;&lt;b&gt;玩家目标&lt;/b&gt;&lt;span&gt;连续推关救出梅丽尔、追回账本并恢复物流中心&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-player-pursuit&quot;&gt;&lt;b&gt;核心追求&lt;/b&gt;&lt;span&gt;指挥权、英雄伙伴、Treasurer 资源权&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/article&gt;
+        &lt;article class=&quot;dc-journey-stage&quot; data-step=&quot;06&quot;&gt;&lt;span class=&quot;dc-journey-time&quot;&gt;60:00–90:00 &#183; 第五幕&lt;/span&gt;&lt;h3&gt;推关闭环与会长交接&lt;/h3&gt;&lt;div class=&quot;dc-journey-copy&quot;&gt;&lt;div class=&quot;dc-player-goal&quot;&gt;&lt;b&gt;玩家目标&lt;/b&gt;&lt;span&gt;清理残党、护送物资、修复产业并完成连续履职&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-player-pursuit&quot;&gt;&lt;b&gt;核心追求&lt;/b&gt;&lt;span&gt;从 Sergeant 走到 President，掌控整个组织&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/article&gt;
+      &lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;dc-journey-outcome&quot;&gt;整条渐进的欲望升级：被保护 → 证明价值 → 拥有产业与下属 → 掌握情报与地盘 → 指挥行动 → 成为 President&lt;/div&gt;
+    &lt;/figure&gt;
 
     &lt;section class=&quot;dc-section dc-part&quot; id=&quot;dc-part-1&quot; aria-labelledby=&quot;dc-part-1-title&quot;&gt;
       &lt;h2 id=&quot;dc-part-1-title&quot;&gt;Part 1 &#183; 目前已确定的信息&lt;/h2&gt;
@@ -1769,6 +1802,7 @@ html&gt;body{padding:0}&lt;/style&gt;
 
   const tocItems = [
     { id:&#39;dc-overview&#39;, label:&#39;Dobe一日渐进规划&#39;, level:2 },
+    { id:&#39;dc-journey-map&#39;, label:&#39;方案 B &#183; 全流程一图&#39;, level:3 },
     { id:&#39;dc-part-1&#39;, label:&#39;Part 1 &#183; 已确定信息&#39;, level:2 },
     { id:&#39;dc-confirmed-docs&#39;, label:&#39;关联文档&#39;, level:3 },
     { id:&#39;dc-confirmed-framework&#39;, label:&#39;内容与成长框架&#39;, level:3 },
