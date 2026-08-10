@@ -126,13 +126,55 @@
       };
       const name = document.getElementById('active-plan-name');
       const note = document.getElementById('active-plan-note');
+      let activePlan = null;
+
+      function getReadingWindow(plan) {
+        const outerWindow = frames[plan]?.contentWindow;
+        const innerFrame = outerWindow?.document.querySelector('iframe');
+        return innerFrame?.contentWindow || outerWindow;
+      }
+
+      function readProgress(plan) {
+        try {
+          const readingWindow = getReadingWindow(plan);
+          const root = readingWindow.document.documentElement;
+          const body = readingWindow.document.body;
+          const height = Math.max(root.scrollHeight, body?.scrollHeight || 0);
+          const top = readingWindow.scrollY || root.scrollTop || body?.scrollTop || 0;
+          const maxScroll = Math.max(height - readingWindow.innerHeight, 1);
+          return Math.min(Math.max(top / maxScroll, 0), 1);
+        } catch {
+          return null;
+        }
+      }
+
+      function applyProgress(plan, progress, attempt = 0) {
+        if (progress == null) return;
+        try {
+          const readingWindow = getReadingWindow(plan);
+          const root = readingWindow.document.documentElement;
+          const body = readingWindow.document.body;
+          const height = Math.max(root.scrollHeight, body?.scrollHeight || 0);
+          const maxScroll = Math.max(height - readingWindow.innerHeight, 0);
+          if ((!readingWindow.innerHeight || !height) && attempt < 12) {
+            requestAnimationFrame(() => applyProgress(plan, progress, attempt + 1));
+            return;
+          }
+          readingWindow.scrollTo(0, Math.round(maxScroll * progress));
+        } catch {
+          if (attempt < 12) requestAnimationFrame(() => applyProgress(plan, progress, attempt + 1));
+        }
+      }
 
       function selectPlan(plan, updateUrl = true) {
         const next = plans[plan] ? plan : 'a';
+        const progress = activePlan && activePlan !== next ? readProgress(activePlan) : null;
         buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.plan === next)));
         Object.entries(frames).forEach(([key, frame]) => { frame.hidden = key !== next; });
         name.textContent = plans[next].name;
         note.textContent = plans[next].note;
+        activePlan = next;
+        if (progress != null) requestAnimationFrame(() => applyProgress(next, progress));
         if (updateUrl) {
           const url = new URL(window.location.href);
           url.searchParams.set('plan', next.toUpperCase());
