@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dobe-story-assets-v7';
+const CACHE_NAME = 'dobe-story-assets-v8';
 const CACHED_ASSETS = [
   './assets/clue-scenes/chase-police.webp',
   './assets/clue-scenes/cargo-ambush-rescue.webp',
@@ -14,7 +14,14 @@ const CACHED_ASSETS = [
   './assets/clue-scenes/blond-ally-sacrifice.webp',
   './assets/clue-scenes/workshop-takeover-dispatch.webp',
   './assets/clue-scenes/assassination-hero-rescue.webp',
-  './assets/clue-scenes/informant-interrogation.webp'
+  './assets/clue-scenes/informant-interrogation.webp',
+  './assets/clue-scenes/police-split-assist.webp',
+  './assets/clue-scenes/self-bike-upgrade.webp',
+  './assets/clue-scenes/member-bike-service.webp',
+  './assets/clue-scenes/race-invitation-bad-bike.webp',
+  './assets/clue-scenes/blond-ally-highway-sacrifice.webp',
+  './assets/clue-scenes/revenge-car-rebuild.webp',
+  './assets/clue-scenes/scrapyard-takeover-keys.webp'
 ];
 
 self.addEventListener('install', event => {
