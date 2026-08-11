@@ -2294,7 +2294,16 @@ html&gt;body{padding:0}&lt;/style&gt;
 <script id="dobe-clue-wall-v2">
 (() => {
   const frame = document.querySelector('iframe');
-  const spriteUrl = new URL('assets/plan-b-clue-wall-photos-v4.webp', location.href).href;
+  const sceneUrl = file => new URL('assets/clue-scenes/' + file, location.href).href;
+  const sceneById = {
+    L01:'chase-police.webp', L02:'gang-convoy-formation.webp', L03:'highway-gunfight.webp', L04:'tow-convoy.webp',
+    L05:'gang-convoy-formation.webp', L06:'garage-repair-nitrous.webp', L07:'garage-repair-nitrous.webp', L08:'highway-gunfight.webp',
+    L09:'gang-convoy-formation.webp', L10:'council-promotion.webp', L11:'workshop-takeover-dispatch.webp', L12:'workshop-takeover-dispatch.webp',
+    L13:'workshop-takeover-dispatch.webp', L14:'one-on-one-race.webp', L15:'scrapyard-salvage.webp', L16:'garage-repair-nitrous.webp',
+    L17:'one-on-one-race.webp', L18:'blond-ally-sacrifice.webp', L19:'scrapyard-salvage.webp', L20:'garage-repair-nitrous.webp',
+    L21:'highway-gunfight.webp', L22:'memorial-succession.webp', L23:'workshop-takeover-dispatch.webp', L24:'scrapyard-salvage.webp',
+    L25:'assassination-hero-rescue.webp', L26:'informant-interrogation.webp', L27:'council-promotion.webp'
+  };
   const css = `
     #dc-journey-map .dc-clue-wall{position:relative;overflow:hidden;padding:18px 18px 28px;border:1px solid #5b5044;border-radius:14px;background:radial-gradient(circle at 18% 12%,rgba(255,255,255,.055),transparent 25%),linear-gradient(135deg,#232421,#111310 68%,#1a1814);box-shadow:inset 0 0 50px #000,0 18px 36px rgba(0,0,0,.28);isolation:isolate}
     #dc-journey-map .dc-clue-head{position:relative;z-index:3;min-width:1100px;display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0 0 18px;padding:12px 16px;border:1px solid #5c554a;background:rgba(17,18,16,.88);box-shadow:0 8px 18px rgba(0,0,0,.28)}
@@ -2306,7 +2315,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     #dc-journey-map .dc-clue-card{position:relative;min-height:268px;padding:9px 9px 12px;background:#ece1c9;color:#201d18;border:1px solid #c4b493;box-shadow:0 9px 17px rgba(0,0,0,.48);transform:rotate(var(--tilt));transform-origin:50% 12px}
     #dc-journey-map .dc-clue-card:nth-child(4n+1){--tilt:-.7deg}.dc-clue-card:nth-child(4n+2){--tilt:.55deg}.dc-clue-card:nth-child(4n+3){--tilt:-.35deg}.dc-clue-card:nth-child(4n){--tilt:.75deg}
     #dc-journey-map .dc-clue-pin{position:absolute;z-index:4;top:-8px;left:50%;width:15px;height:15px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff2b5,#a36d1e 45%,#3d2208 80%);box-shadow:0 2px 4px #000;transform:translateX(-50%)}
-    #dc-journey-map .dc-clue-photo{height:104px;border:5px solid #f4efe4;background-image:var(--sprite);background-size:560% 540%;background-position:var(--px) var(--py);box-shadow:0 2px 7px rgba(0,0,0,.35);filter:saturate(.78) contrast(1.08)}
+    #dc-journey-map .dc-clue-photo{height:104px;border:5px solid #f4efe4;background-image:var(--scene);background-size:cover;background-position:center;box-shadow:0 2px 7px rgba(0,0,0,.35);filter:saturate(.84) contrast(1.06);image-rendering:auto}
     #dc-journey-map .dc-clue-meta{display:flex;justify-content:space-between;gap:8px;margin-top:8px;font:700 11px/1.2 ui-monospace,SFMono-Regular,Consolas,monospace;color:#765b34}
     #dc-journey-map .dc-clue-card h3{margin:5px 0 4px;font-size:15px;line-height:1.22;color:#211b14}
     #dc-journey-map .dc-clue-summary{margin:0;font-size:12px;line-height:1.48;color:#4b4032;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
@@ -2364,12 +2373,9 @@ html&gt;body{padding:0}&lt;/style&gt;
       card.className = 'dc-clue-card' + (isSystem ? ' is-system' : '') + (isGain ? ' is-gain' : '');
       card.dataset.phase = index < phaseBreak ? 'before' : 'after';
       card.dataset.edge = isGain ? 'gain' : (isSystem || /SUP|小游戏|推关|骑行/.test(play) ? 'play' : 'plot');
-      const shot = /警匪/.test(title)?0:/分流|接应/.test(title)?1:/死亡|牺牲|追杀|复仇/.test(title)?9:/拖走|拖车/.test(title)?3:/维修|修复|改装/.test(title)?4:/议会|转正|Full Patch/.test(title)?6:/接管改装厂|修建改装厂|派遣|模拟经营/.test(title)?7:/废车|回收|拆车|赛车|竞速/.test(title)?8:/枪战|袭击|伏击|车队/.test(title)?5:index%10;
-      const px = [4,27,50,74,97][shot % 5];
-      const py = shot < 5 ? 17 : 68;
-      card.style.setProperty('--sprite', `url("${spriteUrl}")`);
-      card.style.setProperty('--px', px + '%');
-      card.style.setProperty('--py', py + '%');
+      const clueId = (title.match(/L\d+/) || ['L01'])[0];
+      const sceneFile = sceneById[clueId] || 'tow-convoy.webp';
+      card.style.setProperty('--scene', `url("${sceneUrl(sceneFile)}")`);
       const chips = [];
       if (play) chips.push('<span class="dc-clue-chip play">' + play + '</span>');
       if (first) chips.push('<em>→</em><span class="dc-clue-chip system">' + first + '</span>');

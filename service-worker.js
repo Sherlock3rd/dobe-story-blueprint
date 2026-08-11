@@ -1,7 +1,20 @@
-const CACHE_NAME = 'dobe-story-assets-v4';
+const CACHE_NAME = 'dobe-story-assets-v5';
 const CACHED_ASSETS = [
-  './assets/plan-a-clue-wall-photos-v4.webp',
-  './assets/plan-b-clue-wall-photos-v4.webp'
+  './assets/clue-scenes/chase-police.webp',
+  './assets/clue-scenes/cargo-ambush-rescue.webp',
+  './assets/clue-scenes/highway-gunfight.webp',
+  './assets/clue-scenes/tow-convoy.webp',
+  './assets/clue-scenes/gang-convoy-formation.webp',
+  './assets/clue-scenes/garage-repair-nitrous.webp',
+  './assets/clue-scenes/one-on-one-race.webp',
+  './assets/clue-scenes/garage-explosion.webp',
+  './assets/clue-scenes/scrapyard-salvage.webp',
+  './assets/clue-scenes/council-promotion.webp',
+  './assets/clue-scenes/memorial-succession.webp',
+  './assets/clue-scenes/blond-ally-sacrifice.webp',
+  './assets/clue-scenes/workshop-takeover-dispatch.webp',
+  './assets/clue-scenes/assassination-hero-rescue.webp',
+  './assets/clue-scenes/informant-interrogation.webp'
 ];
 
 self.addEventListener('install', event => {
@@ -19,7 +32,7 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
   const url = new URL(event.request.url);
-  if (!url.pathname.includes('/assets/plan-') || !url.pathname.endsWith('-clue-wall-photos-v4.webp')) return;
+  if (!url.pathname.includes('/assets/clue-scenes/') || !url.pathname.endsWith('.webp')) return;
   event.respondWith(
     caches.match(event.request, { ignoreSearch: true }).then(cached => cached || fetch(event.request).then(response => {
       if (response.ok) caches.open(CACHE_NAME).then(cache => cache.put(event.request, response.clone()));
