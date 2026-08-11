@@ -2294,7 +2294,7 @@ html&gt;body{padding:0}&lt;/style&gt;
 <script id="dobe-clue-wall-v2">
 (() => {
   const frame = document.querySelector('iframe');
-  const sceneUrl = file => new URL('assets/clue-scenes/' + file, location.href).href;
+  const sceneUrl = file => new URL('assets/clue-scenes/' + file.replace('.webp', '-hd2.webp'), location.href).href;
   const sceneById = {
     L01:'chase-police.webp', L02:'gang-convoy-formation.webp', L03:'highway-gunfight.webp', L04:'tow-convoy.webp',
     L05:'gang-convoy-formation.webp', L06:'garage-repair-nitrous.webp', L07:'garage-repair-nitrous.webp', L08:'highway-gunfight.webp',
@@ -2406,13 +2406,18 @@ html&gt;body{padding:0}&lt;/style&gt;
       });
     };
     let scale = 1, panX = 0, panY = 0, drag = null;
-    const applyView = () => { canvas.style.transform = 'translate(' + panX + 'px,' + panY + 'px) scale(' + scale + ')'; };
+    const applyView = () => {
+      canvas.style.zoom = scale;
+      canvas.style.left = (panX / scale) + 'px';
+      canvas.style.top = (panY / scale) + 'px';
+      canvas.style.transform = '';
+    };
     const fitView = () => { scale = Math.min(1, (viewport.clientWidth - 48) / grid.scrollWidth); panX = Math.max(24, (viewport.clientWidth - grid.scrollWidth * scale) / 2); panY = 24; applyView(); };
-    fullscreenButton.addEventListener('click', () => wall.requestFullscreen());
+    fullscreenButton.addEventListener('click', () => doc.fullscreenElement === wall ? doc.exitFullscreen() : wall.requestFullscreen());
     doc.addEventListener('fullscreenchange', () => {
       const active = doc.fullscreenElement === wall;
       fullscreenButton.textContent = active ? 'Esc 退出全屏' : '⛶ 全屏查看';
-      if (active) requestAnimationFrame(fitView); else { scale = 1; panX = 0; panY = 0; canvas.style.transform = ''; }
+      if (active) requestAnimationFrame(fitView); else { scale = 1; panX = 0; panY = 0; canvas.style.zoom = ''; canvas.style.left = ''; canvas.style.top = ''; canvas.style.transform = ''; }
     });
     viewport.addEventListener('wheel', event => {
       if (doc.fullscreenElement !== wall) {

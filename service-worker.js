@@ -1,20 +1,20 @@
-const CACHE_NAME = 'dobe-story-assets-v5';
+const CACHE_NAME = 'dobe-story-assets-v6';
 const CACHED_ASSETS = [
-  './assets/clue-scenes/chase-police.webp',
-  './assets/clue-scenes/cargo-ambush-rescue.webp',
-  './assets/clue-scenes/highway-gunfight.webp',
-  './assets/clue-scenes/tow-convoy.webp',
-  './assets/clue-scenes/gang-convoy-formation.webp',
-  './assets/clue-scenes/garage-repair-nitrous.webp',
-  './assets/clue-scenes/one-on-one-race.webp',
-  './assets/clue-scenes/garage-explosion.webp',
-  './assets/clue-scenes/scrapyard-salvage.webp',
-  './assets/clue-scenes/council-promotion.webp',
-  './assets/clue-scenes/memorial-succession.webp',
-  './assets/clue-scenes/blond-ally-sacrifice.webp',
-  './assets/clue-scenes/workshop-takeover-dispatch.webp',
-  './assets/clue-scenes/assassination-hero-rescue.webp',
-  './assets/clue-scenes/informant-interrogation.webp'
+  './assets/clue-scenes/chase-police-hd2.webp',
+  './assets/clue-scenes/cargo-ambush-rescue-hd2.webp',
+  './assets/clue-scenes/highway-gunfight-hd2.webp',
+  './assets/clue-scenes/tow-convoy-hd2.webp',
+  './assets/clue-scenes/gang-convoy-formation-hd2.webp',
+  './assets/clue-scenes/garage-repair-nitrous-hd2.webp',
+  './assets/clue-scenes/one-on-one-race-hd2.webp',
+  './assets/clue-scenes/garage-explosion-hd2.webp',
+  './assets/clue-scenes/scrapyard-salvage-hd2.webp',
+  './assets/clue-scenes/council-promotion-hd2.webp',
+  './assets/clue-scenes/memorial-succession-hd2.webp',
+  './assets/clue-scenes/blond-ally-sacrifice-hd2.webp',
+  './assets/clue-scenes/workshop-takeover-dispatch-hd2.webp',
+  './assets/clue-scenes/assassination-hero-rescue-hd2.webp',
+  './assets/clue-scenes/informant-interrogation-hd2.webp'
 ];
 
 self.addEventListener('install', event => {
