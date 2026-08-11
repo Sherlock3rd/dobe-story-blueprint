@@ -2391,6 +2391,11 @@ html&gt;body{padding:0}&lt;/style&gt;
   };
   frame?.addEventListener('load', () => setTimeout(build,0));
   setTimeout(build,0);
+  let retries = 0;
+  const retryTimer = setInterval(() => {
+    if (frame?.contentDocument?.querySelector('.dc-clue-wall') || retries++ > 120) { clearInterval(retryTimer); return; }
+    build();
+  }, 500);
 })();
 </script>
 </body>
