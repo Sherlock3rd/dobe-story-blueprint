@@ -2313,6 +2313,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     #dc-journey-map .dc-clue-chip.play{color:#075b69;background:#d8f0f1;border-color:#70b9c3}.dc-clue-chip.system{color:#553272;background:#eadff2;border-color:#a887bd}.dc-clue-chip.gain{color:#72520e;background:#f3e6bc;border-color:#c9a54c}
     #dc-journey-map .dc-clue-wire{position:absolute;z-index:1;inset:0;pointer-events:none;overflow:visible}.dc-clue-wire line{stroke:#b93c35;stroke-width:3.2;stroke-linecap:round;filter:drop-shadow(0 1px 1px #000);opacity:.82}.dc-clue-wire line.play{stroke:#36a9bf;stroke-dasharray:8 5}.dc-clue-wire line.gain{stroke:#d5a43a}
     #dc-journey-map .dc-clue-card.is-system{outline:2px solid rgba(129,84,164,.46)}.dc-clue-card.is-gain{box-shadow:0 9px 17px rgba(0,0,0,.48),0 0 0 2px rgba(213,164,58,.36)}
+    #dc-journey-map .dc-phase-bar{grid-column:1/-1;position:relative;z-index:3;display:flex;align-items:center;gap:14px;min-height:54px;padding:9px 16px;border-top:2px solid #36a9bf;border-bottom:1px solid rgba(255,255,255,.18);background:linear-gradient(90deg,rgba(23,101,117,.5),rgba(23,23,20,.92) 55%,rgba(23,23,20,.55));box-shadow:0 8px 18px rgba(0,0,0,.35);color:#f4e6cc;transform:none}.dc-phase-bar b{font-size:17px;letter-spacing:.04em}.dc-phase-bar span{font-size:12px;color:#cbbda4}#dc-journey-map .dc-phase-bar.after{margin-top:4px;border-top-color:#d6a53d;background:linear-gradient(90deg,rgba(142,99,20,.52),rgba(23,23,20,.92) 55%,rgba(23,23,20,.55))}.dc-phase-bar::after{content:'◆';margin-left:auto;color:#d8ad58;font-size:18px}
     @media(max-width:900px){#dc-journey-map .dc-clue-wall{padding:12px}.dc-clue-head,.dc-clue-grid{min-width:980px!important}.dc-clue-grid{grid-template-columns:repeat(5,180px)!important}}
   `;
   const text = el => (el?.textContent || '').replace(/\s+/g,' ').trim();
@@ -2331,12 +2332,16 @@ html&gt;body{padding:0}&lt;/style&gt;
     doc.head.appendChild(style);
     const rows = [...doc.querySelectorAll('tr')].filter(row => row.querySelector('.dc-loop') && parseStart(text(row.cells[0])) < 30);
     if (!rows.length) { style.remove(); setTimeout(build, 120); return; }
+    const phaseBreak = 10;
+    const makePhase = (kind,title,caption) => { const bar = doc.createElement('div'); bar.className = 'dc-phase-bar ' + kind; bar.innerHTML = '<b>' + title + '</b><span>' + caption + '</span>'; return bar; };
     const wall = doc.createElement('div');
     wall.className = 'dc-clue-wall';
     wall.setAttribute('aria-label','前30分钟剧情、玩法、系统与结果关系线索墙');
     wall.innerHTML = '<div class="dc-clue-head"><div><b>案件板 · 前30分钟完整因果链</b><br><small>每张照片是一段游戏内事件；卡片底部依次显示玩法、系统解锁与产出</small></div><div class="dc-clue-legend"><span><i class="plot"></i>剧情因果</span><span><i class="play"></i>玩法承接</span><span><i class="gain"></i>身份/建筑/资源结果</span></div></div><svg class="dc-clue-wire" aria-hidden="true"></svg><div class="dc-clue-grid"></div>';
     const grid = wall.querySelector('.dc-clue-grid');
+    grid.appendChild(makePhase('before','转正前 · L01–L10','Prospect 完成三项见习证明，并通过首次议会成为 Full Patch'));
     rows.forEach((row,index) => {
+      if (index === phaseBreak) grid.appendChild(makePhase('after','转正后 · L11起','正式成员取得改装厂职责，进入接管、城建、派遣与后续产业循环'));
       const cells = row.cells;
       const loop = row.querySelector('.dc-loop');
       const title = text(loop);
@@ -2350,6 +2355,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       const isSystem = Boolean(first);
       const isGain = Boolean(gain);
       card.className = 'dc-clue-card' + (isSystem ? ' is-system' : '') + (isGain ? ' is-gain' : '');
+      card.dataset.phase = index < phaseBreak ? 'before' : 'after';
       card.dataset.edge = isGain ? 'gain' : (isSystem || /SUP|小游戏|推关|骑行/.test(play) ? 'play' : 'plot');
       const shot = /警匪/.test(title)?0:/分流|接应/.test(title)?1:/死亡|牺牲|追杀|复仇/.test(title)?9:/拖走|拖车/.test(title)?3:/维修|修复|改装/.test(title)?4:/议会|转正|Full Patch/.test(title)?6:/接管改装厂|修建改装厂|派遣|模拟经营/.test(title)?7:/废车|回收|拆车|赛车|竞速/.test(title)?8:/枪战|袭击|伏击|车队/.test(title)?5:index%10;
       const px = [4,27,50,74,97][shot % 5];
@@ -2367,7 +2373,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     image.replaceWith(wall);
     const svg = wall.querySelector('.dc-clue-wire');
     const draw = () => {
-      const cards = [...grid.children];
+      const cards = [...grid.querySelectorAll('.dc-clue-card')];
       svg.replaceChildren();
       const wr = wall.getBoundingClientRect();
       svg.setAttribute('width', wall.scrollWidth);
@@ -2375,6 +2381,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       svg.setAttribute('viewBox', '0 0 ' + wall.scrollWidth + ' ' + wall.scrollHeight);
       cards.slice(0,-1).forEach((card,index) => {
         const next = cards[index + 1];
+        if (card.dataset.phase !== next.dataset.phase) return;
         const a = card.getBoundingClientRect();
         const b = next.getBoundingClientRect();
         const line = doc.createElementNS('http://www.w3.org/2000/svg','line');
