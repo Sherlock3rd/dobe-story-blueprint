@@ -1537,8 +1537,8 @@ html&gt;body{padding:0}&lt;/style&gt;
     &lt;section class=&quot;dc-section dc-part&quot; id=&quot;dc-part-2&quot; aria-labelledby=&quot;dc-part-2-title&quot;&gt;
       &lt;h2 id=&quot;dc-part-2-title&quot;&gt;Part 2 &#183; 渐进规划&lt;/h2&gt;
       &lt;figure class=&quot;dc-journey-map dc-first30&quot; id=&quot;dc-journey-map&quot; aria-labelledby=&quot;dc-journey-map-title&quot;&gt;
-        &lt;figcaption&gt;&lt;div&gt;&lt;b id=&quot;dc-journey-map-title&quot;&gt;方案 C &#183; 案件板&lt;/b&gt;&lt;span&gt;待正文内容梳理完成后生成&lt;/span&gt;&lt;/div&gt;&lt;span class=&quot;dc-journey-badge&quot;&gt;暂留空&lt;/span&gt;&lt;/figcaption&gt;
-        &lt;div class=&quot;dc-journey-image&quot; role=&quot;img&quot; aria-label=&quot;方案 C 案件板暂留空&quot;&gt;&lt;/div&gt;
+        &lt;figcaption&gt;&lt;div&gt;&lt;b id=&quot;dc-journey-map-title&quot;&gt;方案 C &#183; 案件板&lt;/b&gt;&lt;span&gt;开局至首次推关结束与 Roadman 晋升&lt;/span&gt;&lt;/div&gt;&lt;span class=&quot;dc-journey-badge&quot;&gt;L01–L27&lt;/span&gt;&lt;/figcaption&gt;
+        &lt;div class=&quot;dc-journey-image&quot; role=&quot;img&quot; aria-label=&quot;方案 C 从本地打工崽到 Roadman 晋升的案件板&quot;&gt;&lt;/div&gt;
         &lt;div class=&quot;dc-density-scale&quot; aria-label=&quot;定制化内容密度递减&quot;&gt;&lt;b&gt;定制化内容密度&lt;/b&gt;&lt;span&gt;高 &#183; 专属追逃与伏击&lt;/span&gt;&lt;i&gt;→&lt;/i&gt;&lt;span&gt;中高 &#183; 收车拆解强化&lt;/span&gt;&lt;i&gt;→&lt;/i&gt;&lt;span&gt;中 &#183; 功能建筑与帮派任务&lt;/span&gt;&lt;i&gt;→&lt;/i&gt;&lt;span&gt;低 &#183; 常规 SLG 循环&lt;/span&gt;&lt;/div&gt;
         &lt;div class=&quot;dc-first30-grid&quot;&gt;
           &lt;article&gt;&lt;span&gt;0:00–3:20&lt;/span&gt;&lt;h3&gt;分流警方与反伏击&lt;/h3&gt;&lt;p&gt;连续角色协作与战斗演出，定制密度最高。&lt;/p&gt;&lt;b&gt;核心追求：转正任务进度（1 / 3）&lt;/b&gt;&lt;/article&gt;
@@ -1856,7 +1856,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     { id:&#39;dc-confirmed-buildings&#39;, label:&#39;确定建筑与功能&#39;, level:3 },
     { id:&#39;dc-confirmed-anchors&#39;, label:&#39;版本锚点&#39;, level:3 },
     { id:&#39;dc-part-2&#39;, label:&#39;Part 2 &#183; 渐进规划&#39;, level:2 },
-    { id:&#39;dc-journey-map&#39;, label:&#39;方案 C &#183; 案件板（暂留空）&#39;, level:3 },
+    { id:&#39;dc-journey-map&#39;, label:&#39;方案 C &#183; 案件板（L01–L27）&#39;, level:3 },
     { id:&#39;dc-memory-structure-title&#39;, label:&#39;帮派体验记忆结构&#39;, level:3 },
     { id:&#39;dc-story-causal-title&#39;, label:&#39;整体剧情因果&#39;, level:3 },
     { id:&#39;dc-act-relations-title&#39;, label:&#39;六幕关系&#39;, level:3 },
@@ -1912,7 +1912,10 @@ html&gt;body{padding:0}&lt;/style&gt;
       const visible = entries.filter(entry =&gt; entry.isIntersecting).sort((a, b) =&gt; a.boundingClientRect.top - b.boundingClientRect.top);
       if (visible[0]) setActive(visible[0].target.id);
     }, { rootMargin:&#39;-8% 0px -76% 0px&#39;, threshold:[0, 1] });
-    tocItems.forEach(item =&gt; observer.observe(document.getElementById(item.id)));
+    tocItems.forEach(item =&gt; {
+      const target = document.getElementById(item.id);
+      if (target) observer.observe(target);
+    });
   }
 
   const headers = [&#39;时间&#39;,&#39;循环&#39;,&#39;动机&#39;,&#39;玩法与剧情 / 次数&#39;,&#39;游戏内表现&#39;,&#39;奖励与接续&#39;];
@@ -2299,7 +2302,7 @@ html&gt;body{padding:0}&lt;/style&gt;
   const sceneById = {
     L01:'chase-police.webp', L02:'gang-convoy-formation.webp', L03:'highway-gunfight.webp', L04:'tow-convoy.webp',
     L05:'gang-convoy-formation.webp', L06:'scrapyard-salvage.webp', L07:'garage-repair-nitrous.webp', L08:'highway-gunfight.webp',
-    L09:'gang-convoy-formation.webp', L10:'council-promotion.webp', L11:'workshop-takeover-dispatch.webp', L12:'workshop-takeover-dispatch.webp',
+    L09:'gang-convoy-formation.webp', L10:'council-promotion.webp', L11:'workshop-takeover-dispatch.webp', L12:'garage-repair-nitrous.webp',
     L13:'garage-repair-nitrous.webp', L14:'one-on-one-race.webp', L15:'scrapyard-salvage.webp', L16:'garage-repair-nitrous.webp',
     L17:'one-on-one-race.webp', L18:'blond-ally-sacrifice.webp', L19:'scrapyard-salvage.webp', L20:'garage-repair-nitrous.webp',
     L21:'highway-gunfight.webp', L22:'memorial-succession.webp', L23:'workshop-takeover-dispatch.webp', L24:'scrapyard-salvage.webp',
@@ -2325,7 +2328,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     #dc-journey-map .dc-clue-chip.play{color:#075b69;background:#d8f0f1;border-color:#70b9c3}.dc-clue-chip.system{color:#553272;background:#eadff2;border-color:#a887bd}.dc-clue-chip.gain{color:#72520e;background:#f3e6bc;border-color:#c9a54c}
     #dc-journey-map .dc-clue-wire{position:absolute;z-index:1;inset:0;pointer-events:none;overflow:visible}.dc-clue-wire line{stroke:#b93c35;stroke-width:3.2;stroke-linecap:round;filter:drop-shadow(0 1px 1px #000);opacity:.82}.dc-clue-wire line.play{stroke:#36a9bf;stroke-dasharray:8 5}.dc-clue-wire line.gain{stroke:#d5a43a}
     #dc-journey-map .dc-clue-card.is-system{outline:2px solid rgba(129,84,164,.46)}.dc-clue-card.is-gain{box-shadow:0 9px 17px rgba(0,0,0,.48),0 0 0 2px rgba(213,164,58,.36)}
-    #dc-journey-map .dc-phase-bar{grid-column:1/-1;position:relative;z-index:3;display:flex;align-items:center;gap:14px;min-height:54px;padding:9px 16px;border-top:2px solid #36a9bf;border-bottom:1px solid rgba(255,255,255,.18);background:linear-gradient(90deg,rgba(23,101,117,.5),rgba(23,23,20,.92) 55%,rgba(23,23,20,.55));box-shadow:0 8px 18px rgba(0,0,0,.35);color:#f4e6cc;transform:none}.dc-phase-bar b{font-size:17px;letter-spacing:.04em}.dc-phase-bar span{font-size:12px;color:#cbbda4}#dc-journey-map .dc-phase-bar.after{margin-top:4px;border-top-color:#d6a53d;background:linear-gradient(90deg,rgba(142,99,20,.52),rgba(23,23,20,.92) 55%,rgba(23,23,20,.55))}.dc-phase-bar::after{content:'◆';margin-left:auto;color:#d8ad58;font-size:18px}
+    #dc-journey-map .dc-phase-bar{grid-column:1/-1;position:relative;z-index:3;display:flex;align-items:center;gap:14px;min-height:54px;padding:9px 16px;border-top:2px solid #36a9bf;border-bottom:1px solid rgba(255,255,255,.18);background:linear-gradient(90deg,rgba(23,101,117,.5),rgba(23,23,20,.92) 55%,rgba(23,23,20,.55));box-shadow:0 8px 18px rgba(0,0,0,.35);color:#f4e6cc;transform:none}.dc-phase-bar b{font-size:17px;letter-spacing:.04em}.dc-phase-bar span{font-size:12px;color:#cbbda4}#dc-journey-map .dc-phase-bar.middle{margin-top:4px;border-top-color:#8f6db0;background:linear-gradient(90deg,rgba(91,55,118,.52),rgba(23,23,20,.92) 55%,rgba(23,23,20,.55))}#dc-journey-map .dc-phase-bar.after{margin-top:4px;border-top-color:#d6a53d;background:linear-gradient(90deg,rgba(142,99,20,.52),rgba(23,23,20,.92) 55%,rgba(23,23,20,.55))}.dc-phase-bar::after{content:'◆';margin-left:auto;color:#d8ad58;font-size:18px}
     #dc-journey-map .dc-clue-wall:fullscreen{width:100vw;height:100vh;box-sizing:border-box;border:0;border-radius:0;padding:0;display:flex;flex-direction:column;background:#11130f}#dc-journey-map .dc-clue-wall:fullscreen .dc-clue-head{min-width:0;margin:0;padding:12px 18px;flex:0 0 auto}#dc-journey-map .dc-clue-wall:fullscreen .dc-clue-viewport{flex:1;overflow:hidden;overscroll-behavior:contain;cursor:grab;touch-action:none;user-select:none}#dc-journey-map .dc-clue-wall:fullscreen .dc-clue-viewport.is-dragging{cursor:grabbing}#dc-journey-map .dc-clue-wall:fullscreen .dc-clue-canvas{margin:0;will-change:transform}
     @media(max-width:900px){#dc-journey-map .dc-clue-wall{padding:12px}.dc-clue-head,.dc-clue-grid{min-width:980px!important}.dc-clue-canvas{width:980px!important}.dc-clue-grid{grid-template-columns:repeat(5,180px)!important}}
   `;
@@ -2339,13 +2342,6 @@ html&gt;body{padding:0}&lt;/style&gt;
     if (!doc || doc.getElementById('dc-clue-wall-style')) return;
     const image = doc.querySelector('#dc-journey-map .dc-journey-image');
     if (!image) return;
-    const emptyWall = doc.createElement('div');
-    emptyWall.className = 'dc-clue-wall';
-    emptyWall.setAttribute('aria-label','方案 C 案件板暂留空');
-    emptyWall.style.cssText = 'min-height:300px;display:grid;place-items:center;border:1px dashed #7d7261;border-radius:14px;background:linear-gradient(135deg,#20211e,#111310);color:#d8cdb8;text-align:center;padding:32px;';
-    emptyWall.innerHTML = '<div><b style="display:block;font-size:20px;margin-bottom:8px;color:#f2e5ca">案件板暂留空</b><span style="font-size:13px;color:#b8ad98">先梳理方案 C 正文，确认关键节点后再生成画板。</span></div>';
-    image.replaceWith(emptyWall);
-    return;
     const style = doc.createElement('style');
     style.id = 'dc-clue-wall-style';
     style.textContent = css;
@@ -2353,19 +2349,19 @@ html&gt;body{padding:0}&lt;/style&gt;
     const maxClueId = 27;
     const rows = [...doc.querySelectorAll('tr')].filter(row => { const id = text(row.querySelector('.dc-loop')).match(/L(\d+)/); return id && Number(id[1]) <= maxClueId; });
     if (!rows.length) { style.remove(); setTimeout(build, 120); return; }
-    const phaseBreak = 10;
     const makePhase = (kind,title,caption) => { const bar = doc.createElement('div'); bar.className = 'dc-phase-bar ' + kind; bar.innerHTML = '<b>' + title + '</b><span>' + caption + '</span>'; return bar; };
     const wall = doc.createElement('div');
     wall.className = 'dc-clue-wall';
     wall.setAttribute('aria-label','开局至首次推关结束与 Roadman 晋升的剧情、玩法、系统与结果关系线索墙');
-    wall.innerHTML = '<div class="dc-clue-head"><div><b>案件板 · 开局至首次推关晋升</b><br><small>完整展示剧情事件、玩法承接、系统解锁与 Roadman 晋升结果</small></div><div class="dc-clue-tools"><div class="dc-clue-legend"><span><i class="plot"></i>剧情因果</span><span><i class="play"></i>玩法承接</span><span><i class="gain"></i>身份/建筑/资源结果</span></div><button class="dc-clue-fullscreen" type="button" aria-label="全屏查看案件板">⛶ 全屏查看</button></div></div><div class="dc-clue-viewport"><div class="dc-clue-canvas"><svg class="dc-clue-wire" aria-hidden="true"></svg><div class="dc-clue-grid"></div></div></div>';
+    wall.innerHTML = '<div class="dc-clue-head"><div><b>方案 C 案件板 · 本地打工崽</b><br><small>L01–L27：收车拆解强化、氮气备赛、废车厂复仇与内奸追查</small></div><div class="dc-clue-tools"><div class="dc-clue-legend"><span><i class="plot"></i>剧情因果</span><span><i class="play"></i>玩法承接</span><span><i class="gain"></i>身份/建筑/资源结果</span></div><button class="dc-clue-fullscreen" type="button" aria-label="全屏查看案件板">⛶ 全屏查看</button></div></div><div class="dc-clue-viewport"><div class="dc-clue-canvas"><svg class="dc-clue-wire" aria-hidden="true"></svg><div class="dc-clue-grid"></div></div></div>';
     const grid = wall.querySelector('.dc-clue-grid');
     const viewport = wall.querySelector('.dc-clue-viewport');
     const canvas = wall.querySelector('.dc-clue-canvas');
     const fullscreenButton = wall.querySelector('.dc-clue-fullscreen');
-    grid.appendChild(makePhase('before','转正前 · L01–L10','Prospect 完成三项见习证明，并通过首次议会成为 Full Patch'));
+    grid.appendChild(makePhase('before','见习转正前 · L01–L10','Prospect 完成反伏击、收车拆解强化与袭击考核，经议会成为 Full Patch'));
     rows.forEach((row,index) => {
-      if (index === phaseBreak) grid.appendChild(makePhase('after','转正后 · L11起','正式成员接管纯功能修车厂，为成员改装两车并同行竞速'));
+      if (index === 10) grid.appendChild(makePhase('middle','Full Patch · L11–L21','接管纯功能修车厂 → 服务成员 → 拆氮气备赛 → 金发小哥牺牲 → 驾新车复仇'));
+      if (index === 21) grid.appendChild(makePhase('after','Enforcer 与内奸调查 · L22–L27','补位金发小哥管理席 → 接管废车厂 → 派遣自动化 → 英雄救场 → 推关逼问 → 晋升 Roadman'));
       const cells = row.cells;
       const loop = row.querySelector('.dc-loop');
       const title = text(loop);
@@ -2379,7 +2375,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       const isSystem = Boolean(first);
       const isGain = Boolean(gain);
       card.className = 'dc-clue-card' + (isSystem ? ' is-system' : '') + (isGain ? ' is-gain' : '');
-      card.dataset.phase = index < phaseBreak ? 'before' : 'after';
+      card.dataset.phase = index < 10 ? 'before' : (index < 21 ? 'middle' : 'after');
       card.dataset.edge = isGain ? 'gain' : (isSystem || /SUP|小游戏|推关|骑行/.test(play) ? 'play' : 'plot');
       const clueId = (title.match(/L\d+/) || ['L01'])[0];
       const sceneFile = sceneById[clueId] || 'tow-convoy.webp';
@@ -2388,7 +2384,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       if (play) chips.push('<span class="dc-clue-chip play">' + play + '</span>');
       if (first) chips.push('<em>→</em><span class="dc-clue-chip system">' + first + '</span>');
       if (gain) chips.push('<em>→</em><span class="dc-clue-chip gain">' + gain + '</span>');
-      card.innerHTML = '<i class="dc-clue-pin"></i><div class="dc-clue-photo" role="img" aria-label="' + title + '剧情照片"></div><div class="dc-clue-meta"><span>' + time + '</span><span>B-' + String(index + 1).padStart(2,'0') + '</span></div><h3>' + title + '</h3><p class="dc-clue-summary">' + summary + '</p><div class="dc-clue-flow">' + chips.join('') + '</div>';
+      card.innerHTML = '<i class="dc-clue-pin"></i><div class="dc-clue-photo" role="img" aria-label="' + title + '剧情照片"></div><div class="dc-clue-meta"><span>' + time + '</span><span>C-' + String(index + 1).padStart(2,'0') + '</span></div><h3>' + title + '</h3><p class="dc-clue-summary">' + summary + '</p><div class="dc-clue-flow">' + chips.join('') + '</div>';
       grid.appendChild(card);
     });
     image.replaceWith(wall);
