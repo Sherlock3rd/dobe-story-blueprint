@@ -1,7 +1,7 @@
-const CACHE_NAME = 'dobe-story-assets-v3';
+const CACHE_NAME = 'dobe-story-assets-v4';
 const CACHED_ASSETS = [
-  './assets/plan-a-clue-wall-photos-v3.webp',
-  './assets/plan-b-clue-wall-photos-v3.webp'
+  './assets/plan-a-clue-wall-photos-v4.webp',
+  './assets/plan-b-clue-wall-photos-v4.webp'
 ];
 
 self.addEventListener('install', event => {
@@ -19,7 +19,7 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
   const url = new URL(event.request.url);
-  if (!url.pathname.includes('/assets/plan-') || !url.pathname.endsWith('-clue-wall-photos-v3.webp')) return;
+  if (!url.pathname.includes('/assets/plan-') || !url.pathname.endsWith('-clue-wall-photos-v4.webp')) return;
   event.respondWith(
     caches.match(event.request, { ignoreSearch: true }).then(cached => cached || fetch(event.request).then(response => {
       if (response.ok) caches.open(CACHE_NAME).then(cache => cache.put(event.request, response.clone()));
