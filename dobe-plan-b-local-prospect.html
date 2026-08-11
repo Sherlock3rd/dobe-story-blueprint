@@ -1537,7 +1537,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     &lt;section class=&quot;dc-section dc-part&quot; id=&quot;dc-part-2&quot; aria-labelledby=&quot;dc-part-2-title&quot;&gt;
       &lt;h2 id=&quot;dc-part-2-title&quot;&gt;Part 2 &#183; 渐进规划&lt;/h2&gt;
       &lt;figure class=&quot;dc-journey-map dc-first30&quot; id=&quot;dc-journey-map&quot; aria-labelledby=&quot;dc-journey-map-title&quot;&gt;
-        &lt;figcaption&gt;&lt;div&gt;&lt;b id=&quot;dc-journey-map-title&quot;&gt;方案 B &#183; 前 30 分钟高密度线索墙&lt;/b&gt;&lt;span&gt;剧情、玩法、系统解锁与产出通过照片卡和连线统一展示&lt;/span&gt;&lt;/div&gt;&lt;span class=&quot;dc-journey-badge&quot;&gt;0–30 分钟&lt;/span&gt;&lt;/figcaption&gt;
+        &lt;figcaption&gt;&lt;div&gt;&lt;b id=&quot;dc-journey-map-title&quot;&gt;方案 B &#183; 开局至首次推关晋升线索墙&lt;/b&gt;&lt;span&gt;展示至首次推关、逼问结束并晋升 Roadman&lt;/span&gt;&lt;/div&gt;&lt;span class=&quot;dc-journey-badge&quot;&gt;开局–Roadman&lt;/span&gt;&lt;/figcaption&gt;
         &lt;img class=&quot;dc-journey-image&quot; src=&quot;assets/plan-b-first30-flow.png&quot; alt=&quot;本地见习生开局从高密度帮派任务，经转正与产业经营，逐渐过渡到常规 SLG 推关的四阶段示意图&quot;&gt;
         &lt;div class=&quot;dc-density-scale&quot; aria-label=&quot;定制化内容密度递减&quot;&gt;&lt;b&gt;定制化内容密度&lt;/b&gt;&lt;span&gt;高 &#183; 专属追逃与伏击&lt;/span&gt;&lt;i&gt;→&lt;/i&gt;&lt;span&gt;中高 &#183; 专属转正任务&lt;/span&gt;&lt;i&gt;→&lt;/i&gt;&lt;span&gt;中 &#183; 经营教学承接&lt;/span&gt;&lt;i&gt;→&lt;/i&gt;&lt;span&gt;低 &#183; 常规 SLG 循环&lt;/span&gt;&lt;/div&gt;
         &lt;div class=&quot;dc-first30-grid&quot;&gt;
@@ -1855,7 +1855,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     { id:&#39;dc-confirmed-buildings&#39;, label:&#39;确定建筑与功能&#39;, level:3 },
     { id:&#39;dc-confirmed-anchors&#39;, label:&#39;版本锚点&#39;, level:3 },
     { id:&#39;dc-part-2&#39;, label:&#39;Part 2 &#183; 渐进规划&#39;, level:2 },
-    { id:&#39;dc-journey-map&#39;, label:&#39;方案 B &#183; 前 30 分钟线索墙&#39;, level:3 },
+    { id:&#39;dc-journey-map&#39;, label:&#39;方案 B &#183; 开局至 Roadman 线索墙&#39;, level:3 },
     { id:&#39;dc-memory-structure-title&#39;, label:&#39;帮派体验记忆结构&#39;, level:3 },
     { id:&#39;dc-story-causal-title&#39;, label:&#39;整体剧情因果&#39;, level:3 },
     { id:&#39;dc-act-relations-title&#39;, label:&#39;六幕关系&#39;, level:3 },
@@ -2330,14 +2330,15 @@ html&gt;body{padding:0}&lt;/style&gt;
     style.id = 'dc-clue-wall-style';
     style.textContent = css;
     doc.head.appendChild(style);
-    const rows = [...doc.querySelectorAll('tr')].filter(row => row.querySelector('.dc-loop') && parseStart(text(row.cells[0])) < 30);
+    const maxClueId = 27;
+    const rows = [...doc.querySelectorAll('tr')].filter(row => { const id = text(row.querySelector('.dc-loop')).match(/L(\d+)/); return id && Number(id[1]) <= maxClueId; });
     if (!rows.length) { style.remove(); setTimeout(build, 120); return; }
     const phaseBreak = 10;
     const makePhase = (kind,title,caption) => { const bar = doc.createElement('div'); bar.className = 'dc-phase-bar ' + kind; bar.innerHTML = '<b>' + title + '</b><span>' + caption + '</span>'; return bar; };
     const wall = doc.createElement('div');
     wall.className = 'dc-clue-wall';
-    wall.setAttribute('aria-label','前30分钟剧情、玩法、系统与结果关系线索墙');
-    wall.innerHTML = '<div class="dc-clue-head"><div><b>案件板 · 前30分钟完整因果链</b><br><small>每张照片是一段游戏内事件；卡片底部依次显示玩法、系统解锁与产出</small></div><div class="dc-clue-legend"><span><i class="plot"></i>剧情因果</span><span><i class="play"></i>玩法承接</span><span><i class="gain"></i>身份/建筑/资源结果</span></div></div><svg class="dc-clue-wire" aria-hidden="true"></svg><div class="dc-clue-grid"></div>';
+    wall.setAttribute('aria-label','开局至首次推关结束与 Roadman 晋升的剧情、玩法、系统与结果关系线索墙');
+    wall.innerHTML = '<div class="dc-clue-head"><div><b>案件板 · 开局至首次推关晋升</b><br><small>完整展示剧情事件、玩法承接、系统解锁与 Roadman 晋升结果</small></div><div class="dc-clue-legend"><span><i class="plot"></i>剧情因果</span><span><i class="play"></i>玩法承接</span><span><i class="gain"></i>身份/建筑/资源结果</span></div></div><svg class="dc-clue-wire" aria-hidden="true"></svg><div class="dc-clue-grid"></div>';
     const grid = wall.querySelector('.dc-clue-grid');
     grid.appendChild(makePhase('before','转正前 · L01–L10','Prospect 完成三项见习证明，并通过首次议会成为 Full Patch'));
     rows.forEach((row,index) => {
