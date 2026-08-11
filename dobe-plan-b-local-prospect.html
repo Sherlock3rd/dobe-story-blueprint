@@ -2330,6 +2330,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     style.textContent = css;
     doc.head.appendChild(style);
     const rows = [...doc.querySelectorAll('tr')].filter(row => row.querySelector('.dc-loop') && parseStart(text(row.cells[0])) < 30);
+    if (!rows.length) { style.remove(); setTimeout(build, 120); return; }
     const wall = doc.createElement('div');
     wall.className = 'dc-clue-wall';
     wall.setAttribute('aria-label','前30分钟剧情、玩法、系统与结果关系线索墙');
