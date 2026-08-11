@@ -9,7 +9,7 @@
 <style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
 </head>
 <body>
-<iframe sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" referrerpolicy="no-referrer" title="Dobe一日渐进规划" srcdoc="&lt;!doctype html&gt;
+<iframe sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" allow="fullscreen" allowfullscreen referrerpolicy="no-referrer" title="Dobe一日渐进规划" srcdoc="&lt;!doctype html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&gt;
@@ -2304,12 +2304,14 @@ html&gt;body{padding:0}&lt;/style&gt;
 <script id="dobe-clue-wall-v2">
 (() => {
   const frame = document.querySelector('iframe');
-  const spriteUrl = new URL('assets/plan-a-clue-wall-photos-v2.png', location.href).href;
+  const spriteUrl = new URL('assets/plan-a-clue-wall-photos-v3.webp', location.href).href;
   const css = `
-    #dc-journey-map .dc-clue-wall{position:relative;overflow-x:auto;padding:18px 18px 28px;border:1px solid #5b5044;border-radius:14px;background:radial-gradient(circle at 18% 12%,rgba(255,255,255,.055),transparent 25%),linear-gradient(135deg,#232421,#111310 68%,#1a1814);box-shadow:inset 0 0 50px #000,0 18px 36px rgba(0,0,0,.28);isolation:isolate}
+    #dc-journey-map .dc-clue-wall{position:relative;overflow:hidden;padding:18px 18px 28px;border:1px solid #5b5044;border-radius:14px;background:radial-gradient(circle at 18% 12%,rgba(255,255,255,.055),transparent 25%),linear-gradient(135deg,#232421,#111310 68%,#1a1814);box-shadow:inset 0 0 50px #000,0 18px 36px rgba(0,0,0,.28);isolation:isolate}
     #dc-journey-map .dc-clue-head{position:relative;z-index:3;min-width:1100px;display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0 0 18px;padding:12px 16px;border:1px solid #5c554a;background:rgba(17,18,16,.88);box-shadow:0 8px 18px rgba(0,0,0,.28)}
     #dc-journey-map .dc-clue-head b{font-size:18px;color:#f2e5ca}.dc-clue-head small{color:#b8ad98}
-    #dc-journey-map .dc-clue-legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px}.dc-clue-legend i{width:18px;height:3px;display:inline-block;vertical-align:middle;margin-right:5px;border-radius:9px}.dc-clue-legend .plot{background:#b93c35}.dc-clue-legend .play{background:#36a9bf}.dc-clue-legend .gain{background:#d5a43a}
+    #dc-journey-map .dc-clue-tools{display:flex;align-items:center;justify-content:flex-end;gap:14px;flex-wrap:wrap}#dc-journey-map .dc-clue-legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px}.dc-clue-legend i{width:18px;height:3px;display:inline-block;vertical-align:middle;margin-right:5px;border-radius:9px}.dc-clue-legend .plot{background:#b93c35}.dc-clue-legend .play{background:#36a9bf}.dc-clue-legend .gain{background:#d5a43a}
+    #dc-journey-map .dc-clue-fullscreen{appearance:none;border:1px solid #bda26d;border-radius:6px;padding:7px 11px;background:#2c2922;color:#f4e6cc;font:700 12px/1.2 system-ui;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.32)}#dc-journey-map .dc-clue-fullscreen:hover{background:#40392c;border-color:#e0bf78}
+    #dc-journey-map .dc-clue-viewport{position:relative;overflow-x:auto;overflow-y:hidden;overscroll-behavior:contain}#dc-journey-map .dc-clue-canvas{position:relative;width:1100px;transform-origin:0 0}
     #dc-journey-map .dc-clue-grid{position:relative;z-index:2;min-width:1100px;display:grid;grid-template-columns:repeat(5,minmax(190px,1fr));gap:24px 20px;align-items:start}
     #dc-journey-map .dc-clue-card{position:relative;min-height:268px;padding:9px 9px 12px;background:#ece1c9;color:#201d18;border:1px solid #c4b493;box-shadow:0 9px 17px rgba(0,0,0,.48);transform:rotate(var(--tilt));transform-origin:50% 12px}
     #dc-journey-map .dc-clue-card:nth-child(4n+1){--tilt:-.7deg}.dc-clue-card:nth-child(4n+2){--tilt:.55deg}.dc-clue-card:nth-child(4n+3){--tilt:-.35deg}.dc-clue-card:nth-child(4n){--tilt:.75deg}
@@ -2324,7 +2326,8 @@ html&gt;body{padding:0}&lt;/style&gt;
     #dc-journey-map .dc-clue-wire{position:absolute;z-index:1;inset:0;pointer-events:none;overflow:visible}.dc-clue-wire line{stroke:#b93c35;stroke-width:3.2;stroke-linecap:round;filter:drop-shadow(0 1px 1px #000);opacity:.82}.dc-clue-wire line.play{stroke:#36a9bf;stroke-dasharray:8 5}.dc-clue-wire line.gain{stroke:#d5a43a}
     #dc-journey-map .dc-clue-card.is-system{outline:2px solid rgba(129,84,164,.46)}.dc-clue-card.is-gain{box-shadow:0 9px 17px rgba(0,0,0,.48),0 0 0 2px rgba(213,164,58,.36)}
     #dc-journey-map .dc-phase-bar{grid-column:1/-1;position:relative;z-index:3;display:flex;align-items:center;gap:14px;min-height:54px;padding:9px 16px;border-top:2px solid #be443c;border-bottom:1px solid rgba(255,255,255,.18);background:linear-gradient(90deg,rgba(140,37,31,.5),rgba(23,23,20,.92) 55%,rgba(23,23,20,.55));box-shadow:0 8px 18px rgba(0,0,0,.35);color:#f4e6cc;transform:none}.dc-phase-bar b{font-size:17px;letter-spacing:.04em}.dc-phase-bar span{font-size:12px;color:#cbbda4}#dc-journey-map .dc-phase-bar.after{margin-top:4px;border-top-color:#d6a53d;background:linear-gradient(90deg,rgba(142,99,20,.52),rgba(23,23,20,.92) 55%,rgba(23,23,20,.55))}.dc-phase-bar::after{content:'◆';margin-left:auto;color:#d8ad58;font-size:18px}
-    @media(max-width:900px){#dc-journey-map .dc-clue-wall{padding:12px}.dc-clue-head,.dc-clue-grid{min-width:980px!important}.dc-clue-grid{grid-template-columns:repeat(5,180px)!important}}
+    #dc-journey-map .dc-clue-wall:fullscreen{width:100vw;height:100vh;box-sizing:border-box;border:0;border-radius:0;padding:0;display:flex;flex-direction:column;background:#11130f}#dc-journey-map .dc-clue-wall:fullscreen .dc-clue-head{min-width:0;margin:0;padding:12px 18px;flex:0 0 auto}#dc-journey-map .dc-clue-wall:fullscreen .dc-clue-viewport{flex:1;overflow:hidden;cursor:grab;touch-action:none;user-select:none}#dc-journey-map .dc-clue-wall:fullscreen .dc-clue-viewport.is-dragging{cursor:grabbing}#dc-journey-map .dc-clue-wall:fullscreen .dc-clue-canvas{will-change:transform}
+    @media(max-width:900px){#dc-journey-map .dc-clue-wall{padding:12px}.dc-clue-head,.dc-clue-grid{min-width:980px!important}.dc-clue-canvas{width:980px!important}.dc-clue-grid{grid-template-columns:repeat(5,180px)!important}}
   `;
   const text = el => (el?.textContent || '').replace(/\s+/g,' ').trim();
   const parseStart = value => {
@@ -2348,8 +2351,11 @@ html&gt;body{padding:0}&lt;/style&gt;
     const wall = doc.createElement('div');
     wall.className = 'dc-clue-wall';
     wall.setAttribute('aria-label','开局至首次推关结束与 Roadman 晋升的剧情、玩法、系统与结果关系线索墙');
-    wall.innerHTML = '<div class="dc-clue-head"><div><b>案件板 · 开局至首次推关晋升</b><br><small>完整展示剧情事件、玩法承接、系统解锁与 Roadman 晋升结果</small></div><div class="dc-clue-legend"><span><i class="plot"></i>剧情因果</span><span><i class="play"></i>玩法承接</span><span><i class="gain"></i>身份/建筑/资源结果</span></div></div><svg class="dc-clue-wire" aria-hidden="true"></svg><div class="dc-clue-grid"></div>';
+    wall.innerHTML = '<div class="dc-clue-head"><div><b>案件板 · 开局至首次推关晋升</b><br><small>完整展示剧情事件、玩法承接、系统解锁与 Roadman 晋升结果</small></div><div class="dc-clue-tools"><div class="dc-clue-legend"><span><i class="plot"></i>剧情因果</span><span><i class="play"></i>玩法承接</span><span><i class="gain"></i>身份/建筑/资源结果</span></div><button class="dc-clue-fullscreen" type="button" aria-label="全屏查看案件板">⛶ 全屏查看</button></div></div><div class="dc-clue-viewport"><div class="dc-clue-canvas"><svg class="dc-clue-wire" aria-hidden="true"></svg><div class="dc-clue-grid"></div></div></div>';
     const grid = wall.querySelector('.dc-clue-grid');
+    const viewport = wall.querySelector('.dc-clue-viewport');
+    const canvas = wall.querySelector('.dc-clue-canvas');
+    const fullscreenButton = wall.querySelector('.dc-clue-fullscreen');
     grid.appendChild(makePhase('before','前传 · L01–L17','外乡人被卷入冲突、获得庇护，并完成见习证明与议会转正'));
     rows.forEach((row,index) => {
       if (index === phaseBreak) grid.appendChild(makePhase('after','正式成员篇 · L18起','Full Patch 身份落地，开始接管建筑、城建与成员派遣'));
@@ -2386,24 +2392,58 @@ html&gt;body{padding:0}&lt;/style&gt;
     const draw = () => {
       const cards = [...grid.querySelectorAll('.dc-clue-card')];
       svg.replaceChildren();
-      const wr = wall.getBoundingClientRect();
-      svg.setAttribute('width', wall.scrollWidth);
-      svg.setAttribute('height', wall.scrollHeight);
-      svg.setAttribute('viewBox', '0 0 ' + wall.scrollWidth + ' ' + wall.scrollHeight);
+      const width = grid.scrollWidth;
+      const height = grid.scrollHeight;
+      svg.setAttribute('width', width);
+      svg.setAttribute('height', height);
+      svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
       cards.slice(0,-1).forEach((card,index) => {
         const next = cards[index + 1];
         if (card.dataset.phase !== next.dataset.phase) return;
-        const a = card.getBoundingClientRect();
-        const b = next.getBoundingClientRect();
         const line = doc.createElementNS('http://www.w3.org/2000/svg','line');
-        line.setAttribute('x1', a.left - wr.left + wall.scrollLeft + a.width / 2);
-        line.setAttribute('y1', a.top - wr.top + a.height / 2);
-        line.setAttribute('x2', b.left - wr.left + wall.scrollLeft + b.width / 2);
-        line.setAttribute('y2', b.top - wr.top + b.height / 2);
+        line.setAttribute('x1', card.offsetLeft + card.offsetWidth / 2);
+        line.setAttribute('y1', card.offsetTop + card.offsetHeight / 2);
+        line.setAttribute('x2', next.offsetLeft + next.offsetWidth / 2);
+        line.setAttribute('y2', next.offsetTop + next.offsetHeight / 2);
         line.setAttribute('class', next.dataset.edge || 'plot');
         svg.appendChild(line);
       });
     };
+    let scale = 1, panX = 0, panY = 0, drag = null;
+    const applyView = () => { canvas.style.transform = 'translate(' + panX + 'px,' + panY + 'px) scale(' + scale + ')'; };
+    const fitView = () => { scale = Math.min(1, (viewport.clientWidth - 48) / grid.scrollWidth); panX = 24; panY = 24; applyView(); };
+    fullscreenButton.addEventListener('click', () => wall.requestFullscreen());
+    doc.addEventListener('fullscreenchange', () => {
+      const active = doc.fullscreenElement === wall;
+      fullscreenButton.textContent = active ? 'Esc 退出全屏' : '⛶ 全屏查看';
+      if (active) requestAnimationFrame(fitView); else { scale = 1; panX = 0; panY = 0; canvas.style.transform = ''; }
+    });
+    viewport.addEventListener('wheel', event => {
+      if (doc.fullscreenElement !== wall) return;
+      event.preventDefault();
+      const rect = viewport.getBoundingClientRect();
+      const mx = event.clientX - rect.left, my = event.clientY - rect.top;
+      const nextScale = Math.max(.25, Math.min(2.5, scale * (event.deltaY < 0 ? 1.12 : .89)));
+      panX = mx - (mx - panX) * nextScale / scale;
+      panY = my - (my - panY) * nextScale / scale;
+      scale = nextScale;
+      applyView();
+    }, {passive:false});
+    viewport.addEventListener('pointerdown', event => {
+      if (doc.fullscreenElement !== wall || event.button !== 0) return;
+      drag = {x:event.clientX,y:event.clientY,panX,panY};
+      viewport.classList.add('is-dragging');
+      viewport.setPointerCapture(event.pointerId);
+    });
+    viewport.addEventListener('pointermove', event => {
+      if (!drag) return;
+      panX = drag.panX + event.clientX - drag.x;
+      panY = drag.panY + event.clientY - drag.y;
+      applyView();
+    });
+    const stopDrag = event => { if (!drag) return; drag = null; viewport.classList.remove('is-dragging'); if (viewport.hasPointerCapture(event.pointerId)) viewport.releasePointerCapture(event.pointerId); };
+    viewport.addEventListener('pointerup', stopDrag);
+    viewport.addEventListener('pointercancel', stopDrag);
     requestAnimationFrame(draw);
     new ResizeObserver(draw).observe(grid);
   };
