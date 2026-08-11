@@ -2304,7 +2304,7 @@ html&gt;body{padding:0}&lt;/style&gt;
 <script id="dobe-clue-wall-v2">
 (() => {
   const frame = document.querySelector('iframe');
-  const sceneUrl = file => new URL('assets/clue-scenes/' + file.replace('.webp', '-hd2.webp'), location.href).href;
+  const sceneUrl = file => new URL('assets/clue-scenes/' + file, location.href).href;
   const sceneById = {
     L01:'chase-police.webp', L02:'cargo-ambush-rescue.webp', L03:'highway-gunfight.webp', L04:'tow-convoy.webp',
     L05:'garage-repair-nitrous.webp', L06:'one-on-one-race.webp', L07:'garage-explosion.webp', L08:'scrapyard-salvage.webp',
@@ -2438,7 +2438,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       event.preventDefault();
       const rect = viewport.getBoundingClientRect();
       const mx = event.clientX - rect.left, my = event.clientY - rect.top;
-      const nextScale = Math.max(.25, Math.min(2.5, scale * (event.deltaY < 0 ? 1.12 : .89)));
+      const nextScale = Math.max(.25, Math.min(5, scale * (event.deltaY < 0 ? 1.12 : .89)));
       panX = mx - (mx - panX) * nextScale / scale;
       panY = my - (my - panY) * nextScale / scale;
       scale = nextScale;
