@@ -1537,7 +1537,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     &lt;section class=&quot;dc-section dc-part&quot; id=&quot;dc-part-2&quot; aria-labelledby=&quot;dc-part-2-title&quot;&gt;
       &lt;h2 id=&quot;dc-part-2-title&quot;&gt;Part 2 &#183; 渐进规划&lt;/h2&gt;
       &lt;figure class=&quot;dc-journey-map dc-first30&quot; id=&quot;dc-journey-map&quot; aria-labelledby=&quot;dc-journey-map-title&quot;&gt;
-        &lt;figcaption&gt;&lt;div&gt;&lt;b id=&quot;dc-journey-map-title&quot;&gt;方案 B &#183; 前 30 分钟体验收束&lt;/b&gt;&lt;span&gt;定制剧情密度逐段下降；每段只锚定一个可追踪的系统数值&lt;/span&gt;&lt;/div&gt;&lt;span class=&quot;dc-journey-badge&quot;&gt;0–30 分钟&lt;/span&gt;&lt;/figcaption&gt;
+        &lt;figcaption&gt;&lt;div&gt;&lt;b id=&quot;dc-journey-map-title&quot;&gt;方案 B &#183; 前 30 分钟高密度线索墙&lt;/b&gt;&lt;span&gt;剧情、玩法、系统解锁与产出通过照片卡和连线统一展示&lt;/span&gt;&lt;/div&gt;&lt;span class=&quot;dc-journey-badge&quot;&gt;0–30 分钟&lt;/span&gt;&lt;/figcaption&gt;
         &lt;img class=&quot;dc-journey-image&quot; src=&quot;assets/plan-b-first30-flow.png&quot; alt=&quot;本地见习生开局从高密度帮派任务，经转正与产业经营，逐渐过渡到常规 SLG 推关的四阶段示意图&quot;&gt;
         &lt;div class=&quot;dc-density-scale&quot; aria-label=&quot;定制化内容密度递减&quot;&gt;&lt;b&gt;定制化内容密度&lt;/b&gt;&lt;span&gt;高 &#183; 专属追逃与伏击&lt;/span&gt;&lt;i&gt;→&lt;/i&gt;&lt;span&gt;中高 &#183; 专属转正任务&lt;/span&gt;&lt;i&gt;→&lt;/i&gt;&lt;span&gt;中 &#183; 经营教学承接&lt;/span&gt;&lt;i&gt;→&lt;/i&gt;&lt;span&gt;低 &#183; 常规 SLG 循环&lt;/span&gt;&lt;/div&gt;
         &lt;div class=&quot;dc-first30-grid&quot;&gt;
@@ -1855,7 +1855,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     { id:&#39;dc-confirmed-buildings&#39;, label:&#39;确定建筑与功能&#39;, level:3 },
     { id:&#39;dc-confirmed-anchors&#39;, label:&#39;版本锚点&#39;, level:3 },
     { id:&#39;dc-part-2&#39;, label:&#39;Part 2 &#183; 渐进规划&#39;, level:2 },
-    { id:&#39;dc-journey-map&#39;, label:&#39;方案 B &#183; 前 30 分钟一图&#39;, level:3 },
+    { id:&#39;dc-journey-map&#39;, label:&#39;方案 B &#183; 前 30 分钟线索墙&#39;, level:3 },
     { id:&#39;dc-memory-structure-title&#39;, label:&#39;帮派体验记忆结构&#39;, level:3 },
     { id:&#39;dc-story-causal-title&#39;, label:&#39;整体剧情因果&#39;, level:3 },
     { id:&#39;dc-act-relations-title&#39;, label:&#39;六幕关系&#39;, level:3 },
@@ -2289,6 +2289,107 @@ html&gt;body{padding:0}&lt;/style&gt;
       child?.contentWindow?.postMessage(event.data, '*');
     }
   });
+})();
+</script>
+<script id="dobe-clue-wall-v2">
+(() => {
+  const frame = document.querySelector('iframe');
+  const spriteUrl = new URL('assets/plan-b-clue-wall-photos-v2.png', location.href).href;
+  const css = `
+    #dc-journey-map .dc-clue-wall{position:relative;overflow-x:auto;padding:18px 18px 28px;border:1px solid #5b5044;border-radius:14px;background:radial-gradient(circle at 18% 12%,rgba(255,255,255,.055),transparent 25%),linear-gradient(135deg,#232421,#111310 68%,#1a1814);box-shadow:inset 0 0 50px #000,0 18px 36px rgba(0,0,0,.28);isolation:isolate}
+    #dc-journey-map .dc-clue-head{position:relative;z-index:3;min-width:1100px;display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0 0 18px;padding:12px 16px;border:1px solid #5c554a;background:rgba(17,18,16,.88);box-shadow:0 8px 18px rgba(0,0,0,.28)}
+    #dc-journey-map .dc-clue-head b{font-size:18px;color:#f2e5ca}.dc-clue-head small{color:#b8ad98}
+    #dc-journey-map .dc-clue-legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px}.dc-clue-legend i{width:18px;height:3px;display:inline-block;vertical-align:middle;margin-right:5px;border-radius:9px}.dc-clue-legend .plot{background:#b93c35}.dc-clue-legend .play{background:#36a9bf}.dc-clue-legend .gain{background:#d5a43a}
+    #dc-journey-map .dc-clue-grid{position:relative;z-index:2;min-width:1100px;display:grid;grid-template-columns:repeat(5,minmax(190px,1fr));gap:24px 20px;align-items:start}
+    #dc-journey-map .dc-clue-card{position:relative;min-height:268px;padding:9px 9px 12px;background:#ece1c9;color:#201d18;border:1px solid #c4b493;box-shadow:0 9px 17px rgba(0,0,0,.48);transform:rotate(var(--tilt));transform-origin:50% 12px}
+    #dc-journey-map .dc-clue-card:nth-child(4n+1){--tilt:-.7deg}.dc-clue-card:nth-child(4n+2){--tilt:.55deg}.dc-clue-card:nth-child(4n+3){--tilt:-.35deg}.dc-clue-card:nth-child(4n){--tilt:.75deg}
+    #dc-journey-map .dc-clue-pin{position:absolute;z-index:4;top:-8px;left:50%;width:15px;height:15px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff2b5,#a36d1e 45%,#3d2208 80%);box-shadow:0 2px 4px #000;transform:translateX(-50%)}
+    #dc-journey-map .dc-clue-photo{height:104px;border:5px solid #f4efe4;background-image:var(--sprite);background-size:560% 540%;background-position:var(--px) var(--py);box-shadow:0 2px 7px rgba(0,0,0,.35);filter:saturate(.78) contrast(1.08)}
+    #dc-journey-map .dc-clue-meta{display:flex;justify-content:space-between;gap:8px;margin-top:8px;font:700 11px/1.2 ui-monospace,SFMono-Regular,Consolas,monospace;color:#765b34}
+    #dc-journey-map .dc-clue-card h3{margin:5px 0 4px;font-size:15px;line-height:1.22;color:#211b14}
+    #dc-journey-map .dc-clue-summary{margin:0;font-size:12px;line-height:1.48;color:#4b4032;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+    #dc-journey-map .dc-clue-flow{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-top:9px;padding-top:7px;border-top:1px dashed #b9a887}.dc-clue-flow em{font-style:normal;color:#8d7651;font-size:11px}
+    #dc-journey-map .dc-clue-chip{max-width:100%;padding:3px 6px;border-radius:3px;font-size:10px;line-height:1.25;border:1px solid}
+    #dc-journey-map .dc-clue-chip.play{color:#075b69;background:#d8f0f1;border-color:#70b9c3}.dc-clue-chip.system{color:#553272;background:#eadff2;border-color:#a887bd}.dc-clue-chip.gain{color:#72520e;background:#f3e6bc;border-color:#c9a54c}
+    #dc-journey-map .dc-clue-wire{position:absolute;z-index:1;inset:0;pointer-events:none;overflow:visible}.dc-clue-wire line{stroke:#b93c35;stroke-width:3.2;stroke-linecap:round;filter:drop-shadow(0 1px 1px #000);opacity:.82}.dc-clue-wire line.play{stroke:#36a9bf;stroke-dasharray:8 5}.dc-clue-wire line.gain{stroke:#d5a43a}
+    #dc-journey-map .dc-clue-card.is-system{outline:2px solid rgba(129,84,164,.46)}.dc-clue-card.is-gain{box-shadow:0 9px 17px rgba(0,0,0,.48),0 0 0 2px rgba(213,164,58,.36)}
+    @media(max-width:900px){#dc-journey-map .dc-clue-wall{padding:12px}.dc-clue-head,.dc-clue-grid{min-width:980px!important}.dc-clue-grid{grid-template-columns:repeat(5,180px)!important}}
+  `;
+  const text = el => (el?.textContent || '').replace(/\s+/g,' ').trim();
+  const parseStart = value => {
+    const m = value.match(/(\d+):(\d+)/);
+    return m ? Number(m[1]) + Number(m[2]) / 60 : 999;
+  };
+  const build = () => {
+    const doc = frame?.contentDocument;
+    if (!doc || doc.getElementById('dc-clue-wall-style')) return;
+    const image = doc.querySelector('#dc-journey-map .dc-journey-image');
+    if (!image) return;
+    const style = doc.createElement('style');
+    style.id = 'dc-clue-wall-style';
+    style.textContent = css;
+    doc.head.appendChild(style);
+    const rows = [...doc.querySelectorAll('tr')].filter(row => row.querySelector('.dc-loop') && parseStart(text(row.cells[0])) < 30);
+    const wall = doc.createElement('div');
+    wall.className = 'dc-clue-wall';
+    wall.setAttribute('aria-label','前30分钟剧情、玩法、系统与结果关系线索墙');
+    wall.innerHTML = '<div class="dc-clue-head"><div><b>案件板 · 前30分钟完整因果链</b><br><small>每张照片是一段游戏内事件；卡片底部依次显示玩法、系统解锁与产出</small></div><div class="dc-clue-legend"><span><i class="plot"></i>剧情因果</span><span><i class="play"></i>玩法承接</span><span><i class="gain"></i>身份/建筑/资源结果</span></div></div><svg class="dc-clue-wire" aria-hidden="true"></svg><div class="dc-clue-grid"></div>';
+    const grid = wall.querySelector('.dc-clue-grid');
+    rows.forEach((row,index) => {
+      const cells = row.cells;
+      const loop = row.querySelector('.dc-loop');
+      const title = text(loop);
+      const time = text(cells[0]);
+      const summary = text(cells[4]);
+      const collect = selector => [...new Set([...row.querySelectorAll(selector)].map(text).filter(Boolean))].join(' · ');
+      const play = collect('.dc-sub,.dc-minigame');
+      const first = collect('.dc-first-badge,.dc-system-first-gang-tree,.dc-system-first-meeting,.dc-first-system-callout');
+      const gain = collect('.dc-reward-role,.dc-reward-building,.dc-reward-resource,.dc-reward-vehicle');
+      const card = doc.createElement('article');
+      const isSystem = Boolean(first);
+      const isGain = Boolean(gain);
+      card.className = 'dc-clue-card' + (isSystem ? ' is-system' : '') + (isGain ? ' is-gain' : '');
+      card.dataset.edge = isGain ? 'gain' : (isSystem || /SUP|小游戏|推关|骑行/.test(play) ? 'play' : 'plot');
+      const shot = /警匪/.test(title)?0:/分流|接应/.test(title)?1:/死亡|牺牲|追杀|复仇/.test(title)?9:/拖走|拖车/.test(title)?3:/维修|修复|改装/.test(title)?4:/议会|转正|Full Patch/.test(title)?6:/接管改装厂|修建改装厂|派遣|模拟经营/.test(title)?7:/废车|回收|拆车|赛车|竞速/.test(title)?8:/枪战|袭击|伏击|车队/.test(title)?5:index%10;
+      const px = [4,27,50,74,97][shot % 5];
+      const py = shot < 5 ? 17 : 68;
+      card.style.setProperty('--sprite', `url("${spriteUrl}")`);
+      card.style.setProperty('--px', px + '%');
+      card.style.setProperty('--py', py + '%');
+      const chips = [];
+      if (play) chips.push('<span class="dc-clue-chip play">' + play + '</span>');
+      if (first) chips.push('<em>→</em><span class="dc-clue-chip system">' + first + '</span>');
+      if (gain) chips.push('<em>→</em><span class="dc-clue-chip gain">' + gain + '</span>');
+      card.innerHTML = '<i class="dc-clue-pin"></i><div class="dc-clue-photo" role="img" aria-label="' + title + '剧情照片"></div><div class="dc-clue-meta"><span>' + time + '</span><span>B-' + String(index + 1).padStart(2,'0') + '</span></div><h3>' + title + '</h3><p class="dc-clue-summary">' + summary + '</p><div class="dc-clue-flow">' + chips.join('') + '</div>';
+      grid.appendChild(card);
+    });
+    image.replaceWith(wall);
+    const svg = wall.querySelector('.dc-clue-wire');
+    const draw = () => {
+      const cards = [...grid.children];
+      svg.replaceChildren();
+      const wr = wall.getBoundingClientRect();
+      svg.setAttribute('width', wall.scrollWidth);
+      svg.setAttribute('height', wall.scrollHeight);
+      svg.setAttribute('viewBox', '0 0 ' + wall.scrollWidth + ' ' + wall.scrollHeight);
+      cards.slice(0,-1).forEach((card,index) => {
+        const next = cards[index + 1];
+        const a = card.getBoundingClientRect();
+        const b = next.getBoundingClientRect();
+        const line = doc.createElementNS('http://www.w3.org/2000/svg','line');
+        line.setAttribute('x1', a.left - wr.left + wall.scrollLeft + a.width / 2);
+        line.setAttribute('y1', a.top - wr.top + a.height / 2);
+        line.setAttribute('x2', b.left - wr.left + wall.scrollLeft + b.width / 2);
+        line.setAttribute('y2', b.top - wr.top + b.height / 2);
+        line.setAttribute('class', next.dataset.edge || 'plot');
+        svg.appendChild(line);
+      });
+    };
+    requestAnimationFrame(draw);
+    new ResizeObserver(draw).observe(grid);
+  };
+  frame?.addEventListener('load', () => setTimeout(build,0));
+  setTimeout(build,0);
 })();
 </script>
 </body>
