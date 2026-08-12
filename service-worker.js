@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dobe-story-assets-v11';
+const CACHE_NAME = 'dobe-story-assets-v12';
 const CACHED_ASSETS = [
   './assets/clue-scenes/chase-police.webp',
   './assets/clue-scenes/cargo-ambush-rescue.webp',
@@ -24,7 +24,23 @@ const CACHED_ASSETS = [
   './assets/clue-scenes/scrapyard-takeover-keys.webp',
   './assets/clue-scenes/workshop-bomb-repair.webp',
   './assets/clue-scenes/recruit-one-wreck.webp',
-  './assets/clue-scenes/wreck-collection-map.webp'
+  './assets/clue-scenes/wreck-collection-map.webp',
+  './assets/clue-scenes/l07-return-gang-wall.webp',
+  './assets/clue-scenes/l09-workshop-tour.webp',
+  './assets/clue-scenes/l10-recruit-hugo.webp',
+  './assets/clue-scenes/l15-ambush-planning.webp',
+  './assets/clue-scenes/l17-allies-return-alive.webp',
+  './assets/clue-scenes/l18-task-settlement.webp',
+  './assets/clue-scenes/l19-promotion-traitor-meeting.webp',
+  './assets/clue-scenes/l20-parallel-missions.webp',
+  './assets/clue-scenes/l21-two-managers.webp',
+  './assets/clue-scenes/l23-scrapyard-automation.webp',
+  './assets/clue-scenes/l25-five-stage-investigation.webp',
+  './assets/clue-scenes/l27-roadman-emergency.webp',
+  './assets/clue-scenes/l28-rescue-assault.webp',
+  './assets/clue-scenes/l29-maryl-rescued-route.webp',
+  './assets/clue-scenes/l30-kenton-pursuit.webp',
+  './assets/clue-scenes/l31-case-closed-promotion.webp'
 ];
 
 self.addEventListener('install', event => {
