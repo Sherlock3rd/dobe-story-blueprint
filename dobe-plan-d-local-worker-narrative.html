@@ -1359,6 +1359,11 @@ html&gt;body{padding:0}&lt;/style&gt;
     #dobe-compressed-loops .dc-act table tbody tr:nth-child(even) { background: color-mix(in srgb, var(--muted) 38%, transparent); }
     #dobe-compressed-loops .dc-in-game-scene { display: grid; gap: 5px; }
     #dobe-compressed-loops .dc-in-game-scene b { font-weight: 500; color: var(--foreground); }
+    #dobe-compressed-loops .dc-play-system { display: grid; gap: 7px; min-width: 190px; }
+    #dobe-compressed-loops .dc-play-line { display: grid; grid-template-columns: 44px 1fr; gap: 7px; align-items: start; }
+    #dobe-compressed-loops .dc-play-line b { color: #5d6674; font-size: 11px; line-height: 20px; font-weight: 700; }
+    #dobe-compressed-loops .dc-play-line span { color: #20242b; line-height: 1.55; }
+    #dobe-compressed-loops .dc-play-line-time span { color: #a4522d; font-weight: 700; }
     #dobe-compressed-loops .mg-types { min-width: 760px; margin: 0; }
     #dobe-compressed-loops .mg-principle {
       margin-top: 16px;
@@ -1909,7 +1914,7 @@ html&gt;body{padding:0}&lt;/style&gt;
   const lateLoopTitles = {&#39;L38 武装队长切磋&#39;:&#39;L39 武装队长切磋&#39;,&#39;L39 追回本帮物资&#39;:&#39;L40 追回本帮物资&#39;,&#39;L40 汉克回归&#39;:&#39;L41 汉克回归&#39;,&#39;L41 副会长传统挑战&#39;:&#39;L42 副会长传统挑战&#39;,&#39;L42 副会长履职&#39;:&#39;L43 副会长履职&#39;,&#39;L43 会长晋升事件&#39;:&#39;L44 会长晋升事件&#39;};
   document.querySelectorAll(&#39;.dc-loop&#39;).forEach(loop =&gt; { const title = loop.textContent.trim(); if (lateLoopTitles[title]) loop.textContent = lateLoopTitles[title]; });
   [...document.querySelectorAll(&#39;.dc-act-head b&#39;)].filter(el =&gt; el.textContent === &#39;第五幕&#39;).slice(-1).forEach(el =&gt; el.textContent = &#39;第六幕&#39;);
-  const headers = [&#39;时间&#39;,&#39;循环&#39;,&#39;动机&#39;,&#39;玩法与剧情 / 次数&#39;,&#39;游戏内表现&#39;,&#39;奖励与接续&#39;];
+  const headers = [&#39;时间&#39;,&#39;循环&#39;,&#39;动机&#39;,&#39;玩法与系统&#39;,&#39;剧情与表现&#39;,&#39;奖励与接续&#39;];
   const promotionIds = new Set([&#39;L05&#39;,&#39;L19&#39;,&#39;L27&#39;,&#39;L31&#39;,&#39;L36&#39;,&#39;L39&#39;,&#39;L40&#39;,&#39;L42&#39;,&#39;L44&#39;]);
   const inGameScenes = {
     L01:&#39;无人机航拍公路并叠加警方追捕播报；镜头下拉进入汽车视角，玩家完成第一次警匪追逐 SUP，以闪避、择路和甩脱为主。&#39;,
@@ -1981,7 +1986,33 @@ html&gt;body{padding:0}&lt;/style&gt;
     L37:&#39;收复物流负责人并获得物流中心&#39;, L38:&#39;建立物流产出&#39;, L39:&#39;证明战斗指挥能力&#39;, L40:&#39;追回本帮物资&#39;,
     L41:&#39;调和旧成员关系&#39;, L42:&#39;晋升为副会长&#39;, L43:&#39;完成副会长履职&#39;, L44:&#39;正式统领分会&#39;
   };
-  const sceneCell = id =&gt; `&lt;div class=&quot;dc-in-game-scene&quot;&gt;&lt;span&gt;${inGameScenes[id] || &#39;玩家在场景中完成当前目标并获得即时反馈。&#39;}&lt;/span&gt;${promotionIds.has(id) ? `&lt;b&gt;玩法 TAG&lt;/b&gt;&lt;span&gt;${promotionTags[id]}&lt;/span&gt;` : &#39;&#39;}&lt;/div&gt;`;
+  const sceneCell = id =&gt; `&lt;div class=&quot;dc-in-game-scene&quot;&gt;&lt;span&gt;${inGameScenes[id] || &#39;玩家在场景中完成当前目标并获得即时反馈。&#39;}&lt;/span&gt;${promotionIds.has(id) ? `&lt;b&gt;职级变动表现&lt;/b&gt;&lt;span&gt;${promotionTags[id]}&lt;/span&gt;` : &#39;&#39;}&lt;/div&gt;`;
+  const durationLabel = value =&gt; {
+    const points = value.split(/[–-]/).map(item =&gt; item.trim()).map(item =&gt; { const [m,s] = item.split(':').map(Number); return m * 60 + s; });
+    if (points.length !== 2 || points.some(Number.isNaN)) return value;
+    const seconds = Math.max(0, points[1] - points[0]);
+    const minutes = Math.floor(seconds / 60), remain = seconds % 60;
+    return [minutes ? `${minutes} 分钟` : '', remain ? `${remain} 秒` : ''].filter(Boolean).join(' ') || '0 秒';
+  };
+  const playSystemCell = (cells, includeShow = true) =&gt; {
+    const rowText = cells.map(cell =&gt; cell.textContent).join(' ');
+    const sub = cells[1].querySelector('.dc-sub');
+    const extractedPlay = cells[2].textContent.split(/→|；/).map(item =&gt; item.trim()).filter(item =&gt; /SUP|推关|议会|接管|收复|城建|建设|修复|护送|竞速|改装|派遣|小游戏|拆解/.test(item)).join(' / ');
+    let play = sub ? sub.textContent.trim() : extractedPlay;
+    play = play.replace(/\s+/g, ' ').replace(/^[-·→\s]+|[-·→\s]+$/g, '');
+    const systems = [];
+    const add = (label, pattern) =&gt; { if (pattern.test(rowText) &amp;&amp; !systems.includes(label)) systems.push(label); };
+    add('SUP', /SUP/); add('推关战斗', /推关/); add('帮派树', /帮派树|收复/); add('任务系统', /任务|目标点亮/);
+    add('议会', /议会|投票|木槌/); add('车辆养成', /车辆养成|配件安装|车辆强化|改装/); add('英雄养成', /英雄 NPC|英雄单位|获得该英雄/);
+    add('模拟经营', /模拟经营|自动运行|自动化|派遣/); add('建筑管理', /建筑接管|地图接管|接管修车|接管废车|接管商业|接管加油|接管物流|建筑管理|城建|建设|修复泵机|恢复物流|恢复商业街/);
+    add('小游戏', /小游戏|维修|拆解|分拣|收车点选/);
+    if (!systems.length) systems.push('剧情任务');
+    if (!play) play = systems.map(system =&gt; `${system} ×1`).join(' / ');
+    if (/晋升|授章|职位/.test(rowText) &amp;&amp; !/晋升/.test(play)) play += ' / 晋升 ×1';
+    const time = durationLabel(cells[0].textContent.trim());
+    const show = includeShow ? cells[4]?.textContent.trim().replace(/\s+/g, ' ') : '';
+    return `&lt;div class=&quot;dc-play-system&quot;&gt;&lt;div class=&quot;dc-play-line&quot;&gt;&lt;b&gt;玩法&lt;/b&gt;&lt;span&gt;${play || '剧情交互 ×1'}&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-play-line&quot;&gt;&lt;b&gt;系统&lt;/b&gt;&lt;span&gt;${systems.join(' / ')}&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-play-line dc-play-line-time&quot;&gt;&lt;b&gt;耗时&lt;/b&gt;&lt;span&gt;${time}${show ? ` · 其中表现 ${show}` : ''}&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;`;
+  };
   const setHead = table =&gt; {
     table.querySelector(&#39;thead tr&#39;).innerHTML = headers.map(x =&gt; `&lt;th&gt;${x}&lt;/th&gt;`).join(&#39;&#39;);
   };
@@ -1990,7 +2021,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     table.querySelectorAll(&#39;tbody tr&#39;).forEach(row =&gt; {
       const c = [...row.children];
       const id = (c[1].textContent.match(/L\d{2}/) || [&#39;&#39;])[0];
-      const play = `${c[2].innerHTML}&lt;div class=&quot;dc-sub&quot;&gt;${c[4].innerHTML}&lt;/div&gt;${c[5].innerHTML}`;
+      const play = playSystemCell(c);
       row.innerHTML = `&lt;td class=&quot;dc-time&quot;&gt;${c[0].innerHTML}&lt;/td&gt;&lt;td&gt;${c[1].innerHTML}&lt;/td&gt;&lt;td&gt;${c[3].innerHTML}&lt;/td&gt;&lt;td&gt;${play}&lt;/td&gt;&lt;td&gt;${sceneCell(id)}&lt;/td&gt;&lt;td&gt;${c[6].innerHTML}&lt;/td&gt;`;
     });
   });
@@ -1999,7 +2030,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     table.querySelectorAll(&#39;tbody tr&#39;).forEach(row =&gt; {
       const c = [...row.children];
       const id = (c[1].textContent.match(/L\d{2}/) || [&#39;&#39;])[0];
-      row.innerHTML = `&lt;td class=&quot;dc-time&quot;&gt;${c[0].innerHTML}&lt;/td&gt;&lt;td&gt;${c[1].innerHTML}&lt;/td&gt;&lt;td&gt;${motives[id] || &#39;推进当前任务&#39;}&lt;/td&gt;&lt;td&gt;${c[2].innerHTML}&lt;/td&gt;&lt;td&gt;${sceneCell(id)}&lt;/td&gt;&lt;td&gt;${c[6].innerHTML}&lt;/td&gt;`;
+      row.innerHTML = `&lt;td class=&quot;dc-time&quot;&gt;${c[0].innerHTML}&lt;/td&gt;&lt;td&gt;${c[1].innerHTML}&lt;/td&gt;&lt;td&gt;${motives[id] || &#39;推进当前任务&#39;}&lt;/td&gt;&lt;td&gt;${playSystemCell(c, false)}&lt;/td&gt;&lt;td&gt;${sceneCell(id)}&lt;/td&gt;&lt;td&gt;${c[6].innerHTML}&lt;/td&gt;`;
     });
   });
 })();
