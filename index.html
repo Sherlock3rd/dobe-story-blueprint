@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dobe一日渐进规划｜A/B/C方案对比</title>
+  <title>Dobe一日渐进规划｜A/C/D方案对比</title>
   <style>
     :root {
       color-scheme: light dark;
@@ -83,7 +83,7 @@
 <body>
   <header class="plan-switcher" aria-label="剧情方案切换">
     <div class="plan-title">
-      <strong>Dobe一日渐进规划｜A/B/C方案对比</strong>
+      <strong>Dobe一日渐进规划｜A/C/D方案对比</strong>
       <span>三种开局身份与剧情路径对比</span>
     </div>
     <nav class="plan-tabs" aria-label="选择方案">
@@ -99,6 +99,10 @@
         <strong>方案 C</strong>
         <span>本地打工崽</span>
       </button>
+      <button class="plan-tab" type="button" data-plan="d" aria-pressed="false">
+        <strong>方案 D</strong>
+        <span>本地打工（叙事小改版）</span>
+      </button>
     </nav>
     <div class="plan-state" aria-live="polite">
       <b id="active-plan-name">正在查看：方案 A · 外乡人转化</b>
@@ -109,7 +113,8 @@
   <main class="plan-views">
       <iframe class="plan-view" id="plan-a" src="dobe-plan-a-outsider.html?v=20260812-gang-wall-7" allow="fullscreen" allowfullscreen title="方案 A：外乡人转化"></iframe>
       <iframe class="plan-view" id="plan-b" src="dobe-plan-b-local-prospect.html?v=20260812-gang-wall-7" allow="fullscreen" allowfullscreen title="方案 B：本地见习生" hidden></iframe>
-      <iframe class="plan-view" id="plan-c" src="dobe-plan-c-local-worker.html?v=20260812-c-l04-l10-reflow" allow="fullscreen" allowfullscreen title="方案 C：本地打工崽" hidden></iframe>
+      <iframe class="plan-view" id="plan-c" src="dobe-plan-c-local-worker.html?v=20260812-c-renumber-l02" allow="fullscreen" allowfullscreen title="方案 C：本地打工崽" hidden></iframe>
+      <iframe class="plan-view" id="plan-d" src="dobe-plan-d-local-worker-narrative.html?v=20260812-d-narrative-1" allow="fullscreen" allowfullscreen title="方案 D：本地打工（叙事小改版）" hidden></iframe>
   </main>
 
   <script>
@@ -126,17 +131,22 @@
         c: {
           name: '正在查看：方案 C · 本地打工崽',
           note: '先修好自己的车并学习氮气，再完成转正与后续收复经营，案件板展示至首次推关与 Roadman 晋升'
+        },
+        d: {
+          name: '正在查看：方案 D · 本地打工（叙事小改版）',
+          note: '先通过会议完成转正，再以改车和 1v1 竞速庆祝，返程后用爆炸事件开启下一章'
         }
       };
       const buttons = [...document.querySelectorAll('[data-plan]')];
       const frames = {
         a: document.getElementById('plan-a'),
         b: document.getElementById('plan-b'),
-        c: document.getElementById('plan-c')
+        c: document.getElementById('plan-c'),
+        d: document.getElementById('plan-d')
       };
       const name = document.getElementById('active-plan-name');
       const note = document.getElementById('active-plan-note');
-      const progressByPlan = { a: null, b: null, c: null };
+      const progressByPlan = { a: null, b: null, c: null, d: null };
       let activePlan = null;
 
       window.addEventListener('message', event => {
