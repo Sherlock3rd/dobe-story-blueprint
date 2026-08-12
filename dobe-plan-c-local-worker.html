@@ -2399,11 +2399,11 @@ html&gt;body{padding:0}&lt;/style&gt;
     const canvas = wall.querySelector('.dc-clue-canvas');
     const fullscreenButton = wall.querySelector('.dc-clue-fullscreen');
     const rankLinks = {T10:'',T9:'',T8:'',T7:'',T6:'',T5:'L31',T4:'L27',T3:'L19',T2:'L08',T1:'L07'};
-    grid.appendChild(makePhase('before','见习转正前 · L01–L08','Prospect 完成反伏击与转正任务 → 修好自己的车并安装氮气 → 1v1 学习特技与氮气 → 帮派树点击晋升 → 经议会成为 Full Patch'));
+    grid.appendChild(makePhase('before','第一幕：劫货危机中证明资格（遭遇伏击，目标是完成见习转正） · L01–L08','Prospect 完成反伏击与转正任务 → 修好自己的车并安装氮气 → 1v1 学习特技与氮气 → 帮派树点击晋升 → 经议会成为 Full Patch'));
     rows.forEach((row,index) => {
-      if (index === 8) grid.appendChild(makePhase('middle','Full Patch · L09–L18','前往改装厂 → 收复雨果 → 全员任务 → 收车拆车 → 强化车辆 → 与金发联手伏击 → 一起返城 → 提交任务'));
-      if (index === 18) grid.appendChild(makePhase('after','Enforcer 双线调查章 · L19–L26','L19 晋升兼提出内奸调查 → L20 分叉 → L21–L26 双线并行；两线完成后结束本章'));
-      if (index === 26) grid.appendChild(makePhase('chapter','新章节 · 叛徒追杀与营救 · L27–L31','L27 双线结算并晋升 Roadman → 揭出科腾叛逃与绑架 → 追杀科腾 → 救回梅丽尔并结案'));
+      if (index === 8) grid.appendChild(makePhase('middle','第二幕：改装厂遇袭后的全员反击（帮派遭到袭击，目标是完成备战与复仇） · L09–L18','前往改装厂 → 收复雨果 → 全员任务 → 收车拆车 → 强化车辆 → 与金发联手伏击 → 一起返城 → 提交任务'));
+      if (index === 18) grid.appendChild(makePhase('after','第三幕：内部泄密引发双线调查（内奸威胁帮派，目标是完成产业与调查试炼） · L19–L26','L19 晋升兼提出内奸调查 → L20 分叉 → L21–L26 双线并行；两线完成后结束本章'));
+      if (index === 26) grid.appendChild(makePhase('chapter','第四幕：叛徒绑架引发追杀营救（科腾叛逃并绑走梅丽尔，目标是救人并结案） · L27–L31','L27 双线结算并晋升 Roadman → 揭出科腾叛逃与绑架 → 追杀科腾 → 救回梅丽尔并结案'));
       const cells = row.cells;
       const loop = row.querySelector('.dc-loop');
       const title = text(loop);
