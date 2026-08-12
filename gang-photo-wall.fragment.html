@@ -16,16 +16,17 @@
     #dobe-compressed-loops .gw-plaque b{font-size:17px}#dobe-compressed-loops .gw-plaque span{font-size:11px;opacity:.78}
     #dobe-compressed-loops .gw-legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;padding:10px 12px;background:rgba(255,250,240,.93);border:1px solid rgba(79,49,28,.25);border-radius:5px;font-size:12px;box-shadow:0 3px 8px rgba(45,25,10,.2)}
     #dobe-compressed-loops .gw-legend span{display:inline-flex;align-items:center;gap:5px}
-    #dobe-compressed-loops .gw-tier{position:relative;display:grid;grid-template-columns:minmax(190px,240px) 1fr;gap:18px;align-items:start;padding:18px 0 20px;border-top:1px dashed rgba(62,35,18,.58)}
+    #dobe-compressed-loops .gw-tier{position:relative;display:grid;grid-template-columns:minmax(190px,220px) minmax(0,1fr);gap:20px;align-items:center;padding:18px 0 20px;border-top:1px dashed rgba(62,35,18,.58)}
     #dobe-compressed-loops .gw-tier:first-of-type{border-top:0}#dobe-compressed-loops .gw-tier:after{content:"";position:absolute;left:245px;right:4px;bottom:8px;height:1px;background:rgba(89,50,27,.28)}
     #dobe-compressed-loops .gw-promotion{position:sticky;top:8px;padding:15px 14px 14px 20px;background:linear-gradient(135deg,#fffaf0,#f4e2bd);border-left:6px solid #8d241f;box-shadow:0 5px 12px rgba(45,25,10,.29);transform:rotate(-.35deg)}
     #dobe-compressed-loops .gw-promotion:before{content:"";position:absolute;left:50%;top:-9px;width:15px;height:15px;border-radius:50%;background:var(--gw-pin);box-shadow:0 2px 3px rgba(0,0,0,.38)}
     #dobe-compressed-loops .gw-promotion strong,#dobe-compressed-loops .gw-promotion span{display:block}
     #dobe-compressed-loops .gw-promotion strong{font-size:15px}.gw-promotion .gw-rep{margin-top:8px;font-weight:800;color:#8b1e1e}.gw-promotion .gw-event{margin-top:5px;font-size:12px;line-height:1.45}
-    #dobe-compressed-loops .gw-people{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px}
-    #dobe-compressed-loops .gw-person{position:relative;min-width:0;padding:9px 9px 12px;background:var(--gw-paper);border:1px solid rgba(69,42,24,.25);box-shadow:0 6px 13px rgba(45,25,10,.31);transform:rotate(.35deg)}
+    #dobe-compressed-loops .gw-people{display:flex;flex-wrap:nowrap;align-items:flex-start;gap:14px;min-width:0;padding:8px 5px 12px;overflow-x:auto;overflow-y:visible}
+    #dobe-compressed-loops .gw-person{position:relative;flex:0 0 150px;width:150px;min-width:0;padding:9px 9px 12px;background:var(--gw-paper);border:1px solid rgba(69,42,24,.25);box-shadow:0 6px 13px rgba(45,25,10,.31);transform:rotate(.35deg)}
     #dobe-compressed-loops .gw-person:nth-child(even){transform:rotate(-.55deg)}#dobe-compressed-loops .gw-person:before{content:"";position:absolute;z-index:3;left:50%;top:-8px;width:13px;height:13px;border-radius:50%;background:#b82d2d;box-shadow:0 2px 3px rgba(0,0,0,.35)}
-    #dobe-compressed-loops .gw-photo{position:relative;display:flex;align-items:flex-end;aspect-ratio:4/3;padding:8px;background-image:linear-gradient(to top,rgba(16,18,15,.86),rgba(16,18,15,.05) 60%),var(--gw-portrait-sheet);background-size:400% 800%;background-position:var(--gw-x,0%) var(--gw-y,0%);color:#fff;overflow:hidden}
+    #dobe-compressed-loops .gw-tier[data-tier="T10"] .gw-person{flex-basis:168px;width:168px}#dobe-compressed-loops .gw-tier[data-tier="T9"] .gw-person{flex-basis:160px;width:160px}
+    #dobe-compressed-loops .gw-photo{position:relative;display:flex;align-items:flex-end;aspect-ratio:1/1;padding:8px;background-image:linear-gradient(to top,rgba(16,18,15,.86),rgba(16,18,15,.05) 60%),var(--gw-portrait-sheet);background-size:400% 800%;background-position:var(--gw-x,0%) var(--gw-y,0%);background-repeat:no-repeat;color:#fff;overflow:hidden}
     #dobe-compressed-loops .gw-photo-code{font-size:21px;font-weight:900;letter-spacing:.08em;text-shadow:0 2px 4px #000}.gw-photo-label{margin-left:auto;padding:2px 5px;background:rgba(0,0,0,.58);font-size:9px;letter-spacing:.04em}
     #dobe-compressed-loops .gw-name{display:block;margin-top:8px;font-weight:900;line-height:1.25}.gw-task{display:block;margin-top:5px;min-height:30px;font-size:11px;line-height:1.42;color:#5c4a3b}
     #dobe-compressed-loops .gw-drops{position:absolute;z-index:4;right:-7px;top:-9px;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
