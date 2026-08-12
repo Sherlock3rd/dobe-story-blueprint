@@ -1776,6 +1776,8 @@ html&gt;body{padding:0}&lt;/style&gt;
   setGangPerson(t1Slots[0], {name:&#39;见习帮手 A&#39;, task:&#39;收复任务：找到一辆可拆废车并送到废车回收站。&#39;, photoLabel:&#39;废车搜集&#39;, drops:[{label:&#39;废车&#39;}]});
   setGangPerson(t1Slots[1], {name:&#39;见习帮手 B&#39;, task:&#39;收复任务：从本帮车源中调来第二辆可拆废车。&#39;, photoLabel:&#39;废车调度&#39;, drops:[{label:&#39;废车&#39;}]});
   setGangDrops(gangPerson(&#39;T2&#39;, &#39;瓦尔特·维尔&#39;), [{label:&#39;废车回收厂&#39;},{label:&#39;零件&#39;}]);
+  const t2Slots = gangTier(&#39;T2&#39;)?.querySelectorAll(&#39;.gw-person.gw-empty&#39;) || [];
+  setGangPerson(t2Slots[0], {name:&#39;正式成员（姓名待定）&#39;, task:&#39;收复任务：完成废车回收厂首轮排班，并带一名工人到岗。&#39;, photoLabel:&#39;自动化排班&#39;, drops:[{label:&#39;模拟经营小人&#39;}]});
   setGangDrops(gangPerson(&#39;T3&#39;, &#39;科腾·万斯&#39;), [{label:&#39;商业街&#39;},{label:&#39;钱&#39;}]);
   setGangDrops(gangPerson(&#39;T4&#39;, &#39;斯宾塞·曼森&#39;), [{label:&#39;加油站&#39;},{label:&#39;油&#39;}]);
   setGangDrops(gangPerson(&#39;T4&#39;, &#39;卡莱布·奥尔森&#39;), [{label:&#39;小人候选&#39;,pending:true}]);
