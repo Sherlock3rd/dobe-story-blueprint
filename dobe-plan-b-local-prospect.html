@@ -1849,7 +1849,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       const visible = entries.filter(entry =&gt; entry.isIntersecting).sort((a, b) =&gt; a.boundingClientRect.top - b.boundingClientRect.top);
       if (visible[0]) setActive(visible[0].target.id);
     }, { rootMargin:&#39;-8% 0px -76% 0px&#39;, threshold:[0, 1] });
-    tocItems.forEach(item =&gt; observer.observe(document.getElementById(item.id)));
+    tocItems.forEach(item =&gt; { const target = document.getElementById(item.id); if (target) observer.observe(target); });
   }
 
   const headers = [&#39;时间&#39;,&#39;循环&#39;,&#39;动机&#39;,&#39;玩法与剧情 / 次数&#39;,&#39;游戏内表现&#39;,&#39;奖励与接续&#39;];
