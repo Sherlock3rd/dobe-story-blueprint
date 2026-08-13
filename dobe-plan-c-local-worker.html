@@ -2010,7 +2010,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     L41:[&#39;英雄&#39;], L42:[&#39;声望&#39;], L43:[&#39;声望&#39;], L44:[&#39;声望&#39;,&#39;建筑&#39;]
   };
   const unlockRewards = {
-    L01:[[&#39;system&#39;,&#39;新系统：SUP&#39;]], L05:[[&#39;system&#39;,&#39;新系统：车辆养成&#39;]],
+    L01:[[&#39;system&#39;,&#39;新系统：SUP定制关卡&#39;]], L05:[[&#39;system&#39;,&#39;新系统：车辆养成&#39;]],
     L06:[[&#39;resource&#39;,&#39;新资源：声望&#39;]], L07:[[&#39;system&#39;,&#39;新系统：帮派树&#39;]],
     L08:[[&#39;system&#39;,&#39;新系统：议会&#39;]], L11:[[&#39;system&#39;,&#39;新系统：章节任务&#39;]],
     L12:[[&#39;system&#39;,&#39;新系统：收车小游戏&#39;]], L13:[[&#39;resource&#39;,&#39;新资源：零件&#39;],[&#39;resource&#39;,&#39;新资源：配件&#39;],[&#39;resource&#39;,&#39;新资源：调校材料&#39;]],
@@ -2018,7 +2018,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     L35:[[&#39;resource&#39;,&#39;新资源：汽油&#39;]], L38:[[&#39;resource&#39;,&#39;新资源：物资&#39;]]
   };
   const rewardCell = id =&gt; { const normal = (rewards[id] || [&#39;声望&#39;]).map(type =&gt; `&lt;span class=&quot;dc-reward-type&quot;&gt;【${type}】&lt;/span&gt;`); const unlocks = (unlockRewards[id] || []).map(([kind,label]) =&gt; `&lt;span class=&quot;dc-reward-type is-${kind}&quot;&gt;【${label}】&lt;/span&gt;`); return `&lt;div class=&quot;dc-reward-tags&quot;&gt;${normal.concat(unlocks).join(&#39;&#39;)}&lt;/div&gt;`; };
-  const sceneCell = id =&gt; { const source = sourceId(id); return `&lt;div class=&quot;dc-in-game-scene&quot;&gt;&lt;span&gt;${inGameScenes[source] || &#39;玩家在场景中完成当前目标并获得即时反馈。&#39;}&lt;/span&gt;${promotionIds.has(source) ? `&lt;b&gt;职级变动表现&lt;/b&gt;&lt;span&gt;${promotionTags[source]}&lt;/span&gt;` : &#39;&#39;}&lt;/div&gt;`; };
+  const sceneCell = (id,memory = &#39;&#39;) =&gt; { const source = sourceId(id); return `&lt;div class=&quot;dc-in-game-scene&quot;&gt;${memory ? `&lt;span class=&quot;dc-memory&quot;&gt;${memory}&lt;/span&gt;` : &#39;&#39;}&lt;span&gt;${inGameScenes[source] || &#39;玩家在场景中完成当前目标并获得即时反馈。&#39;}&lt;/span&gt;${promotionIds.has(source) ? `&lt;b&gt;职级变动表现&lt;/b&gt;&lt;span&gt;${promotionTags[source]}&lt;/span&gt;` : &#39;&#39;}&lt;/div&gt;`; };
   const durationLabel = value =&gt; {
     const points = value.split(/[–-]/).map(item =&gt; item.trim()).map(item =&gt; { const [m,s] = item.split(':').map(Number); return m * 60 + s; });
     if (points.length !== 2 || points.some(Number.isNaN)) return value;
@@ -2028,24 +2028,16 @@ html&gt;body{padding:0}&lt;/style&gt;
   };
   const playSystemCell = (cells, includeShow = true) =&gt; {
     const rowText = cells.map(cell =&gt; cell.textContent).join(' ');
-    const sub = cells[1].querySelector('.dc-sub');
-    const extractedPlay = cells[2].textContent.split(/→|；/).map(item =&gt; item.trim()).filter(item =&gt; /SUP|推关|议会|接管|收复|城建|建设|修复|护送|竞速|改装|派遣|小游戏|拆解/.test(item)).join(' / ');
-    let play = sub ? sub.textContent.trim() : extractedPlay;
-    play = play.replace(/\s+/g, ' ').replace(/^[-·→\s]+|[-·→\s]+$/g, '');
-    const systems = [];
-    const add = (label, pattern) =&gt; { if (pattern.test(rowText) &amp;&amp; !systems.includes(label)) systems.push(label); };
-    add('SUP', /SUP/); add('推关战斗', /推关/); add('帮派树', /帮派树|收复/); add('任务系统', /任务|目标点亮/);
-    add('议会', /议会|投票|木槌/); add('车辆养成', /车辆养成|配件安装|车辆强化|改装/); add('英雄养成', /英雄 NPC|英雄单位|获得该英雄/);
-    add('模拟经营', /模拟经营|自动运行|自动化|派遣/); add('建筑管理', /建筑接管|地图接管|接管修车|接管废车|接管商业|接管加油|接管物流|建筑管理|城建|建设|修复泵机|恢复物流|恢复商业街/);
-    add('小游戏', /小游戏|维修|拆解|分拣|收车点选/);
-    if (!systems.length) systems.push('剧情任务');
-    if (!play) play = systems.map(system =&gt; `${system} ×1`).join(' / ');
-    if (/晋升|授章|职位/.test(rowText) &amp;&amp; !/晋升/.test(play)) play += ' / 晋升 ×1';
+    const id = (cells[1].textContent.match(/L\d{2}/) || [''])[0];
+    const behaviorById = {L01:'甩脱警车',L02:'听取劫货预警',L03:'击退伏击车队',L04:'拖车返城',L05:'修车安装氮气',L06:'特技竞速',L07:'返城点击晋升',L08:'投票确认转正',L09:'接取反击任务',L10:'地图收集废车',L11:'拆车分拣配件',L12:'强化成员车辆',L13:'制定伏击路线',L14:'伏击敌方车队',L15:'清场护送返城',L16:'提交反击任务',L17:'会议晋升查内奸',L18:'开启并行任务',L19:'收复产业主管',L20:'接管两座建筑',L21:'派遣主管自动化',L22:'收复调查英雄',L23:'推关追查线索',L24:'高速逼问口供',L25:'会议晋升追叛徒',L26:'推关营救梅丽尔',L27:'救出梅丽尔',L28:'追车制裁叛徒',L29:'会议结案晋升',L30:'接管商业街',L31:'恢复商业经营',L32:'收复加油站主管',L33:'修复加油站',L34:'会议晋升财务官',L35:'收复物流主管',L36:'恢复物流经营',L37:'友好枪战切磋',L38:'清藏点护送物资',L39:'护送汉克返城',L40:'传统竞速挑战',L41:'清叛徒护送返城',L42:'议会选举会长'};
+    const play = behaviorById[id] || '推进当前目标';
+    const systemsById = {L01:['SUP定制关卡'],L02:['任务系统'],L03:['SUP定制关卡'],L04:['任务系统'],L05:['维修小游戏','车辆养成'],L06:['SUP竞速'],L07:['帮派树','任务系统'],L08:['议会'],L09:['任务系统'],L10:['收车小游戏','任务系统'],L11:['拆车小游戏'],L12:['车辆养成'],L13:['任务系统'],L14:['SUP枪战'],L15:['任务系统'],L16:['任务系统'],L17:['帮派树','任务系统','议会'],L18:['帮派树','任务系统'],L19:['帮派树','任务系统'],L20:['建筑管理'],L21:['模拟经营'],L22:['帮派树','任务系统','英雄养成'],L23:['推关战斗'],L24:['SUP定制关卡'],L25:['帮派树','任务系统','议会'],L26:['推关战斗'],L27:['英雄养成','任务系统'],L28:['SUP枪战'],L29:['帮派树','议会'],L30:['建筑管理'],L31:['建筑管理','模拟经营'],L32:['帮派树','任务系统','建筑管理'],L33:['建筑管理'],L34:['帮派树','议会'],L35:['帮派树','任务系统','建筑管理'],L36:['建筑管理','模拟经营'],L37:['SUP枪战','帮派树'],L38:['推关战斗','SUP定制关卡','建筑管理','帮派树'],L39:['SUP定制关卡','议会'],L40:['SUP竞速','帮派树','车辆养成'],L41:['推关战斗','SUP定制关卡','议会','建筑管理'],L42:['帮派树','议会']};
+    const systems = systemsById[id] || ['—'];
     const steps = [...(cells[5]?.querySelectorAll('.dc-step') || [])].flatMap(step =&gt; { const timeNode = step.querySelector('time'); const span = timeNode?.textContent.trim() || ''; const label = step.textContent.replace(span, '').trim().replace(/^[-·→\s]+/, ''); const repeat = label.match(/^(.*?)[×x](\d+)(.*)$/); if (!repeat || Number(repeat[2]) &lt; 2) return [`${label} · ${durationLabel(span)}`]; const points = span.split(/[–-]/).map(item =&gt; item.trim()).map(item =&gt; { const [m,s] = item.split(':').map(Number); return m * 60 + s; }); const total = points.length === 2 ? Math.max(0, points[1] - points[0]) : 0; const count = Number(repeat[2]); const each = total ? Math.floor(total / count) : 0; return Array.from({length:count},(_,index) =&gt; `${repeat[1].trim()} · 第 ${index + 1} 次${repeat[3].trim() ? ` · ${repeat[3].trim()}` : ''}${each ? ` · ${durationLabel(`0:00–0:${String(each).padStart(2,'0')}`)}` : ''}`); });
     const showNode = includeShow ? cells[4]?.querySelector('strong') : null;
     if (showNode &amp;&amp; Number.parseInt(showNode.textContent,10) &gt; 0) steps.unshift(`剧情表现 · ${showNode.textContent.trim()}`);
-    if (!steps.length) steps.push(`${play || '当前流程'} · ${durationLabel(cells[0].textContent.trim())}`);
-    return `&lt;div class=&quot;dc-play-system&quot;&gt;&lt;div class=&quot;dc-play-line&quot;&gt;&lt;b&gt;玩法&lt;/b&gt;&lt;span&gt;${play || '剧情交互 ×1'}&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-play-line&quot;&gt;&lt;b&gt;系统&lt;/b&gt;&lt;span&gt;${systems.join(' / ')}&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-play-line dc-play-line-time&quot;&gt;&lt;b&gt;耗时&lt;/b&gt;&lt;span class=&quot;dc-time-steps&quot;&gt;${steps.map(step =&gt; `&lt;i&gt;${step}&lt;/i&gt;`).join('')}&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;`;
+    if (!steps.length) steps.push(`${play} · ${durationLabel(cells[0].textContent.trim())}`);
+    return `&lt;div class=&quot;dc-play-system&quot;&gt;&lt;div class=&quot;dc-play-line&quot;&gt;&lt;b&gt;玩法&lt;/b&gt;&lt;span&gt;${play}&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-play-line&quot;&gt;&lt;b&gt;系统&lt;/b&gt;&lt;span&gt;${systems.join(' / ')}&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-play-line dc-play-line-time&quot;&gt;&lt;b&gt;耗时&lt;/b&gt;&lt;span class=&quot;dc-time-steps&quot;&gt;${steps.map(step =&gt; `&lt;i&gt;${step}&lt;/i&gt;`).join('')}&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;`;
   };
   const setHead = table =&gt; {
     table.querySelector(&#39;thead tr&#39;).innerHTML = headers.map(x =&gt; `&lt;th&gt;${x}&lt;/th&gt;`).join(&#39;&#39;);
@@ -2055,8 +2047,9 @@ html&gt;body{padding:0}&lt;/style&gt;
     table.querySelectorAll(&#39;tbody tr&#39;).forEach(row =&gt; {
       const c = [...row.children];
       const id = (c[1].textContent.match(/L\d{2}/) || [&#39;&#39;])[0];
+      const memoryNode = c[1].querySelector('.dc-memory'); const memory = memoryNode?.textContent.trim().startsWith('记忆点') ? memoryNode.textContent.trim() : ''; c[1].querySelectorAll('.dc-memory').forEach(node =&gt; node.remove());
       const play = playSystemCell(c);
-      row.innerHTML = `&lt;td class=&quot;dc-time&quot;&gt;${c[0].innerHTML}&lt;/td&gt;&lt;td&gt;${c[1].innerHTML}&lt;/td&gt;&lt;td&gt;${c[3].innerHTML}&lt;/td&gt;&lt;td&gt;${play}&lt;/td&gt;&lt;td&gt;${rewardCell(sourceId(id))}&lt;/td&gt;&lt;td&gt;${sceneCell(id)}&lt;/td&gt;`;
+      row.innerHTML = `&lt;td class=&quot;dc-time&quot;&gt;${c[0].innerHTML}&lt;/td&gt;&lt;td&gt;${c[1].innerHTML}&lt;/td&gt;&lt;td&gt;${c[3].innerHTML}&lt;/td&gt;&lt;td&gt;${play}&lt;/td&gt;&lt;td&gt;${rewardCell(sourceId(id))}&lt;/td&gt;&lt;td&gt;${sceneCell(id,memory)}&lt;/td&gt;`;
     });
   });
   document.querySelectorAll(&#39;.dc-act .dc-promotion-table&#39;).forEach(table =&gt; {
@@ -2064,7 +2057,8 @@ html&gt;body{padding:0}&lt;/style&gt;
     table.querySelectorAll(&#39;tbody tr&#39;).forEach(row =&gt; {
       const c = [...row.children];
       const id = (c[1].textContent.match(/L\d{2}/) || [&#39;&#39;])[0];
-      row.innerHTML = `&lt;td class=&quot;dc-time&quot;&gt;${c[0].innerHTML}&lt;/td&gt;&lt;td&gt;${c[1].innerHTML}&lt;/td&gt;&lt;td&gt;${motives[sourceId(id)] || &#39;推进当前任务&#39;}&lt;/td&gt;&lt;td&gt;${playSystemCell(c, false)}&lt;/td&gt;&lt;td&gt;${rewardCell(sourceId(id))}&lt;/td&gt;&lt;td&gt;${sceneCell(id)}&lt;/td&gt;`;
+      const memoryNode = c[1].querySelector('.dc-memory'); const memory = memoryNode?.textContent.trim().startsWith('记忆点') ? memoryNode.textContent.trim() : ''; c[1].querySelectorAll('.dc-memory').forEach(node =&gt; node.remove());
+      row.innerHTML = `&lt;td class=&quot;dc-time&quot;&gt;${c[0].innerHTML}&lt;/td&gt;&lt;td&gt;${c[1].innerHTML}&lt;/td&gt;&lt;td&gt;${motives[sourceId(id)] || &#39;推进当前任务&#39;}&lt;/td&gt;&lt;td&gt;${playSystemCell(c, false)}&lt;/td&gt;&lt;td&gt;${rewardCell(sourceId(id))}&lt;/td&gt;&lt;td&gt;${sceneCell(id,memory)}&lt;/td&gt;`;
     });
   });
   const shiftClock = value =&gt; value.replace(/(\d{1,2}):(\d{2})/g, (all,m,s) =&gt; { const total = Number(m) * 60 + Number(s); if (total &lt; 590) return all; const next = total - 100; return `${Math.floor(next / 60)}:${String(next % 60).padStart(2,'0')}`; });
