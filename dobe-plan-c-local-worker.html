@@ -2070,13 +2070,40 @@ html&gt;body{padding:0}&lt;/style&gt;
   const shiftClock = value =&gt; value.replace(/(\d{1,2}):(\d{2})/g, (all,m,s) =&gt; { const total = Number(m) * 60 + Number(s); if (total &lt; 590) return all; const next = total - 100; return `${Math.floor(next / 60)}:${String(next % 60).padStart(2,'0')}`; });
   document.querySelectorAll('.dc-time').forEach(cell =&gt; cell.textContent = shiftClock(cell.textContent));
   document.querySelectorAll('.dc-overview .dc-act-chip span:first-child').forEach((span,index) =&gt; { if (index &gt;= 2) span.textContent = shiftClock(span.textContent); });
+  const revisedTimes = {
+    L23:'20:10–21:50', L24:'21:50–22:50', L25:'22:50–24:20',
+    L26:'24:20–26:00', L27:'26:00–27:00', L28:'27:00–30:00', L29:'30:00–33:00',
+    L30:'33:00–34:30', L31:'34:30–36:00', L32:'36:00–39:00', L33:'39:00–42:00',
+    L34:'42:00–44:00', L35:'44:00–48:00', L36:'48:00–51:20', L37:'51:20–55:20',
+    L38:'55:20–58:20', L39:'58:20–64:20', L40:'64:20–70:20', L41:'70:20–73:20', L42:'73:20–73:50'
+  };
+  document.querySelectorAll('.dc-act tbody tr').forEach(row =&gt; {
+    const id = (row.children[1]?.textContent.match(/L\d{2}/) || [''])[0];
+    if (revisedTimes[id]) row.querySelector('.dc-time').textContent = revisedTimes[id];
+  });
+  const pushStepDetails = {
+    L23:['推关第 1 关 · 20 秒','推关第 2 关 · 20 秒','推关第 3 关 · 20 秒','推关第 4 关 · 20 秒','推关第 5 关 · 20 秒'],
+    L26:['推关第 1 关 · 20 秒','推关第 2 关 · 20 秒','推关第 3 关 · 20 秒','推关第 4 关 · 20 秒','推关第 5 关 · 20 秒'],
+    L38:['推关第 1 关 · 20 秒','推关第 2 关 · 20 秒','推关第 3 关 · 20 秒','护送 SUP · 1 分钟','修复仓位 · 30 秒','晋升确认 · 30 秒'],
+    L41:['议会发布任务 · 30 秒','推关第 1 关 · 20 秒','推关第 2 关 · 20 秒','推关第 3 关 · 20 秒','护送 SUP · 1 分钟','修复建筑 · 30 秒']
+  };
+  document.querySelectorAll('.dc-act tbody tr').forEach(row =&gt; {
+    const id = (row.children[1]?.textContent.match(/L\d{2}/) || [''])[0];
+    const host = row.querySelector('.dc-time-steps');
+    if (host &amp;&amp; pushStepDetails[id]) host.innerHTML = pushStepDetails[id].map(step =&gt; `&lt;i&gt;${step}&lt;/i&gt;`).join('');
+  });
   const journeyBadge = document.querySelector('#dc-journey-map .dc-journey-badge'); if (journeyBadge) journeyBadge.textContent = 'L01–L29';
   const journeyCards = document.querySelectorAll('#dc-journey-map .dc-journey-copy');
   if (journeyCards[2]) { journeyCards[2].querySelector('h3').textContent = '建筑遇袭、全员任务与收车强化'; journeyCards[2].querySelector('p').textContent = '玩家转正后，本帮建筑直接遭到黑手党袭击爆炸；会长向每名成员分派任务。玩家通过收车小游戏取得任务废车，再完成拆解并强化大家的车辆。本阶段没有建筑接管。'; }
   if (journeyCards[3]) { journeyCards[3].querySelector('p').textContent = '金发带回情报后与玩家共同伏击并安全返城；L17 会议同时完成 Enforcer 晋升和内奸调查发布。产业与调查双线在 L25 汇合，随后进入独立新章，救回梅丽尔并制裁科腾。'; }
-  const journeyOutcome = document.querySelector('#dc-journey-map .dc-journey-outcome'); if (journeyOutcome) journeyOutcome.textContent = '18:30 后开启并行试炼：产业线完成两名管理者收复、两座建筑任意顺序接管与废车厂自动化；调查线完成英雄收复、推关五关和挡风玻璃逼问。双线汇合晋升 Roadman 后，立即进入营救梅丽尔的新章节。';
+  const journeyOutcome = document.querySelector('#dc-journey-map .dc-journey-outcome'); if (journeyOutcome) journeyOutcome.textContent = '18:30 后开启并行试炼：产业线完成两名管理者收复、两座建筑任意顺序接管与废车厂自动化；调查线按单关约 20 秒完成五关推关和挡风玻璃逼问。两线在 22:50 汇合，晋升 Roadman 后立即进入营救梅丽尔的新章节。';
   const actSections = [...document.querySelectorAll('.dc-act')];
-  actSections.forEach((section,index) =&gt; { if (index &lt; 2) return; const times = [...section.querySelectorAll('.dc-time')].map(x =&gt; x.textContent.trim()); if (!times.length) return; const range = `${times[0].split(/[–-]/)[0]}–${times.at(-1).split(/[–-]/)[1]}`; const span = section.querySelector('.dc-act-head &gt; div:first-child span'); if (span) span.textContent = range; const count = section.querySelector('.dc-count b'); if (count) count.textContent = `${times.length} 循环`; });
+  actSections.forEach((section,index) =&gt; { const times = [...section.querySelectorAll('.dc-time')].map(x =&gt; x.textContent.trim()); if (!times.length) return; const range = `${times[0].split(/[–-]/)[0]}–${times.at(-1).split(/[–-]/)[1]}`; const span = section.querySelector('.dc-act-head &gt; div:first-child span'); if (span) span.textContent = range; const chipTime = document.querySelectorAll('.dc-overview .dc-act-chip span:first-child')[index]; if (chipTime) chipTime.textContent = range; const count = section.querySelector('.dc-count b'); if (count) count.textContent = `${times.length} 循环`; });
+  const finalActSummary = actSections.at(-1)?.querySelector('.dc-act-head &gt; div:nth-child(2) span'); if (finalActSummary) finalActSummary.textContent = '只用 SUP、推关、议会与城建处理本帮内部事件；推关统一按单关约 20 秒计算，73:50 完成会长晋升后预留 16 分 10 秒用于既有玩法复玩与结算缓冲。';
+  const finalActCount = actSections.at(-1)?.querySelector('.dc-count span'); if (finalActCount) finalActCount.textContent = '73:50–90:00 既有玩法复玩 / 结算缓冲';
+  const oneDayItems = document.querySelectorAll('#dc-version-one-day li');
+  const oneDayCopy = ['51:20–55:20：枪战 SUP 完成武装队长切磋。','55:20–58:20：推关三关各约 20 秒，随后 SUP 护送本帮物资返城。','58:20–64:20：迎接汉克回归，完成一次车队护送 SUP。','64:20–70:20：竞速 SUP 完成副会长挑战。','70:20–73:20：推关三关各约 20 秒，随后 SUP 护送返城并恢复建筑。','73:20–73:50：通过议会完成 President 晋升。','73:50–90:00：既有玩法复玩与结算缓冲。'];
+  oneDayItems.forEach((item,index) =&gt; { if (oneDayCopy[index]) item.textContent = oneDayCopy[index]; });
 })();
 &lt;/script&gt;
 
