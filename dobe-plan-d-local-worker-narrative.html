@@ -2595,7 +2595,6 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     @media(max-width:900px){#dc-journey-map .dc-clue-wall{padding:12px}.dc-clue-head{min-width:980px!important}.dc-clue-grid{min-width:1730px!important}.dc-clue-canvas{width:1730px!important}}
   `;
   const text = el => (el?.textContent || '').replace(/\s+/g,' ').trim();
-  doc.querySelectorAll('#dc-gang-tree .gw-person.gw-empty').forEach(frame => frame.remove());
   const parseStart = value => {
     const m = value.match(/(\d+):(\d+)/);
     return m ? Number(m[1]) + Number(m[2]) / 60 : 999;
@@ -2603,6 +2602,7 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
   const build = () => {
     const doc = frame?.contentDocument;
     if (!doc || doc.getElementById('dc-clue-wall-style')) return;
+    doc.querySelectorAll('#dc-gang-tree .gw-person.gw-empty').forEach(emptyFrame => emptyFrame.remove());
     const image = doc.querySelector('#dc-journey-map .dc-journey-image');
     if (!image) return;
     const style = doc.createElement('style');
