@@ -2625,7 +2625,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       const clueId = (title.match(/L\d+/) || ['L01'])[0];
       card.dataset.clueId = clueId;
       const clueNumber = Number(clueId.slice(1));
-      const sourceClueId = clueNumber === 26 ? 'L27' : (clueNumber &gt;= 27 ? `L${String(clueNumber + 1).padStart(2,'0')}` : (clueNumber &gt;= 9 ? `L${String(clueNumber + 2).padStart(2,'0')}` : clueId));
+      const sourceClueId = clueNumber === 26 ? 'L27' : (clueNumber >= 27 ? `L${String(clueNumber + 1).padStart(2,'0')}` : (clueNumber >= 9 ? `L${String(clueNumber + 2).padStart(2,'0')}` : clueId));
       const sceneFile = sceneById[sourceClueId] || 'tow-convoy.webp';
       card.style.setProperty('--scene', `url("${sceneUrl(sceneFile)}")`);
       const chips = [];
