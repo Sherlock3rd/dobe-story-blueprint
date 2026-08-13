@@ -2149,9 +2149,9 @@ html&gt;body{padding:0}&lt;/style&gt;
 
   // 逐节点玩法校正：玩法只写玩家实际操作，系统只写承载该操作的真实系统。
   const loopRows = () =&gt; [...document.querySelectorAll('.dc-act tbody tr')];
-  const loopId = row =&gt; (row.children[1]?.textContent.match(/L\d{2}/) || [''])[0];
+  const loopId = row =&gt; (row.children[1]?.textContent.match(/L[0-9]{2}/) || [''])[0];
   const formatClock = total =&gt; `${Math.floor(total / 60)}:${String(total % 60).padStart(2,'0')}`;
-  const shiftRange = (range,seconds) =&gt; range.replace(/(\d{1,2}):(\d{2})/g, (all,m,s) =&gt; formatClock(Number(m) * 60 + Number(s) + seconds));
+  const shiftRange = (range,seconds) =&gt; range.replace(/([0-9]{1,2}):([0-9]{2})/g, (all,m,s) =&gt; formatClock(Number(m) * 60 + Number(s) + seconds));
 
   // 在 Roadman 会议后补一段 20 秒纯演出，原 L26 及之后节点顺延一位。
   const oldL26 = loopRows().find(row =&gt; loopId(row) === 'L26');
@@ -2167,42 +2167,54 @@ html&gt;body{padding:0}&lt;/style&gt;
   }
 
   const operationRules = {
-    L01:{play:'甩脱警车',systems:['SUP定制关卡']},
-    L02:{play:'',systems:[],steps:['纯 Timeline 表现']},
-    L03:{play:'定制枪战',systems:['SUP定制关卡']},
-    L04:{play:'',systems:[],steps:['纯 Timeline 表现']},
-    L05:{play:'修车安装氮气',systems:['维修小游戏','车辆养成']},
-    L06:{play:'特技竞速',systems:['SUP竞速']},
-    L07:{play:'点击领奖、晋升',systems:['任务系统','帮派树']},
-    L08:{play:'授章 QTE',systems:['QTE'],steps:['议会结果演出 · 20 秒','接受背章 QTE · 10 秒']},
-    L09:{play:'',systems:['章节体任务']},
-    L10:{play:'地图收集废车',systems:['收车小游戏','任务系统']},
-    L11:{play:'拆车分拣配件',systems:['拆车小游戏']},
-    L12:{play:'改装车辆',systems:['改装小游戏']},
-    L13:{play:'',systems:[],steps:['剧情交代开打 · 10 秒']},
-    L14:{play:'枪战',systems:['SUP枪战']},
-    L15:{play:'',systems:[],steps:['清场返城演出 · 20 秒']},
-    L16:{play:'点击领奖、晋升',systems:['任务系统','帮派树']},
-    L17:{play:'投票',systems:['议会']},
-    L18:{play:'',systems:[],steps:['转场过渡对话 · 20 秒']},
-    L23:{play:'推关',systems:['推关战斗']},
-    L24:{play:'开车避障',systems:['SUP定制关卡']},
-    L25:{play:'投票',systems:['议会']},
-    L26:{play:'',systems:[],steps:['梅丽尔被抢走演出 · 20 秒']},
+    L01:{play:'甩脱警车',systems:['SUP定制关卡'],steps:['无人机航拍与警方播报 · 20 秒','警匪追逐 SUP · 60 秒']},
+    L02:{play:'',systems:[],timeline:true,steps:['摩托帮成员接应 · 15 秒','黑手党劫货预警 · 15 秒']},
+    L03:{play:'定制枪战',systems:['SUP定制关卡'],steps:['黑手党突袭切入 · 10 秒','定制枪战 · 60 秒','车辆受损确认 · 10 秒']},
+    L04:{play:'',systems:[],timeline:true,steps:['拖回玩家车辆 · 5 秒','转正任务完成提示 · 5 秒']},
+    L05:{play:'修车安装氮气',systems:['维修小游戏','车辆养成'],steps:['维修玩家车辆 · 30 秒','赠送氮气 · 10 秒','安装氮气 · 10 秒','发出竞速邀请 · 10 秒']},
+    L06:{play:'特技竞速',systems:['SUP竞速'],steps:['起跑演出 · 10 秒','1v1 特技竞速 · 60 秒','赛后认可 · 20 秒']},
+    L07:{play:'点击领奖、晋升',systems:['任务系统','帮派树'],steps:['与金发返城 · 30 秒','点击领取奖励 · 10 秒','点击晋升 · 10 秒']},
+    L08:{play:'授章 QTE',systems:['QTE'],steps:['议会结果宣布 · 30 秒','接受背章 QTE · 10 秒','授章演出 · 20 秒','交代下一任务 · 30 秒']},
+    L09:{play:'',systems:['章节体任务'],steps:['建筑爆炸 · 20 秒','会长发布全员任务 · 20 秒','接取章节任务 · 20 秒']},
+    L10:{play:'地图收集废车',systems:['收车小游戏','任务系统'],steps:['打开任务地图 · 10 秒','点选废车位置 · 30 秒','回收结算 · 10 秒']},
+    L11:{play:'拆车分拣配件',systems:['拆车小游戏'],steps:['前往废车场 · 10 秒','拆解第 1 辆 · 30 秒','拆解第 2 辆 · 30 秒','分拣结算 · 20 秒']},
+    L12:{play:'改装车辆',systems:['改装小游戏'],steps:['车辆排队入位 · 10 秒','批量安装配件 · 60 秒','强化结算 · 20 秒']},
+    L13:{play:'',systems:[],timeline:true,steps:['金发带回情报 · 5 秒','交代目标并出发 · 5 秒']},
+    L14:{play:'枪战',systems:['SUP枪战'],steps:['伏击开场 · 10 秒','枪战 SUP · 60 秒']},
+    L15:{play:'',systems:[],timeline:true,steps:['战后清场确认 · 10 秒','护送战利品返城 · 10 秒']},
+    L16:{play:'点击领奖、晋升',systems:['任务系统','帮派树'],steps:['提交章节任务 · 20 秒','点击领取奖励 · 20 秒','点击晋升 · 20 秒']},
+    L17:{play:'投票',systems:['议会'],steps:['说明内奸问题 · 20 秒','成员投票 · 20 秒','发布调查任务 · 20 秒']},
+    L18:{play:'',systems:[],timeline:true,steps:['说明收复试炼 · 10 秒','双线任务转场 · 10 秒']},
+    L19:{play:'收复产业主管',systems:['帮派树','任务系统'],steps:['查看雨果任务 · 10 秒','收复雨果 · 20 秒','查看瓦尔特任务 · 10 秒','收复瓦尔特 · 20 秒']},
+    L20:{play:'接管两座建筑',systems:['建筑管理'],steps:['打开城市地图 · 10 秒','接管修车厂 · 30 秒','接管废车回收厂 · 30 秒','确认结果 · 10 秒']},
+    L21:{play:'派遣主管自动化',systems:['模拟经营'],steps:['选择瓦尔特 · 10 秒','派遣至废车厂 · 20 秒','确认自动化 · 30 秒']},
+    L22:{play:'收复调查英雄',systems:['帮派树','任务系统','英雄养成'],steps:['查看英雄任务 · 10 秒','确认收复 · 20 秒','英雄加入 · 10 秒']},
+    L23:{play:'推关',systems:['推关战斗'],steps:['推关第 1 关 · 20 秒','推关第 2 关 · 20 秒','推关第 3 关 · 20 秒','推关第 4 关 · 20 秒','推关第 5 关 · 20 秒']},
+    L24:{play:'开车避障',systems:['SUP定制关卡'],steps:['固定接头人 · 10 秒','开车避障逼问 · 40 秒','获得内奸代号 · 10 秒']},
+    L25:{play:'投票',systems:['议会'],steps:['双线任务结算 · 20 秒','成员投票 · 30 秒','公布科腾身份 · 20 秒','发布紧急任务 · 20 秒']},
+    L26:{play:'',systems:[],timeline:true,steps:['科腾掳走梅丽尔 · 10 秒','车队撤离方向揭示 · 10 秒']},
     L27:{play:'推关',systems:['推关战斗'],steps:['推关第 1 关 · 20 秒','推关第 2 关 · 20 秒','推关第 3 关 · 20 秒','推关第 4 关 · 20 秒','推关第 5 关 · 20 秒']},
-    L28:{play:'救人 QTE',systems:['QTE']},
-    L29:{play:'枪战、QTE处决',systems:['SUP枪战','QTE']},
-    L30:{play:'投票',systems:['议会']}
+    L28:{play:'救人 QTE',systems:['QTE'],steps:['突入关押房间 · 10 秒','解除束缚 QTE · 30 秒','取得撤离路线 · 20 秒']},
+    L29:{play:'枪战、QTE处决',systems:['SUP枪战','QTE'],steps:['锁定科腾车队 · 10 秒','追杀枪战 SUP · 140 秒','逼停车辆 · 10 秒','处决 QTE · 20 秒']},
+    L30:{play:'投票',systems:['议会'],steps:['护送梅丽尔返城 · 60 秒','会议复盘证据 · 60 秒','成员投票 · 30 秒','Road Captain 授章 · 30 秒']}
   };
   const makeOperationCell = (rule,fallbackSteps=[]) =&gt; {
     const steps = rule.steps || fallbackSteps;
-    return `&lt;div class=&quot;dc-play-system&quot;&gt;&lt;div class=&quot;dc-play-line&quot;&gt;&lt;b&gt;玩法&lt;/b&gt;&lt;span&gt;${rule.play}&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-play-line&quot;&gt;&lt;b&gt;系统&lt;/b&gt;&lt;span&gt;${rule.systems.join(' / ')}&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-play-line dc-play-line-time&quot;&gt;&lt;b&gt;耗时&lt;/b&gt;&lt;span class=&quot;dc-time-steps&quot;&gt;${steps.map(step =&gt; `&lt;i&gt;${step}&lt;/i&gt;`).join('')}&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;`;
+    const playText = rule.timeline ? '&lt;em class=&quot;dc-timeline-label&quot;&gt;纯 Timeline 表现&lt;/em&gt;' : (rule.play || '-');
+    const systemText = rule.systems.length ? rule.systems.join(' / ') : '-';
+    return `&lt;div class=&quot;dc-play-system&quot;&gt;&lt;div class=&quot;dc-play-line&quot;&gt;&lt;b&gt;玩法&lt;/b&gt;&lt;span&gt;${playText}&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-play-line&quot;&gt;&lt;b&gt;系统&lt;/b&gt;&lt;span&gt;${systemText}&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;dc-play-line dc-play-line-time&quot;&gt;&lt;b&gt;耗时&lt;/b&gt;&lt;span class=&quot;dc-time-steps&quot;&gt;${steps.map(step =&gt; `&lt;i&gt;${step}&lt;/i&gt;`).join('')}&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;`;
   };
   loopRows().forEach(row =&gt; {
     const id = loopId(row), rule = operationRules[id]; if (!rule) return;
     const fallback = [...row.querySelectorAll('.dc-time-steps i')].map(node =&gt; node.textContent.trim());
     row.children[3].innerHTML = makeOperationCell(rule,fallback);
   });
+  const operationRanges = {
+    L01:'0:00–1:20',L02:'1:20–1:50',L03:'1:50–3:10',L04:'3:10–3:20',L05:'3:20–4:20',L06:'4:20–5:50',L07:'5:50–6:40',L08:'6:40–8:10',
+    L09:'8:10–9:10',L10:'9:10–10:00',L11:'10:00–11:30',L12:'11:30–13:00',L13:'13:00–13:10',L14:'13:10–14:20',L15:'14:20–14:40',L16:'14:40–15:40',L17:'15:40–16:40',L18:'16:40–17:00',
+    L19:'17:00–18:00',L20:'18:00–19:20',L21:'19:20–20:20',L22:'20:20–21:00',L23:'21:00–22:40',L24:'22:40–23:40',L25:'23:40–25:10',L26:'25:10–25:30',L27:'25:30–27:10',L28:'27:10–28:10',L29:'28:10–31:10',L30:'31:10–34:10'
+  };
+  loopRows().forEach(row =&gt; { const id = loopId(row); if (operationRanges[id]) row.children[0].textContent = operationRanges[id]; else if (Number(id.slice(1)) &gt;= 31) row.children[0].textContent = shiftRange(row.children[0].textContent,50); });
   const l08Scene = loopRows().find(row =&gt; loopId(row) === 'L08')?.querySelector('.dc-in-game-scene &gt; span:not(.dc-memory)');
   if (l08Scene) l08Scene.textContent = '承接 L07 的晋升点击，玩家进入议会。玩家不参与投票；会长宣布议会结果，玩家通过简短 QTE 接受正式背章并完成转正仪式。';
   const l25Scene = loopRows().find(row =&gt; loopId(row) === 'L25')?.querySelector('.dc-in-game-scene &gt; span:not(.dc-memory)');
@@ -2217,6 +2229,9 @@ html&gt;body{padding:0}&lt;/style&gt;
     const count = section.querySelector('.dc-count b'); if (count) count.textContent = `${times.length} 循环`;
   });
   const revisedBadge = document.querySelector('#dc-journey-map .dc-journey-badge'); if (revisedBadge) revisedBadge.textContent = 'L01–L30';
+  const timelineStyle = document.createElement('style');
+  timelineStyle.textContent = '.dc-timeline-label{display:inline-flex;align-items:center;padding:2px 8px;border:1px dashed #9d6b54;border-radius:999px;background:#fff3e8;color:#8a4433;font:800 11px/1.4 system-ui;letter-spacing:.03em}.dc-timeline-label:before{content:"▶";font-size:8px;margin-right:5px;color:#c25c43}';
+  document.head.appendChild(timelineStyle);
 })();
 &lt;/script&gt;
 
@@ -2622,7 +2637,9 @@ html&gt;body{padding:0}&lt;/style&gt;
     grid.appendChild(rankShelf);
     const rankPhase = rankShelf.previousElementSibling; const storyAxis = doc.createElement('section'); storyAxis.className = 'dc-story-axis';
     const parallel = doc.createElement('section'); parallel.className = 'dc-parallel-board'; parallel.innerHTML = '<header><b>L18 分叉 · 两条任务线可并行</b><span>产业管理线与内奸调查线可任意先后；两线完成后结束本章</span></header><div class="dc-parallel-lane industry"><h4>线 1 · 产业管理</h4></div><div class="dc-parallel-lane investigation"><h4>线 2 · 内奸调查</h4></div><footer><b>下一章入口 · L25</b><span>双线结算 → 晋升 Roadman → 揭出科腾叛逃并绑走梅丽尔</span></footer>';
-    const cardById = id => grid.querySelector('[data-clue-id="' + id + '"]'); ['L19','L20','L21'].forEach(id => parallel.querySelector('.industry').appendChild(cardById(id))); ['L22','L23','L24'].forEach(id => parallel.querySelector('.investigation').appendChild(cardById(id)));
+    const cardById = id => grid.querySelector('[data-clue-id="' + id + '"]');
+    ['L19','L20','L21'].forEach(id => { const card = cardById(id); if (card) parallel.querySelector('.industry').appendChild(card); });
+    ['L22','L23','L24'].forEach(id => { const card = cardById(id); if (card) parallel.querySelector('.investigation').appendChild(card); });
     const chapterSpecs = [
       {key:'before',start:1,end:8,transition:'L08 议会转正为 Full Patch → L09 本帮建筑突然遭黑手党袭击'},
       {key:'middle',start:9,end:16,transition:'L16 全员任务结算、晋升条件达成 → L17 晋升 Enforcer 并接取内奸调查'},
