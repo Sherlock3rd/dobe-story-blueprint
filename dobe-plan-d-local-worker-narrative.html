@@ -2615,6 +2615,7 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       const heading = section.querySelector('h2');
       if (heading) heading.id = id + '-title';
     });
+    [...contentRoot.querySelectorAll('.dc-act')].forEach((act,index) => { act.id = 'dc-act-' + (index === 0 ? 'prologue' : index); });
     const tocNav = contentRoot.querySelector('#dobe-toc-nav');
     if (tocNav && !tocNav.querySelector('ul')) {
       const tocEntries = [
