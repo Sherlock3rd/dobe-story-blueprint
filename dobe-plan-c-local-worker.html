@@ -1816,6 +1816,54 @@ html&gt;body{padding:0}&lt;/style&gt;
   setGangDrops(gangPerson(&#39;T6&#39;, &#39;戴尔·万斯&#39;), [{label:&#39;小人候选&#39;,pending:true}]);
   const t6WorkerSlot = gangTier(&#39;T6&#39;)?.querySelector(&#39;.gw-person.gw-empty&#39;);
   setGangPerson(t6WorkerSlot, {name:&#39;财务官（姓名待定）&#39;, task:&#39;收复任务：完成财务后勤首轮排班，并带一名账房助理到岗。&#39;, photoLabel:&#39;财务排班&#39;, drops:[{label:&#39;模拟经营小人&#39;}]});
+
+  // 帮派照片墙以当前剧情为唯一口径：人物任务、建筑和奖励角标均跟随剧情线。
+  const setTierEvent = (tier, event) =&gt; {
+    const node = gangTier(tier)?.querySelector(&#39;.gw-event&#39;);
+    if (node) node.textContent = event;
+  };
+  [
+    [&#39;T1&#39;,&#39;起始事件：玩家以 Prospect 身份进入帮派&#39;],
+    [&#39;T2&#39;,&#39;晋升事件：议会投票与正式授章&#39;],
+    [&#39;T3&#39;,&#39;晋升事件：反击任务结算与内奸调查发布&#39;],
+    [&#39;T4&#39;,&#39;晋升事件：产业、调查双线完成并晋升 Roadman&#39;],
+    [&#39;T5&#39;,&#39;晋升事件：救回梅丽尔并制裁科腾&#39;],
+    [&#39;T6&#39;,&#39;晋升事件：商业街、加油站与物流经营复盘&#39;],
+    [&#39;T7&#39;,&#39;晋升事件：友好枪战切磋&#39;],
+    [&#39;T8&#39;,&#39;晋升事件：追回物资并完成护送&#39;],
+    [&#39;T9&#39;,&#39;晋升事件：传统竞速与车队授位&#39;],
+    [&#39;T10&#39;,&#39;晋升事件：全体选举与会长授章&#39;]
+  ].forEach(([tier,event]) =&gt; setTierEvent(tier,event));
+
+  setGangPerson(gangPerson(&#39;T1&#39;, &#39;雨果·维尔&#39;), {task:&#39;产业线任务：接受玩家收复，开放修车厂接管。&#39;, photoLabel:&#39;修车厂管理&#39;, drops:[{label:&#39;修车厂&#39;},{label:&#39;改装功能&#39;}]});
+  setGangPerson(gangPerson(&#39;T1&#39;, &#39;见习帮手（姓名待定）&#39;), {filled:false});
+  setGangPerson(gangPerson(&#39;T2&#39;, &#39;瓦尔特·维尔&#39;), {task:&#39;产业线任务：接受玩家收复，接管后派往废车回收厂实现自动化。&#39;, photoLabel:&#39;废车厂管理&#39;, drops:[{label:&#39;废车回收厂&#39;},{label:&#39;配件&#39;}]});
+  setGangPerson(gangPerson(&#39;T2&#39;, &#39;正式成员（姓名待定）&#39;), {task:&#39;收复任务：完成废车回收厂首轮排班，并作为小人到岗。&#39;, photoLabel:&#39;自动化排班&#39;, drops:[{label:&#39;小人&#39;}]});
+  const investigationHeroSlot = gangTier(&#39;T2&#39;)?.querySelector(&#39;.gw-person.gw-empty&#39;);
+  setGangPerson(investigationHeroSlot, {name:&#39;调查英雄（姓名待定）&#39;, task:&#39;调查线任务：加入玩家队伍，追查内奸并完成挡风玻璃逼问。&#39;, photoLabel:&#39;内奸调查&#39;, drops:[{label:&#39;英雄&#39;}]});
+
+  setGangPerson(gangPerson(&#39;T3&#39;, &#39;科腾·万斯&#39;), {task:&#39;主线目标：叛逃并绑走梅丽尔；玩家追车制裁后取回商业街账册和钥匙。&#39;, photoLabel:&#39;叛徒追杀&#39;, drops:[{label:&#39;商业街&#39;},{label:&#39;钱&#39;}]});
+  setGangPerson(gangPerson(&#39;T3&#39;, &#39;打手（姓名待定）&#39;), {task:&#39;收复任务：完成商业街首轮商户排班，并作为小人到岗。&#39;, photoLabel:&#39;商户排班&#39;, drops:[{label:&#39;小人&#39;}]});
+  const marylSlot = gangTier(&#39;T3&#39;)?.querySelector(&#39;.gw-person.gw-empty&#39;);
+  setGangPerson(marylSlot, {name:&#39;梅丽尔&#39;, task:&#39;救援任务：从科腾的关押点获救，并提供叛徒撤离路线。&#39;, photoLabel:&#39;人质救援&#39;, drops:[{label:&#39;英雄&#39;}]});
+
+  setGangPerson(gangPerson(&#39;T4&#39;, &#39;斯宾塞·曼森&#39;), {task:&#39;产业任务：接受玩家收复，开放加油站修复与经营。&#39;, photoLabel:&#39;加油站管理&#39;, drops:[{label:&#39;加油站&#39;},{label:&#39;汽油&#39;}]});
+  setGangPerson(gangPerson(&#39;T4&#39;, &#39;卡莱布·奥尔森&#39;), {task:&#39;当前剧情未落位；保留人物席位，任务与奖励待定。&#39;, photoLabel:&#39;待剧情落位&#39;, drops:[{label:&#39;小人候选&#39;,pending:true}]});
+  setGangPerson(gangPerson(&#39;T4&#39;, &#39;路线成员（姓名待定）&#39;), {task:&#39;收复任务：完成加油站首轮排班，并作为小人到岗。&#39;, photoLabel:&#39;站务排班&#39;, drops:[{label:&#39;小人&#39;}]});
+  setGangPerson(gangPerson(&#39;T5&#39;, &#39;比利·克鲁斯&#39;), {task:&#39;当前剧情未落位；保留人物席位，任务与奖励待定。&#39;, photoLabel:&#39;待剧情落位&#39;, drops:[{label:&#39;小人候选&#39;,pending:true}]});
+  setGangPerson(gangPerson(&#39;T5&#39;, &#39;物流负责人（姓名待定）&#39;), {task:&#39;产业任务：追回物流账本，恢复物流中心经营。&#39;, photoLabel:&#39;物流复盘&#39;, drops:[{label:&#39;物流中心&#39;},{label:&#39;物资&#39;}]});
+  setGangPerson(gangPerson(&#39;T5&#39;, &#39;路线队长（姓名待定）&#39;), {task:&#39;收复任务：完成物流中心首轮排班，并作为小人到岗。&#39;, photoLabel:&#39;装卸排班&#39;, drops:[{label:&#39;小人&#39;}]});
+  [&#39;伊莱·马多克斯&#39;,&#39;戴尔·万斯&#39;].forEach(name =&gt; setGangPerson(gangPerson(&#39;T6&#39;, name), {task:&#39;当前剧情未落位；保留人物席位，任务与奖励待定。&#39;, photoLabel:&#39;待剧情落位&#39;, drops:[{label:&#39;小人候选&#39;,pending:true}]}));
+  setGangPerson(gangPerson(&#39;T6&#39;, &#39;财务官（姓名待定）&#39;), {task:&#39;收复任务：完成财务后勤首轮排班，并作为小人到岗。&#39;, photoLabel:&#39;财务排班&#39;, drops:[{label:&#39;小人&#39;}]});
+  setGangPerson(gangPerson(&#39;T7&#39;, &#39;博·蒙哥马尼&#39;), {task:&#39;晋升事件：与玩家进行友好枪战切磋，认可其队伍指挥能力。&#39;, photoLabel:&#39;友好切磋&#39;, drops:[{label:&#39;声望&#39;}]});
+  setGangPerson(gangPerson(&#39;T7&#39;, &#39;雷·哈兰&#39;), {task:&#39;当前剧情未落位；保留人物席位，任务与奖励待定。&#39;, photoLabel:&#39;待剧情落位&#39;, drops:[{label:&#39;小人候选&#39;,pending:true}]});
+  setGangPerson(gangPerson(&#39;T8&#39;, &#39;汉克·麦考密克&#39;), {task:&#39;救援任务：玩家清理藏点、追回物资并护送汉克返城。&#39;, photoLabel:&#39;物资救援&#39;, drops:[{label:&#39;英雄&#39;},{label:&#39;物资&#39;}]});
+  setGangPerson(gangPerson(&#39;T9&#39;, &#39;韦恩·“加斯”·科瓦尔斯基&#39;), {task:&#39;晋升事件：完成传统竞速并按车队阵型返城。&#39;, photoLabel:&#39;传统竞速&#39;, drops:[{label:&#39;声望&#39;}]});
+  setGangPerson(gangPerson(&#39;T10&#39;, &#39;杰森“拉斯蒂”蒙哥马利&#39;), {task:&#39;晋升事件：主持全体选举，以木槌表决完成会长授章。&#39;, photoLabel:&#39;全体选举&#39;, drops:[{label:&#39;Clubhouse&#39;},{label:&#39;声望&#39;}]});
+
+  const gangLegend = root.querySelectorAll(&#39;#dc-gang-tree .gw-legend span&#39;);
+  if (gangLegend[0]) gangLegend[0].innerHTML = &#39;&lt;i class=&quot;gw-drop&quot;&gt;确定投放&lt;/i&gt;当前剧情已明确&#39;;
+  if (gangLegend[1]) gangLegend[1].innerHTML = &#39;&lt;i class=&quot;gw-drop pending&quot;&gt;候选投放&lt;/i&gt;当前剧情尚未落位&#39;;
   const versionHeadings = root.querySelectorAll(&#39;#dc-version-branch h3&#39;);
   if (versionHeadings[0]) versionHeadings[0].id = &#39;dc-version-formal&#39;;
   if (versionHeadings[1]) versionHeadings[1].id = &#39;dc-version-one-day&#39;;
@@ -2463,7 +2511,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     const viewport = wall.querySelector('.dc-clue-viewport');
     const canvas = wall.querySelector('.dc-clue-canvas');
     const fullscreenButton = wall.querySelector('.dc-clue-fullscreen');
-    const rankLinks = {T10:'',T9:'',T8:'',T7:'',T6:'',T5:'L29',T4:'L25',T3:'L17',T2:'L08',T1:'L07'};
+    const rankLinks = {T10:'',T9:'',T8:'',T7:'',T6:'',T5:'L29',T4:'L25',T3:'L17',T2:'L08',T1:'L01'};
     grid.appendChild(makePhase('before','第一幕：劫货危机中证明资格（遭遇伏击，目标是完成见习转正） · L01–L08','Prospect 完成反伏击与转正任务 → 修好自己的车并安装氮气 → 1v1 学习特技与氮气 → 帮派树点击晋升 → 经议会成为 Full Patch'));
     rows.forEach((row,index) => {
       if (index === 8) grid.appendChild(makePhase('middle','第二幕：建筑遇袭后的全员反击（帮派遭到袭击，目标是完成备战与复仇） · L09–L16','建筑爆炸 → 会长分派全员任务 → 收车拆车 → 强化车辆 → 与金发联手伏击 → 一起返城 → 提交任务'));
