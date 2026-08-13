@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dobe-story-assets-v15';
+const CACHE_NAME = 'dobe-story-assets-v16';
 const CACHED_ASSETS = [
   './assets/clue-scenes/chase-police.webp',
   './assets/clue-scenes/cargo-ambush-rescue.webp',
