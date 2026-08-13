@@ -2602,6 +2602,34 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
   const build = () => {
     const doc = frame?.contentDocument;
     if (!doc || doc.getElementById('dc-clue-wall-style')) return;
+    const contentRoot = doc.getElementById('dobe-compressed-loops');
+    if (!contentRoot) return;
+    const sectionIds = [
+      ['Part 3 · 一日版本与正式版本分流','dc-version-branch'],
+      ['Part 4 · 帮派照片墙','dc-gang-tree']
+    ];
+    sectionIds.forEach(([title,id]) => {
+      const section = [...contentRoot.querySelectorAll('.dc-section')].find(node => node.querySelector('h2')?.textContent.trim().startsWith(title));
+      if (!section) return;
+      section.id = id;
+      const heading = section.querySelector('h2');
+      if (heading) heading.id = id + '-title';
+    });
+    const tocNav = contentRoot.querySelector('#dobe-toc-nav');
+    if (tocNav && !tocNav.querySelector('ul')) {
+      const tocEntries = [
+        ['dc-overview','Dobe一日渐进规划',2],['dc-part-1','Part 1 · 已确定信息',2],['dc-confirmed-docs','关联文档',3],
+        ['dc-confirmed-framework','内容与成长框架',3],['dc-drop-overview','投放总览',3],['dc-confirmed-buildings','确定建筑与功能',3],
+        ['dc-confirmed-anchors','版本锚点',3],['dc-part-2','Part 2 · 渐进规划',2],['dc-journey-map','方案 D · 案件板',3],
+        ['dc-memory-structure-title','帮派体验记忆结构',3],['dc-story-causal-title','整体剧情因果',3],['dc-act-relations-title','七幕关系',3],
+        ['dc-act-prologue','序幕 · 被卷入',3],['dc-act-1','第一幕 · 见习与转正',3],['dc-act-2','第二幕 · 全员任务与联手伏击',3],
+        ['dc-act-3','第三幕 · 双线试炼',3],['dc-act-4','第四幕 · 追杀叛徒与救援',3],['dc-act-5','第五幕 · 产业恢复',3],
+        ['dc-act-6','第六幕 · 高阶晋升',3],['dc-version-branch','Part 3 · 版本分流',2],['dc-gang-tree','Part 4 · 帮派照片墙',2]
+      ].filter(([id]) => doc.getElementById(id));
+      const list = doc.createElement('ul'); list.className = 'dc-toc-list';
+      tocEntries.forEach(([id,label,level]) => { const item=doc.createElement('li'); item.className='dc-toc-item'; item.innerHTML='<a class="dc-toc-link" data-level="'+level+'" href="#'+id+'">'+label+'</a>'; list.appendChild(item); });
+      tocNav.appendChild(list);
+    }
     doc.querySelectorAll('#dc-gang-tree .gw-person.gw-empty').forEach(emptyFrame => emptyFrame.remove());
     const image = doc.querySelector('#dc-journey-map .dc-journey-image');
     if (!image) return;
