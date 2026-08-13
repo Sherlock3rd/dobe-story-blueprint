@@ -2148,6 +2148,7 @@ html&gt;body{padding:0}&lt;/style&gt;
   oneDayItems.forEach((item,index) =&gt; { if (oneDayCopy[index]) item.textContent = oneDayCopy[index]; });
 
   // 逐节点玩法校正：玩法只写玩家实际操作，系统只写承载该操作的真实系统。
+  try {
   const loopRows = () =&gt; [...document.querySelectorAll('.dc-act tbody tr')];
   const loopId = row =&gt; (row.children[1]?.textContent.match(/L[0-9]{2}/) || [''])[0];
   const formatClock = total =&gt; `${Math.floor(total / 60)}:${String(total % 60).padStart(2,'0')}`;
@@ -2232,6 +2233,7 @@ html&gt;body{padding:0}&lt;/style&gt;
   const timelineStyle = document.createElement('style');
   timelineStyle.textContent = '.dc-timeline-label{display:inline-flex;align-items:center;padding:2px 8px;border:1px dashed #9d6b54;border-radius:999px;background:#fff3e8;color:#8a4433;font:800 11px/1.4 system-ui;letter-spacing:.03em}.dc-timeline-label:before{content:"▶";font-size:8px;margin-right:5px;color:#c25c43}';
   document.head.appendChild(timelineStyle);
+  } catch (error) { document.body.insertAdjacentHTML('afterbegin', `&lt;div id=&quot;operation-error&quot;&gt;${error.name}: ${error.message}&lt;/div&gt;`); }
 })();
 &lt;/script&gt;
 
