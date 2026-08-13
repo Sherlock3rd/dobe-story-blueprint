@@ -2615,6 +2615,18 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       const heading = section.querySelector('h2');
       if (heading) heading.id = id + '-title';
     });
+    const collapsibleIds = ['dc-part-1','dc-part-2','dc-version-branch','dc-gang-tree'];
+    collapsibleIds.forEach(id => {
+      const section = contentRoot.querySelector('#' + id);
+      const heading = section?.querySelector(':scope > h2');
+      if (!section || !heading || heading.querySelector('.dc-part-toggle')) return;
+      section.classList.add('dc-part');
+      let body = section.querySelector(':scope > .dc-part-body');
+      if (!body) { body=doc.createElement('div'); body.className='dc-part-body'; while(heading.nextSibling) body.appendChild(heading.nextSibling); section.appendChild(body); }
+      const toggle=doc.createElement('button'); toggle.type='button'; toggle.className='dc-part-toggle';
+      const setOpen=open=>{toggle.setAttribute('aria-expanded',String(open));toggle.textContent=open?'收起':'展开';body.hidden=!open;section.classList.toggle('is-collapsed',!open)};
+      toggle.addEventListener('click',()=>setOpen(toggle.getAttribute('aria-expanded')!=='true')); heading.appendChild(toggle); setOpen(id!=='dc-part-1');
+    });
     [...contentRoot.querySelectorAll('.dc-act')].forEach((act,index) => { act.id = 'dc-act-' + (index === 0 ? 'prologue' : index); });
     const tocNav = contentRoot.querySelector('#dobe-toc-nav');
     if (tocNav && !tocNav.querySelector('ul')) {
@@ -2631,6 +2643,17 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       tocEntries.forEach(([id,label,level]) => { const item=doc.createElement('li'); item.className='dc-toc-item'; item.innerHTML='<a class="dc-toc-link" data-level="'+level+'" href="#'+id+'">'+label+'</a>'; list.appendChild(item); });
       tocNav.appendChild(list);
     }
+    const syncGangUnlocks = () => {
+      const people=[...doc.querySelectorAll('#dc-gang-tree .gw-person')];
+      const ensure=(name,tier)=>{let person=people.find(node=>node.querySelector('.gw-name')?.textContent.trim()===name);if(person)return person;person=doc.querySelector('#dc-gang-tree .gw-tier[data-tier="'+tier+'"] .gw-person.gw-empty');if(!person)return null;person.classList.remove('gw-empty');const nameNode=person.querySelector('.gw-name');if(nameNode)nameNode.textContent=name;people.push(person);return person};
+      const sync=(name,tier,drops,task)=>{const person=ensure(name,tier);if(!person)return;const wrap=person.querySelector('.gw-drops');if(wrap)wrap.innerHTML=drops.map(label=>'<i class="gw-drop">'+label+'</i>').join('');const taskNode=person.querySelector('.gw-task');if(taskNode)taskNode.textContent=task};
+      sync('雨果·维尔','T1',['改装功能使用权','修车厂接管权限'],'L10 收复后解锁修车与改装功能；L21 确认管理者后开放修车厂地图接管，L22 完成内部接管。');
+      sync('瓦尔特·维尔','T2',['废车厂接管权限','废车厂自动化','配件'],'L21 确认管理者后开放废车回收厂接管；L22 接管后，L23 派遣瓦尔特实现自动化。');
+      sync('科腾·万斯','T3',['商业街接管权限','钱'],'L30 制裁科腾并取得账册与钥匙；L32 完成商业街接管，L33 恢复钱产出。');
+      sync('斯宾塞·曼森','T4',['加油站接管','汽油'],'L34 收复斯宾塞并完成加油站内部接管；L35 建设后恢复汽油产出。');
+      sync('物流负责人（姓名待定）','T5',['物流中心接管','物资'],'L37 收复物流负责人并完成物流中心交接；L38 建设后恢复物资产出。');
+    };
+    syncGangUnlocks();
     doc.querySelectorAll('#dc-gang-tree .gw-person.gw-empty').forEach(emptyFrame => emptyFrame.remove());
     const image = doc.querySelector('#dc-journey-map .dc-journey-image');
     if (!image) return;

@@ -2576,6 +2576,16 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
   const build = () => {
     const doc = frame?.contentDocument;
     if (!doc || doc.getElementById('dc-clue-wall-style')) return;
+    const syncGangUnlocks = () => {
+      const people=[...doc.querySelectorAll('#dc-gang-tree .gw-person')];
+      const sync=(name,drops,task)=>{const person=people.find(node=>node.querySelector('.gw-name')?.textContent.trim()===name);if(!person)return;const wrap=person.querySelector('.gw-drops');if(wrap)wrap.innerHTML=drops.map(label=>'<i class="gw-drop">'+label+'</i>').join('');const taskNode=person.querySelector('.gw-task');if(taskNode)taskNode.textContent=task};
+      sync('雨果·维尔',['修车厂接管权限','改装功能'],'L19 收复雨果后开放修车厂地图接管权限；L20 完成本帮内部接管。');
+      sync('瓦尔特·维尔',['废车厂接管权限','废车厂自动化','配件'],'L19 收复瓦尔特后开放废车回收厂接管权限；L20 接管后，L21 派遣瓦尔特实现自动化。');
+      sync('科腾·万斯',['商业街接管权限','钱'],'L29 制裁科腾并取得账册与钥匙；L31 完成商业街接管，L32 恢复钱产出。');
+      sync('斯宾塞·曼森',['加油站接管','汽油'],'L33 收复斯宾塞并完成加油站内部接管；L34 建设后恢复汽油产出。');
+      sync('物流负责人（姓名待定）',['物流中心接管','物资'],'L36 收复物流负责人并完成物流中心交接；L37 建设后恢复物资产出。');
+    };
+    syncGangUnlocks();
     doc.querySelectorAll('#dc-gang-tree .gw-person.gw-empty').forEach(emptyFrame => emptyFrame.remove());
     const image = doc.querySelector('#dc-journey-map .dc-journey-image');
     if (!image) return;
