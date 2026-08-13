@@ -2545,16 +2545,16 @@ html&gt;body{padding:0}&lt;/style&gt;
     #dc-journey-map .dc-clue-fullscreen{appearance:none;border:1px solid #bda26d;border-radius:6px;padding:7px 11px;background:#2c2922;color:#f4e6cc;font:700 12px/1.2 system-ui;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.32)}#dc-journey-map .dc-clue-fullscreen:hover{background:#40392c;border-color:#e0bf78}
     #dc-journey-map .dc-clue-viewport{position:relative;overflow-x:auto;overflow-y:hidden;overscroll-behavior:auto}#dc-journey-map .dc-clue-canvas{position:relative;width:1100px;margin:0 auto;transform-origin:0 0}
     #dc-journey-map .dc-clue-grid{position:relative;z-index:2;min-width:1100px;display:grid;grid-template-columns:repeat(5,minmax(190px,1fr));gap:24px 20px;align-items:start}
-    #dc-journey-map .dc-clue-card{position:relative;min-height:268px;padding:9px 9px 12px;background:#ece1c9;color:#201d18;border:1px solid #c4b493;box-shadow:0 9px 17px rgba(0,0,0,.48);transform:rotate(var(--tilt));transform-origin:50% 12px}
+    #dc-journey-map .dc-clue-card{position:relative;min-height:330px;padding:9px 9px 12px;background:#ece1c9;color:#201d18;border:1px solid #c4b493;box-shadow:0 9px 17px rgba(0,0,0,.48);transform:rotate(var(--tilt));transform-origin:50% 12px}
     #dc-journey-map .dc-clue-card:nth-child(4n+1){--tilt:-.7deg}.dc-clue-card:nth-child(4n+2){--tilt:.55deg}.dc-clue-card:nth-child(4n+3){--tilt:-.35deg}.dc-clue-card:nth-child(4n){--tilt:.75deg}
     #dc-journey-map .dc-clue-pin{position:absolute;z-index:4;top:-8px;left:50%;width:15px;height:15px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff2b5,#a36d1e 45%,#3d2208 80%);box-shadow:0 2px 4px #000;transform:translateX(-50%)}
     #dc-journey-map .dc-clue-photo{height:104px;border:5px solid #f4efe4;background-image:var(--scene);background-size:cover;background-position:center;box-shadow:0 2px 7px rgba(0,0,0,.35);filter:saturate(.84) contrast(1.06);image-rendering:auto}
-    #dc-journey-map .dc-clue-meta{display:flex;justify-content:space-between;gap:8px;margin-top:8px;font:700 11px/1.2 ui-monospace,SFMono-Regular,Consolas,monospace;color:#765b34}
-    #dc-journey-map .dc-clue-card h3{margin:5px 0 4px;font-size:15px;line-height:1.22;color:#211b14}
-    #dc-journey-map .dc-clue-summary{margin:0;font-size:12px;line-height:1.48;color:#4b4032;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-    #dc-journey-map .dc-clue-flow{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-top:9px;padding-top:7px;border-top:1px dashed #b9a887}.dc-clue-flow em{font-style:normal;color:#8d7651;font-size:11px}
+    #dc-journey-map .dc-clue-meta{display:flex;justify-content:flex-start;gap:8px;margin-top:8px;font:700 11px/1.2 ui-monospace,SFMono-Regular,Consolas,monospace;color:#765b34}.dc-clue-time small{margin-right:5px;color:#9a8562;font:700 9px/1 system-ui;letter-spacing:.08em}
+    #dc-journey-map .dc-clue-card h3{margin:5px 0 4px;font-size:15px;line-height:1.22;color:#211b14}.dc-clue-memory{display:block;margin:3px 0 5px;color:#a14036;font-size:11px;font-weight:850;line-height:1.35}.dc-clue-event-label,.dc-clue-loop-label{display:block;margin:5px 0 2px;color:#8a7657;font-size:9px;font-weight:850;letter-spacing:.08em}
+    #dc-journey-map .dc-clue-summary{margin:0;font-size:12px;line-height:1.42;color:#4b4032;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.dc-clue-details{margin-top:8px;padding-top:7px;border-top:1px dashed #b9a887}.dc-clue-line{display:grid;grid-template-columns:30px minmax(0,1fr);gap:5px;margin:3px 0;font-size:10px;line-height:1.35}.dc-clue-line b{color:#715f45}.dc-clue-line span{color:#342d24}
+    #dc-journey-map .dc-clue-flow{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-top:7px}.dc-clue-flow:empty{display:none}.dc-clue-flow em{font-style:normal;color:#8d7651;font-size:11px}
     #dc-journey-map .dc-clue-chip{max-width:100%;padding:3px 6px;border-radius:3px;font-size:10px;line-height:1.25;border:1px solid}
-    #dc-journey-map .dc-clue-chip.play{color:#075b69;background:#d8f0f1;border-color:#70b9c3}.dc-clue-chip.system{color:#553272;background:#eadff2;border-color:#a887bd}.dc-clue-chip.gain{color:#72520e;background:#f3e6bc;border-color:#c9a54c}
+    #dc-journey-map .dc-clue-chip.play{color:#075b69;background:#d8f0f1;border-color:#70b9c3}.dc-clue-chip.system{color:#553272;background:#eadff2;border-color:#a887bd}.dc-clue-chip.gain{color:#72520e;background:#f3e6bc;border-color:#c9a54c}.dc-clue-chip.special{color:#772c22;background:#f5d8cf;border-color:#c76f5d;font-weight:850}
     #dc-journey-map .dc-clue-wire{position:absolute;z-index:1;inset:0;pointer-events:none;overflow:visible}.dc-clue-wire line{stroke:#b93c35;stroke-width:3.2;stroke-linecap:round;filter:drop-shadow(0 1px 1px #000);opacity:.82}.dc-clue-wire line.play{stroke:#36a9bf;stroke-dasharray:8 5}.dc-clue-wire line.gain{stroke:#d5a43a}.dc-clue-wire line.chapter{stroke:#f06b55;stroke-width:4.2;stroke-dasharray:12 6;opacity:1}.dc-clue-wire line.rank{stroke:#b792d2;stroke-width:2.6;stroke-dasharray:5 7;opacity:.92}
     #dc-journey-map .dc-clue-card.is-system{outline:2px solid rgba(129,84,164,.46)}.dc-clue-card.is-gain{box-shadow:0 9px 17px rgba(0,0,0,.48),0 0 0 2px rgba(213,164,58,.36)}
     #dc-journey-map .dc-phase-bar{grid-column:1/-1;position:relative;z-index:3;display:flex;align-items:center;gap:14px;min-height:54px;padding:9px 16px;border-top:2px solid #36a9bf;border-bottom:1px solid rgba(255,255,255,.18);background:linear-gradient(90deg,rgba(23,101,117,.5),rgba(23,23,20,.92) 55%,rgba(23,23,20,.55));box-shadow:0 8px 18px rgba(0,0,0,.35);color:#f4e6cc;transform:none}.dc-phase-bar b{font-size:17px;letter-spacing:.04em}.dc-phase-bar span{font-size:12px;color:#cbbda4}#dc-journey-map .dc-phase-bar.middle{margin-top:4px;border-top-color:#8f6db0;background:linear-gradient(90deg,rgba(91,55,118,.52),rgba(23,23,20,.92) 55%,rgba(23,23,20,.55))}#dc-journey-map .dc-phase-bar.after{margin-top:4px;border-top-color:#d6a53d;background:linear-gradient(90deg,rgba(142,99,20,.52),rgba(23,23,20,.92) 55%,rgba(23,23,20,.55))}#dc-journey-map .dc-phase-bar.chapter{margin-top:8px;border-top:3px solid #d34848;border-bottom-color:rgba(255,210,185,.32);background:linear-gradient(90deg,rgba(143,39,39,.72),rgba(43,22,20,.95) 58%,rgba(23,23,20,.68));box-shadow:0 10px 22px rgba(93,17,17,.42)}#dc-journey-map .dc-phase-bar.rank{margin-top:8px;border-top-color:#b792d2;background:linear-gradient(90deg,rgba(103,68,132,.62),rgba(23,23,20,.94) 58%,rgba(23,23,20,.62))}.dc-phase-bar::after{content:'◆';margin-left:auto;color:#d8ad58;font-size:18px}
@@ -2602,6 +2602,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     const fullscreenButton = wall.querySelector('.dc-clue-fullscreen');
     const rankLinks = {T10:'',T9:'',T8:'',T7:'',T6:'',T5:'L30',T4:'L25',T3:'L17',T2:'L05',T1:'L01'};
     grid.appendChild(makePhase('before','第一幕：劫货危机后的转正庆祝（反伏击赢得认可，目标是完成议会转正） · L01–L08','Prospect 完成反伏击与转正任务 → 直接参加议会成为 Full Patch → 修车并安装氮气 → 1v1 庆祝转正 → 返程'));
+    const seenDrops = new Set();
     rows.forEach((row,index) => {
       if (index === 8) grid.appendChild(makePhase('middle','第二幕：建筑遇袭后的全员反击（帮派遭到袭击，目标是完成备战与复仇） · L09–L16','建筑爆炸 → 会长分派全员任务 → 收车拆车 → 强化车辆 → 与金发联手伏击 → 一起返城 → 提交任务'));
       if (index === 16) grid.appendChild(makePhase('after','第三幕：内部泄密引发双线调查（内奸威胁帮派，目标是完成产业与调查试炼） · L17–L24','L17 晋升兼提出内奸调查 → L18 分叉 → L19–L24 双线并行；两线完成后结束本章'));
@@ -2610,11 +2611,15 @@ html&gt;body{padding:0}&lt;/style&gt;
       const loop = row.querySelector('.dc-loop');
       const title = text(loop);
       const time = text(cells[0]);
-      const summary = text(cells[5]);
+      const memory = text(cells[5].querySelector('.dc-memory'));
+      const summary = text(cells[5].querySelector('.dc-in-game-scene > span:not(.dc-memory)')) || text(cells[5]);
       const collect = selector => [...new Set([...row.querySelectorAll(selector)].map(text).filter(Boolean))].join(' · ');
-      const play = collect('.dc-sub,.dc-minigame');
-      const first = collect('.dc-first-badge,.dc-system-first-gang-tree,.dc-system-first-meeting,.dc-first-system-callout');
-      const gain = collect('.dc-reward-type,.dc-reward-role,.dc-reward-building,.dc-reward-resource,.dc-reward-vehicle,.dc-reward-hero');
+      const play = collect('.dc-sub,.dc-minigame') || text(cells[3].querySelector('.dc-play-line span')) || '纯剧情演出';
+      const gain = collect('.dc-reward-type:not(.is-system):not(.is-resource),.dc-reward-role,.dc-reward-building,.dc-reward-resource,.dc-reward-vehicle,.dc-reward-hero') || '—';
+      const specialTags = [...new Set([...row.querySelectorAll('.dc-first-badge,.dc-system-first-gang-tree,.dc-system-first-meeting,.dc-first-system-callout,.dc-reward-type.is-system,.dc-reward-type.is-resource')].map(text).filter(Boolean))];
+      [...row.querySelectorAll('.dc-reward-type:not(.is-system):not(.is-resource)')].map(text).map(value => value.replace(/[【】]/g,'')).filter(value => ['车','枪','英雄','小人','氮气'].includes(value)).forEach(value => { if (!seenDrops.has(value)) { specialTags.push('首次投放 · ' + value); seenDrops.add(value); } });
+      const special = [...new Set(specialTags)];
+      const first = special.join(' · ');
       const card = doc.createElement('article');
       const isSystem = Boolean(first);
       const isGain = Boolean(gain);
@@ -2627,11 +2632,8 @@ html&gt;body{padding:0}&lt;/style&gt;
       const sourceClueId = clueNumber === 26 ? 'L27' : (clueNumber >= 27 ? `L${String(clueNumber + 1).padStart(2,'0')}` : (clueNumber >= 9 ? `L${String(clueNumber + 2).padStart(2,'0')}` : clueId));
       const sceneFile = sceneById[sourceClueId] || 'tow-convoy.webp';
       card.style.setProperty('--scene', `url("${sceneUrl(sceneFile)}")`);
-      const chips = [];
-      if (play) chips.push('<span class="dc-clue-chip play">' + play + '</span>');
-      if (first) chips.push('<em>→</em><span class="dc-clue-chip system">' + first + '</span>');
-      if (gain) chips.push('<em>→</em><span class="dc-clue-chip gain">' + gain + '</span>');
-      card.innerHTML = '<i class="dc-clue-pin"></i><div class="dc-clue-photo" role="img" aria-label="' + title + '剧情照片"></div><div class="dc-clue-meta"><span>' + time + '</span><span>D-' + String(index + 1).padStart(2,'0') + '</span></div><h3>' + title + '</h3><p class="dc-clue-summary">' + summary + '</p><div class="dc-clue-flow">' + chips.join('') + '</div>';
+      const chips = special.map(tag => '<span class="dc-clue-chip special">' + tag + '</span>');
+      card.innerHTML = '<i class="dc-clue-pin"></i><div class="dc-clue-photo" role="img" aria-label="' + title + '剧情照片"></div><div class="dc-clue-meta"><span class="dc-clue-time"><small>时间</small>' + time + '</span></div><h3>' + title + '</h3>' + (memory ? '<span class="dc-clue-memory">' + memory + '</span>' : '') + '<span class="dc-clue-event-label">事件概括</span><p class="dc-clue-summary">' + summary + '</p><div class="dc-clue-details"><span class="dc-clue-loop-label">循环信息</span><div class="dc-clue-line"><b>玩法</b><span>' + play + '</span></div><div class="dc-clue-line"><b>奖励</b><span>' + gain + '</span></div><div class="dc-clue-flow">' + chips.join('') + '</div></div>';
       grid.appendChild(card);
     });
     grid.appendChild(makePhase('rank','照片墙 · 当前剧情解锁段','紫色虚线只连接已有剧情节点与对应职级，不改动原剧情因果线'));
