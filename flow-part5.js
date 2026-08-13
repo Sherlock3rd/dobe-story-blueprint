@@ -23,7 +23,8 @@
   };
   const render = (doc, plan) => {
     if (!doc || doc.getElementById('dc-part-5')) return;
-    const root=doc.getElementById('dobe-compressed-loops')||doc.body;
+    const root=doc.getElementById('dobe-compressed-loops');
+    if (!root) return;
     const section=doc.createElement('section'); section.id='dc-part-5'; section.className='dc-section pf5';
     section.innerHTML=`<h2>Part 5 · ${esc(plan.name)}心流曲线</h2><p class="pf5-note">沿用 early_stage 的双曲线表达：橙线为剧情情绪强度，蓝线为玩法体验强度，蓝色虚线为体验趋势。当前为基于策划案节点的模拟评分，不代表真实玩家测试结果；横轴仅使用关键剧情节点，不展示分钟时间轴，也不展示全局 LOOP。</p><div class="pf5-legend"><span><i class="emotion"></i>剧情情绪强度</span><span><i class="experience"></i>玩法体验强度</span><span><i class="trend"></i>体验趋势</span><span><b>◆</b>剧情高潮</span><span><b>★</b>心流高点</span></div><div class="pf5-list">${chart(plan)}</div>`;
     root.appendChild(section);
