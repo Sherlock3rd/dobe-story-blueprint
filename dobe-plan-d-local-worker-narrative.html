@@ -1799,10 +1799,10 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
   setGangPerson(t1Slots[0], {name:&#39;见习帮手（姓名待定）&#39;, task:&#39;收复任务：找到一辆可拆废车并送到废车回收站。&#39;, photoLabel:&#39;一人一车&#39;, drops:[{label:&#39;废车&#39;}]});
   setGangDrops(gangPerson(&#39;T2&#39;, &#39;瓦尔特·维尔&#39;), [{label:&#39;废车回收厂&#39;},{label:&#39;零件&#39;}]);
   const t2Slots = gangTier(&#39;T2&#39;)?.querySelectorAll(&#39;.gw-person.gw-empty&#39;) || [];
-  setGangPerson(t2Slots[0], {name:&#39;正式成员（姓名待定）&#39;, task:&#39;收复任务：完成废车回收厂首轮排班，并带一名工人到岗。&#39;, photoLabel:&#39;自动化排班&#39;, drops:[{label:&#39;模拟经营小人&#39;}]});
+  setGangPerson(t2Slots[0], {name:&#39;模拟经营成员（姓名待定）&#39;, task:&#39;收复任务：完成废车回收厂首轮排班，并带一名工人到岗。&#39;, photoLabel:&#39;自动化排班&#39;, drops:[{label:&#39;模拟经营小人&#39;}]});
   setGangDrops(gangPerson(&#39;T3&#39;, &#39;科腾·万斯&#39;), [{label:&#39;商业街&#39;},{label:&#39;钱&#39;}]);
   const t3WorkerSlot = gangTier(&#39;T3&#39;)?.querySelector(&#39;.gw-person.gw-empty&#39;);
-  setGangPerson(t3WorkerSlot, {name:&#39;打手（姓名待定）&#39;, task:&#39;收复任务：完成商业街首轮商户排班，并带一名店员到岗。&#39;, photoLabel:&#39;商户排班&#39;, drops:[{label:&#39;模拟经营小人&#39;}]});
+  setGangPerson(t3WorkerSlot, {name:&#39;模拟经营成员 A（姓名待定）&#39;, task:&#39;收复任务：完成商业街首轮商户排班，并带一名店员到岗。&#39;, photoLabel:&#39;商户排班&#39;, drops:[{label:&#39;模拟经营小人&#39;}]});
   setGangDrops(gangPerson(&#39;T4&#39;, &#39;斯宾塞·曼森&#39;), [{label:&#39;加油站&#39;},{label:&#39;油&#39;}]);
   setGangDrops(gangPerson(&#39;T4&#39;, &#39;卡莱布·奥尔森&#39;), [{label:&#39;小人候选&#39;,pending:true}]);
   const t4WorkerSlot = gangTier(&#39;T4&#39;)?.querySelector(&#39;.gw-person.gw-empty&#39;);
@@ -1847,14 +1847,14 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
   setGangPerson(gangPerson(&#39;T1&#39;, &#39;雨果·维尔&#39;), {task:&#39;前期任务：协助玩家完成修车与改装教学。&#39;, photoLabel:&#39;改装协助&#39;, drops:[{label:&#39;改装功能&#39;}]});
   setGangPerson(gangPerson(&#39;T1&#39;, &#39;见习帮手（姓名待定）&#39;), {filled:false});
   setGangPerson(gangPerson(&#39;T2&#39;, &#39;瓦尔特·维尔&#39;), {task:&#39;产业线任务：作为改车厂与废车回收厂的共同管理者，收复后开放两座建筑接管。&#39;, photoLabel:&#39;双厂管理&#39;, drops:[{label:&#39;改车厂&#39;},{label:&#39;废车回收厂&#39;},{label:&#39;配件&#39;}]});
-  setGangPerson(gangPerson(&#39;T2&#39;, &#39;正式成员（姓名待定）&#39;), {task:&#39;收复任务：完成废车回收厂首轮排班，并作为小人到岗。&#39;, photoLabel:&#39;自动化排班&#39;, drops:[{label:&#39;小人&#39;}]});
+  setGangPerson(gangPerson(&#39;T2&#39;, &#39;模拟经营成员（姓名待定）&#39;), {task:&#39;收复任务：完成废车回收厂首轮排班，并作为小人到岗。&#39;, photoLabel:&#39;自动化排班&#39;, drops:[{label:&#39;模拟经营小人&#39;}]});
   const investigationHeroSlot = gangTier(&#39;T2&#39;)?.querySelector(&#39;.gw-person.gw-empty&#39;);
   setGangPerson(investigationHeroSlot, {name:&#39;调查英雄（姓名待定）&#39;, task:&#39;调查线任务：加入玩家队伍，追查内奸并完成挡风玻璃逼问。&#39;, photoLabel:&#39;内奸调查&#39;, drops:[{label:&#39;英雄&#39;}]});
 
   setGangPerson(gangPerson(&#39;T3&#39;, &#39;科腾·万斯&#39;), {task:&#39;主线目标：叛逃并绑走梅丽尔；玩家追车制裁后取回商业街账册和钥匙。&#39;, photoLabel:&#39;叛徒追杀&#39;, drops:[{label:&#39;商业街&#39;},{label:&#39;钱&#39;}]});
-  setGangPerson(gangPerson(&#39;T3&#39;, &#39;打手（姓名待定）&#39;), {task:&#39;收复任务：完成商业街首轮商户排班，并作为小人到岗。&#39;, photoLabel:&#39;商户排班&#39;, drops:[{label:&#39;小人&#39;}]});
+  setGangPerson(gangPerson(&#39;T3&#39;, &#39;模拟经营成员 A（姓名待定）&#39;), {task:&#39;收复任务：完成商业街首轮商户排班，并作为小人到岗。&#39;, photoLabel:&#39;商户排班&#39;, drops:[{label:&#39;模拟经营小人&#39;}]});
   const marylSlot = gangTier(&#39;T3&#39;)?.querySelector(&#39;.gw-person.gw-empty&#39;);
-  setGangPerson(marylSlot, {name:&#39;梅丽尔&#39;, task:&#39;救援任务：从科腾的关押点获救，并提供叛徒撤离路线。&#39;, photoLabel:&#39;人质救援&#39;, drops:[{label:&#39;英雄&#39;}]});
+  setGangPerson(marylSlot, {name:&#39;模拟经营成员 B（姓名待定）&#39;, task:&#39;收复任务：补足商业街第二班次，并作为小人到岗。&#39;, photoLabel:&#39;商户排班&#39;, drops:[{label:&#39;模拟经营小人&#39;}]});
 
   setGangPerson(gangPerson(&#39;T4&#39;, &#39;斯宾塞·曼森&#39;), {task:&#39;产业任务：接受玩家收复，开放加油站修复与经营。&#39;, photoLabel:&#39;加油站管理&#39;, drops:[{label:&#39;加油站&#39;},{label:&#39;汽油&#39;}]});
   setGangPerson(gangPerson(&#39;T4&#39;, &#39;卡莱布·奥尔森&#39;), {task:&#39;当前剧情未落位；保留人物席位，任务与奖励待定。&#39;, photoLabel:&#39;待剧情落位&#39;, drops:[{label:&#39;小人候选&#39;,pending:true}]});
@@ -2749,11 +2749,15 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     }
     const syncGangUnlocks = () => {
       const people=[...doc.querySelectorAll('#dc-gang-tree .gw-person')];
-      const ensure=(name,tier)=>{let person=people.find(node=>node.querySelector('.gw-name')?.textContent.trim()===name);if(person)return person;person=doc.querySelector('#dc-gang-tree .gw-tier[data-tier="'+tier+'"] .gw-person.gw-empty');if(!person)return null;person.classList.remove('gw-empty');const nameNode=person.querySelector('.gw-name');if(nameNode)nameNode.textContent=name;people.push(person);return person};
+      const ensure=(name,tier)=>{const tierNode=doc.querySelector('#dc-gang-tree .gw-tier[data-tier="'+tier+'"]');if(!tierNode)return null;let person=[...tierNode.querySelectorAll('.gw-person')].find(node=>node.querySelector('.gw-name')?.textContent.trim()===name);if(person)return person;person=tierNode.querySelector('.gw-person.gw-empty');if(!person)return null;person.classList.remove('gw-empty');const nameNode=person.querySelector('.gw-name');if(nameNode)nameNode.textContent=name;people.push(person);return person};
       const sync=(name,tier,drops,task)=>{const person=ensure(name,tier);if(!person)return;const wrap=person.querySelector('.gw-drops');if(wrap)wrap.innerHTML=drops.map(label=>'<i class="gw-drop">'+label+'</i>').join('');const taskNode=person.querySelector('.gw-task');if(taskNode)taskNode.textContent=task};
       sync('雨果·维尔','T1',['改装功能'],'前期协助玩家完成修车与改装教学，不承担建筑接管。');
-      sync('瓦尔特·维尔','T2',['改车厂接管权限','废车厂接管权限','废车厂自动化','配件'],'L21 收复瓦尔特后同时开放改车厂与废车回收厂接管权限；L22 接管双厂后，L23 派遣瓦尔特启动废车厂自动化。');
-      sync('科腾·万斯','T3',['商业街接管权限','钱'],'L30 制裁科腾并取得账册与钥匙；L32 完成商业街接管，L33 恢复钱产出。');
+      sync('瓦尔特·维尔','T2',['改车厂接管权限','废车厂接管权限'],'收复瓦尔特后，同时开放改车厂与废车回收厂接管权限。');
+      sync('模拟经营成员（姓名待定）','T2',['模拟经营小人'],'完成排班收复任务后，作为模拟经营小人到岗。');
+      sync('调查英雄（姓名待定）','T2',['英雄'],'完成内奸调查任务后，作为英雄单位加入玩家队伍。');
+      sync('科腾·万斯','T3',['商业街'],'制裁科腾并取得商业街账册与钥匙，开放商业街接管。');
+      sync('模拟经营成员 A（姓名待定）','T3',['模拟经营小人'],'完成商业街首轮排班后，作为模拟经营小人到岗。');
+      sync('模拟经营成员 B（姓名待定）','T3',['模拟经营小人'],'补足商业街第二班次后，作为模拟经营小人到岗。');
       sync('斯宾塞·曼森','T4',['加油站接管','汽油'],'L34 收复斯宾塞并完成加油站内部接管；L35 建设后恢复汽油产出。');
       sync('物流负责人（姓名待定）','T5',['物流中心接管','物资'],'L37 收复物流负责人并完成物流中心交接；L38 建设后恢复物资产出。');
     };
