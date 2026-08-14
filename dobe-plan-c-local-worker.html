@@ -2654,6 +2654,73 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
   const timer = setInterval(() => { if (apply() || retries++ > 40) clearInterval(timer); }, 100);
 })();
 </script>
+<script id="dobe-gas-station-rescue-v1">
+(() => {
+  const frame = document.querySelector('iframe');
+  const apply = () => {
+    const doc = frame?.contentDocument;
+    const root = doc?.getElementById('dobe-compressed-loops');
+    if (!root || root.dataset.detailedActBoundarySync !== 'v3' || root.dataset.gasStationRescue === 'v1') return false;
+    const rows = [...root.querySelectorAll('.dc-act tbody tr')];
+    const idOf = row => (row.querySelector('.dc-loop')?.textContent.match(/L\d{2}/) || [''])[0];
+    const rowById = new Map(rows.map(row => [idOf(row), row]));
+    if (!['L28','L29','L30','L31','L32','L33','L34','L35','L36'].every(id => rowById.has(id))) return false;
+    const playSystem = (play, systems, steps) => `<div class="dc-play-system"><div class="dc-play-line"><b>玩法</b><span>${play}</span></div><div class="dc-play-line"><b>系统</b><span>${systems}</span></div><div class="dc-play-line dc-play-line-time"><b>耗时</b><span class="dc-time-steps">${steps.map(step => `<i>${step}</i>`).join('')}</span></div></div>`;
+    const rewards = tags => `<div class="dc-reward-tags">${tags.map(tag => `<span class="dc-reward-type">【${tag}】</span>`).join('')}</div>`;
+    const scene = (memory, text, rank = '') => `<div class="dc-in-game-scene">${memory ? `<span class="dc-memory">记忆点 · ${memory}</span>` : ''}<span>${text}</span>${rank ? `<b>职级变动表现</b><span>${rank}</span>` : ''}</div>`;
+    const setRow = (id, html) => { rowById.get(id).innerHTML = html; };
+    setRow('L28', `<td class="dc-time">25:30–27:10</td><td><div class="dc-loop dc-loop-building">L28 加油站忠诚确认·收服接管</div><span class="dc-sub">NPC 收服 ×1 / 点击接管 ×1</span></td><td>确认加油站经营者是否仍忠于帮派，并取得绑架路线的第一段信息</td><td>${playSystem('点击收服、接管','帮派树 / 任务系统 / 建筑管理',['前往加油站 · 20 秒','确认经营者忠诚 · 20 秒','完成收服任务 · 30 秒','点击接管加油站 · 30 秒'])}</td><td>${rewards(['建筑','声望'])}</td><td>${scene('叛徒的小弟仍选择帮派','会长通知玩家：梅丽尔是在加油站附近被绑走的。玩家前往查看，并确认科腾旧部、现任加油站经营者比利·克鲁斯是否仍忠诚。比利选择留在帮派，交出管理钥匙和一份异常送油记录；玩家收服比利，并正式接管加油站。')}</td>`);
+    setRow('L29', `<td class="dc-time">27:10–28:10</td><td><div class="dc-loop dc-loop-building">L29 加油站经营升级·核对运输记录</div><span class="dc-sub">经营恢复 ×1 / 建筑升级 ×1 / 线索核验 ×1</span></td><td>让加油站恢复运作，通过经营数据找出科腾车队去向</td><td>${playSystem('经营、升级、查账','建筑管理 / 模拟经营',['恢复泵机与供油 · 20 秒','完成一次经营升级 · 20 秒','核对送油记录与路线 · 20 秒'])}</td><td>${rewards(['油','声望'])}</td><td>${scene('经营数据也是线索','玩家恢复加油站经营并完成一次升级。经营者根据新到货记录、油耗与路线图，确认科腾的人马曾在绑架后于一条废弃公路补给，提供第二段可验证的追踪信息。')}</td>`);
+    setRow('L30', `<td class="dc-time">28:10–31:10</td><td><div class="dc-loop dc-loop-push">L30 集齐情报·推关救出梅丽尔</div><span class="dc-sub">推关 ×5 / 救援 QTE ×1</span></td><td>沿完整路线追到关押点，在科腾转移人质前救出梅丽尔</td><td>${playSystem('推关、救人 QTE','推关战斗 / QTE',['推关第 1 关 · 20 秒','推关第 2 关 · 20 秒','推关第 3 关 · 20 秒','推关第 4 关 · 20 秒','推关第 5 关 · 20 秒','突入与解除束缚 QTE · 40 秒','确认科腾撤离路线 · 40 秒'])}</td><td>${rewards(['英雄','声望'])}</td><td>${scene('兄弟不会被丢下','玩家把加油站账目与沿途战斗线索拼成完整路线，连续推进五关抵达关押点，清场后通过 QTE 救出梅丽尔。梅丽尔提供科腾最后的撤离方向，救援任务完成并立即转入追杀。')}</td>`);
+    setRow('L31', `<td class="dc-time">31:10–34:10</td><td><div class="dc-loop dc-loop-sup">L31 处决科腾·帮派树除名·晋升</div><span class="dc-sub">枪战 SUP ×1 / 处决 QTE ×1 / 帮派树演出 ×1 / 点击晋升 ×1</span></td><td>处决叛徒、完成帮派内部除名，并以行动结果晋升 Road Captain</td><td>${playSystem('枪战、处决、晋升','SUP枪战 / QTE / 帮派树',['追击枪战 SUP · 120 秒','处决科腾 QTE · 20 秒','帮派树叛徒盖章并划除 · 20 秒','点击晋升 Road Captain · 20 秒'])}</td><td>${rewards(['声望'])}</td><td>${scene('叛徒盖章与划除','玩家沿梅丽尔提供的方向追上科腾车队，在枪战 SUP 中逼停目标并亲手处决科腾。随后切入帮派树演出：科腾·万斯的照片被盖上“叛徒”红章并划除，任务列表结算；玩家达到声望等级后点击晋升 Road Captain。','<span class="rc-tag rc-sup">SUP</span><span class="rc-tag rc-peace">帮派树</span>')}</td>`);
+    setRow('L32', `<td class="dc-time">34:10–35:40</td><td><div class="dc-loop dc-loop-building">L32 收服斯宾塞·接管商业街</div><span class="dc-sub">NPC 收服 ×1 / 点击接管 ×1</span></td><td>填补叛徒事件后的产业管理空缺</td><td>${playSystem('点击收服、接管','帮派树 / 任务系统 / 建筑管理',['完成斯宾塞收服任务 · 50 秒','点击接管商业街 · 30 秒','确认经营目标 · 10 秒'])}</td><td>${rewards(['建筑','声望'])}</td><td>${scene('','玩家以 Road Captain 身份收服斯宾塞·曼森，取得商业街功能并完成本帮内部管理权交接。')}</td>`);
+    setRow('L33', `<td class="dc-time">35:40–37:10</td><td><div class="dc-loop dc-loop-building">L33 修复商业街经营</div><span class="dc-sub">经营恢复 ×1</span></td><td>恢复商业街基础营业状态</td><td>${playSystem('修复经营点','建筑管理',['修复受损商铺 · 40 秒','恢复基础营业 · 30 秒','核对首轮订单 · 20 秒'])}</td><td>${rewards(['钱'])}</td><td>${scene('','玩家处理叛徒留下的经营问题，修复商铺并恢复商业街基础营业。')}</td>`);
+    setRow('L34', `<td class="dc-time">37:10–40:10</td><td><div class="dc-loop dc-loop-building">L34 派遣斯宾塞·商业街自动化</div><span class="dc-sub">管理者派遣 ×1 / 自动经营 ×1</span></td><td>让商业街从手动处理转入稳定自动经营</td><td>${playSystem('派遣管理者','帮派树 / 模拟经营',['进入帮派树 · 20 秒','派遣斯宾塞到商业街 · 40 秒','处理首轮自动订单 · 60 秒','确认自动经营状态 · 60 秒'])}</td><td>${rewards(['钱'])}</td><td>${scene('','玩家将斯宾塞派遣到商业街工作，完成首轮自动订单并确认建筑开始持续产出。')}</td>`);
+    setRow('L35', `<td class="dc-time">40:10–43:10</td><td><div class="dc-loop dc-loop-building">L35 升级商业街·完成首次收取</div><span class="dc-sub">建筑升级 ×1 / 收取 ×1</span></td><td>用一次完整升级收束商业街经营教学</td><td>${playSystem('升级、收取','建筑管理 / 模拟经营',['升级商业街子建筑 · 90 秒','等待首轮产出 · 60 秒','点击收取钱 · 30 秒'])}</td><td>${rewards(['钱','声望'])}</td><td>${scene('','玩家升级商业街子建筑并完成首次收取，向议会证明自己已经稳定加油站与商业街两处产业。')}</td>`);
+    const l36 = rowById.get('L36');
+    l36.cells[2].textContent = '提交加油站与商业街经营结果并承担跨产业职责';
+    const l36Scene = l36.cells[5]?.querySelector('.dc-in-game-scene > span:not(.dc-memory)') || l36.cells[5]?.querySelector('.dc-in-game-scene > span');
+    if (l36Scene) l36Scene.textContent = '玩家在议会提交加油站情报行动和商业街稳定经营的结果，凭累积声望晋升 Treasurer。';
+    const fourth = root.querySelector('#dc-act-4');
+    if (fourth) {
+      fourth.querySelector('.dc-act-head > div:nth-child(2) b').textContent = '加油站取证、营救梅丽尔与制裁科腾';
+      fourth.querySelector('.dc-act-head > div:nth-child(2) span').textContent = '玩家先到加油站确认经营者忠诚，收服 NPC 并接管建筑；通过经营升级取得运输情报，再以五关推关救出梅丽尔。处决科腾后，帮派树将其标为叛徒并划除，玩家晋升 Road Captain。';
+      fourth.querySelector('.dc-act-head > div:nth-child(3) span').textContent = 'NPC 收服 ×1、建筑接管 ×1、经营升级 ×1、推关 ×5、救援 QTE ×1、枪战 SUP ×1、处决 QTE ×1、帮派树除名与晋升 ×1。';
+    }
+    const fifth = root.querySelector('#dc-act-5');
+    if (fifth) {
+      fifth.querySelector('.dc-act-head > div:nth-child(2) b').textContent = '商业街接管与自动经营';
+      fifth.querySelector('.dc-act-head > div:nth-child(2) span').textContent = '加油站已在营救章完成接管与经营升级；本幕收服斯宾塞并接管商业街，完成修复、派遣自动化与经营升级，再进入 Treasurer 晋升与物流中心。';
+    }
+    const chips = [...root.querySelectorAll('.dc-overview .dc-act-chip')];
+    if (chips[4]) chips[4].querySelector('span:last-child').innerHTML = '加油站取证 / 救出梅丽尔 / 处决科腾 / Road Captain<br>6 循环';
+    if (chips[5]) chips[5].querySelector('span:last-child').innerHTML = '商业街 / 自动经营 / 物流中心 / Treasurer<br>7 循环';
+    const fifthLink = root.querySelector('#dobe-toc-nav a[href="#dc-act-5"]');
+    if (fifthLink) fifthLink.textContent = '第五幕 · 商业街与物流中心';
+    const kenton = [...doc.querySelectorAll('#dc-gang-tree .gw-person')].find(person => person.querySelector('.gw-name')?.textContent.trim() === '科腾·万斯');
+    if (kenton) {
+      kenton.classList.add('gw-traitor-eliminated');
+      const task = kenton.querySelector('.gw-task');
+      const label = kenton.querySelector('.gw-photo-label');
+      if (task) task.textContent = '主线结局：绑走梅丽尔后被玩家追上处决；帮派树盖上叛徒红章并将其划除。';
+      if (label) label.textContent = '叛徒·已处决';
+    }
+    let statusStyle = doc.getElementById('dc-gang-traitor-status-style');
+    if (!statusStyle) {
+      statusStyle = doc.createElement('style');
+      statusStyle.id = 'dc-gang-traitor-status-style';
+      statusStyle.textContent = '.gw-person.gw-traitor-eliminated{position:relative;filter:saturate(.45)}.gw-person.gw-traitor-eliminated:after{content:"叛徒 · 已处决";position:absolute;z-index:5;left:50%;top:46%;transform:translate(-50%,-50%) rotate(-10deg);padding:5px 9px;border:3px solid #a42222;color:#a42222;background:rgba(245,226,205,.78);font-weight:950;font-size:13px;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.35)}.gw-person.gw-traitor-eliminated .gw-photo{filter:grayscale(.75) contrast(.9)}';
+      doc.head.appendChild(statusStyle);
+    }
+    root.dataset.gasStationRescue = 'v1';
+    return true;
+  };
+  frame?.addEventListener('load', apply);
+  apply();
+  let retries = 0;
+  const timer = setInterval(() => { if (apply() || retries++ > 60) clearInterval(timer); }, 100);
+})();
+</script>
 <script id="dobe-clue-wall-v2">
 (() => {
   const frame = document.querySelector('iframe');
@@ -2666,7 +2733,7 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     L16:'highway-gunfight.webp', L17:'l17-allies-return-alive.webp', L18:'l18-task-settlement.webp', L19:'l19-promotion-traitor-meeting.webp',
     L20:'l20-parallel-missions.webp', L21:'l21-two-managers.webp', L22:'scrapyard-takeover-keys.webp', L23:'l23-scrapyard-automation.webp',
     L24:'assassination-hero-rescue.webp', L25:'l25-five-stage-investigation.webp', L26:'informant-interrogation.webp', L27:'l27-roadman-emergency.webp',
-    L28:'l28-rescue-assault.webp', L29:'l29-maryl-rescued-route.webp', L30:'l30-kenton-pursuit.webp', L31:'l31-case-closed-promotion.webp'
+    L28:'l28-gas-station-loyalty-handover.webp', L29:'l29-gas-station-ledger-clue.webp', L30:'l28-rescue-assault.webp', L31:'l30-kenton-pursuit.webp'
   };
   const css = `
     #dc-journey-map .dc-clue-wall{position:relative;overflow:hidden;padding:18px 18px 28px;border:1px solid #5b5044;border-radius:14px;background:radial-gradient(circle at 18% 12%,rgba(255,255,255,.055),transparent 25%),linear-gradient(135deg,#232421,#111310 68%,#1a1814);box-shadow:inset 0 0 50px #000,0 18px 36px rgba(0,0,0,.28);isolation:isolate}
@@ -2693,7 +2760,7 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     #dc-journey-map .dc-rank-card{position:relative;display:grid;grid-template-columns:145px minmax(0,1fr);grid-template-rows:auto 1fr;column-gap:10px;padding:10px;background:rgba(255,244,218,.95);color:#241c15;border:1px solid #c9ad7d;box-shadow:0 6px 12px rgba(0,0,0,.38)}.dc-rank-card:before{content:'';position:absolute;left:50%;top:-8px;width:14px;height:14px;border-radius:50%;background:#a72d2d;box-shadow:0 2px 4px #000}.dc-rank-head{grid-column:1;display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:0 8px 7px 0;border-right:1px dashed #aa8d63}.dc-rank-head b{font-size:13px;line-height:1.25}.dc-rank-head span{font-size:10px;color:#8b1e1e;font-weight:800;text-align:left}.dc-rank-event{grid-column:1;margin:6px 8px 0 0;font-size:10px;line-height:1.35;color:#604b35}.dc-rank-members{grid-column:2;grid-row:1/span 2;display:flex;flex-wrap:nowrap;align-items:flex-start;gap:8px;min-width:0;overflow-x:auto;padding:1px 1px 5px}.dc-rank-person{flex:0 0 94px;width:94px;min-width:0}.dc-rank-photo{box-sizing:border-box;width:94px;aspect-ratio:1/1;height:auto;padding:5px;display:flex;align-items:flex-end;background-image:linear-gradient(to top,rgba(12,13,11,.82),transparent 65%),var(--rank-scene);background-size:400% 800%;background-position:center;background-repeat:no-repeat;color:#fff;border:3px solid #f8f1df;font-size:9px;font-weight:800}.dc-rank-name{display:block;margin-top:4px;font-size:10px;line-height:1.2}.dc-rank-reward{display:block;margin-top:2px;color:#31513c;font-size:9px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     #dc-journey-map .dc-clue-wall:fullscreen{width:100vw;height:100vh;box-sizing:border-box;border:0;border-radius:0;padding:0;display:flex;flex-direction:column;background:#11130f}#dc-journey-map .dc-clue-wall:fullscreen .dc-clue-head{min-width:0;margin:0;padding:12px 18px;flex:0 0 auto}#dc-journey-map .dc-clue-wall:fullscreen .dc-clue-viewport{flex:1;overflow:hidden;overscroll-behavior:contain;cursor:grab;touch-action:none;user-select:none}#dc-journey-map .dc-clue-wall:fullscreen .dc-clue-viewport.is-dragging{cursor:grabbing}#dc-journey-map .dc-clue-wall:fullscreen .dc-clue-canvas{margin:0;will-change:transform}
     #dc-journey-map .dc-rank-photo{filter:brightness(1.24) saturate(1.18)}#dc-journey-map .dc-rank-card:nth-child(1) .dc-rank-person{flex-basis:108px;width:108px}#dc-journey-map .dc-rank-card:nth-child(1) .dc-rank-photo{width:108px}#dc-journey-map .dc-rank-card:nth-child(2) .dc-rank-person{flex-basis:102px;width:102px}#dc-journey-map .dc-rank-card:nth-child(2) .dc-rank-photo{width:102px}#dc-journey-map .dc-rank-card:nth-child(10) .dc-rank-person:nth-child(2) .dc-rank-photo{background-position:66.6667% 100%!important}#dc-journey-map .dc-rank-card:nth-child(10) .dc-rank-person:nth-child(3) .dc-rank-photo{background-position:33.3333% 100%!important}#dc-journey-map .dc-rank-person.is-empty .dc-rank-photo{background:#d8c8aa!important;border:3px dashed #f5ead1;box-shadow:inset 0 0 0 1px rgba(76,49,31,.28);filter:none;color:transparent}#dc-journey-map .dc-rank-person.is-empty .dc-rank-name,#dc-journey-map .dc-rank-person.is-empty .dc-rank-reward{display:none}
-    #dc-journey-map .dc-rank-person.is-player{position:relative;padding:0;border:0;box-shadow:none}#dc-journey-map .dc-rank-person.is-player .dc-rank-photo{border-color:#32a866;box-shadow:0 0 0 3px rgba(50,168,102,.24),0 4px 12px rgba(22,86,49,.38)}#dc-journey-map .dc-rank-person.is-player:after{content:'玩家';position:absolute;z-index:4;left:4px;top:4px;padding:2px 6px;border-radius:999px;background:#217d4a;color:#fff;font-size:9px;font-weight:900}
+    #dc-journey-map .dc-rank-person.is-player{position:relative;padding:0;border:0;box-shadow:none}#dc-journey-map .dc-rank-person.is-player .dc-rank-photo{border-color:#32a866;box-shadow:0 0 0 3px rgba(50,168,102,.24),0 4px 12px rgba(22,86,49,.38)}#dc-journey-map .dc-rank-person.is-player:after{content:'玩家';position:absolute;z-index:4;left:4px;top:4px;padding:2px 6px;border-radius:999px;background:#217d4a;color:#fff;font-size:9px;font-weight:900}#dc-journey-map .dc-rank-person.is-traitor{position:relative;filter:saturate(.45)}#dc-journey-map .dc-rank-person.is-traitor:after{content:'叛徒';position:absolute;z-index:4;left:50%;top:42px;transform:translateX(-50%) rotate(-10deg);padding:3px 7px;border:2px solid #a42222;color:#a42222;background:rgba(245,226,205,.82);font-size:10px;font-weight:950}#dc-journey-map .dc-rank-person.is-traitor .dc-rank-photo{filter:grayscale(.8)}
     #dc-journey-map .dc-clue-canvas{width:1730px}.dc-clue-grid{min-width:1730px!important}#dc-journey-map .dc-case-split{gap:180px}
     #dc-journey-map .dc-parallel-board{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;padding:14px;border:2px solid #b792d2;background:rgba(41,28,48,.78);box-shadow:0 9px 20px rgba(0,0,0,.42)}#dc-journey-map .dc-parallel-board header,#dc-journey-map .dc-parallel-board footer{grid-column:1/-1;display:flex;justify-content:space-between;gap:16px;align-items:center;padding:10px 13px;background:#211b26;color:#f2e7f8;border-left:5px solid #b792d2}#dc-journey-map .dc-parallel-board header span,#dc-journey-map .dc-parallel-board footer span{color:#d1c0da;font-size:11px}#dc-journey-map .dc-parallel-lane{display:grid;grid-template-columns:repeat(3,minmax(160px,1fr));gap:14px;padding:12px;border-top:4px solid #d6a53d;background:rgba(214,165,61,.09)}#dc-journey-map .dc-parallel-lane.investigation{border-top-color:#36a9bf;background:rgba(54,169,191,.09)}#dc-journey-map .dc-parallel-lane h4{grid-column:1/-1;margin:0;padding:0 0 6px;color:#f3d48a;font-size:14px}#dc-journey-map .dc-parallel-lane.investigation h4{color:#8bd6e4}#dc-journey-map .dc-parallel-lane .dc-clue-card{min-width:0}
     @media(max-width:900px){#dc-journey-map .dc-clue-wall{padding:12px}.dc-clue-head{min-width:980px!important}.dc-clue-grid{min-width:1730px!important}.dc-clue-canvas{width:1730px!important}}
@@ -2705,7 +2772,8 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
   };
   const build = () => {
     const doc = frame?.contentDocument;
-    if (!doc || doc.getElementById('dc-clue-wall-style')) return;
+    const root = doc?.getElementById('dobe-compressed-loops');
+    if (!doc || !root || root.dataset.gasStationRescue !== 'v1' || doc.getElementById('dc-clue-wall-style')) return;
     const syncGangUnlocks = () => {
       const people=[...doc.querySelectorAll('#dc-gang-tree .gw-person')];
       const findGlobal=name=>[...doc.querySelectorAll('#dc-gang-tree .gw-person')].find(node=>node.querySelector('.gw-name')?.textContent.trim()===name);
@@ -2717,12 +2785,13 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       sync('瓦尔特·维尔','T2',['改车厂接管权限','废车厂接管权限'],'收复瓦尔特后，同时开放改车厂与废车回收厂接管权限。');
       sync('模拟经营成员（姓名待定）','T2',['模拟经营小人'],'完成排班收复任务后，作为模拟经营小人到岗。');
       sync('调查英雄（姓名待定）','T2',['英雄'],'完成内奸调查任务后，作为英雄单位加入玩家队伍。');
-      sync('比利·克鲁斯','T3',['加油站'],'完成比利的加油站相关任务并解锁加油站。','加油站任务');
+      sync('比利·克鲁斯','T3',['加油站'],'L28 确认比利仍忠于帮派，完成收服任务并接管加油站。','加油站忠诚交接');
       sync('模拟经营成员 A（姓名待定）','T3',['模拟经营小人'],'完成商业街首轮排班后，作为模拟经营小人到岗。');
       sync('模拟经营成员 B（姓名待定）','T3',['模拟经营小人'],'补足商业街第二班次后，作为模拟经营小人到岗。');
-      sync('斯宾塞·曼森','T4',['商业街'],'完成斯宾塞的商业街相关任务并解锁商业街。','商业街管理');
-      sync('科腾·万斯','T5',[],'主线目标：叛逃并绑走梅丽尔；玩家追车制裁后完成其人物线。','叛徒追杀');
-      sync('物流负责人（姓名待定）','T5',['物流中心接管','物资'],'L36 收复物流负责人并完成物流中心交接；L37 建设后恢复物资产出。');
+      sync('斯宾塞·曼森','T4',['商业街'],'L32 收服斯宾塞并接管商业街，随后派遣其实现自动经营。','商业街管理');
+      sync('科腾·万斯','T5',[],'主线结局：绑走梅丽尔后被玩家追上处决；帮派树盖上叛徒红章并将其划除。','叛徒·已处决');
+      const kenton=findGlobal('科腾·万斯'); if(kenton) kenton.classList.add('gw-traitor-eliminated');
+      sync('物流负责人（姓名待定）','T5',['物流中心接管','物资'],'L37 收复物流负责人并完成物流中心交接；L38 建设后恢复物资产出。');
     };
     syncGangUnlocks();
     const reputationLevels = {T1:1,T2:20,T3:30,T4:40,T5:50,T6:60,T7:70,T8:80,T9:90,T10:100};
@@ -2756,7 +2825,7 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     const wall = doc.createElement('div');
     wall.className = 'dc-clue-wall';
     wall.setAttribute('aria-label','开局至追杀叛徒、救回梅丽尔并完成 Road Captain 晋升的剧情、玩法、系统与结果关系线索墙');
-    wall.innerHTML = '<div class="dc-clue-head"><div><b>方案 C 案件板 · 本地打工崽</b><br><small>L01–L31：转正、建筑遇袭、联手伏击、双线调查、会议揭出叛徒、追杀科腾与救回梅丽尔</small></div><div class="dc-clue-tools"><div class="dc-clue-legend"><span><i class="plot"></i>剧情因果</span><span><i class="play"></i>玩法承接</span><span><i class="gain"></i>身份/建筑/资源结果</span></div><button class="dc-clue-fullscreen" type="button" aria-label="全屏查看案件板">⛶ 全屏查看</button></div></div><div class="dc-clue-viewport"><div class="dc-clue-canvas"><svg class="dc-clue-wire" aria-hidden="true"></svg><div class="dc-clue-grid"></div></div></div>';
+    wall.innerHTML = '<div class="dc-clue-head"><div><b>方案 C 案件板 · 本地打工崽</b><br><small>L01–L31：转正、建筑遇袭、双线调查、加油站取证、救出梅丽尔、处决科腾并晋升</small></div><div class="dc-clue-tools"><div class="dc-clue-legend"><span><i class="plot"></i>剧情因果</span><span><i class="play"></i>玩法承接</span><span><i class="gain"></i>身份/建筑/资源结果</span></div><button class="dc-clue-fullscreen" type="button" aria-label="全屏查看案件板">⛶ 全屏查看</button></div></div><div class="dc-clue-viewport"><div class="dc-clue-canvas"><svg class="dc-clue-wire" aria-hidden="true"></svg><div class="dc-clue-grid"></div></div></div>';
     const grid = wall.querySelector('.dc-clue-grid');
     const viewport = wall.querySelector('.dc-clue-viewport');
     const canvas = wall.querySelector('.dc-clue-canvas');
@@ -2768,7 +2837,7 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       if (index === 4) grid.appendChild(makePhase('before','第一幕：修车、氮气教学与转正 · L05–L08','修车并安装氮气 → 1v1 学习特技与氮气 → 返程首次进入帮派树 → 点击晋升并完成转正'));
       if (index === 8) grid.appendChild(makePhase('middle','第二幕：建筑遇袭后的全员反击 · L09–L16','建筑爆炸 → 会长分派全员任务 → 收车拆车 → 强化车辆 → 与金发联手伏击 → 一起返城 → 提交任务'));
       if (index === 16) grid.appendChild(makePhase('after','第三幕：内部泄密引发双线调查 · L17–L25','L17 晋升兼提出内奸调查 → L18 分叉 → L19–L24 双线并行 → L25 完成本章全部任务并晋升 Roadman'));
-      if (index === 25) grid.appendChild(makePhase('chapter','第四幕：叛徒绑架引发追杀营救 · L26–L31','L26 会议揭出科腾是叛徒 → L27 科腾绑走梅丽尔 → 追杀科腾 → 救回梅丽尔并结案'));
+      if (index === 25) grid.appendChild(makePhase('chapter','第四幕：加油站取证与追杀营救 · L26–L31','L26 揭出叛徒 → L27 梅丽尔被绑 → L28–L29 加油站收服、接管与经营取证 → L30 救人 → L31 处决、除名并晋升'));
       const cells = row.cells;
       const loop = row.querySelector('.dc-loop');
       const title = text(loop);
@@ -2800,7 +2869,7 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     });
     grid.appendChild(makePhase('rank','照片墙 · 当前剧情解锁段','紫色虚线只连接已有剧情节点与对应职级，不改动原剧情因果线'));
     const rankShelf = doc.createElement('section'); rankShelf.className = 'dc-rank-shelf';
-    Object.entries(rankLinks).forEach(([tier,clue]) => { const source = doc.querySelector('#dc-gang-tree .gw-tier[data-tier="' + tier + '"]'); if (!source) return; const card = doc.createElement('article'); card.className = 'dc-rank-card'; card.dataset.clue = clue; const title = text(source.querySelector('.gw-promotion strong')); const rep = text(source.querySelector('.gw-rep')); const event = text(source.querySelector('.gw-event')); const people = [...source.querySelectorAll('.gw-person')].map(person => { const file = person.dataset.scene || 'tow-convoy.webp'; const name = text(person.querySelector('.gw-name')); const reward = [...person.querySelectorAll('.gw-drop')].map(text).join(' · '); const portraitIndex = Number(person.dataset.portraitIndex || 0); const px = (portraitIndex % 4) * 100 / 3; const py = Math.floor(portraitIndex / 4) * 100 / 7; const emptyClass = person.classList.contains('gw-empty') ? ' is-empty' : ''; return '<div class="dc-rank-person' + (name === '玩家角色' ? ' is-player' : '') + emptyClass + '"><div class="dc-rank-photo" style="background-image:linear-gradient(to top,rgba(12,13,11,.82),transparent 65%),url(&quot;' + portraitSheet + '&quot;);background-size:400% 800%;background-position:' + px + '% ' + py + '%">' + (emptyClass ? '空相框' : text(person.querySelector('.gw-photo-label'))) + '</div><b class="dc-rank-name">' + name + '</b><span class="dc-rank-reward">' + reward + '</span></div>'; }).join(''); card.innerHTML = '<div class="dc-rank-head"><b>' + title + '</b><span>' + rep + '</span></div><div class="dc-rank-event">' + event + (clue ? ' · 对应 ' + clue : ' · 本段未解锁') + '</div><div class="dc-rank-members">' + people + '</div>'; rankShelf.appendChild(card); });
+    Object.entries(rankLinks).forEach(([tier,clue]) => { const source = doc.querySelector('#dc-gang-tree .gw-tier[data-tier="' + tier + '"]'); if (!source) return; const card = doc.createElement('article'); card.className = 'dc-rank-card'; card.dataset.clue = clue; const title = text(source.querySelector('.gw-promotion strong')); const rep = text(source.querySelector('.gw-rep')); const event = text(source.querySelector('.gw-event')); const people = [...source.querySelectorAll('.gw-person')].map(person => { const file = person.dataset.scene || 'tow-convoy.webp'; const name = text(person.querySelector('.gw-name')); const reward = [...person.querySelectorAll('.gw-drop')].map(text).join(' · '); const portraitIndex = Number(person.dataset.portraitIndex || 0); const px = (portraitIndex % 4) * 100 / 3; const py = Math.floor(portraitIndex / 4) * 100 / 7; const emptyClass = person.classList.contains('gw-empty') ? ' is-empty' : ''; const traitorClass = person.classList.contains('gw-traitor-eliminated') ? ' is-traitor' : ''; return '<div class="dc-rank-person' + (name === '玩家角色' ? ' is-player' : '') + emptyClass + traitorClass + '"><div class="dc-rank-photo" style="background-image:linear-gradient(to top,rgba(12,13,11,.82),transparent 65%),url(&quot;' + portraitSheet + '&quot;);background-size:400% 800%;background-position:' + px + '% ' + py + '%">' + (emptyClass ? '空相框' : text(person.querySelector('.gw-photo-label'))) + '</div><b class="dc-rank-name">' + name + '</b><span class="dc-rank-reward">' + reward + '</span></div>'; }).join(''); card.innerHTML = '<div class="dc-rank-head"><b>' + title + '</b><span>' + rep + '</span></div><div class="dc-rank-event">' + event + (clue ? ' · 对应 ' + clue : ' · 本段未解锁') + '</div><div class="dc-rank-members">' + people + '</div>'; rankShelf.appendChild(card); });
     grid.appendChild(rankShelf);
     const rankPhase = rankShelf.previousElementSibling; const storyAxis = doc.createElement('section'); storyAxis.className = 'dc-story-axis';
     const parallel = doc.createElement('section'); parallel.className = 'dc-parallel-board'; parallel.innerHTML = '<header><b>L18 分叉 · 两条任务线可并行</b><span>产业管理线与内奸调查线可任意先后；两线都完成后进入 L25 章节结算</span></header><div class="dc-parallel-lane industry"><h4>线 1 · 产业管理</h4></div><div class="dc-parallel-lane investigation"><h4>线 2 · 内奸调查</h4></div><footer><b>第三幕收束 · L25</b><span>完成本章全部任务 → 领取奖励 → 晋升 Roadman；L26 才进入会议揭出叛徒</span></footer>';

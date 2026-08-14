@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dobe-story-assets-v17';
+const CACHE_NAME = 'dobe-story-assets-v18';
 const CACHED_ASSETS = [
   './assets/clue-scenes/chase-police.webp',
   './assets/clue-scenes/cargo-ambush-rescue.webp',
@@ -41,6 +41,8 @@ const CACHED_ASSETS = [
   './assets/clue-scenes/l29-maryl-rescued-route.webp',
   './assets/clue-scenes/l30-kenton-pursuit.webp',
   './assets/clue-scenes/l31-case-closed-promotion.webp',
+  './assets/clue-scenes/l28-gas-station-loyalty-handover.webp',
+  './assets/clue-scenes/l29-gas-station-ledger-clue.webp',
   './assets/gang-portrait-sheet.webp'
 ];
 
