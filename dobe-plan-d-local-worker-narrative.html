@@ -2878,16 +2878,20 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     }
     const syncGangUnlocks = () => {
       const people=[...doc.querySelectorAll('#dc-gang-tree .gw-person')];
+      const findGlobal=name=>[...doc.querySelectorAll('#dc-gang-tree .gw-person')].find(node=>node.querySelector('.gw-name')?.textContent.trim()===name);
+      const swapPositions=(firstName,secondName)=>{const first=findGlobal(firstName),second=findGlobal(secondName);if(!first||!second||first.parentNode===second.parentNode)return;const firstParent=first.parentNode,secondParent=second.parentNode,firstNext=first.nextSibling,secondNext=second.nextSibling;secondParent.insertBefore(first,secondNext);firstParent.insertBefore(second,firstNext)};
+      swapPositions('科腾·万斯','比利·克鲁斯');
       const ensure=(name,tier)=>{const tierNode=doc.querySelector('#dc-gang-tree .gw-tier[data-tier="'+tier+'"]');if(!tierNode)return null;let person=[...tierNode.querySelectorAll('.gw-person')].find(node=>node.querySelector('.gw-name')?.textContent.trim()===name);if(person)return person;person=tierNode.querySelector('.gw-person.gw-empty');if(!person)return null;person.classList.remove('gw-empty');const nameNode=person.querySelector('.gw-name');if(nameNode)nameNode.textContent=name;people.push(person);return person};
-      const sync=(name,tier,drops,task)=>{const person=ensure(name,tier);if(!person)return;const wrap=person.querySelector('.gw-drops');if(wrap)wrap.innerHTML=drops.map(label=>'<i class="gw-drop">'+label+'</i>').join('');const taskNode=person.querySelector('.gw-task');if(taskNode)taskNode.textContent=task};
+      const sync=(name,tier,drops,task,photoLabel)=>{const person=ensure(name,tier);if(!person)return;const wrap=person.querySelector('.gw-drops');if(wrap)wrap.innerHTML=drops.map(label=>'<i class="gw-drop">'+label+'</i>').join('');const taskNode=person.querySelector('.gw-task');if(taskNode)taskNode.textContent=task;const labelNode=person.querySelector('.gw-photo-label');if(labelNode&&photoLabel)labelNode.textContent=photoLabel};
       sync('雨果·维尔','T1',['改装功能'],'前期协助玩家完成修车与改装教学，不承担建筑接管。');
       sync('瓦尔特·维尔','T2',['改车厂接管权限','废车厂接管权限'],'收复瓦尔特后，同时开放改车厂与废车回收厂接管权限。');
       sync('模拟经营成员（姓名待定）','T2',['模拟经营小人'],'完成排班收复任务后，作为模拟经营小人到岗。');
       sync('调查英雄（姓名待定）','T2',['英雄'],'完成内奸调查任务后，作为英雄单位加入玩家队伍。');
-      sync('科腾·万斯','T3',['商业街'],'制裁科腾并取得商业街账册与钥匙，开放商业街接管。');
+      sync('比利·克鲁斯','T3',['加油站'],'完成比利的加油站相关任务并解锁加油站。','加油站任务');
       sync('模拟经营成员 A（姓名待定）','T3',['模拟经营小人'],'完成商业街首轮排班后，作为模拟经营小人到岗。');
       sync('模拟经营成员 B（姓名待定）','T3',['模拟经营小人'],'补足商业街第二班次后，作为模拟经营小人到岗。');
-      sync('斯宾塞·曼森','T4',['加油站接管','汽油'],'L34 收复斯宾塞并完成加油站内部接管；L35 建设后恢复汽油产出。');
+      sync('斯宾塞·曼森','T4',['商业街'],'完成斯宾塞的商业街相关任务并解锁商业街。','商业街管理');
+      sync('科腾·万斯','T5',[],'主线目标：叛逃并绑走梅丽尔；玩家追车制裁后完成其人物线。','叛徒追杀');
       sync('物流负责人（姓名待定）','T5',['物流中心接管','物资'],'L37 收复物流负责人并完成物流中心交接；L38 建设后恢复物资产出。');
     };
     syncGangUnlocks();
@@ -2913,6 +2917,8 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       person.style.setProperty('--gw-y', `${Math.floor(index / 4) * 100 / 7}%`);
       person.dataset.portraitIndex = index;
     });
+    const portraitIdentity={'比利·克鲁斯':8,'斯宾塞·曼森':11,'科腾·万斯':14};
+    Object.entries(portraitIdentity).forEach(([name,index])=>{const person=[...doc.querySelectorAll('#dc-gang-tree .gw-person')].find(node=>node.querySelector('.gw-name')?.textContent.trim()===name);if(!person)return;person.style.setProperty('--gw-x',`${(index%4)*100/3}%`);person.style.setProperty('--gw-y',`${Math.floor(index/4)*100/7}%`);person.dataset.portraitIndex=index});
     const maxClueId = 32;
     const rows = [...doc.querySelectorAll('tr')].filter(row => { const id = text(row.querySelector('.dc-loop')).match(/L(\d+)/); return id && Number(id[1]) <= maxClueId; });
     if (!rows.length) { style.remove(); setTimeout(build, 120); return; }
