@@ -2586,6 +2586,7 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       sync('物流负责人（姓名待定）',['物流中心接管','物资'],'L36 收复物流负责人并完成物流中心交接；L37 建设后恢复物资产出。');
     };
     syncGangUnlocks();
+    doc.querySelectorAll('#dc-gang-tree .gw-tier[data-tier="T1"] .gw-person:not(.gw-player)').forEach(person => person.remove());
     doc.querySelectorAll('#dc-gang-tree .gw-person.gw-empty').forEach(emptyFrame => emptyFrame.remove());
     const image = doc.querySelector('#dc-journey-map .dc-journey-image');
     if (!image) return;
