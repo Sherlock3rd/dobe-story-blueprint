@@ -2654,6 +2654,109 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
   const timer = setInterval(() => { if (apply() || retries++ > 40) clearInterval(timer); }, 100);
 })();
 </script>
+<script id="dobe-detailed-act-boundary-sync-v1">
+(() => {
+  const frame = document.querySelector('iframe');
+  const apply = () => {
+    const doc = frame?.contentDocument;
+    const root = doc?.getElementById('dobe-compressed-loops');
+    if (!root || root.dataset.planDOpeningReorder !== 'v1' || root.dataset.detailedActBoundarySync === 'v1') return false;
+    const sourceActs = [...root.querySelectorAll('.dc-act')];
+    const rows = [...root.querySelectorAll('.dc-act tbody tr')];
+    if (sourceActs.length !== 7 || rows.length < 45) return false;
+    const rowById = new Map(rows.map(row => [((row.querySelector('.dc-loop')?.textContent.match(/L\d{2}/) || [''])[0]), row]));
+    const specs = [
+      { start:1, end:9, title:'劫货危机后的转正庆祝', summary:'完成反伏击与转正任务 → 拆车取得零件 → 改车安装氮气 → 帮派树更新身份与马甲 → 1v1 庆祝转正 → 返程', rank:'Full Patch' },
+      { start:10, end:17, title:'建筑遇袭后的全员反击', summary:'建筑爆炸 → 会长分派全员任务 → 收车拆车 → 强化车辆 → 与金发联手伏击 → 一起返城 → 提交任务', rank:'无' },
+      { start:18, end:25, title:'内部泄密引发双线调查', summary:'晋升 Enforcer 并接取内奸调查 → 开启产业管理线与内奸调查线 → 两线可按任意顺序完成', rank:'Enforcer' },
+      { start:26, end:31, title:'叛徒绑架引发追杀营救', summary:'双线结算并晋升 Roadman → 科腾抢走梅丽尔 → 追杀叛徒并救回梅丽尔', rank:'Roadman' },
+      { start:32, end:39 },
+      { start:40, end:45 }
+    ];
+    const acts = sourceActs.slice(1);
+    const numeral = ['一','二','三','四','五','六'];
+    const tocLabels = ['第一幕 · 劫货危机与转正','第二幕 · 全员任务与联手伏击','第三幕 · 双线调查','第四幕 · 追杀叛徒与救援','第五幕 · 产业恢复','第六幕 · 高阶晋升'];
+    const playSummary = actRows => {
+      const counts = new Map();
+      actRows.forEach(row => {
+        const value = row.querySelector('.dc-play-line:first-child span')?.textContent.trim();
+        if (!value || value === '-' || value.includes('纯 Timeline 表现')) return;
+        counts.set(value, (counts.get(value) || 0) + 1);
+      });
+      return [...counts].map(([name,count]) => `${name} ×${count}`).join('、') || '纯剧情与 Timeline 表现。';
+    };
+    specs.forEach((spec,index) => {
+      const act = acts[index];
+      const actRows = [];
+      for (let number = spec.start; number <= spec.end; number += 1) {
+        const row = rowById.get(`L${String(number).padStart(2,'0')}`);
+        if (row) actRows.push(row);
+      }
+      const body = act.querySelector('tbody');
+      body.replaceChildren(...actRows);
+      act.id = `dc-act-${index + 1}`;
+      act.dataset.series = String(index + 1);
+      const head = act.querySelector('.dc-act-head');
+      const times = actRows.map(row => row.querySelector('.dc-time')?.textContent.trim()).filter(Boolean);
+      const range = times.length ? `${times[0].split(/[–-]/)[0]}–${times.at(-1).split(/[–-]/)[1]}` : '';
+      const rangeNode = head?.querySelector(':scope > div:first-child span');
+      const actName = head?.querySelector(':scope > div:first-child b');
+      if (rangeNode) rangeNode.textContent = range;
+      if (actName) actName.textContent = `第${numeral[index]}幕`;
+      if (spec.title) {
+        const title = head.querySelector(':scope > div:nth-child(2) b');
+        const summary = head.querySelector(':scope > div:nth-child(2) span');
+        const playable = head.querySelector(':scope > div:nth-child(3) span');
+        if (title) title.textContent = spec.title;
+        if (summary) summary.textContent = spec.summary;
+        if (playable) playable.textContent = playSummary(actRows);
+        const rank = head.querySelector('.dc-rank-change');
+        if (rank) rank.innerHTML = `<strong>职级变动</strong><span class="rc-rank">${spec.rank}</span>`;
+      }
+      const count = head?.querySelector('.dc-count b');
+      const countNote = head?.querySelector('.dc-count span');
+      if (count) count.textContent = `${actRows.length} 循环`;
+      if (countNote) countNote.textContent = `对应案件板 L${String(spec.start).padStart(2,'0')}–L${String(spec.end).padStart(2,'0')}`;
+    });
+    sourceActs[0].remove();
+    const overview = root.querySelector('.dc-overview');
+    const chipsBefore = [...overview.querySelectorAll('.dc-act-chip')];
+    chipsBefore[0]?.remove();
+    const chips = [...overview.querySelectorAll('.dc-act-chip')];
+    acts.forEach((act,index) => {
+      const chip = chips[index];
+      if (!chip) return;
+      const range = act.querySelector('.dc-act-head > div:first-child span')?.textContent || '';
+      const count = act.querySelectorAll('tbody tr').length;
+      chip.querySelector('span:first-child').textContent = range;
+      chip.querySelector('b').textContent = `第${numeral[index]}幕`;
+      chip.querySelector('span:last-child').innerHTML = `${index < 4 ? specs[index].title : (index === 4 ? 'Road Captain / 商业街 / 加油站 / 物流中心 / Treasurer' : '叛徒残党 / 汉克回归 / 晋升会长 / 复玩缓冲')}<br>${count} 循环`;
+    });
+    overview.setAttribute('aria-label','六幕时间分配与承接关系');
+    root.querySelectorAll('p.dc-note').forEach(node => { node.textContent = node.textContent.replace('七幕','六幕'); });
+    const relationTitle = root.querySelector('#dc-act-relations-title');
+    if (relationTitle) relationTitle.textContent = '六幕关系';
+    const toc = root.querySelector('#dobe-toc-nav');
+    if (toc) {
+      const prologueLink = toc.querySelector('a[href="#dc-act-prologue"]');
+      prologueLink?.closest('li')?.remove();
+      toc.querySelectorAll('a').forEach(link => {
+        if (link.getAttribute('href') === '#dc-act-relations-title') link.textContent = '六幕关系';
+      });
+      tocLabels.forEach((label,index) => {
+        const link = toc.querySelector(`a[href="#dc-act-${index + 1}"]`);
+        if (link) link.textContent = label;
+      });
+    }
+    root.dataset.detailedActBoundarySync = 'v1';
+    return true;
+  };
+  frame?.addEventListener('load', apply);
+  apply();
+  let retries = 0;
+  const timer = setInterval(() => { if (apply() || retries++ > 40) clearInterval(timer); }, 100);
+})();
+</script>
 <script id="dobe-clue-wall-v2">
 (() => {
   const frame = document.querySelector('iframe');
@@ -2731,16 +2834,16 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       const setOpen=open=>{toggle.setAttribute('aria-expanded',String(open));toggle.textContent=open?'收起':'展开';body.hidden=!open;section.classList.toggle('is-collapsed',!open)};
       toggle.addEventListener('click',()=>setOpen(toggle.getAttribute('aria-expanded')!=='true')); heading.appendChild(toggle); setOpen(id!=='dc-part-1');
     });
-    [...contentRoot.querySelectorAll('.dc-act')].forEach((act,index) => { act.id = 'dc-act-' + (index === 0 ? 'prologue' : index); });
+    [...contentRoot.querySelectorAll('.dc-act')].forEach((act,index) => { act.id = 'dc-act-' + (index + 1); });
     const tocNav = contentRoot.querySelector('#dobe-toc-nav');
     if (tocNav && !tocNav.querySelector('ul')) {
       const tocEntries = [
         ['dc-overview','Dobe一日渐进规划',2],['dc-part-1','Part 1 · 已确定信息',2],['dc-confirmed-docs','关联文档',3],
         ['dc-confirmed-framework','内容与成长框架',3],['dc-drop-overview','投放总览',3],['dc-confirmed-buildings','确定建筑与功能',3],
         ['dc-confirmed-anchors','版本锚点',3],['dc-part-2','Part 2 · 渐进规划',2],['dc-journey-map','方案 D · 案件板',3],
-        ['dc-memory-structure-title','帮派体验记忆结构',3],['dc-story-causal-title','整体剧情因果',3],['dc-act-relations-title','七幕关系',3],
-        ['dc-act-prologue','序幕 · 被卷入',3],['dc-act-1','第一幕 · 见习与转正',3],['dc-act-2','第二幕 · 全员任务与联手伏击',3],
-        ['dc-act-3','第三幕 · 双线试炼',3],['dc-act-4','第四幕 · 追杀叛徒与救援',3],['dc-act-5','第五幕 · 产业恢复',3],
+        ['dc-memory-structure-title','帮派体验记忆结构',3],['dc-story-causal-title','整体剧情因果',3],['dc-act-relations-title','六幕关系',3],
+        ['dc-act-1','第一幕 · 劫货危机与转正',3],['dc-act-2','第二幕 · 全员任务与联手伏击',3],
+        ['dc-act-3','第三幕 · 双线调查',3],['dc-act-4','第四幕 · 追杀叛徒与救援',3],['dc-act-5','第五幕 · 产业恢复',3],
         ['dc-act-6','第六幕 · 高阶晋升',3],['dc-version-branch','Part 3 · 版本分流',2],['dc-gang-tree','Part 4 · 帮派照片墙',2]
       ].filter(([id]) => doc.getElementById(id));
       const list = doc.createElement('ul'); list.className = 'dc-toc-list';
