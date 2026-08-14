@@ -2654,6 +2654,13 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       sync('物流负责人（姓名待定）','T5',['物流中心接管','物资'],'L37 收复物流负责人并完成物流中心交接；L38 建设后恢复物资产出。');
     };
     syncGangUnlocks();
+    const reputationLevels = {T1:1,T2:20,T3:30,T4:40,T5:50,T6:60,T7:70,T8:80,T9:90,T10:100};
+    Object.entries(reputationLevels).forEach(([tier,level]) => {
+      const label = doc.querySelector('#dc-gang-tree .gw-tier[data-tier="' + tier + '"] .gw-rep');
+      if (label) label.textContent = '声望等级：Lv.' + level;
+    });
+    const gangFoot = doc.querySelector('#dc-gang-tree .gt-foot');
+    if (gangFoot) gangFoot.textContent = '声望等级采用 Lv.1–Lv.100 的职级阶梯；玩家通过累积声望经验提升等级并进入下一职级。会长的 Clubhouse 权限为唯一不随 N-1 下移的建筑功能。';
     doc.querySelectorAll('#dc-gang-tree .gw-tier[data-tier="T1"] .gw-person:not(.gw-player)').forEach(person => person.remove());
     doc.querySelectorAll('#dc-gang-tree .gw-person.gw-empty').forEach(emptyFrame => emptyFrame.remove());
     const image = doc.querySelector('#dc-journey-map .dc-journey-image');
