@@ -2567,16 +2567,15 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     if (sourceActs.length !== 7 || rows.length < 44) return false;
     const rowById = new Map(rows.map(row => [((row.querySelector('.dc-loop')?.textContent.match(/L\d{2}/) || [''])[0]), row]));
     const specs = [
-      { start:1, end:4, name:'序幕', title:'摩托帮接应与黑手党伏击', summary:'甩脱警方 → 摩托帮接应并预警劫货 → 黑手党突然来袭 → 枪战反击 → 拖回受损车辆并完成转正任务', rank:'无' },
-      { start:5, end:8, name:'第一幕', title:'修车、氮气教学与转正', summary:'修好自己的车并安装氮气 → 1v1 学习特技与氮气 → 返程首次进入帮派树 → 点击晋升并完成转正', rank:'Full Patch' },
-      { start:9, end:16, name:'第二幕', title:'建筑遇袭后的全员反击', summary:'建筑爆炸 → 会长分派全员任务 → 收车拆车 → 强化车辆 → 与金发联手伏击 → 一起返城 → 提交任务', rank:'无' },
-      { start:17, end:25, name:'第三幕', title:'内部泄密引发双线调查', summary:'晋升 Enforcer 并接取内奸调查 → 开启产业管理线与内奸调查线 → 完成全部章节任务 → 晋升 Roadman', rank:'Enforcer / Roadman' },
-      { start:26, end:31, name:'第四幕', title:'叛徒绑架引发追杀营救', summary:'会议揭出科腾是叛徒 → 科腾抢走梅丽尔 → 追杀叛徒并救回梅丽尔 → 结案晋升 Road Captain', rank:'Road Captain' },
-      { start:32, end:38, name:'第五幕' },
-      { start:39, end:44, name:'第六幕' }
+      { start:1, end:8, name:'序幕', title:'摩托帮接应、反伏击、修车氮气与转正', summary:'甩脱警方 → 摩托帮接应并预警劫货 → 黑手党突然来袭 → 枪战反击 → 修好自己的车并安装氮气 → 1v1 学习特技与氮气 → 首次进入帮派树并完成转正', rank:'Full Patch' },
+      { start:9, end:16, name:'第一幕', title:'建筑遇袭后的全员反击', summary:'建筑爆炸 → 会长分派全员任务 → 收车拆车 → 强化车辆 → 与金发联手伏击 → 一起返城 → 提交任务', rank:'无' },
+      { start:17, end:25, name:'第二幕', title:'内部泄密引发双线调查', summary:'晋升 Enforcer 并接取内奸调查 → 开启产业管理线与内奸调查线 → 完成全部章节任务 → 晋升 Roadman', rank:'Enforcer / Roadman' },
+      { start:26, end:31, name:'第三幕', title:'叛徒绑架引发追杀营救', summary:'会议揭出科腾是叛徒 → 科腾抢走梅丽尔 → 加油站取证 → 追杀叛徒并救回梅丽尔 → 结案晋升 Road Captain', rank:'Road Captain' },
+      { start:32, end:38, name:'第四幕' },
+      { start:39, end:44, name:'第五幕' }
     ];
-    const acts = sourceActs;
-    const tocLabels = ['序幕 · 摩托帮接应与黑手党伏击','第一幕 · 修车、氮气教学与转正','第二幕 · 全员任务与联手伏击','第三幕 · 双线调查','第四幕 · 追杀叛徒与救援','第五幕 · 产业恢复','第六幕 · 高阶晋升'];
+    const acts = sourceActs.slice(0, specs.length);
+    const tocLabels = ['序幕 · 接应、反伏击与转正','第一幕 · 全员任务与联手伏击','第二幕 · 双线调查','第三幕 · 加油站取证与追杀营救','第四幕 · 商业街与物流中心','第五幕 · 高阶晋升'];
     const playSummary = actRows => {
       const counts = new Map();
       actRows.forEach(row => {
@@ -2619,6 +2618,7 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       if (count) count.textContent = `${actRows.length} 循环`;
       if (countNote) countNote.textContent = `对应案件板 L${String(spec.start).padStart(2,'0')}–L${String(spec.end).padStart(2,'0')}`;
     });
+    sourceActs.slice(specs.length).forEach(act => act.remove());
     const overview = root.querySelector('.dc-overview');
     const chips = [...overview.querySelectorAll('.dc-act-chip')];
     acts.forEach((act,index) => {
@@ -2628,22 +2628,23 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       const count = act.querySelectorAll('tbody tr').length;
       chip.querySelector('span:first-child').textContent = range;
       chip.querySelector('b').textContent = specs[index].name;
-      chip.querySelector('span:last-child').innerHTML = `${index < 5 ? specs[index].title : (index === 5 ? '商业街 / 加油站 / 物流中心 / Treasurer' : '叛徒残党 / 汉克回归 / 晋升会长 / 复玩缓冲')}<br>${count} 循环`;
+      chip.querySelector('span:last-child').innerHTML = `${index < 4 ? specs[index].title : (index === 4 ? '商业街 / 加油站 / 物流中心 / Treasurer' : '叛徒残党 / 汉克回归 / 晋升会长 / 复玩缓冲')}<br>${count} 循环`;
     });
-    overview.setAttribute('aria-label','序幕至第六幕时间分配与承接关系');
-    root.querySelectorAll('p.dc-note').forEach(node => { node.textContent = node.textContent.replace('六幕','七段').replace('七幕','七段'); });
+    chips.slice(specs.length).forEach(chip => chip.remove());
+    overview.setAttribute('aria-label','序幕至第五幕时间分配与承接关系');
     const relationTitle = root.querySelector('#dc-act-relations-title');
-    if (relationTitle) relationTitle.textContent = '序幕至第六幕关系';
+    if (relationTitle) relationTitle.textContent = '序幕至第五幕关系';
     const toc = root.querySelector('#dobe-toc-nav');
     if (toc) {
       toc.querySelectorAll('a').forEach(link => {
-        if (link.getAttribute('href') === '#dc-act-relations-title') link.textContent = '序幕至第六幕关系';
+        if (link.getAttribute('href') === '#dc-act-relations-title') link.textContent = '序幕至第五幕关系';
       });
       tocLabels.forEach((label,index) => {
         const href = index === 0 ? '#dc-act-prologue' : `#dc-act-${index}`;
         const link = toc.querySelector(`a[href="${href}"]`);
         if (link) link.textContent = label;
       });
+      toc.querySelectorAll('a[href="#dc-act-6"]').forEach(link => link.closest('li')?.remove());
     }
     root.dataset.detailedActBoundarySync = 'v3';
     return true;
@@ -2681,22 +2682,22 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     l36.cells[2].textContent = '提交加油站与商业街经营结果并承担跨产业职责';
     const l36Scene = l36.cells[5]?.querySelector('.dc-in-game-scene > span:not(.dc-memory)') || l36.cells[5]?.querySelector('.dc-in-game-scene > span');
     if (l36Scene) l36Scene.textContent = '玩家在议会提交加油站情报行动和商业街稳定经营的结果，凭累积声望晋升 Treasurer。';
-    const fourth = root.querySelector('#dc-act-4');
+    const fourth = root.querySelector('#dc-act-3');
     if (fourth) {
       fourth.querySelector('.dc-act-head > div:nth-child(2) b').textContent = '加油站取证、营救梅丽尔与制裁科腾';
       fourth.querySelector('.dc-act-head > div:nth-child(2) span').textContent = '玩家先到加油站确认经营者忠诚，收服 NPC 并接管建筑；通过经营升级取得运输情报，再以五关推关救出梅丽尔。处决科腾后，帮派树将其标为叛徒并划除，玩家晋升 Road Captain。';
       fourth.querySelector('.dc-act-head > div:nth-child(3) span').textContent = 'NPC 收服 ×1、建筑接管 ×1、经营升级 ×1、推关 ×5、救援 QTE ×1、枪战 SUP ×1、处决 QTE ×1、帮派树除名与晋升 ×1。';
     }
-    const fifth = root.querySelector('#dc-act-5');
+    const fifth = root.querySelector('#dc-act-4');
     if (fifth) {
       fifth.querySelector('.dc-act-head > div:nth-child(2) b').textContent = '商业街接管与自动经营';
       fifth.querySelector('.dc-act-head > div:nth-child(2) span').textContent = '加油站已在营救章完成接管与经营升级；本幕收服斯宾塞并接管商业街，完成修复、派遣自动化与经营升级，再进入 Treasurer 晋升与物流中心。';
     }
     const chips = [...root.querySelectorAll('.dc-overview .dc-act-chip')];
-    if (chips[4]) chips[4].querySelector('span:last-child').innerHTML = '加油站取证 / 救出梅丽尔 / 处决科腾 / Road Captain<br>6 循环';
-    if (chips[5]) chips[5].querySelector('span:last-child').innerHTML = '商业街 / 自动经营 / 物流中心 / Treasurer<br>7 循环';
-    const fifthLink = root.querySelector('#dobe-toc-nav a[href="#dc-act-5"]');
-    if (fifthLink) fifthLink.textContent = '第五幕 · 商业街与物流中心';
+    if (chips[3]) chips[3].querySelector('span:last-child').innerHTML = '加油站取证 / 救出梅丽尔 / 处决科腾 / Road Captain<br>6 循环';
+    if (chips[4]) chips[4].querySelector('span:last-child').innerHTML = '商业街 / 自动经营 / 物流中心 / Treasurer<br>7 循环';
+    const fifthLink = root.querySelector('#dobe-toc-nav a[href="#dc-act-4"]');
+    if (fifthLink) fifthLink.textContent = '第四幕 · 商业街与物流中心';
     const kenton = [...doc.querySelectorAll('#dc-gang-tree .gw-person')].find(person => person.querySelector('.gw-name')?.textContent.trim() === '科腾·万斯');
     if (kenton) {
       kenton.classList.add('gw-traitor-eliminated');
@@ -2831,13 +2832,12 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     const canvas = wall.querySelector('.dc-clue-canvas');
     const fullscreenButton = wall.querySelector('.dc-clue-fullscreen');
     const rankLinks = {T10:'',T9:'',T8:'',T7:'',T6:'',T5:'L31',T4:'L25',T3:'L17',T2:'L08',T1:'L01'};
-    grid.appendChild(makePhase('prologue','序幕：摩托帮接应与黑手党伏击 · L01–L04','甩脱警方 → 摩托帮接应与劫货预警 → 黑手党突然来袭 → 枪战反击 → 拖回受损车辆并完成转正任务'));
+    grid.appendChild(makePhase('prologue','序幕：接应、反伏击、修车氮气与转正 · L01–L08','甩脱警方 → 摩托帮接应与劫货预警 → 黑手党来袭 → 枪战反击 → 修车安装氮气 → 1v1 教学 → 帮派树晋升转正'));
     const seenDrops = new Set();
     rows.forEach((row,index) => {
-      if (index === 4) grid.appendChild(makePhase('before','第一幕：修车、氮气教学与转正 · L05–L08','修车并安装氮气 → 1v1 学习特技与氮气 → 返程首次进入帮派树 → 点击晋升并完成转正'));
-      if (index === 8) grid.appendChild(makePhase('middle','第二幕：建筑遇袭后的全员反击 · L09–L16','建筑爆炸 → 会长分派全员任务 → 收车拆车 → 强化车辆 → 与金发联手伏击 → 一起返城 → 提交任务'));
-      if (index === 16) grid.appendChild(makePhase('after','第三幕：内部泄密引发双线调查 · L17–L25','L17 晋升兼提出内奸调查 → L18 分叉 → L19–L24 双线并行 → L25 完成本章全部任务并晋升 Roadman'));
-      if (index === 25) grid.appendChild(makePhase('chapter','第四幕：加油站取证与追杀营救 · L26–L31','L26 揭出叛徒 → L27 梅丽尔被绑 → L28–L29 加油站收服、接管与经营取证 → L30 救人 → L31 处决、除名并晋升'));
+      if (index === 8) grid.appendChild(makePhase('middle','第一幕：建筑遇袭后的全员反击 · L09–L16','建筑爆炸 → 会长分派全员任务 → 收车拆车 → 强化车辆 → 与金发联手伏击 → 一起返城 → 提交任务'));
+      if (index === 16) grid.appendChild(makePhase('after','第二幕：内部泄密引发双线调查 · L17–L25','L17 晋升兼提出内奸调查 → L18 分叉 → L19–L24 双线并行 → L25 完成本章全部任务并晋升 Roadman'));
+      if (index === 25) grid.appendChild(makePhase('chapter','第三幕：加油站取证与追杀营救 · L26–L31','L26 揭出叛徒 → L27 梅丽尔被绑 → L28–L29 加油站收服、接管与经营取证 → L30 救人 → L31 处决、除名并晋升'));
       const cells = row.cells;
       const loop = row.querySelector('.dc-loop');
       const title = text(loop);
@@ -2855,7 +2855,7 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       const isSystem = Boolean(first);
       const isGain = Boolean(gain);
       card.className = 'dc-clue-card' + (isSystem ? ' is-system' : '') + (isGain ? ' is-gain' : '');
-      card.dataset.phase = index < 4 ? 'prologue' : (index < 8 ? 'before' : (index < 16 ? 'middle' : (index < 25 ? 'after' : 'chapter')));
+      card.dataset.phase = index < 8 ? 'prologue' : (index < 16 ? 'middle' : (index < 25 ? 'after' : 'chapter'));
       card.dataset.edge = isGain ? 'gain' : (isSystem || /SUP|小游戏|推关|骑行/.test(play) ? 'play' : 'plot');
       const clueId = (title.match(/L\d+/) || ['L01'])[0];
       card.dataset.clueId = clueId;
@@ -2877,8 +2877,7 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     ['L19','L20','L21'].forEach(id => { const card = cardById(id); if (card) parallel.querySelector('.industry').appendChild(card); });
     ['L22','L23','L24'].forEach(id => { const card = cardById(id); if (card) parallel.querySelector('.investigation').appendChild(card); });
     const chapterSpecs = [
-      {key:'prologue',start:1,end:4,transition:'L04 完成转正任务 → L05 回城修车并安装氮气'},
-      {key:'before',start:5,end:8,transition:'L08 议会转正为 Full Patch → L09 本帮建筑突然遭黑手党袭击'},
+      {key:'prologue',start:1,end:8,transition:'L08 完成转正 → L09 本帮建筑突然遭黑手党袭击'},
       {key:'middle',start:9,end:16,transition:'L16 全员任务结算、晋升条件达成 → L17 晋升 Enforcer 并接取内奸调查'},
       {key:'after',start:17,end:25,transition:'L25 完成本章全部任务并晋升 Roadman → L26 新一幕会议揭出叛徒'},
       {key:'chapter',start:26,end:31,transition:''}
@@ -2897,7 +2896,7 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
       const edgePairs = cards.slice(1).map((card,index) => [cards[index],card,'']).filter(([card,next]) => card.dataset.phase === next.dataset.phase && !['L22'].includes(next.dataset.clueId) && !['L21','L24'].includes(card.dataset.clueId));
       const byId = id => cards.find(card => card.dataset.clueId === id), l18 = byId('L18'), l22 = byId('L22'), l21 = byId('L21'), l24 = byId('L24'), l25 = byId('L25');
-      if (l18 && l22) edgePairs.push([l18,l22,'plot']); if (l21 && l25) edgePairs.push([l21,l25,'chapter']); if (l24 && l25) edgePairs.push([l24,l25,'chapter']); [['L04','L05'],['L08','L09'],['L16','L17'],['L25','L26']].forEach(([from,to]) => { const a=byId(from),b=byId(to); if(a&&b) edgePairs.push([a,b,'chapter']); });
+      if (l18 && l22) edgePairs.push([l18,l22,'plot']); if (l21 && l25) edgePairs.push([l21,l25,'chapter']); if (l24 && l25) edgePairs.push([l24,l25,'chapter']); [['L08','L09'],['L16','L17'],['L25','L26']].forEach(([from,to]) => { const a=byId(from),b=byId(to); if(a&&b) edgePairs.push([a,b,'chapter']); });
       const svgRect = svg.getBoundingClientRect();
       edgePairs.forEach(([card,next,edgeType]) => {
         const a = card.getBoundingClientRect(), b = next.getBoundingClientRect();
