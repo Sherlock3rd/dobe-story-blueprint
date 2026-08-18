@@ -2861,13 +2861,13 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
   const frame = document.querySelector('iframe');
   const sceneUrl = file => new URL('assets/clue-scenes/' + file, location.href).href;
   const sceneById = {
-    L01:'chase-police.webp', L02:'cargo-ambush-rescue.webp', L03:'highway-gunfight.webp', L04:'l07-return-gang-wall.webp',
-    L05:'l07-return-gang-wall.webp', L06:'garage-repair-nitrous.webp',
-    L07:'one-on-one-race.webp', L08:'garage-explosion.webp', L09:'council-promotion.webp', L10:'wreck-collection-map.webp', L11:'scrapyard-salvage.webp',
-    L12:'wreck-collection-map.webp', L13:'scrapyard-salvage.webp', L14:'member-bike-service.webp', L15:'l15-ambush-planning.webp',
-    L16:'highway-gunfight.webp', L17:'l17-allies-return-alive.webp', L18:'l18-task-settlement.webp', L19:'l19-promotion-traitor-meeting.webp',
-    L20:'l20-parallel-missions.webp', L21:'l21-two-managers.webp', L22:'scrapyard-takeover-keys.webp', L23:'l23-scrapyard-automation.webp',
-    L24:'assassination-hero-rescue.webp', L25:'l25-five-stage-investigation.webp', L26:'informant-interrogation.webp', L27:'l27-roadman-emergency.webp',
+    L01:'chase-police.webp', L02:'cargo-ambush-rescue.webp', L03:'motorcycle-backseat-gunfight-v2.webp', L04:'l07-return-gang-wall.webp',
+    L05:'full-patch-vest-ceremony-v2.webp', L06:'garage-repair-nitrous.webp',
+    L07:'one-on-one-race.webp', L08:'commercial-street-explosion-v2.webp', L09:'council-promotion.webp', L10:'wreck-collection-map.webp', L11:'scrapyard-salvage.webp',
+    L12:'member-bike-service.webp', L13:'l15-ambush-planning.webp', L14:'highway-gunfight.webp', L15:'l17-allies-return-alive.webp',
+    L16:'l18-task-settlement.webp', L17:'l19-promotion-traitor-meeting.webp', L18:'l20-parallel-missions.webp', L19:'l21-two-managers.webp',
+    L20:'dual-factory-takeover-v2.webp', L21:'l23-scrapyard-automation.webp', L22:'investigation-hero-recruit-v2.webp', L23:'l25-five-stage-investigation.webp',
+    L24:'informant-interrogation.webp', L25:'l18-task-settlement.webp', L26:'l19-promotion-traitor-meeting.webp', L27:'kenton-kidnaps-maryl-v2.webp',
     L28:'l28-rescue-assault.webp', L29:'l29-maryl-rescued-route.webp', L30:'l30-kenton-pursuit.webp', L31:'l31-case-closed-promotion.webp'
   };
   const css = `
@@ -3056,7 +3056,7 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       card.dataset.clueId = clueId;
       const clueNumber = Number(clueId.slice(1));
       const sourceClueId = clueNumber <= 9 ? clueId : (clueNumber >= 10 && clueNumber <= 26 ? `L${String(clueNumber + 1).padStart(2,'0')}` : clueId);
-      const sceneFile = clueId === 'L26' ? 'l18-task-settlement.webp' : (clueId === 'L27' ? 'l19-promotion-traitor-meeting.webp' : (clueId === 'L28' ? 'l27-roadman-emergency.webp' : (sceneById[sourceClueId] || 'tow-convoy.webp')));
+      const sceneFile = sceneById[clueId] || sceneById[sourceClueId] || 'tow-convoy.webp';
       card.style.setProperty('--scene', `url("${sceneUrl(sceneFile)}")`);
       const chips = special.map(tag => '<span class="dc-clue-chip special">' + tag + '</span>');
       card.innerHTML = '<i class="dc-clue-pin"></i><div class="dc-clue-photo" role="img" aria-label="' + title + '剧情照片"></div><div class="dc-clue-meta"><span class="dc-clue-time"><small>时间</small>' + time + '</span></div><h3>' + title + '</h3>' + (memory ? '<span class="dc-clue-memory">' + memory + '</span>' : '') + '<span class="dc-clue-event-label">事件概括</span><p class="dc-clue-summary">' + summary + '</p><div class="dc-clue-details"><span class="dc-clue-loop-label">循环信息</span><div class="dc-clue-line"><b>玩法</b><span>' + play + '</span></div><div class="dc-clue-line"><b>奖励</b><span>' + gain + '</span></div><div class="dc-clue-flow">' + chips.join('') + '</div></div>';
