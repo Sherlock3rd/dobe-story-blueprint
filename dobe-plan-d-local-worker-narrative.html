@@ -3007,7 +3007,7 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     #dc-journey-map .dc-clue-head{position:relative;z-index:3;min-width:1100px;display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0 0 18px;padding:12px 16px;border:1px solid #5c554a;background:rgba(17,18,16,.88);box-shadow:0 8px 18px rgba(0,0,0,.28)}
     #dc-journey-map .dc-clue-head b{font-size:18px;color:#f2e5ca}.dc-clue-head small{color:#b8ad98}
     #dc-journey-map .dc-clue-tools{display:flex;align-items:center;justify-content:flex-end;gap:14px;flex-wrap:wrap}#dc-journey-map .dc-clue-legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px}.dc-clue-legend i{width:18px;height:3px;display:inline-block;vertical-align:middle;margin-right:5px;border-radius:9px}.dc-clue-legend .plot{background:#b93c35}.dc-clue-legend .play{background:#36a9bf}.dc-clue-legend .gain{background:#d5a43a}
-    #dc-journey-map .dc-clue-fullscreen{appearance:none;border:1px solid #bda26d;border-radius:6px;padding:7px 11px;background:#2c2922;color:#f4e6cc;font:700 12px/1.2 system-ui;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.32)}#dc-journey-map .dc-clue-fullscreen:hover{background:#40392c;border-color:#e0bf78}
+    #dc-journey-map .dc-clue-fullscreen{appearance:none;border:1px solid #bda26d;border-radius:6px;padding:7px 11px;background:#2c2922;color:#f4e6cc;font:700 12px/1.2 system-ui;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.32)}#dc-journey-map .dc-clue-fullscreen:hover{background:#40392c;border-color:#e0bf78}#dc-journey-map .dc-clue-summary-actions{display:flex;gap:6px}#dc-journey-map .dc-clue-summary-all{appearance:none;border:1px solid #8b7654;border-radius:6px;padding:7px 10px;background:#eee1c7;color:#493c2c;font:800 11px/1.2 system-ui;cursor:pointer}#dc-journey-map .dc-clue-summary-all:hover{background:#f8edd8;border-color:#c6a968}#dc-journey-map .dc-clue-summary-all:focus-visible{outline:2px solid #36a9bf;outline-offset:2px}
     #dc-journey-map .dc-clue-viewport{position:relative;overflow-x:auto;overflow-y:hidden;overscroll-behavior:auto}#dc-journey-map .dc-clue-canvas{position:relative;width:1100px;margin:0 auto;transform-origin:0 0}
     #dc-journey-map .dc-clue-grid{position:relative;z-index:2;min-width:1100px;display:grid;grid-template-columns:repeat(5,minmax(190px,1fr));gap:24px 20px;align-items:start}
     #dc-journey-map .dc-clue-card{position:relative;min-height:330px;padding:9px 9px 12px;background:#ece1c9;color:#201d18;border:1px solid #c4b493;box-shadow:0 9px 17px rgba(0,0,0,.48);transform:rotate(var(--tilt));transform-origin:50% 12px}
@@ -3153,11 +3153,13 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     const wall = doc.createElement('div');
     wall.className = 'dc-clue-wall';
     wall.setAttribute('aria-label','开局至第四幕地下赛事议会的剧情、玩法、系统与结果关系线索墙');
-    wall.innerHTML = '<div class="dc-clue-head"><div><b>方案 D 案件板 · 本地打工（叙事小改版）</b><br><small>L01–L42：转正庆祝、反击、内奸调查、救援处决、产业恢复、灰警索贿与地下赛事议会</small></div><div class="dc-clue-tools"><div class="dc-clue-legend"><span><i class="plot"></i>剧情因果</span><span><i class="play"></i>玩法承接</span><span><i class="gain"></i>身份/建筑/资源结果</span></div><button class="dc-clue-fullscreen" type="button" aria-label="全屏查看案件板">⛶ 全屏查看</button></div></div><div class="dc-clue-viewport"><div class="dc-clue-canvas"><svg class="dc-clue-wire" aria-hidden="true"></svg><div class="dc-clue-grid"></div></div></div>';
+    wall.innerHTML = '<div class="dc-clue-head"><div><b>方案 D 案件板 · 本地打工（叙事小改版）</b><br><small>L01–L42：转正庆祝、反击、内奸调查、救援处决、产业恢复、灰警索贿与地下赛事议会</small></div><div class="dc-clue-tools"><div class="dc-clue-legend"><span><i class="plot"></i>剧情因果</span><span><i class="play"></i>玩法承接</span><span><i class="gain"></i>身份/建筑/资源结果</span></div><div class="dc-clue-summary-actions"><button class="dc-clue-summary-all" data-action="expand" type="button">全部展开</button><button class="dc-clue-summary-all" data-action="collapse" type="button">全部收起</button></div><button class="dc-clue-fullscreen" type="button" aria-label="全屏查看案件板">⛶ 全屏查看</button></div></div><div class="dc-clue-viewport"><div class="dc-clue-canvas"><svg class="dc-clue-wire" aria-hidden="true"></svg><div class="dc-clue-grid"></div></div></div>';
     const grid = wall.querySelector('.dc-clue-grid');
     const viewport = wall.querySelector('.dc-clue-viewport');
     const canvas = wall.querySelector('.dc-clue-canvas');
     const fullscreenButton = wall.querySelector('.dc-clue-fullscreen');
+    const expandAllButton = wall.querySelector('[data-action="expand"]');
+    const collapseAllButton = wall.querySelector('[data-action="collapse"]');
     const rankLinks = {T10:'',T9:'',T8:'',T7:'',T6:'L38',T5:'L33',T4:'L24',T3:'L16',T2:'L05',T1:'L01'};
     grid.appendChild(makePhase('prologue','序幕：运货考验、转正庆祝与紧急议会 · L01–L09','警匪追逐 → 摩托帮接应 → 黑手党伏击与后座枪战 → 返镇转正 → 改装氮气 → 1v1 庆祝 → 商业街爆炸 → 议会投票全面反击'));
     const seenDrops = new Set();
@@ -3283,6 +3285,9 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     viewport.addEventListener('pointercancel', stopDrag);
     grid.addEventListener('pointerdown', event => { if (event.target.closest('.dc-clue-summary-toggle')) event.stopPropagation(); });
     grid.addEventListener('click', event => { const button=event.target.closest('.dc-clue-summary-toggle'); if(!button)return; event.stopPropagation(); const summary=button.closest('.dc-clue-card')?.querySelector('.dc-clue-summary'); if(!summary)return; const expanded=button.getAttribute('aria-expanded')==='true'; button.setAttribute('aria-expanded',String(!expanded)); button.textContent=expanded?'展开剧情':'收起剧情'; summary.classList.toggle('is-expanded',!expanded); requestAnimationFrame(draw); });
+    const setAllSummaries = expanded => { grid.querySelectorAll('.dc-clue-card').forEach(card => { const summary=card.querySelector('.dc-clue-summary'); const button=card.querySelector('.dc-clue-summary-toggle'); if(!summary||!button)return; summary.classList.toggle('is-expanded',expanded); button.setAttribute('aria-expanded',String(expanded)); button.textContent=expanded?'收起剧情':'展开剧情'; }); requestAnimationFrame(draw); };
+    expandAllButton.addEventListener('click', () => setAllSummaries(true));
+    collapseAllButton.addEventListener('click', () => setAllSummaries(false));
     requestAnimationFrame(draw);
     new ResizeObserver(draw).observe(grid);
   };
