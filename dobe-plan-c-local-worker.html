@@ -2568,14 +2568,14 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     const rowById = new Map(rows.map(row => [((row.querySelector('.dc-loop')?.textContent.match(/L\d{2}/) || [''])[0]), row]));
     const specs = [
       { start:1, end:8, name:'序幕', title:'摩托帮接应、反伏击、修车氮气与转正', summary:'甩脱警方 → 摩托帮接应并预警劫货 → 黑手党突然来袭 → 枪战反击 → 修好自己的车并安装氮气 → 1v1 学习特技与氮气 → 首次进入帮派树并完成转正', rank:'Full Patch' },
-      { start:9, end:16, name:'第一幕', title:'建筑遇袭后的全员反击', summary:'建筑爆炸 → 会长分派全员任务 → 收车拆车 → 强化车辆 → 与金发联手伏击 → 一起返城 → 提交任务', rank:'无' },
-      { start:17, end:25, name:'第二幕', title:'内部泄密引发双线调查', summary:'晋升 Enforcer 并接取内奸调查 → 开启产业管理线与内奸调查线 → 完成全部章节任务 → 晋升 Roadman', rank:'Enforcer / Roadman' },
-      { start:26, end:31, name:'第三幕', title:'叛徒绑架引发追杀营救', summary:'会议揭出科腾是叛徒 → 科腾抢走梅丽尔 → 加油站取证 → 追杀叛徒并救回梅丽尔 → 结案晋升 Road Captain', rank:'Road Captain' },
+      { start:9, end:17, name:'第一幕', title:'全员反击与 Enforcer 晋升会议', summary:'领取反击准备章节任务 → 收车拆车并强化成员车辆 → 联手伏击黑手党 → 提交任务 → 会议晋升 Enforcer 并提出内奸调查', rank:'Enforcer' },
+      { start:18, end:26, name:'第二幕', title:'双线调查与叛徒揭露会议', summary:'会后开启产业管理线与内奸调查线 → 完成双线章节任务 → 晋升 Roadman → 会议揭出科腾是叛徒', rank:'Roadman' },
+      { start:27, end:31, name:'第三幕', title:'绑架突发、加油站取证与追杀营救', summary:'科腾抢走梅丽尔 → 加油站收服接管与经营取证 → 推关救出梅丽尔 → 处决叛徒并晋升 Road Captain', rank:'Road Captain' },
       { start:32, end:38, name:'第四幕' },
       { start:39, end:44, name:'第五幕' }
     ];
     const acts = sourceActs.slice(0, specs.length);
-    const tocLabels = ['序幕 · 接应、反伏击与转正','第一幕 · 全员任务与联手伏击','第二幕 · 双线调查','第三幕 · 加油站取证与追杀营救','第四幕 · 商业街与物流中心','第五幕 · 高阶晋升'];
+    const tocLabels = ['序幕 · 接应、反伏击与转正','第一幕 · 全员反击与 Enforcer 会议','第二幕 · 双线调查与叛徒揭露会议','第三幕 · 绑架、加油站取证与追杀营救','第四幕 · 商业街与物流中心','第五幕 · 高阶晋升'];
     const playSummary = actRows => {
       const counts = new Map();
       actRows.forEach(row => {
@@ -2835,9 +2835,9 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     grid.appendChild(makePhase('prologue','序幕：接应、反伏击、修车氮气与转正 · L01–L08','甩脱警方 → 摩托帮接应与劫货预警 → 黑手党来袭 → 枪战反击 → 修车安装氮气 → 1v1 教学 → 帮派树晋升转正'));
     const seenDrops = new Set();
     rows.forEach((row,index) => {
-      if (index === 8) grid.appendChild(makePhase('middle','第一幕：建筑遇袭后的全员反击 · L09–L16','建筑爆炸 → 会长分派全员任务 → 收车拆车 → 强化车辆 → 与金发联手伏击 → 一起返城 → 提交任务'));
-      if (index === 16) grid.appendChild(makePhase('after','第二幕：内部泄密引发双线调查 · L17–L25','L17 晋升兼提出内奸调查 → L18 分叉 → L19–L24 双线并行 → L25 完成本章全部任务并晋升 Roadman'));
-      if (index === 25) grid.appendChild(makePhase('chapter','第三幕：加油站取证与追杀营救 · L26–L31','L26 揭出叛徒 → L27 梅丽尔被绑 → L28–L29 加油站收服、接管与经营取证 → L30 救人 → L31 处决、除名并晋升'));
+      if (index === 8) grid.appendChild(makePhase('middle','第一幕：全员反击与 Enforcer 晋升会议 · L09–L17','L09 章节任务与全员反击 → 联手伏击黑手党 → 提交任务 → L17 会议晋升 Enforcer 并提出内奸调查'));
+      if (index === 17) grid.appendChild(makePhase('after','第二幕：双线调查与叛徒揭露会议 · L18–L26','L18 会后开启新章与双线 → L19–L24 双线并行 → L25 晋升 Roadman → L26 会议揭出科腾是叛徒'));
+      if (index === 26) grid.appendChild(makePhase('chapter','第三幕：绑架、加油站取证与追杀营救 · L27–L31','L27 梅丽尔被绑并开启新章 → L28–L29 加油站收服接管与经营取证 → L30 救人 → L31 处决、除名并晋升'));
       const cells = row.cells;
       const loop = row.querySelector('.dc-loop');
       const title = text(loop);
@@ -2855,7 +2855,7 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       const isSystem = Boolean(first);
       const isGain = Boolean(gain);
       card.className = 'dc-clue-card' + (isSystem ? ' is-system' : '') + (isGain ? ' is-gain' : '');
-      card.dataset.phase = index < 8 ? 'prologue' : (index < 16 ? 'middle' : (index < 25 ? 'after' : 'chapter'));
+      card.dataset.phase = index < 8 ? 'prologue' : (index < 17 ? 'middle' : (index < 26 ? 'after' : 'chapter'));
       card.dataset.edge = isGain ? 'gain' : (isSystem || /SUP|小游戏|推关|骑行/.test(play) ? 'play' : 'plot');
       const clueId = (title.match(/L\d+/) || ['L01'])[0];
       card.dataset.clueId = clueId;
@@ -2872,15 +2872,15 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     Object.entries(rankLinks).forEach(([tier,clue]) => { const source = doc.querySelector('#dc-gang-tree .gw-tier[data-tier="' + tier + '"]'); if (!source) return; const card = doc.createElement('article'); card.className = 'dc-rank-card'; card.dataset.clue = clue; const title = text(source.querySelector('.gw-promotion strong')); const rep = text(source.querySelector('.gw-rep')); const event = text(source.querySelector('.gw-event')); const people = [...source.querySelectorAll('.gw-person')].map(person => { const file = person.dataset.scene || 'tow-convoy.webp'; const name = text(person.querySelector('.gw-name')); const reward = [...person.querySelectorAll('.gw-drop')].map(text).join(' · '); const portraitIndex = Number(person.dataset.portraitIndex || 0); const px = (portraitIndex % 4) * 100 / 3; const py = Math.floor(portraitIndex / 4) * 100 / 7; const emptyClass = person.classList.contains('gw-empty') ? ' is-empty' : ''; const traitorClass = person.classList.contains('gw-traitor-eliminated') ? ' is-traitor' : ''; return '<div class="dc-rank-person' + (name === '玩家角色' ? ' is-player' : '') + emptyClass + traitorClass + '"><div class="dc-rank-photo" style="background-image:linear-gradient(to top,rgba(12,13,11,.82),transparent 65%),url(&quot;' + portraitSheet + '&quot;);background-size:400% 800%;background-position:' + px + '% ' + py + '%">' + (emptyClass ? '空相框' : text(person.querySelector('.gw-photo-label'))) + '</div><b class="dc-rank-name">' + name + '</b><span class="dc-rank-reward">' + reward + '</span></div>'; }).join(''); card.innerHTML = '<div class="dc-rank-head"><b>' + title + '</b><span>' + rep + '</span></div><div class="dc-rank-event">' + event + (clue ? ' · 对应 ' + clue : ' · 本段未解锁') + '</div><div class="dc-rank-members">' + people + '</div>'; rankShelf.appendChild(card); });
     grid.appendChild(rankShelf);
     const rankPhase = rankShelf.previousElementSibling; const storyAxis = doc.createElement('section'); storyAxis.className = 'dc-story-axis';
-    const parallel = doc.createElement('section'); parallel.className = 'dc-parallel-board'; parallel.innerHTML = '<header><b>L18 分叉 · 两条任务线可并行</b><span>产业管理线与内奸调查线可任意先后；两线都完成后进入 L25 章节结算</span></header><div class="dc-parallel-lane industry"><h4>线 1 · 产业管理</h4></div><div class="dc-parallel-lane investigation"><h4>线 2 · 内奸调查</h4></div><footer><b>第三幕收束 · L25</b><span>完成本章全部任务 → 领取奖励 → 晋升 Roadman；L26 才进入会议揭出叛徒</span></footer>';
+    const parallel = doc.createElement('section'); parallel.className = 'dc-parallel-board'; parallel.innerHTML = '<header><b>L18 新章分叉 · 两条任务线可并行</b><span>会议结束后章节任务与 Banner 出现；产业管理线与内奸调查线可任意先后</span></header><div class="dc-parallel-lane industry"><h4>线 1 · 产业管理</h4></div><div class="dc-parallel-lane investigation"><h4>线 2 · 内奸调查</h4></div><footer><b>第二幕收束 · L25–L26</b><span>完成全部任务 → 晋升 Roadman → 会议揭出科腾是叛徒；下一章从 L27 开始</span></footer>';
     const cardById = id => grid.querySelector('[data-clue-id="' + id + '"]');
     ['L19','L20','L21'].forEach(id => { const card = cardById(id); if (card) parallel.querySelector('.industry').appendChild(card); });
     ['L22','L23','L24'].forEach(id => { const card = cardById(id); if (card) parallel.querySelector('.investigation').appendChild(card); });
     const chapterSpecs = [
       {key:'prologue',start:1,end:8,transition:'L08 完成转正 → L09 本帮建筑突然遭黑手党袭击'},
-      {key:'middle',start:9,end:16,transition:'L16 全员任务结算、晋升条件达成 → L17 晋升 Enforcer 并接取内奸调查'},
-      {key:'after',start:17,end:25,transition:'L25 完成本章全部任务并晋升 Roadman → L26 新一幕会议揭出叛徒'},
-      {key:'chapter',start:26,end:31,transition:''}
+      {key:'middle',start:9,end:17,transition:'L17 会议晋升 Enforcer 并提出内奸调查 → L18 新章 Banner 与双线章节任务开启'},
+      {key:'after',start:18,end:26,transition:'L26 会议揭出科腾是叛徒 → L27 新章 Banner 出现并发生绑架'},
+      {key:'chapter',start:27,end:31,transition:''}
     ];
     chapterSpecs.forEach(spec => { const chapter = doc.createElement('section'); chapter.className = 'dc-case-chapter'; chapter.dataset.chapter = spec.key; const body = doc.createElement('div'); body.className = 'dc-chapter-body'; const phase = grid.querySelector('.dc-phase-bar.' + spec.key); chapter.append(phase,body); for(let n=spec.start;n<=spec.end;n+=1){ const id='L'+String(n).padStart(2,'0'); if(spec.key==='after' && n===19){body.appendChild(parallel); n=24; continue;} const card=cardById(id); if(card) body.appendChild(card); } storyAxis.appendChild(chapter); if(spec.transition){ const link=doc.createElement('div'); link.className='dc-chapter-transition'; link.innerHTML='<b>章节承接</b><span>'+spec.transition+'</span><i>↓</i>'; storyAxis.appendChild(link); } });
     const rankPanel = doc.createElement('aside'); rankPanel.className = 'dc-rank-panel'; rankPanel.append(rankPhase,rankShelf); const caseSplit = doc.createElement('div'); caseSplit.className = 'dc-case-split'; caseSplit.append(storyAxis,rankPanel); grid.appendChild(caseSplit);
@@ -2896,7 +2896,7 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
       const edgePairs = cards.slice(1).map((card,index) => [cards[index],card,'']).filter(([card,next]) => card.dataset.phase === next.dataset.phase && !['L22'].includes(next.dataset.clueId) && !['L21','L24'].includes(card.dataset.clueId));
       const byId = id => cards.find(card => card.dataset.clueId === id), l18 = byId('L18'), l22 = byId('L22'), l21 = byId('L21'), l24 = byId('L24'), l25 = byId('L25');
-      if (l18 && l22) edgePairs.push([l18,l22,'plot']); if (l21 && l25) edgePairs.push([l21,l25,'chapter']); if (l24 && l25) edgePairs.push([l24,l25,'chapter']); [['L08','L09'],['L16','L17'],['L25','L26']].forEach(([from,to]) => { const a=byId(from),b=byId(to); if(a&&b) edgePairs.push([a,b,'chapter']); });
+      if (l18 && l22) edgePairs.push([l18,l22,'plot']); if (l21 && l25) edgePairs.push([l21,l25,'chapter']); if (l24 && l25) edgePairs.push([l24,l25,'chapter']); [['L08','L09'],['L17','L18'],['L26','L27']].forEach(([from,to]) => { const a=byId(from),b=byId(to); if(a&&b) edgePairs.push([a,b,'chapter']); });
       const svgRect = svg.getBoundingClientRect();
       edgePairs.forEach(([card,next,edgeType]) => {
         const a = card.getBoundingClientRect(), b = next.getBoundingClientRect();
