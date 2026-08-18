@@ -2769,14 +2769,14 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     const rowById = new Map(rows.map(row => [((row.querySelector('.dc-loop')?.textContent.match(/L\d{2}/) || [''])[0]), row]));
     const specs = [
       { start:1, end:9, name:'序幕', title:'运货考验、转正庆祝与紧急议会', summary:'警匪追逐 → 摩托帮接应 → 黑手党伏击与后座枪战 → 返镇转正并解锁帮派树 → 改装氮气 → 1v1 庆祝 → 商业街爆炸 → 议会投票全面反击并分派任务', rank:'Full Patch' },
-      { start:10, end:16, name:'第一幕', title:'反击准备与联手伏击', summary:'收集任务废车 → 拆车取得材料 → 强化成员车辆 → 博准备路线 → 联手伏击黑手党 → 一起返城 → 提交反击任务', rank:'无' },
-      { start:17, end:25, name:'第二幕', title:'内部泄密引发双线调查', summary:'晋升 Enforcer 并接取内奸调查 → 开启产业管理线与内奸调查线 → 完成全部章节任务 → 晋升 Roadman', rank:'Enforcer / Roadman' },
-      { start:26, end:31, name:'第三幕', title:'叛徒绑架引发追杀营救', summary:'会议揭出科腾是叛徒 → 科腾抢走梅丽尔 → 追杀叛徒并救回梅丽尔 → 结案晋升 Road Captain', rank:'Road Captain' },
+      { start:10, end:17, name:'第一幕', title:'反击行动与 Enforcer 晋升会议', summary:'领取反击准备章节任务 → 收车拆车并强化成员车辆 → 联手伏击黑手党 → 提交任务 → 会议晋升 Enforcer 并提出内奸调查', rank:'Enforcer' },
+      { start:18, end:26, name:'第二幕', title:'双线调查与叛徒揭露会议', summary:'会后开启产业管理线与内奸调查线 → 完成双线章节任务 → 晋升 Roadman → 会议揭出科腾是叛徒', rank:'Roadman' },
+      { start:27, end:31, name:'第三幕', title:'绑架突发与追杀营救', summary:'科腾抢走梅丽尔 → 追踪并救出梅丽尔 → 追杀并处决叛徒 → 结案晋升 Road Captain', rank:'Road Captain' },
       { start:32, end:38, name:'第四幕' },
       { start:39, end:44, name:'第五幕' }
     ];
     const acts = sourceActs.slice(0, specs.length);
-    const tocLabels = ['序幕 · 运货考验、转正与紧急议会','第一幕 · 反击准备与联手伏击','第二幕 · 双线调查','第三幕 · 追杀叛徒与救援','第四幕 · 产业恢复','第五幕 · 高阶晋升'];
+    const tocLabels = ['序幕 · 运货考验、转正与紧急议会','第一幕 · 反击行动与 Enforcer 会议','第二幕 · 双线调查与叛徒揭露会议','第三幕 · 绑架突发与追杀营救','第四幕 · 产业恢复','第五幕 · 高阶晋升'];
     const playSummary = actRows => {
       const counts = new Map();
       actRows.forEach(row => {
@@ -3008,9 +3008,9 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     grid.appendChild(makePhase('prologue','序幕：运货考验、转正庆祝与紧急议会 · L01–L09','警匪追逐 → 摩托帮接应 → 黑手党伏击与后座枪战 → 返镇转正 → 改装氮气 → 1v1 庆祝 → 商业街爆炸 → 议会投票全面反击'));
     const seenDrops = new Set();
     rows.forEach((row,index) => {
-      if (index === 9) grid.appendChild(makePhase('middle','第一幕：反击准备与联手伏击 · L10–L16','收集任务废车 → 拆车取得材料 → 强化成员车辆 → 博准备路线 → 联手伏击黑手党 → 一起返城 → 提交任务'));
-      if (index === 16) grid.appendChild(makePhase('after','第二幕：内部泄密引发双线调查 · L17–L25','L17 晋升兼提出内奸调查 → L18 分叉 → L19–L24 双线并行 → L25 完成本章全部任务并晋升 Roadman'));
-      if (index === 25) grid.appendChild(makePhase('chapter','第三幕：叛徒绑架引发追杀营救 · L26–L31','L26 会议揭出科腾是叛徒 → L27 科腾绑走梅丽尔 → 追杀科腾 → 救回梅丽尔并结案'));
+      if (index === 9) grid.appendChild(makePhase('middle','第一幕：反击行动与 Enforcer 晋升会议 · L10–L17','L10 章节任务与反击准备 → 联手伏击黑手党 → 提交任务 → L17 会议晋升 Enforcer 并提出内奸调查'));
+      if (index === 17) grid.appendChild(makePhase('after','第二幕：双线调查与叛徒揭露会议 · L18–L26','L18 会后开启新章与双线 → L19–L24 双线并行 → L25 晋升 Roadman → L26 会议揭出科腾是叛徒'));
+      if (index === 26) grid.appendChild(makePhase('chapter','第三幕：绑架突发与追杀营救 · L27–L31','L27 科腾抢走梅丽尔并开启新章 → 追杀科腾 → 救回梅丽尔 → 处决叛徒并结案'));
       const cells = row.cells;
       const loop = row.querySelector('.dc-loop');
       const title = text(loop);
@@ -3028,7 +3028,7 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       const isSystem = Boolean(first);
       const isGain = Boolean(gain);
       card.className = 'dc-clue-card' + (isSystem ? ' is-system' : '') + (isGain ? ' is-gain' : '');
-      card.dataset.phase = index < 9 ? 'prologue' : (index < 16 ? 'middle' : (index < 25 ? 'after' : 'chapter'));
+      card.dataset.phase = index < 9 ? 'prologue' : (index < 17 ? 'middle' : (index < 26 ? 'after' : 'chapter'));
       card.dataset.edge = isGain ? 'gain' : (isSystem || /SUP|小游戏|推关|骑行/.test(play) ? 'play' : 'plot');
       const clueId = (title.match(/L\d+/) || ['L01'])[0];
       card.dataset.clueId = clueId;
@@ -3045,15 +3045,15 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     Object.entries(rankLinks).forEach(([tier,clue]) => { const source = doc.querySelector('#dc-gang-tree .gw-tier[data-tier="' + tier + '"]'); if (!source) return; const card = doc.createElement('article'); card.className = 'dc-rank-card'; card.dataset.clue = clue; const title = text(source.querySelector('.gw-promotion strong')); const rep = text(source.querySelector('.gw-rep')); const event = text(source.querySelector('.gw-event')); const people = [...source.querySelectorAll('.gw-person')].map(person => { const file = person.dataset.scene || 'tow-convoy.webp'; const name = text(person.querySelector('.gw-name')); const reward = [...person.querySelectorAll('.gw-drop')].map(text).join(' · '); const portraitIndex = Number(person.dataset.portraitIndex || 0); const px = (portraitIndex % 4) * 100 / 3; const py = Math.floor(portraitIndex / 4) * 100 / 7; const emptyClass = person.classList.contains('gw-empty') ? ' is-empty' : ''; return '<div class="dc-rank-person' + (name === '玩家角色' ? ' is-player' : '') + emptyClass + '"><div class="dc-rank-photo" style="background-image:linear-gradient(to top,rgba(12,13,11,.82),transparent 65%),url(&quot;' + portraitSheet + '&quot;);background-size:400% 800%;background-position:' + px + '% ' + py + '%">' + (emptyClass ? '空相框' : text(person.querySelector('.gw-photo-label'))) + '</div><b class="dc-rank-name">' + name + '</b><span class="dc-rank-reward">' + reward + '</span></div>'; }).join(''); card.innerHTML = '<div class="dc-rank-head"><b>' + title + '</b><span>' + rep + '</span></div><div class="dc-rank-event">' + event + (clue ? ' · 对应 ' + clue : ' · 本段未解锁') + '</div><div class="dc-rank-members">' + people + '</div>'; rankShelf.appendChild(card); });
     grid.appendChild(rankShelf);
     const rankPhase = rankShelf.previousElementSibling; const storyAxis = doc.createElement('section'); storyAxis.className = 'dc-story-axis';
-    const parallel = doc.createElement('section'); parallel.className = 'dc-parallel-board'; parallel.innerHTML = '<header><b>L18 分叉 · 两条任务线可并行</b><span>产业管理线与内奸调查线可任意先后；两线都完成后进入 L25 章节结算</span></header><div class="dc-parallel-lane industry"><h4>线 1 · 产业管理</h4></div><div class="dc-parallel-lane investigation"><h4>线 2 · 内奸调查</h4></div><footer><b>第二幕收束 · L25</b><span>完成本章全部任务 → 领取奖励 → 晋升 Roadman；L26 才进入会议揭出叛徒</span></footer>';
+    const parallel = doc.createElement('section'); parallel.className = 'dc-parallel-board'; parallel.innerHTML = '<header><b>L18 新章分叉 · 两条任务线可并行</b><span>会议结束后章节任务与 Banner 首次出现；产业管理线与内奸调查线可任意先后</span></header><div class="dc-parallel-lane industry"><h4>线 1 · 产业管理</h4></div><div class="dc-parallel-lane investigation"><h4>线 2 · 内奸调查</h4></div><footer><b>第二幕收束 · L25–L26</b><span>完成全部任务 → 晋升 Roadman → 会议揭出科腾是叛徒；下一章从 L27 开始</span></footer>';
     const cardById = id => grid.querySelector('[data-clue-id="' + id + '"]');
     ['L19','L20','L21'].forEach(id => { const card = cardById(id); if (card) parallel.querySelector('.industry').appendChild(card); });
     ['L22','L23','L24'].forEach(id => { const card = cardById(id); if (card) parallel.querySelector('.investigation').appendChild(card); });
     const chapterSpecs = [
       {key:'prologue',start:1,end:9,transition:'L09 议会通过全面反击并分派任务 → L10 开始收集废车、准备反击'},
-      {key:'middle',start:10,end:16,transition:'L16 全员任务结算、晋升条件达成 → L17 晋升 Enforcer 并接取内奸调查'},
-      {key:'after',start:17,end:25,transition:'L25 完成本章全部任务并晋升 Roadman → L26 新一幕会议揭出叛徒'},
-      {key:'chapter',start:26,end:31,transition:''}
+      {key:'middle',start:10,end:17,transition:'L17 会议晋升 Enforcer 并提出内奸调查 → L18 新章 Banner 与双线章节任务开启'},
+      {key:'after',start:18,end:26,transition:'L26 会议揭出科腾是叛徒 → L27 新章 Banner 出现并发生绑架'},
+      {key:'chapter',start:27,end:31,transition:''}
     ];
     chapterSpecs.forEach(spec => { const chapter = doc.createElement('section'); chapter.className = 'dc-case-chapter'; chapter.dataset.chapter = spec.key; const body = doc.createElement('div'); body.className = 'dc-chapter-body'; const phase = grid.querySelector('.dc-phase-bar.' + spec.key); chapter.append(phase,body); for(let n=spec.start;n<=spec.end;n+=1){ const id='L'+String(n).padStart(2,'0'); if(spec.key==='after' && n===19){body.appendChild(parallel); n=24; continue;} const card=cardById(id); if(card) body.appendChild(card); } storyAxis.appendChild(chapter); if(spec.transition){ const link=doc.createElement('div'); link.className='dc-chapter-transition'; link.innerHTML='<b>章节承接</b><span>'+spec.transition+'</span><i>↓</i>'; storyAxis.appendChild(link); } });
     const rankPanel = doc.createElement('aside'); rankPanel.className = 'dc-rank-panel'; rankPanel.append(rankPhase,rankShelf); const caseSplit = doc.createElement('div'); caseSplit.className = 'dc-case-split'; caseSplit.append(storyAxis,rankPanel); grid.appendChild(caseSplit);
@@ -3069,7 +3069,7 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
       const edgePairs = cards.slice(1).map((card,index) => [cards[index],card,'']).filter(([card,next]) => card.dataset.phase === next.dataset.phase && !['L22'].includes(next.dataset.clueId) && !['L21','L24'].includes(card.dataset.clueId));
       const byId = id => cards.find(card => card.dataset.clueId === id), l18 = byId('L18'), l22 = byId('L22'), l21 = byId('L21'), l24 = byId('L24'), l25 = byId('L25');
-      if (l18 && l22) edgePairs.push([l18,l22,'plot']); if (l21 && l25) edgePairs.push([l21,l25,'chapter']); if (l24 && l25) edgePairs.push([l24,l25,'chapter']); [['L09','L10'],['L16','L17'],['L25','L26']].forEach(([from,to]) => { const a=byId(from),b=byId(to); if(a&&b) edgePairs.push([a,b,'chapter']); });
+      if (l18 && l22) edgePairs.push([l18,l22,'plot']); if (l21 && l25) edgePairs.push([l21,l25,'chapter']); if (l24 && l25) edgePairs.push([l24,l25,'chapter']); [['L09','L10'],['L17','L18'],['L26','L27']].forEach(([from,to]) => { const a=byId(from),b=byId(to); if(a&&b) edgePairs.push([a,b,'chapter']); });
       const svgRect = svg.getBoundingClientRect();
       edgePairs.forEach(([card,next,edgeType]) => {
         const a = card.getBoundingClientRect(), b = next.getBoundingClientRect();
