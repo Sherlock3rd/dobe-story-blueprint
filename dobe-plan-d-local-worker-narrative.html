@@ -2688,8 +2688,22 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     setRow('L05', `<td class="dc-time">3:40–4:10</td><td><div class="dc-loop">L05 转正仪式·Full Patch 上树</div><span class="dc-sub">马甲更新 ×1 / 玩家上树 ×1 / 建立晋升目标 ×1</span></td><td>用视觉、身份和长期目标完整兑现正式成员转正</td><td>${playSystem('点击确认、定目标','帮派树',['Full Patch 与马甲特效更新 · 10 秒','玩家照片首次进入帮派树 · 10 秒','杰森引导建立晋升目标 · 10 秒'])}</td><td>${rewards([['声望']])}</td><td>${scene('摩托帮马甲制式 · 灰烬之子背章','科尔获得 Full Patch，角色马甲通过特效更新正面 Label 与背面徽章，并在帮派树上拥有一席之地。杰森引导科尔建立下一职级的晋升目标。教程结束后，博兑现开场钩子，邀请科尔到小镇外进行 1v1 氮气竞速，庆祝转正。','<span class="rc-tag rc-peace">和平</span>')}</td>`);
     setRow('L06', `<td class="dc-time">4:10–5:10</td><td><div class="dc-loop">L06 改装·安装氮气</div><span class="dc-first-badge">新系统 · 车辆养成首次出现</span><span class="dc-sub">改装小游戏 ×1 / 氮气安装 ×1</span></td><td>修好自己的车，并为和博的庆祝赛准备氮气能力</td><td>${playSystem('修车安装氮气','改装小游戏 / 车辆养成',['改装小游戏修车 · 30 秒','进入车辆养成界面 · 10 秒','安装氮气装置 · 20 秒'])}</td><td>${rewards([['氮气'],['新系统：车辆养成','is-system'],['新资源：氮气','is-resource']])}</td><td>${scene('','博在改装厂引导科尔完成改装小游戏，修好被伏击打坏的摩托；随后科尔首次进入车辆养成界面，把博准备的氮气装置安装到自己的车上。')}</td>`);
     setRow('L07', `<td class="dc-time">5:10–6:40</td><td><div class="dc-loop dc-loop-sup">L07 庆祝转正·1v1 氮气竞速</div><span class="dc-sub">SUP 竞速 ×1 / 氮气教学 ×1 / 摩托特技 ×1</span></td><td>兑现与博的约定，用一场竞速庆祝正式转正</td><td>${playSystem('氮气竞速、特技','SUP竞速',['起跑与约定回收 · 10 秒','1v1 氮气竞速 SUP · 60 秒','摩托特技与赛后认可 · 20 秒'])}</td><td>${rewards([['声望']])}</td><td>${scene('摩托特技','科尔与博进入 1v1 SUP 竞速，在比赛中完成氮气教学与摩托特技表演。开场通话中约定的“转正后氮气飙车”在这里完整回收。')}</td>`);
-    setRow('L08', `<td class="dc-time">6:40–7:10</td><td><div class="dc-loop">L08 商业街爆炸·开启紧急议会</div><span class="dc-sub">爆炸演出 ×1 / 点击章节奖励 ×1</span></td><td>在庆祝后立刻制造危机，并让新成员获得参与议会的资格</td><td>${playSystem('点击章节奖励','章节体任务',['听见小镇爆炸与博接听通知 · 15 秒','确认商业街遭袭 · 5 秒','点击章节奖励并开启议会 · 10 秒'])}</td><td>${rewards([['声望'],['新系统：章节体任务','is-system'],['新系统：议会','is-system']])}</td><td>${scene('演出 · 帮派建筑爆炸','刚结束飙车，科尔与博便听见小镇方向传来巨响。博接到通知：商业街发生爆炸，疑似黑手党所为，杰森正在召集紧急议会。科尔作为新进正式成员已经具备参会资格；博引导他点击章节奖励，开启帮派议会。')}</td>`);
-    setRow('L09', `<td class="dc-time">7:10–8:10</td><td><div class="dc-loop">L09 帮派议会·全面反击黑手党</div><span class="dc-sub">议会投票 ×1 / 领取任务包 ×1</span></td><td>决定帮派对黑手党袭击的回应，并把反击目标分派到成员</td><td>${playSystem('投票、领取任务','议会 / 章节体任务',['黑屏转场与议会开场 · 10 秒','交代爆炸及双方矛盾 · 15 秒','“全面反击”投票与敲槌 · 20 秒','成员领取任务包 · 15 秒'])}</td><td>${rewards([['声望']])}</td><td>${scene('帮派议会仪式 · 投票、敲槌、领任务包','黑屏转场进入帮派议会。杰森宣布议会开始，交代商业街爆炸和帮派与黑手党的矛盾渊源，提出“全面反击黑手党”的投票议题。投票通过后，杰森敲槌宣布结果并分派任务：博带领科尔追击制造爆炸的黑手党，其余成员各自领取任务包；博与科尔随后分头准备路线与车辆。')}</td>`);
+    setRow('L08', `<td class="dc-time">6:40–7:10</td><td><div class="dc-loop">L08 商业街爆炸·收到紧急议会通知</div><span class="dc-sub">爆炸演出 ×1 / 议会通知 ×1</span></td><td>在庆祝后立刻制造危机，并把玩家带回帮派的决策现场</td><td>${playSystem('','',['听见小镇爆炸 · 10 秒','博接到商业街遇袭通知 · 10 秒','赶往议会厅 · 10 秒'],true)}</td><td>${rewards([])}</td><td>${scene('演出 · 帮派建筑爆炸','刚结束飙车，科尔与博便听见小镇方向传来巨响。博接到通知：商业街发生爆炸，疑似黑手党所为，杰森正在召集紧急议会。科尔作为新进正式成员已经具备参会资格，两人立刻赶回议会厅。')}</td>`);
+    setRow('L09', `<td class="dc-time">7:10–8:10</td><td><div class="dc-loop">L09 帮派议会·全面反击黑手党</div><span class="dc-first-badge">新系统解锁 · 议会首次出现</span><span class="dc-sub">议会投票 ×1 / 领取任务包 ×1</span></td><td>决定帮派对黑手党袭击的回应，并把反击目标分派到成员</td><td>${playSystem('投票、领取任务','议会',['黑屏转场与议会开场 · 10 秒','交代爆炸及双方矛盾 · 15 秒','“全面反击”投票与敲槌 · 20 秒','成员领取任务包 · 15 秒'])}</td><td>${rewards([['声望'],['新系统：议会','is-system']])}</td><td>${scene('帮派议会仪式 · 投票、敲槌、领任务包','黑屏转场进入帮派议会。杰森宣布议会开始，交代商业街爆炸和帮派与黑手党的矛盾渊源，提出“全面反击黑手党”的投票议题。投票通过后，杰森敲槌宣布结果并分派任务：博带领科尔追击制造爆炸的黑手党，其余成员各自领取任务包；博与科尔随后分头准备路线与车辆。')}</td>`);
+    const l10 = rowById.get('L10');
+    if (l10) {
+      const loopCell = l10.children[1];
+      const firstBadge = document.createElement('span');
+      firstBadge.className = 'dc-first-badge';
+      firstBadge.textContent = '新系统解锁 · 章节体任务首次出现';
+      loopCell?.querySelector('.dc-loop')?.insertAdjacentElement('afterend', firstBadge);
+      const system = l10.children[3]?.querySelector('.dc-play-line:nth-child(2) span');
+      if (system) system.textContent = '章节体任务 / 收车小游戏';
+      const rewardTags = l10.children[4]?.querySelector('.dc-reward-tags');
+      rewardTags?.insertAdjacentHTML('beforeend', '<span class="dc-reward-type is-system">【新系统：章节体任务】</span>');
+      const sceneText = l10.children[5]?.querySelector('.dc-in-game-scene > span:not(.dc-memory)');
+      if (sceneText) sceneText.textContent = '议会结束后，章节体任务在这里首次正式出现。玩家接取“反击准备”章节任务，进入收车小游戏，在本地任务地图上依次点击多个废车点位，回收一批待拆废车。';
+    }
     const formatClock = total => `${Math.floor(total / 60)}:${String(total % 60).padStart(2,'0')}`;
     let cursor = 0;
     [...root.querySelectorAll('.dc-act tbody tr')].forEach(row => {
