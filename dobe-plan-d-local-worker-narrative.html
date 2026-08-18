@@ -2675,22 +2675,21 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
         return valueNumber > 5 ? `L${String(valueNumber - 1).padStart(2,'0')}` : value;
       });
     });
-    const repair = [...root.querySelectorAll('.dc-act tbody tr')].find(row => idOf(row) === 'L05');
-    if (repair) {
-      repair.querySelector('.dc-loop').textContent = 'L05 修好车辆·安装氮气';
-      repair.children[2].textContent = '修复玩家车辆并安装氮气，为转正后的庆祝竞速做好准备';
-      repair.children[3].innerHTML = '<div class="dc-play-system"><div class="dc-play-line"><b>玩法</b><span>修车安装氮气</span></div><div class="dc-play-line"><b>系统</b><span>维修小游戏 / 车辆养成</span></div><div class="dc-play-line dc-play-line-time"><b>耗时</b><span class="dc-time-steps"><i>维修玩家车辆 · 30 秒</i><i>金发赠送氮气 · 10 秒</i><i>安装氮气 · 10 秒</i><i>发出竞速邀请 · 10 秒</i></span></div></div>';
-      repair.children[4].innerHTML = '<div class="dc-reward-tags"><span class="dc-reward-type">【氮气】</span><span class="dc-reward-type is-system">【新系统：车辆养成】</span><span class="dc-reward-type is-resource">【新资源：氮气】</span></div>';
-      repair.children[5].innerHTML = '<div class="dc-in-game-scene"><span>车辆拖回改装厂后，玩家直接完成维修。金发小哥送出氮气装置，玩家把它安装到自己的车上；完成强化后才进入转正通知与庆祝竞速。</span></div>';
-    }
-    const promotion = [...root.querySelectorAll('.dc-act tbody tr')].find(row => idOf(row) === 'L06');
-    if (promotion) {
-      promotion.querySelector('.dc-loop').textContent = 'L06 转正通知·帮派树更新马甲';
-      promotion.children[2].textContent = '确认正式成员身份与外观变化';
-      promotion.children[3].innerHTML = '<div class="dc-play-system"><div class="dc-play-line"><b>玩法</b><span>点击确认、更新马甲</span></div><div class="dc-play-line"><b>系统</b><span>帮派树</span></div><div class="dc-play-line dc-play-line-time"><b>耗时</b><span class="dc-time-steps"><i>查看转正通知 · 10 秒</i><i>帮派树身份更新 · 10 秒</i><i>马甲更新演出 · 10 秒</i></span></div></div>';
-      promotion.children[4].innerHTML = '<div class="dc-reward-tags"><span class="dc-reward-type">【声望】</span><span class="dc-reward-type is-system">【新系统：帮派树】</span></div>';
-      promotion.children[5].innerHTML = '<div class="dc-in-game-scene"><span class="dc-memory">记忆点 · 身份上升 / 正式成员马甲</span><span>修好车辆并安装氮气后，玩家收到转正通知。帮派树首次出现，身份从 Prospect 上升为 Full Patch，角色马甲同步更新；不进入完整会议和投票流程。</span><b>职级变动表现</b><span><span class="rc-tag rc-peace">通知直接提升</span></span></div>';
-    }
+    const currentRows = [...root.querySelectorAll('.dc-act tbody tr')];
+    const rowById = new Map(currentRows.map(row => [idOf(row), row]));
+    const playSystem = (play, systems, steps, timeline = false) => `<div class="dc-play-system"><div class="dc-play-line"><b>玩法</b><span>${timeline ? '<em class="dc-timeline-label">纯 Timeline 表现</em>' : play}</span></div><div class="dc-play-line"><b>系统</b><span>${systems || '-'}</span></div><div class="dc-play-line dc-play-line-time"><b>耗时</b><span class="dc-time-steps">${steps.map(step => `<i>${step}</i>`).join('')}</span></div></div>`;
+    const rewards = tags => `<div class="dc-reward-tags">${tags.map(([name,kind = '']) => `<span class="dc-reward-type${kind ? ` ${kind}` : ''}">【${name}】</span>`).join('')}</div>`;
+    const scene = (memory, text, rank = '') => `<div class="dc-in-game-scene">${memory ? `<span class="dc-memory">记忆点 · ${memory}</span>` : ''}<span>${text}</span>${rank ? `<b>职级变动表现</b><span>${rank}</span>` : ''}</div>`;
+    const setRow = (id, html) => { const row = rowById.get(id); if (row) row.innerHTML = html; };
+    setRow('L01', `<td class="dc-time">0:00–1:20</td><td><div class="dc-loop dc-loop-sup">L01 警匪追逐</div><span class="dc-first-badge">新玩法解锁 · SUP 首次出现</span><span class="dc-sub">SUP 定制关卡 ×1</span></td><td>安全运送重要货物返回帮派，完成转正前的最后一项考验</td><td>${playSystem('甩脱警车','SUP定制关卡',['开场通话与警笛逼近 · 20 秒','SUP 警匪追逐 · 60 秒'])}</td><td>${rewards([['声望'],['新系统：SUP定制关卡','is-system']])}</td><td>${scene('警匪追击','见习成员科尔运送一箱重要货物返回帮派，并与兄弟博通话。博确认科尔的转正投票已经通过，只要把货安全送回，他就是灰烬之子的正式成员。警笛由远及近，科尔挂断电话，开始跑路并在 SUP 第 1 关中摆脱警方。')}</td>`);
+    setRow('L02', `<td class="dc-time">1:20–1:50</td><td><div class="dc-loop">L02 摩托帮接应·黑手党伏击</div><span class="dc-sub">接应演出 ×1 / 伏击演出 ×1</span></td><td>让科尔与重要货物突破黑手党在小镇外设置的最后一道伏击</td><td>${playSystem('','',['博率队接应与说明情报 · 15 秒','黑手党现身并击倒科尔摩托 · 15 秒'],true)}</td><td>${rewards([])}</td><td>${scene('危险话音刚落','博率领几名摩托帮成员前来接应科尔。帮派收到情报：黑手党没能沿路拦下货物，准备在小镇外设伏。博刚说明情况，黑手党便突然出现并击倒科尔的摩托；在场兄弟立刻火力反攻，掩护科尔和博带货撤退。')}</td>`);
+    setRow('L03', `<td class="dc-time">1:50–3:10</td><td><div class="dc-loop dc-loop-sup">L03 摆脱黑手党</div><span class="dc-sub">SUP 定制关卡 ×1 / 后座枪战 ×1</span></td><td>坐上博的摩托，边撤退边击退追来的黑手党车辆</td><td>${playSystem('摩托后座射击','SUP定制关卡',['上车与博交付武器 · 10 秒','后座枪战 SUP · 60 秒','拖车电话与撤离收束 · 10 秒'])}</td><td>${rewards([['声望']])}</td><td>${scene('定制关卡 · 摩托车后座枪战爽打','科尔坐在博的摩托后座，使用博交给他的武器射击后方追来的黑手党车辆。战斗中博提起两人的约定：科尔成功转正后，要一起进行一场氮气飙车。通关后，博电话通知成员把科尔的摩托和黑手党的废车拖回小镇。')}</td>`);
+    setRow('L04', `<td class="dc-time">3:10–3:40</td><td><div class="dc-loop">L04 返回小镇·解锁帮派树</div><span class="dc-first-badge">新系统解锁 · 帮派树首次出现</span><span class="dc-sub">车队返程演出 ×1 / 货物验收 ×1</span></td><td>把货物安全交到帮派手中，完成见习成员的最后考验</td><td>${playSystem('','',['摩托帮车队返程 · 15 秒','杰森验收货物并宣布考验完成 · 15 秒'],true)}</td><td>${rewards([['声望'],['新系统：帮派树','is-system']])}</td><td>${scene('过场演出 · 摩托帮骑行车队','科尔跟随博和接应车队返回小镇。帮派主席杰森验收货物，宣布科尔完成考验，正式成为灰烬之子的一员；帮派树在此首次解锁。')}</td>`);
+    setRow('L05', `<td class="dc-time">3:40–4:10</td><td><div class="dc-loop">L05 转正仪式·Full Patch 上树</div><span class="dc-sub">马甲更新 ×1 / 玩家上树 ×1 / 建立晋升目标 ×1</span></td><td>用视觉、身份和长期目标完整兑现正式成员转正</td><td>${playSystem('点击确认、定目标','帮派树',['Full Patch 与马甲特效更新 · 10 秒','玩家照片首次进入帮派树 · 10 秒','杰森引导建立晋升目标 · 10 秒'])}</td><td>${rewards([['声望']])}</td><td>${scene('摩托帮马甲制式 · 灰烬之子背章','科尔获得 Full Patch，角色马甲通过特效更新正面 Label 与背面徽章，并在帮派树上拥有一席之地。杰森引导科尔建立下一职级的晋升目标。教程结束后，博兑现开场钩子，邀请科尔到小镇外进行 1v1 氮气竞速，庆祝转正。','<span class="rc-tag rc-peace">和平</span>')}</td>`);
+    setRow('L06', `<td class="dc-time">4:10–5:10</td><td><div class="dc-loop">L06 改装·安装氮气</div><span class="dc-first-badge">新系统 · 车辆养成首次出现</span><span class="dc-sub">改装小游戏 ×1 / 氮气安装 ×1</span></td><td>修好自己的车，并为和博的庆祝赛准备氮气能力</td><td>${playSystem('修车安装氮气','改装小游戏 / 车辆养成',['改装小游戏修车 · 30 秒','进入车辆养成界面 · 10 秒','安装氮气装置 · 20 秒'])}</td><td>${rewards([['氮气'],['新系统：车辆养成','is-system'],['新资源：氮气','is-resource']])}</td><td>${scene('','博在改装厂引导科尔完成改装小游戏，修好被伏击打坏的摩托；随后科尔首次进入车辆养成界面，把博准备的氮气装置安装到自己的车上。')}</td>`);
+    setRow('L07', `<td class="dc-time">5:10–6:40</td><td><div class="dc-loop dc-loop-sup">L07 庆祝转正·1v1 氮气竞速</div><span class="dc-sub">SUP 竞速 ×1 / 氮气教学 ×1 / 摩托特技 ×1</span></td><td>兑现与博的约定，用一场竞速庆祝正式转正</td><td>${playSystem('氮气竞速、特技','SUP竞速',['起跑与约定回收 · 10 秒','1v1 氮气竞速 SUP · 60 秒','摩托特技与赛后认可 · 20 秒'])}</td><td>${rewards([['声望']])}</td><td>${scene('摩托特技','科尔与博进入 1v1 SUP 竞速，在比赛中完成氮气教学与摩托特技表演。开场通话中约定的“转正后氮气飙车”在这里完整回收。')}</td>`);
+    setRow('L08', `<td class="dc-time">6:40–7:10</td><td><div class="dc-loop">L08 商业街爆炸·开启紧急议会</div><span class="dc-sub">爆炸演出 ×1 / 点击章节奖励 ×1</span></td><td>在庆祝后立刻制造危机，并让新成员获得参与议会的资格</td><td>${playSystem('点击章节奖励','章节体任务',['听见小镇爆炸与博接听通知 · 15 秒','确认商业街遭袭 · 5 秒','点击章节奖励并开启议会 · 10 秒'])}</td><td>${rewards([['声望'],['新系统：章节体任务','is-system'],['新系统：议会','is-system']])}</td><td>${scene('演出 · 帮派建筑爆炸','刚结束飙车，科尔与博便听见小镇方向传来巨响。博接到通知：商业街发生爆炸，疑似黑手党所为，杰森正在召集紧急议会。科尔作为新进正式成员已经具备参会资格；博引导他点击章节奖励，开启帮派议会。')}</td>`);
+    setRow('L09', `<td class="dc-time">7:10–8:10</td><td><div class="dc-loop">L09 帮派议会·全面反击黑手党</div><span class="dc-sub">议会投票 ×1 / 领取任务包 ×1</span></td><td>决定帮派对黑手党袭击的回应，并把反击目标分派到成员</td><td>${playSystem('投票、领取任务','议会 / 章节体任务',['黑屏转场与议会开场 · 10 秒','交代爆炸及双方矛盾 · 15 秒','“全面反击”投票与敲槌 · 20 秒','成员领取任务包 · 15 秒'])}</td><td>${rewards([['声望']])}</td><td>${scene('帮派议会仪式 · 投票、敲槌、领任务包','黑屏转场进入帮派议会。杰森宣布议会开始，交代商业街爆炸和帮派与黑手党的矛盾渊源，提出“全面反击黑手党”的投票议题。投票通过后，杰森敲槌宣布结果并分派任务：博带领科尔追击制造爆炸的黑手党，其余成员各自领取任务包；博与科尔随后分头准备路线与车辆。')}</td>`);
     const formatClock = total => `${Math.floor(total / 60)}:${String(total % 60).padStart(2,'0')}`;
     let cursor = 0;
     [...root.querySelectorAll('.dc-act tbody tr')].forEach(row => {
@@ -2755,15 +2754,15 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     if (sourceActs.length !== 7 || rows.length < 44) return false;
     const rowById = new Map(rows.map(row => [((row.querySelector('.dc-loop')?.textContent.match(/L\d{2}/) || [''])[0]), row]));
     const specs = [
-      { start:1, end:8, name:'序幕', title:'摩托帮接应、反伏击、修车氮气与转正庆祝', summary:'甩脱警方 → 摩托帮接应并预警劫货 → 黑手党突然来袭 → 枪战反击 → 修好车辆并安装氮气 → 帮派树更新身份与马甲 → 1v1 庆祝转正 → 返程', rank:'Full Patch' },
-      { start:9, end:16, name:'第一幕', title:'建筑遇袭后的全员反击', summary:'建筑爆炸 → 会长分派全员任务 → 收车拆车 → 强化车辆 → 与金发联手伏击 → 一起返城 → 提交任务', rank:'无' },
+      { start:1, end:9, name:'序幕', title:'运货考验、转正庆祝与紧急议会', summary:'警匪追逐 → 摩托帮接应 → 黑手党伏击与后座枪战 → 返镇转正并解锁帮派树 → 改装氮气 → 1v1 庆祝 → 商业街爆炸 → 议会投票全面反击并分派任务', rank:'Full Patch' },
+      { start:10, end:16, name:'第一幕', title:'反击准备与联手伏击', summary:'收集任务废车 → 拆车取得材料 → 强化成员车辆 → 博准备路线 → 联手伏击黑手党 → 一起返城 → 提交反击任务', rank:'无' },
       { start:17, end:25, name:'第二幕', title:'内部泄密引发双线调查', summary:'晋升 Enforcer 并接取内奸调查 → 开启产业管理线与内奸调查线 → 完成全部章节任务 → 晋升 Roadman', rank:'Enforcer / Roadman' },
       { start:26, end:31, name:'第三幕', title:'叛徒绑架引发追杀营救', summary:'会议揭出科腾是叛徒 → 科腾抢走梅丽尔 → 追杀叛徒并救回梅丽尔 → 结案晋升 Road Captain', rank:'Road Captain' },
       { start:32, end:38, name:'第四幕' },
       { start:39, end:44, name:'第五幕' }
     ];
     const acts = sourceActs.slice(0, specs.length);
-    const tocLabels = ['序幕 · 接应、修车氮气与转正庆祝','第一幕 · 全员任务与联手伏击','第二幕 · 双线调查','第三幕 · 追杀叛徒与救援','第四幕 · 产业恢复','第五幕 · 高阶晋升'];
+    const tocLabels = ['序幕 · 运货考验、转正与紧急议会','第一幕 · 反击准备与联手伏击','第二幕 · 双线调查','第三幕 · 追杀叛徒与救援','第四幕 · 产业恢复','第五幕 · 高阶晋升'];
     const playSummary = actRows => {
       const counts = new Map();
       actRows.forEach(row => {
@@ -2848,9 +2847,9 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
   const frame = document.querySelector('iframe');
   const sceneUrl = file => new URL('assets/clue-scenes/' + file, location.href).href;
   const sceneById = {
-    L01:'chase-police.webp', L02:'cargo-ambush-rescue.webp', L03:'highway-gunfight.webp', L04:'tow-convoy.webp',
+    L01:'chase-police.webp', L02:'cargo-ambush-rescue.webp', L03:'highway-gunfight.webp', L04:'l07-return-gang-wall.webp',
     L05:'l07-return-gang-wall.webp', L06:'garage-repair-nitrous.webp',
-    L07:'one-on-one-race.webp', L08:'l07-return-gang-wall.webp', L09:'l09-workshop-tour.webp', L10:'l10-recruit-hugo.webp', L11:'garage-explosion.webp',
+    L07:'one-on-one-race.webp', L08:'garage-explosion.webp', L09:'council-promotion.webp', L10:'wreck-collection-map.webp', L11:'scrapyard-salvage.webp',
     L12:'wreck-collection-map.webp', L13:'scrapyard-salvage.webp', L14:'member-bike-service.webp', L15:'l15-ambush-planning.webp',
     L16:'highway-gunfight.webp', L17:'l17-allies-return-alive.webp', L18:'l18-task-settlement.webp', L19:'l19-promotion-traitor-meeting.webp',
     L20:'l20-parallel-missions.webp', L21:'l21-two-managers.webp', L22:'scrapyard-takeover-keys.webp', L23:'l23-scrapyard-automation.webp',
@@ -2992,10 +2991,10 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     const canvas = wall.querySelector('.dc-clue-canvas');
     const fullscreenButton = wall.querySelector('.dc-clue-fullscreen');
     const rankLinks = {T10:'',T9:'',T8:'',T7:'',T6:'',T5:'L31',T4:'L25',T3:'L17',T2:'L06',T1:'L01'};
-    grid.appendChild(makePhase('prologue','序幕：接应、反伏击、修车氮气与转正庆祝 · L01–L08','甩脱警方 → 摩托帮接应与劫货预警 → 黑手党来袭 → 枪战反击 → 修车安装氮气 → 身份更新 → 1v1 庆祝转正 → 返程'));
+    grid.appendChild(makePhase('prologue','序幕：运货考验、转正庆祝与紧急议会 · L01–L09','警匪追逐 → 摩托帮接应 → 黑手党伏击与后座枪战 → 返镇转正 → 改装氮气 → 1v1 庆祝 → 商业街爆炸 → 议会投票全面反击'));
     const seenDrops = new Set();
     rows.forEach((row,index) => {
-      if (index === 8) grid.appendChild(makePhase('middle','第一幕：建筑遇袭后的全员反击 · L09–L16','建筑爆炸 → 会长分派全员任务 → 收车拆车 → 强化车辆 → 与金发联手伏击 → 一起返城 → 提交任务'));
+      if (index === 9) grid.appendChild(makePhase('middle','第一幕：反击准备与联手伏击 · L10–L16','收集任务废车 → 拆车取得材料 → 强化成员车辆 → 博准备路线 → 联手伏击黑手党 → 一起返城 → 提交任务'));
       if (index === 16) grid.appendChild(makePhase('after','第二幕：内部泄密引发双线调查 · L17–L25','L17 晋升兼提出内奸调查 → L18 分叉 → L19–L24 双线并行 → L25 完成本章全部任务并晋升 Roadman'));
       if (index === 25) grid.appendChild(makePhase('chapter','第三幕：叛徒绑架引发追杀营救 · L26–L31','L26 会议揭出科腾是叛徒 → L27 科腾绑走梅丽尔 → 追杀科腾 → 救回梅丽尔并结案'));
       const cells = row.cells;
@@ -3015,13 +3014,13 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       const isSystem = Boolean(first);
       const isGain = Boolean(gain);
       card.className = 'dc-clue-card' + (isSystem ? ' is-system' : '') + (isGain ? ' is-gain' : '');
-      card.dataset.phase = index < 8 ? 'prologue' : (index < 16 ? 'middle' : (index < 25 ? 'after' : 'chapter'));
+      card.dataset.phase = index < 9 ? 'prologue' : (index < 16 ? 'middle' : (index < 25 ? 'after' : 'chapter'));
       card.dataset.edge = isGain ? 'gain' : (isSystem || /SUP|小游戏|推关|骑行/.test(play) ? 'play' : 'plot');
       const clueId = (title.match(/L\d+/) || ['L01'])[0];
       card.dataset.clueId = clueId;
       const clueNumber = Number(clueId.slice(1));
-      const sourceClueId = clueNumber === 5 ? 'L05' : (clueNumber === 6 ? 'L06' : (clueNumber === 7 ? 'L05' : (clueNumber === 8 ? 'L07' : (clueNumber === 9 ? 'L08' : (clueNumber >= 10 && clueNumber <= 26 ? `L${String(clueNumber + 1).padStart(2,'0')}` : clueId)))));
-      const sceneFile = clueId === 'L05' ? 'scrapyard-salvage.webp' : (clueId === 'L26' ? 'l18-task-settlement.webp' : (clueId === 'L27' ? 'l19-promotion-traitor-meeting.webp' : (clueId === 'L28' ? 'l27-roadman-emergency.webp' : (sceneById[sourceClueId] || 'tow-convoy.webp'))));
+      const sourceClueId = clueNumber <= 9 ? clueId : (clueNumber >= 10 && clueNumber <= 26 ? `L${String(clueNumber + 1).padStart(2,'0')}` : clueId);
+      const sceneFile = clueId === 'L26' ? 'l18-task-settlement.webp' : (clueId === 'L27' ? 'l19-promotion-traitor-meeting.webp' : (clueId === 'L28' ? 'l27-roadman-emergency.webp' : (sceneById[sourceClueId] || 'tow-convoy.webp')));
       card.style.setProperty('--scene', `url("${sceneUrl(sceneFile)}")`);
       const chips = special.map(tag => '<span class="dc-clue-chip special">' + tag + '</span>');
       card.innerHTML = '<i class="dc-clue-pin"></i><div class="dc-clue-photo" role="img" aria-label="' + title + '剧情照片"></div><div class="dc-clue-meta"><span class="dc-clue-time"><small>时间</small>' + time + '</span></div><h3>' + title + '</h3>' + (memory ? '<span class="dc-clue-memory">' + memory + '</span>' : '') + '<span class="dc-clue-event-label">事件概括</span><p class="dc-clue-summary">' + summary + '</p><div class="dc-clue-details"><span class="dc-clue-loop-label">循环信息</span><div class="dc-clue-line"><b>玩法</b><span>' + play + '</span></div><div class="dc-clue-line"><b>奖励</b><span>' + gain + '</span></div><div class="dc-clue-flow">' + chips.join('') + '</div></div>';
@@ -3037,8 +3036,8 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     ['L19','L20','L21'].forEach(id => { const card = cardById(id); if (card) parallel.querySelector('.industry').appendChild(card); });
     ['L22','L23','L24'].forEach(id => { const card = cardById(id); if (card) parallel.querySelector('.investigation').appendChild(card); });
     const chapterSpecs = [
-      {key:'prologue',start:1,end:8,transition:'L08 转正庆祝返程 → L09 本帮建筑突然遭黑手党袭击'},
-      {key:'middle',start:9,end:16,transition:'L16 全员任务结算、晋升条件达成 → L17 晋升 Enforcer 并接取内奸调查'},
+      {key:'prologue',start:1,end:9,transition:'L09 议会通过全面反击并分派任务 → L10 开始收集废车、准备反击'},
+      {key:'middle',start:10,end:16,transition:'L16 全员任务结算、晋升条件达成 → L17 晋升 Enforcer 并接取内奸调查'},
       {key:'after',start:17,end:25,transition:'L25 完成本章全部任务并晋升 Roadman → L26 新一幕会议揭出叛徒'},
       {key:'chapter',start:26,end:31,transition:''}
     ];
@@ -3056,7 +3055,7 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
       const edgePairs = cards.slice(1).map((card,index) => [cards[index],card,'']).filter(([card,next]) => card.dataset.phase === next.dataset.phase && !['L22'].includes(next.dataset.clueId) && !['L21','L24'].includes(card.dataset.clueId));
       const byId = id => cards.find(card => card.dataset.clueId === id), l18 = byId('L18'), l22 = byId('L22'), l21 = byId('L21'), l24 = byId('L24'), l25 = byId('L25');
-      if (l18 && l22) edgePairs.push([l18,l22,'plot']); if (l21 && l25) edgePairs.push([l21,l25,'chapter']); if (l24 && l25) edgePairs.push([l24,l25,'chapter']); [['L08','L09'],['L16','L17'],['L25','L26']].forEach(([from,to]) => { const a=byId(from),b=byId(to); if(a&&b) edgePairs.push([a,b,'chapter']); });
+      if (l18 && l22) edgePairs.push([l18,l22,'plot']); if (l21 && l25) edgePairs.push([l21,l25,'chapter']); if (l24 && l25) edgePairs.push([l24,l25,'chapter']); [['L09','L10'],['L16','L17'],['L25','L26']].forEach(([from,to]) => { const a=byId(from),b=byId(to); if(a&&b) edgePairs.push([a,b,'chapter']); });
       const svgRect = svg.getBoundingClientRect();
       edgePairs.forEach(([card,next,edgeType]) => {
         const a = card.getBoundingClientRect(), b = next.getBoundingClientRect();
