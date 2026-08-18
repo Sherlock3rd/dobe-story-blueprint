@@ -2830,9 +2830,9 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     });
     const toc=root.querySelector('#dobe-toc-nav');
     specs.forEach((spec,index)=>{const href=index===0?'#dc-act-prologue':`#dc-act-${index}`;const link=toc?.querySelector(`a[href="${href}"]`);if(link)link.textContent=`${spec.name} · ${spec.title}`;});
-    const badge=root.querySelector('#dc-journey-map .dc-journey-badge'); if(badge)badge.textContent='L01–L33';
-    const journeyOutcome=root.querySelector('#dc-journey-map .dc-journey-outcome'); if(journeyOutcome)journeyOutcome.textContent='L18 开启第三章内奸调查：产业侧收服瓦尔特、接管双厂并派遣自动生产；调查侧收服英雄、完成五关推关与迎风逼供。L25 议会决定处决科腾后，L26 开启营救梅丽尔的新章节，并在 L33 晋升 Road Captain。';
-    const journeyLink=toc?.querySelector('a[href="#dc-journey-map"]'); if(journeyLink)journeyLink.textContent='方案 C · 案件板（L01–L33）';
+    const badge=root.querySelector('#dc-journey-map .dc-journey-badge'); if(badge)badge.textContent='L01–L42';
+    const journeyOutcome=root.querySelector('#dc-journey-map .dc-journey-outcome'); if(journeyOutcome)journeyOutcome.textContent='L18 开启内奸调查：产业侧收服瓦尔特、接管双厂并派遣自动生产；调查侧收服英雄、完成五关推关与迎风逼供。L25 议会决定处决科腾，L26–L33 完成营救梅丽尔与处决叛徒；L34–L42 接管商业街、物流中心并进入地下赛事议会。';
+    const journeyLink=toc?.querySelector('a[href="#dc-journey-map"]'); if(journeyLink)journeyLink.textContent='方案 C · 案件板（L01–L42）';
     const gangTaskUpdates={
       '瓦尔特·维尔':'L18 收服瓦尔特，开放改装厂与废车回收厂接管权限；L20 派遣回收厂自动生产。',
       '调查英雄（姓名待定）':'L21 完成收服任务并加入内奸调查；协助 L22–L23 推关与迎风逼供。',
@@ -2863,7 +2863,10 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     L20:'l23-scrapyard-automation.webp', L21:'investigation-hero-recruit-v2.webp', L22:'l25-five-stage-investigation.webp', L23:'informant-interrogation.webp',
     L24:'l18-task-settlement.webp', L25:'council-promotion.webp', L26:'kenton-kidnaps-maryl-v2.webp', L27:'l29-gas-station-ledger-clue.webp',
     L28:'l28-gas-station-loyalty-handover.webp', L29:'gas-station-automation-v2.webp', L30:'l28-rescue-assault.webp', L31:'heavy-truck-wall-rescue-v2.webp',
-    L32:'l30-kenton-pursuit.webp', L33:'l31-case-closed-promotion.webp'
+    L32:'l30-kenton-pursuit.webp', L33:'l31-case-closed-promotion.webp',
+    L34:'commercial-manager-recruit-v2.webp', L35:'commercial-street-rebuild-v2.webp', L36:'corrupt-sheriff-bribe-v2.webp',
+    L37:'commercial-street-automation-v2.webp', L38:'council-promotion.webp', L39:'logistics-manager-recruit-v2.webp',
+    L40:'logistics-center-takeover-v2.webp', L41:'logistics-center-automation-v2.webp', L42:'underground-race-council-v2.webp'
   };
   const css = `
     #dc-journey-map .dc-clue-wall{position:relative;overflow:hidden;padding:18px 18px 28px;border:1px solid #5b5044;border-radius:14px;background:radial-gradient(circle at 18% 12%,rgba(255,255,255,.055),transparent 25%),linear-gradient(135deg,#232421,#111310 68%,#1a1814);box-shadow:inset 0 0 50px #000,0 18px 36px rgba(0,0,0,.28);isolation:isolate}
@@ -2884,7 +2887,7 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     #dc-journey-map .dc-clue-chip{max-width:100%;padding:3px 6px;border-radius:3px;font-size:10px;line-height:1.25;border:1px solid}
     #dc-journey-map .dc-clue-chip.play{color:#075b69;background:#d8f0f1;border-color:#70b9c3}.dc-clue-chip.system{color:#553272;background:#eadff2;border-color:#a887bd}.dc-clue-chip.gain{color:#72520e;background:#f3e6bc;border-color:#c9a54c}.dc-clue-chip.special{color:#772c22;background:#f5d8cf;border-color:#c76f5d;font-weight:850}
     #dc-journey-map .dc-clue-wire{position:absolute;z-index:1;inset:0;pointer-events:none;overflow:visible}.dc-clue-wire line{stroke:#b93c35;stroke-width:3.2;stroke-linecap:round;filter:drop-shadow(0 1px 1px #000);opacity:.82}.dc-clue-wire line.play{stroke:#36a9bf;stroke-dasharray:8 5}.dc-clue-wire line.gain{stroke:#d5a43a}.dc-clue-wire line.chapter{stroke:#f06b55;stroke-width:4.2;stroke-dasharray:12 6;opacity:1}.dc-clue-wire line.rank{stroke:#b792d2;stroke-width:2.6;stroke-dasharray:5 7;opacity:.92}
-    #dc-journey-map .dc-clue-card.is-system{outline:2px solid rgba(129,84,164,.46)}.dc-clue-card.is-gain{box-shadow:0 9px 17px rgba(0,0,0,.48),0 0 0 2px rgba(213,164,58,.36)}
+    #dc-journey-map .dc-clue-card.is-system{outline:2px solid rgba(129,84,164,.46)}.dc-clue-card.is-gain{box-shadow:0 9px 17px rgba(0,0,0,.48),0 0 0 2px rgba(213,164,58,.36)}.dc-phase-bar.industry{border-top-color:#d6a53d;background:linear-gradient(90deg,rgba(142,99,20,.52),rgba(23,23,20,.92) 55%,rgba(23,23,20,.55))}
     #dc-journey-map .dc-phase-bar{grid-column:1/-1;position:relative;z-index:3;display:flex;align-items:center;gap:14px;min-height:54px;padding:9px 16px;border-top:2px solid #36a9bf;border-bottom:1px solid rgba(255,255,255,.18);background:linear-gradient(90deg,rgba(23,101,117,.5),rgba(23,23,20,.92) 55%,rgba(23,23,20,.55));box-shadow:0 8px 18px rgba(0,0,0,.35);color:#f4e6cc;transform:none}.dc-phase-bar b{font-size:17px;letter-spacing:.04em}.dc-phase-bar span{font-size:12px;color:#cbbda4}#dc-journey-map .dc-phase-bar.middle{margin-top:4px;border-top-color:#8f6db0;background:linear-gradient(90deg,rgba(91,55,118,.52),rgba(23,23,20,.92) 55%,rgba(23,23,20,.55))}#dc-journey-map .dc-phase-bar.after{margin-top:4px;border-top-color:#d6a53d;background:linear-gradient(90deg,rgba(142,99,20,.52),rgba(23,23,20,.92) 55%,rgba(23,23,20,.55))}#dc-journey-map .dc-phase-bar.chapter{margin-top:8px;border-top:3px solid #d34848;border-bottom-color:rgba(255,210,185,.32);background:linear-gradient(90deg,rgba(143,39,39,.72),rgba(43,22,20,.95) 58%,rgba(23,23,20,.68));box-shadow:0 10px 22px rgba(93,17,17,.42)}#dc-journey-map .dc-phase-bar.rank{margin-top:8px;border-top-color:#b792d2;background:linear-gradient(90deg,rgba(103,68,132,.62),rgba(23,23,20,.94) 58%,rgba(23,23,20,.62))}.dc-phase-bar::after{content:'◆';margin-left:auto;color:#d8ad58;font-size:18px}
     #dc-journey-map .dc-clue-canvas{width:1580px}.dc-clue-grid{min-width:1580px!important}#dc-journey-map .dc-clue-grid{display:block!important}.dc-case-split{position:relative;display:grid;grid-template-columns:minmax(880px,1fr) minmax(650px,650px);gap:28px;align-items:start}.dc-story-axis{display:block}.dc-case-chapter{position:relative;z-index:2;margin:0 0 26px;padding:0 14px 16px;border:1px solid rgba(255,255,255,.2);border-radius:8px;background:rgba(10,12,11,.68);box-shadow:0 10px 24px rgba(0,0,0,.34)}.dc-case-chapter>.dc-phase-bar{margin:0 -14px 16px!important;border-radius:7px 7px 0 0}.dc-chapter-body{display:grid;grid-template-columns:repeat(5,minmax(160px,1fr));gap:24px 18px;align-items:start}.dc-chapter-transition{position:relative;z-index:4;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;margin:-14px 28px 12px;padding:8px 14px;border:1px dashed #f06b55;border-radius:999px;background:#2b1715;color:#f6d7ca;font-size:11px}.dc-chapter-transition b{color:#ff927e;font-size:12px}.dc-chapter-transition i{color:#ff927e;font-size:18px;font-style:normal}.dc-rank-panel{position:relative;align-self:start}.dc-rank-panel>.dc-phase-bar{margin:0 0 12px!important}.dc-rank-shelf{position:relative;z-index:3;display:grid!important;grid-template-columns:1fr!important;gap:9px!important;padding:16px!important;border:10px solid #5d361f!important;border-radius:8px;background:repeating-linear-gradient(25deg,#986039 0,#986039 4px,#a56c42 4px,#a56c42 9px);box-shadow:0 10px 24px rgba(0,0,0,.48),inset 0 0 24px rgba(44,24,11,.44)}
     #dc-journey-map .dc-rank-card{position:relative;display:grid;grid-template-columns:145px minmax(0,1fr);grid-template-rows:auto 1fr;column-gap:10px;padding:10px;background:rgba(255,244,218,.95);color:#241c15;border:1px solid #c9ad7d;box-shadow:0 6px 12px rgba(0,0,0,.38)}.dc-rank-card:before{content:'';position:absolute;left:50%;top:-8px;width:14px;height:14px;border-radius:50%;background:#a72d2d;box-shadow:0 2px 4px #000}.dc-rank-head{grid-column:1;display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:0 8px 7px 0;border-right:1px dashed #aa8d63}.dc-rank-head b{font-size:13px;line-height:1.25}.dc-rank-head span{font-size:10px;color:#8b1e1e;font-weight:800;text-align:left}.dc-rank-event{grid-column:1;margin:6px 8px 0 0;font-size:10px;line-height:1.35;color:#604b35}.dc-rank-members{grid-column:2;grid-row:1/span 2;display:flex;flex-wrap:nowrap;align-items:flex-start;gap:8px;min-width:0;overflow-x:auto;padding:1px 1px 5px}.dc-rank-person{flex:0 0 94px;width:94px;min-width:0}.dc-rank-photo{box-sizing:border-box;width:94px;aspect-ratio:1/1;height:auto;padding:5px;display:flex;align-items:flex-end;background-image:linear-gradient(to top,rgba(12,13,11,.82),transparent 65%),var(--rank-scene);background-size:400% 800%;background-position:center;background-repeat:no-repeat;color:#fff;border:3px solid #f8f1df;font-size:9px;font-weight:800}.dc-rank-name{display:block;margin-top:4px;font-size:10px;line-height:1.2}.dc-rank-reward{display:block;margin-top:2px;color:#31513c;font-size:9px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -2970,25 +2973,26 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     });
     const portraitIdentity={'比利·克鲁斯':8,'斯宾塞·曼森':11,'科腾·万斯':14};
     Object.entries(portraitIdentity).forEach(([name,index])=>{const person=[...doc.querySelectorAll('#dc-gang-tree .gw-person')].find(node=>node.querySelector('.gw-name')?.textContent.trim()===name);if(!person)return;person.style.setProperty('--gw-x',`${(index%4)*100/3}%`);person.style.setProperty('--gw-y',`${Math.floor(index/4)*100/7}%`);person.dataset.portraitIndex=index});
-    const maxClueId = 33;
+    const maxClueId = 42;
     const rows = [...doc.querySelectorAll('tr')].filter(row => { const id = text(row.querySelector('.dc-loop')).match(/L(\d+)/); return id && Number(id[1]) <= maxClueId; });
     if (!rows.length) { style.remove(); setTimeout(build, 120); return; }
     const makePhase = (kind,title,caption) => { const bar = doc.createElement('div'); bar.className = 'dc-phase-bar ' + kind; bar.innerHTML = '<b>' + title + '</b><span>' + caption + '</span>'; return bar; };
     const wall = doc.createElement('div');
     wall.className = 'dc-clue-wall';
     wall.setAttribute('aria-label','开局至追杀叛徒、救回梅丽尔并完成 Road Captain 晋升的剧情、玩法、系统与结果关系线索墙');
-    wall.innerHTML = '<div class="dc-clue-head"><div><b>方案 C 案件板 · 本地打工崽</b><br><small>L01–L33：转正、全员反击、内奸调查、营救梅丽尔、处决科腾并晋升 Road Captain</small></div><div class="dc-clue-tools"><div class="dc-clue-legend"><span><i class="plot"></i>剧情因果</span><span><i class="play"></i>玩法承接</span><span><i class="gain"></i>身份/建筑/资源结果</span></div><button class="dc-clue-fullscreen" type="button" aria-label="全屏查看案件板">⛶ 全屏查看</button></div></div><div class="dc-clue-viewport"><div class="dc-clue-canvas"><svg class="dc-clue-wire" aria-hidden="true"></svg><div class="dc-clue-grid"></div></div></div>';
+    wall.innerHTML = '<div class="dc-clue-head"><div><b>方案 C 案件板 · 本地打工崽</b><br><small>L01–L42：转正、反击、内奸调查、救援处决、产业恢复、灰警索贿与地下赛事议会</small></div><div class="dc-clue-tools"><div class="dc-clue-legend"><span><i class="plot"></i>剧情因果</span><span><i class="play"></i>玩法承接</span><span><i class="gain"></i>身份/建筑/资源结果</span></div><button class="dc-clue-fullscreen" type="button" aria-label="全屏查看案件板">⛶ 全屏查看</button></div></div><div class="dc-clue-viewport"><div class="dc-clue-canvas"><svg class="dc-clue-wire" aria-hidden="true"></svg><div class="dc-clue-grid"></div></div></div>';
     const grid = wall.querySelector('.dc-clue-grid');
     const viewport = wall.querySelector('.dc-clue-viewport');
     const canvas = wall.querySelector('.dc-clue-canvas');
     const fullscreenButton = wall.querySelector('.dc-clue-fullscreen');
-    const rankLinks = {T10:'',T9:'',T8:'',T7:'',T6:'',T5:'L33',T4:'L24',T3:'L16',T2:'L08',T1:'L01'};
+    const rankLinks = {T10:'',T9:'',T8:'',T7:'',T6:'L38',T5:'L33',T4:'L24',T3:'L16',T2:'L08',T1:'L01'};
     grid.appendChild(makePhase('prologue','序幕：接应、反伏击、兄弟飙车与见习转正 · L01–L08','警匪追逐 → 摩托帮接应 → 黑手党伏击与后座枪战 → 修车安装氮气 → 兄弟飙车 → 帮派树晋升 → 议会转正'));
     const seenDrops = new Set();
     rows.forEach((row,index) => {
       if (index === 8) grid.appendChild(makePhase('middle','第一幕：黑手党爆炸袭击与全员反击 · L09–L17','爆炸与章节任务 → 收车拆车改装 → 获得定制枪 → 伏击黑手党 → 晋升 Enforcer → 议会启动内奸调查'));
       if (index === 17) grid.appendChild(makePhase('after','第二幕：第三章 · 内奸调查 · L18–L25','收服瓦尔特并接管双厂 → 回收厂自动生产 → 收服英雄 → 推关清剿接头点 → 迎风逼供 → 晋升 Roadman → 议会决定处决科腾'));
       if (index === 25) grid.appendChild(makePhase('chapter','第三幕：营救梅丽尔与处决叛徒 · L26–L33','绑架通报 → 收服旧部并接管加油站 → 推关救人 → 重卡破墙 → 追击处决科腾 → 帮派树换位晋升'));
+      if (index === 33) grid.appendChild(makePhase('industry','第四幕：产业恢复、灰警索贿与地下赛事议会 · L34–L42','收服商业街管理者 → 重建并自动产钱 → 灰警索贿 → 晋升 Treasurer → 接管物流中心并自动产物资 → 议会决定参加地下赛事'));
       const cells = row.cells;
       const loop = row.querySelector('.dc-loop');
       const title = text(loop);
@@ -3006,7 +3010,7 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       const isSystem = Boolean(first);
       const isGain = Boolean(gain);
       card.className = 'dc-clue-card' + (isSystem ? ' is-system' : '') + (isGain ? ' is-gain' : '');
-      card.dataset.phase = index < 8 ? 'prologue' : (index < 17 ? 'middle' : (index < 25 ? 'after' : 'chapter'));
+      card.dataset.phase = index < 8 ? 'prologue' : (index < 17 ? 'middle' : (index < 25 ? 'after' : (index < 33 ? 'chapter' : 'industry')));
       card.dataset.edge = isGain ? 'gain' : (isSystem || /SUP|小游戏|推关|骑行/.test(play) ? 'play' : 'plot');
       const clueId = (title.match(/L\d+/) || ['L01'])[0];
       card.dataset.clueId = clueId;
@@ -3029,7 +3033,8 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       {key:'prologue',start:1,end:8,transition:'L08 完成转正 → L09 本帮建筑突然遭黑手党袭击'},
       {key:'middle',start:9,end:17,transition:'L17 议会启动内奸调查 → L18 弹出“第三章：内奸调查”Banner 并直接进入收服任务'},
       {key:'after',start:18,end:25,transition:'L25 议会投票决定处决科腾 → L26 新章 Banner 出现并发布营救梅丽尔任务'},
-      {key:'chapter',start:26,end:33,transition:''}
+      {key:'chapter',start:26,end:33,transition:'L33 晋升 Road Captain → L34 开始处理科腾遗留的产业空缺'},
+      {key:'industry',start:34,end:42,transition:''}
     ];
     chapterSpecs.forEach(spec => { const chapter = doc.createElement('section'); chapter.className = 'dc-case-chapter'; chapter.dataset.chapter = spec.key; const body = doc.createElement('div'); body.className = 'dc-chapter-body'; const phase = grid.querySelector('.dc-phase-bar.' + spec.key); chapter.append(phase,body); for(let n=spec.start;n<=spec.end;n+=1){ const id='L'+String(n).padStart(2,'0'); if(spec.key==='after' && n===18){body.appendChild(parallel); n=23; continue;} const card=cardById(id); if(card) body.appendChild(card); } storyAxis.appendChild(chapter); if(spec.transition){ const link=doc.createElement('div'); link.className='dc-chapter-transition'; link.innerHTML='<b>章节承接</b><span>'+spec.transition+'</span><i>↓</i>'; storyAxis.appendChild(link); } });
     const rankPanel = doc.createElement('aside'); rankPanel.className = 'dc-rank-panel'; rankPanel.append(rankPhase,rankShelf); const caseSplit = doc.createElement('div'); caseSplit.className = 'dc-case-split'; caseSplit.append(storyAxis,rankPanel); grid.appendChild(caseSplit);
@@ -3045,7 +3050,7 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
       const edgePairs = cards.slice(1).map((card,index) => [cards[index],card,'']).filter(([card,next]) => card.dataset.phase === next.dataset.phase && !['L21'].includes(next.dataset.clueId) && !['L20','L23'].includes(card.dataset.clueId));
       const byId = id => cards.find(card => card.dataset.clueId === id), l18 = byId('L18'), l21 = byId('L21'), l20 = byId('L20'), l23 = byId('L23'), l24 = byId('L24'), l25 = byId('L25');
-      if (l18 && l21) edgePairs.push([l18,l21,'plot']); if (l20 && l24) edgePairs.push([l20,l24,'chapter']); if (l23 && l24) edgePairs.push([l23,l24,'chapter']); if (l24 && l25) edgePairs.push([l24,l25,'chapter']); [['L08','L09'],['L17','L18'],['L25','L26']].forEach(([from,to]) => { const a=byId(from),b=byId(to); if(a&&b) edgePairs.push([a,b,'chapter']); });
+      if (l18 && l21) edgePairs.push([l18,l21,'plot']); if (l20 && l24) edgePairs.push([l20,l24,'chapter']); if (l23 && l24) edgePairs.push([l23,l24,'chapter']); if (l24 && l25) edgePairs.push([l24,l25,'chapter']); [['L08','L09'],['L17','L18'],['L25','L26'],['L33','L34']].forEach(([from,to]) => { const a=byId(from),b=byId(to); if(a&&b) edgePairs.push([a,b,'chapter']); });
       const svgRect = svg.getBoundingClientRect();
       edgePairs.forEach(([card,next,edgeType]) => {
         const a = card.getBoundingClientRect(), b = next.getBoundingClientRect();
