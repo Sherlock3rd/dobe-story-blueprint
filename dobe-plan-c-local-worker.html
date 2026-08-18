@@ -1754,7 +1754,7 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
   &lt;div class=&quot;gt-foot&quot;&gt;声望门槛为首版节奏示意，可在数值节奏确定后统一替换；尚未确定角色的席位直接保留为空相框，不显示人物照片、任务或奖励。会长的 Clubhouse 权限为唯一不随 N-1 下移的建筑功能。&lt;/div&gt;
 &lt;/section&gt;
 
-    &lt;div class=&quot;dc-source&quot;&gt;依据《一日渐进线汇总一图流》revision 67 中首个有效“基础信息”画板、《七月 Demo 台本》revision 4963、《DOBE世界观方案－摩托帮》revision 3872 与《帮派树详细》revision 888 调整；文档内标注“草稿，废弃不用”的后续画板未纳入。演出时间仅统计不可操作的纯演出；系统教学、选择、改装、领取、骑行与结算均计入可玩时间。&lt;/div&gt;
+    &lt;div class=&quot;dc-source&quot;&gt;依据《一日渐进线汇总一图流》revision 67 中首个有效“基础信息”画板、《七月 Demo 台本》revision 4963、《DOBE世界观方案－摩托帮》revision 3872 与《帮派树详细配置》revision 1233 调整；文档内标注“草稿，废弃不用”的后续画板未纳入。演出时间仅统计不可操作的纯演出；系统教学、选择、改装、领取、骑行与结算均计入可玩时间。&lt;/div&gt;
   &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
@@ -2924,13 +2924,35 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       sync('物流负责人（姓名待定）','T5',['物流中心接管','物资'],'L39 收服物流负责人；L40 接管物流中心，L41 派遣自动产出物资。');
     };
     syncGangUnlocks();
-    const reputationLevels = {T1:1,T2:20,T3:30,T4:40,T5:50,T6:60,T7:70,T8:80,T9:90,T10:100};
+    const sheetGangConfig = [
+      ['T10','会长','President',100,[['杰森"拉斯蒂"蒙哥马利',100,['Clubhouse'],'会长议会','JM','council-promotion.webp']]],
+      ['T9','副会长','Vice President',80,[['韦恩·"加斯"·科瓦尔斯基',78,['模拟经营小人'],'副会长任务','WK','one-on-one-race.webp']]],
+      ['T8','元老成员','Senior Members',75,[['汉克·麦考密克',70,['模拟经营小人'],'元老任务','HM','gang-convoy-formation.webp']]],
+      ['T7','武装队长','Sergeant-at-arms',50,[['博·蒙哥马尼',45,['模拟经营小人'],'武装训练','BM','highway-gunfight.webp'],['雷·哈兰',48,['枪'],'武器任务','RH','assassination-hero-rescue.webp']]],
+      ['T6','财务官','Treasurer',35,[['伊莱·马多克斯',32,['模拟经营小人'],'财务排班','EM','gang-convoy-formation.webp'],['戴尔·万斯',34,['车'],'载具任务','DV','memorial-succession.webp']]],
+      ['T5','路线队长','Road Captain',20,[['科腾·万斯',28,[],'叛徒','KV','informant-interrogation.webp',true],['小E',25,['物资回收中心'],'回收路线','E','tow-convoy.webp']]],
+      ['T4','路线成员','Roadman',10,[['斯宾塞·曼森',18,['商业街'],'商业街管理','SM','informant-interrogation.webp'],['卡莱布·奥尔森',15,['模拟经营小人'],'经营排班','CO','workshop-takeover-dispatch.webp'],['小D',14,['模拟经营小人'],'经营排班','D','member-bike-service.webp']]],
+      ['T3','打手','Enforcer',5,[['比利·克鲁斯',8,['加油站'],'加油站任务','BC','scrapyard-salvage.webp'],['小C',6,['模拟经营小人'],'站务排班','C','member-bike-service.webp']]],
+      ['T2','正式成员','Full Patch',1,[['瓦尔特·维尔',4,['改车厂','废车厂'],'双厂管理','WV','council-promotion.webp'],['小A',3,['模拟经营小人'],'经营排班','A','tow-convoy.webp'],['小B',4,['英雄'],'英雄任务','B','assassination-hero-rescue.webp']]],
+      ['T1','见习','Prospect',1,[['玩家角色',null,['玩家'],'当前角色','PC','council-promotion.webp',false,true]]]
+    ];
+    const gangTasks = {'杰森"拉斯蒂"蒙哥马利':'主持帮派议会并管理 Clubhouse。','韦恩·"加斯"·科瓦尔斯基':'完成副会长人物任务，加入模拟经营排班。','汉克·麦考密克':'完成元老人物任务，加入模拟经营排班。','博·蒙哥马尼':'完成博的人物任务，加入模拟经营排班。','雷·哈兰':'完成雷的武器任务，获得枪投放。','伊莱·马多克斯':'完成伊莱的人物任务，加入模拟经营排班。','戴尔·万斯':'完成戴尔的载具任务，获得车投放。','科腾·万斯':'人物描述：叛徒；无功能解锁。','小E':'完成回收路线任务，解锁物资回收中心。','斯宾塞·曼森':'完成管理任务，解锁商业街。','卡莱布·奥尔森':'完成人物任务，加入模拟经营排班。','小D':'完成人物任务，加入模拟经营排班。','比利·克鲁斯':'完成忠诚任务，解锁加油站。','小C':'完成人物任务，加入模拟经营排班。','瓦尔特·维尔':'完成双厂管理任务，解锁改车厂与废车厂。','小A':'完成人物任务，加入模拟经营排班。','小B':'完成英雄任务，获得英雄投放。','玩家角色':'通过玩法累计声望，沿 T1 → T10 逐级晋升。'};
+    const gangWall = doc.querySelector('#dc-gang-tree .gw-board');
+    if (gangWall) {
+      const oldEvents = Object.fromEntries([...gangWall.querySelectorAll('.gw-tier')].map(node => [node.dataset.tier,node.querySelector('.gw-event')?.textContent || '晋升事件：待剧情配置']));
+      const personHtml = member => { const [name,personLevel,drops,label,code,scene,traitor,player] = member; const classes=['gw-person',traitor?'gw-traitor-eliminated':'',player?'gw-player':''].filter(Boolean).join(' '); return '<article class="'+classes+'" data-scene="'+scene+'"><div class="gw-drops">'+drops.map(drop=>'<i class="gw-drop">'+drop+'</i>').join('')+'</div><div class="gw-photo"><b class="gw-photo-code">'+code+'</b><span class="gw-photo-label">'+label+'</span></div><b class="gw-name">'+name+'</b>'+(personLevel===null?'':'<span class="gw-level">人物等级 Lv.'+personLevel+'</span>')+'<span class="gw-task">任务：'+gangTasks[name]+'</span></article>'; };
+      const tiersHtml = sheetGangConfig.map(([tier,rank,english,level,members]) => '<div class="gw-tier" data-tier="'+tier+'"><div class="gw-promotion"><strong>'+tier+' '+rank+'（'+english+'）</strong><span class="gw-rep">声望等级：Lv.'+level+'</span><span class="gw-event">'+oldEvents[tier]+'</span></div><div class="gw-people">'+members.map(personHtml).join('')+'</div></div>').join('');
+      gangWall.querySelectorAll('.gw-tier').forEach(tier => tier.remove());
+      gangWall.insertAdjacentHTML('beforeend',tiersHtml);
+      const levelStyle=doc.createElement('style'); levelStyle.textContent='#dc-gang-tree .gw-level{display:block;margin-top:4px;color:#7b2e25;font-size:10px;font-weight:900}'; doc.head.appendChild(levelStyle);
+    }
+    const reputationLevels = {T1:1,T2:1,T3:5,T4:10,T5:20,T6:35,T7:50,T8:75,T9:80,T10:100};
     Object.entries(reputationLevels).forEach(([tier,level]) => {
       const label = doc.querySelector('#dc-gang-tree .gw-tier[data-tier="' + tier + '"] .gw-rep');
       if (label) label.textContent = '声望等级：Lv.' + level;
     });
     const gangFoot = doc.querySelector('#dc-gang-tree .gt-foot');
-    if (gangFoot) gangFoot.textContent = '声望等级采用 Lv.1–Lv.100 的职级阶梯；玩家通过累积声望经验提升等级并进入下一职级。会长的 Clubhouse 权限为唯一不随 N-1 下移的建筑功能。';
+    if (gangFoot) gangFoot.textContent = '职级、声望等级、人物等级与功能解锁均以《帮派树详细配置》页签 revision 1233 为准；玩家通过累积声望经验逐级晋升。';
     doc.querySelectorAll('#dc-gang-tree .gw-tier[data-tier="T1"] .gw-person:not(.gw-player)').forEach(person => person.remove());
     doc.querySelectorAll('#dc-gang-tree .gw-person.gw-empty').forEach(emptyFrame => emptyFrame.remove());
     const image = doc.querySelector('#dc-journey-map .dc-journey-image');
