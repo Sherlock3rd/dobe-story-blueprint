@@ -2785,7 +2785,7 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     const sceneCell = node => `<div class="dc-in-game-scene">${node.mem ? `<span class="dc-memory">记忆点 · ${node.mem}</span>` : ''}<span>${node.scene}</span>${node.rank ? `<b>职级变动表现</b><span>${node.rank}</span>` : ''}</div>`;
     const rows = [firstRow];
     let cursor = 80;
-    firstRow.querySelector('.dc-time').textContent = '0:00–1:20';
+    firstRow.innerHTML = `<td class="dc-time">0:00–1:20</td><td><div class="dc-loop dc-loop-sup">L01 警匪追逐</div><span class="dc-first-badge">新玩法解锁 · SUP 首次出现</span><span class="dc-sub">SUP 定制关卡 ×1</span></td><td>拒绝警方临检并甩开追捕，继续运送可疑货物</td><td>${playCell({play:'甩脱警车',sys:'SUP定制关卡',steps:['警灯警笛与警方视角引入 · 10 秒','警长对讲机叫停与科尔嘲讽 · 10 秒','SUP 警匪追逐 · 60 秒']})}</td><td>${rewardCell({rew:['声望','新系统：SUP定制关卡']})}</td><td>${sceneCell({mem:'警匪追击',scene:'警笛与警灯特效中，镜头从警方视角引入追捕：前方一名摩托帮成员正运载一箱可疑物品。警长通过对讲机要求科尔停车接受临检；科尔嘲讽警长、拒绝停车并加速逃离，在 SUP 第 1 关中成功摆脱警方。'})}</td>`;
     nodes.forEach(node => {
       const row = doc.createElement('tr');
       const start = cursor; cursor += node.d;
