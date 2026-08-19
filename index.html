@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dobe一日渐进规划｜A/C/D方案对比</title>
+  <title>Dobe一日渐进规划｜方案 D</title>
   <style>
     :root {
       color-scheme: light dark;
@@ -83,11 +83,11 @@
 <body>
   <header class="plan-switcher" aria-label="剧情方案切换">
     <div class="plan-title">
-      <strong>Dobe一日渐进规划｜A/C/D方案对比</strong>
-      <span>三种开局身份与剧情路径对比</span>
+      <strong>Dobe一日渐进规划｜方案 D</strong>
+      <span>本地打工（叙事小改版）</span>
     </div>
     <nav class="plan-tabs" aria-label="选择方案">
-      <button class="plan-tab" type="button" data-plan="a" aria-pressed="true">
+      <button class="plan-tab" type="button" data-plan="a" aria-pressed="false" aria-hidden="true" hidden>
         <strong>方案 A</strong>
         <span>外乡人转化</span>
       </button>
@@ -95,26 +95,26 @@
         <strong>方案 B</strong>
         <span>本地见习生</span>
       </button>
-      <button class="plan-tab" type="button" data-plan="c" aria-pressed="false">
+      <button class="plan-tab" type="button" data-plan="c" aria-pressed="false" aria-hidden="true" hidden>
         <strong>方案 C</strong>
         <span>本地打工崽</span>
       </button>
-      <button class="plan-tab" type="button" data-plan="d" aria-pressed="false">
+      <button class="plan-tab" type="button" data-plan="d" aria-pressed="true">
         <strong>方案 D</strong>
         <span>本地打工（叙事小改版）</span>
       </button>
     </nav>
     <div class="plan-state" aria-live="polite">
-      <b id="active-plan-name">正在查看：方案 A · 外乡人转化</b>
-      <span id="active-plan-note">切换方案查看完整规划</span>
+      <b id="active-plan-name">正在查看：方案 D · 本地打工（叙事小改版）</b>
+      <span id="active-plan-note">当前公开展示方案</span>
     </div>
   </header>
 
   <main class="plan-views">
-      <iframe class="plan-view" id="plan-a" src="dobe-plan-a-outsider.html?v=20260813-layout-fix" allow="fullscreen" allowfullscreen title="方案 A：外乡人转化"></iframe>
+      <iframe class="plan-view" id="plan-a" src="dobe-plan-a-outsider.html?v=20260813-layout-fix" allow="fullscreen" allowfullscreen title="方案 A：外乡人转化" hidden></iframe>
       <iframe class="plan-view" id="plan-b" src="dobe-plan-b-local-prospect.html?v=20260812-gang-wall-7" allow="fullscreen" allowfullscreen title="方案 B：本地见习生" hidden></iframe>
       <iframe class="plan-view" id="plan-c" src="dobe-plan-c-local-worker.html?v=20260818-l01-police-pov" allow="fullscreen" allowfullscreen title="方案 C：本地打工崽" hidden></iframe>
-      <iframe class="plan-view" id="plan-d" src="dobe-plan-d-local-worker-narrative.html?v=20260818-l01-police-pov" allow="fullscreen" allowfullscreen title="方案 D：本地打工（叙事小改版）" hidden></iframe>
+      <iframe class="plan-view" id="plan-d" src="dobe-plan-d-local-worker-narrative.html?v=20260818-l01-police-pov" allow="fullscreen" allowfullscreen title="方案 D：本地打工（叙事小改版）"></iframe>
   </main>
 
   <script>
@@ -134,7 +134,7 @@
         },
         d: {
           name: '正在查看：方案 D · 本地打工（叙事小改版）',
-          note: '先通过会议完成转正，再以改车和 1v1 竞速庆祝，返程后用爆炸事件开启下一章'
+          note: '当前仅展示方案 D'
         }
       };
       const buttons = [...document.querySelectorAll('[data-plan]')];
@@ -211,7 +211,7 @@
       }
 
       function selectPlan(plan, updateUrl = true) {
-        const next = plans[plan] ? plan : 'a';
+        const next = 'd';
         const progress = activePlan && activePlan !== next ? (progressByPlan[activePlan] ?? readProgress(activePlan)) : null;
         buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.plan === next)));
         Object.entries(frames).forEach(([key, frame]) => { frame.hidden = key !== next; });
@@ -232,7 +232,7 @@
       buttons.forEach(button => button.addEventListener('click', () => selectPlan(button.dataset.plan)));
       const initial = new URLSearchParams(window.location.search).get('plan');
       const requestedPlan = initial?.toLowerCase();
-      selectPlan(plans[requestedPlan] ? requestedPlan : 'a', false);
+      selectPlan('d', requestedPlan !== 'd');
     })();
   </script>
   <script>
