@@ -2933,8 +2933,8 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       {start:1,end:9,name:'序幕',title:'运货考验、转正庆祝与紧急议会',summary:'警匪追逐 → 摩托帮接应 → 后座枪战 → 返镇转正 → 改装氮气 → 1v1 庆祝 → 商业街爆炸 → 议会全面反击',rank:'Full Patch'},
       {start:10,end:17,name:'第一幕',title:'反击行动与 Enforcer 晋升',summary:'收车拆车改装 → 获得定制枪 → 伏击黑手党 → 晋升 Enforcer → 对话启动内奸调查',rank:'Enforcer'},
       {start:18,end:25,name:'第二幕',title:'第三章：内奸调查',summary:'收服瓦尔特 → 接管双厂并自动生产 → 收服调查英雄 → 推关清剿接头点 → 迎风逼供 → 晋升 Roadman → 对话锁定科腾',rank:'Roadman'},
-      {start:26,end:33,name:'第三幕',title:'营救梅丽尔与处决叛徒',summary:'科腾绑架梅丽尔 → 收服旧部并接管加油站 → 推关救人 → 重卡破墙 → 追击处决科腾 → 晋升 Road Captain',rank:'Road Captain'},
-      {start:34,end:43,name:'第四幕',title:'黑警索贿、产业筹资与地下赛事议会',summary:'议会决定筹钱筹物资 → 恢复商业街与物流中心生产 → 向警长交付钱与物资 → 议会决定参加地下赛事',rank:'Treasurer'},
+      {start:26,end:34,name:'第三幕',title:'营救梅丽尔、处决叛徒与黑警议会',summary:'科腾绑架梅丽尔 → 收服旧部并接管加油站 → 推关救人 → 追击处决科腾 → 晋升 Road Captain → 议会决定筹集索贿物资',rank:'Road Captain'},
+      {start:35,end:43,name:'第四幕',title:'产业筹资与地下赛事议会',summary:'恢复商业街与物流中心生产 → 向警长交付钱与物资 → 议会决定参加地下赛事',rank:'Treasurer'},
       {start:44,end:47,name:'第五幕',title:'地下赛事筹备与武装队长晋升',summary:'接受赛事筹备任务 → 英雄、车辆与武器养成 → 赢得地下赛事 → 晋升武装队长',rank:'武装队长'}
     ];
     const playSummary = actRows => [...new Set(actRows.map(row => row.querySelector('.dc-play-line:first-child span')?.textContent.trim()).filter(value => value && !value.includes('纯 Timeline'))) ].join('、') || '纯剧情与 Timeline 表现';
@@ -2966,7 +2966,7 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     const toc=root.querySelector('#dobe-toc-nav');
     specs.forEach((spec,index)=>{const href=index===0?'#dc-act-prologue':`#dc-act-${index}`;const link=toc?.querySelector(`a[href="${href}"]`);if(link)link.textContent=`${spec.name} · ${spec.title}`;});
     const badge=root.querySelector('#dc-journey-map .dc-journey-badge'); if(badge)badge.textContent='L01–L43';
-    const journeyOutcome=root.querySelector('#dc-journey-map .dc-journey-outcome'); if(journeyOutcome)journeyOutcome.textContent='L17 由普通对话直接启动内奸调查；产业线与调查线在 L24 晋升后汇合，L25 对话锁定科腾。L26–L33 完成营救梅丽尔与处决叛徒；L34 议会提出黑警索贿，L35–L42 恢复产业并交付钱与物资，L43 进入地下赛事议会。';
+    const journeyOutcome=root.querySelector('#dc-journey-map .dc-journey-outcome'); if(journeyOutcome)journeyOutcome.textContent='L17 由普通对话直接启动内奸调查；产业线与调查线在 L24 晋升后汇合，L25 对话锁定科腾。L26–L34 完成营救梅丽尔、处决叛徒，并以筹集索贿物资议会收束第三幕；L35–L42 恢复产业并交付钱与物资，L43 进入地下赛事议会。';
     const journeyLink=toc?.querySelector('a[href="#dc-journey-map"]'); if(journeyLink)journeyLink.textContent='方案 D · 案件板（L01–L43）';
     const gangTaskUpdates={
       '瓦尔特·维尔':'L18 收服瓦尔特，开放改装厂与废车回收厂接管权限；L20 派遣回收厂自动生产。',
@@ -3168,8 +3168,8 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     rows.forEach((row,index) => {
       if (index === 9) grid.appendChild(makePhase('middle','第一幕：反击行动与 Enforcer 晋升 · L10–L17','L10 章节任务与反击准备 → 联手伏击黑手党 → 提交任务 → L16 晋升 Enforcer → L17 对话启动内奸调查'));
       if (index === 17) grid.appendChild(makePhase('after','第二幕：内奸调查与锁定叛徒 · L18–L25','收服瓦尔特并接管双厂 → 回收厂自动生产 → 收服英雄 → 推关与迎风逼供 → 晋升 Roadman → 对话锁定科腾'));
-      if (index === 25) grid.appendChild(makePhase('chapter','第三幕：营救梅丽尔与处决叛徒 · L26–L33','绑架通报 → 收服旧部并接管加油站 → 推关救人 → 重卡破墙 → 追击处决科腾 → 帮派树换位晋升'));
-      if (index === 33) grid.appendChild(makePhase('industry','第四幕：黑警索贿、产业筹资与地下赛事议会 · L34–L43','议会提出黑警索贿 → 恢复商业街产钱 → 接管物流中心产物资 → 向警长交付钱与物资 → 议会决定参加地下赛事'));
+      if (index === 25) grid.appendChild(makePhase('chapter','第三幕：营救梅丽尔、处决叛徒与黑警议会 · L26–L34','绑架通报 → 收服旧部并接管加油站 → 推关救人 → 重卡破墙 → 追击处决科腾 → 晋升 Road Captain → 议会提出黑警索贿'));
+      if (index === 34) grid.appendChild(makePhase('industry','第四幕：产业筹资与地下赛事议会 · L35–L43','恢复商业街产钱 → 接管物流中心产物资 → 向警长交付钱与物资 → 议会决定参加地下赛事'));
       const cells = row.cells;
       const loop = row.querySelector('.dc-loop');
       const title = text(loop);
@@ -3211,8 +3211,8 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       {key:'prologue',start:1,end:9,transition:'L09 议会通过全面反击并分派任务 → L10 开始收集废车、准备反击'},
       {key:'middle',start:10,end:17,transition:'L17 普通对话直接提出内奸调查 → L18 新章 Banner 与双线章节任务开启'},
       {key:'after',start:18,end:25,transition:'L25 普通对话锁定科腾 → L26 新章 Banner 出现并发布营救梅丽尔任务'},
-      {key:'chapter',start:26,end:33,transition:'L33 晋升 Road Captain → L34 召开筹集索贿物资议会'},
-      {key:'industry',start:34,end:43,transition:''}
+      {key:'chapter',start:26,end:34,transition:'L34 议会通过筹集索贿物资决议 → L35 开始恢复商业街与物流中心产业'},
+      {key:'industry',start:35,end:43,transition:''}
     ];
     chapterSpecs.forEach(spec => { const chapter = doc.createElement('section'); chapter.className = 'dc-case-chapter'; chapter.dataset.chapter = spec.key; const body = doc.createElement('div'); body.className = 'dc-chapter-body'; const phase = grid.querySelector('.dc-phase-bar.' + spec.key); chapter.append(phase,body); for(let n=spec.start;n<=spec.end;n+=1){ const id='L'+String(n).padStart(2,'0'); if(spec.key==='after' && n===18){body.appendChild(parallel); n=23; continue;} const card=cardById(id); if(card) body.appendChild(card); } storyAxis.appendChild(chapter); if(spec.transition){ const link=doc.createElement('div'); link.className='dc-chapter-transition'; link.innerHTML='<b>章节承接</b><span>'+spec.transition+'</span><i>↓</i>'; storyAxis.appendChild(link); } });
     const rankPanel = doc.createElement('aside'); rankPanel.className = 'dc-rank-panel'; rankPanel.append(rankPhase,rankShelf); const caseSplit = doc.createElement('div'); caseSplit.className = 'dc-case-split'; caseSplit.append(storyAxis,rankPanel); grid.appendChild(caseSplit);
