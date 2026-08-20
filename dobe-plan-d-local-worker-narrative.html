@@ -2882,7 +2882,7 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       {id:'L14',title:'伏击黑手党',d:70,sub:'SUP 枪战 ×1 / 枪战教学 ×1',mot:'伏击即将经过小镇的黑手党车队',play:'枪战',sys:'SUP枪战',steps:['伏击开场 · 10 秒','枪战 SUP 教学 · 60 秒'],rew:['声望'],scene:'科尔与博伏击黑手党车队，完成 SUP 第 4 关，并在关卡中完成枪战玩法教学。',cls:'dc-loop-sup'},
       {id:'L15',title:'清理现场·爆射敌方车辆',d:30,sub:'扫射 QTE ×1 / 拖车呼叫 ×1',mot:'彻底摧毁敌方威胁，并把可用车辆带回帮派',play:'扫射 QTE',sys:'QTE',steps:['扫射敌方车辆 QTE · 10 秒','确认敌人全部击杀 · 10 秒','呼叫兄弟拖走车辆 · 10 秒'],rew:['车'],mem:'爆射敌对车辆',scene:'击杀黑手党后，科尔与博清理现场。科尔通过 QTE 扫射敌方车辆完成挽尊，随后呼叫其他帮派兄弟拖走仍可回收的车辆。'},
       {id:'L16',title:'晋升 Enforcer',d:30,sub:'章节任务结算 ×1 / 点击晋升 ×1',mot:'把反击行动成果转化为新的帮派职级',play:'领取声望、晋升',sys:'章节体任务 / 帮派树',steps:['领取任务声望 · 10 秒','晋升入口点亮 · 10 秒','点击晋升 Enforcer · 10 秒'],rew:['声望'],scene:'科尔领取已完成章节任务的声望，晋升入口随之点亮；玩家点击晋升，帮派树等级上移一位，科尔成为 Enforcer。',rank:'<span class="rc-tag rc-peace">和平</span>'},
-      {id:'L17',title:'帮派议会·内奸调查',d:60,sub:'议会 ×1 / 章节结算 ×1',mot:'把连续精准袭击定性为内部泄密，并正式启动调查',timeline:true,sys:'议会',steps:['领取整章完成奖励 · 10 秒','杰森阐述内奸议题 · 20 秒','复盘精准袭击 · 20 秒','分派调查成员 · 10 秒'],rew:['声望'],mem:'调查叛徒',scene:'领取章节任务整章完成奖励后触发帮派议会。杰森指出，近期黑手党总能对帮派精准出击，帮内一定有人泄露消息；主席分派部分成员接手调查。议会结束后弹出“第三章：内奸调查”Banner。'},
+      {id:'L17',title:'对话·启动内奸调查',d:20,sub:'剧情对话 ×1 / 新章引导 ×1',mot:'把连续精准袭击定性为内部泄密，并直接启动调查',timeline:true,steps:['杰森指出连续精准袭击的异常 · 10 秒','直接下令调查内奸并开启下一章 · 10 秒'],mem:'调查叛徒',scene:'杰森直接叫住博与科尔：黑手党连续精准截击帮派行动，内部一定有人泄密。这里不召开议会、不发起投票，杰森要求两人立刻着手调查内奸，由此开启下一章。'},
       {id:'L18',title:'收服 NPC·双厂管理者瓦尔特',d:60,sub:'收服任务 ×1 / 管理权限解锁 ×2',mot:'取得改装厂与废车回收厂的内部管理授权',play:'完成收服任务',sys:'帮派树 / 章节体任务',steps:['查看瓦尔特收服任务 · 10 秒','完成收服任务 · 30 秒','确认收服及双厂权限 · 20 秒'],rew:['小人','建筑'],scene:'第三章 Banner 后直接进入任务。博引导科尔尝试收服瓦尔特；瓦尔特同时管理改装厂与废车回收厂，完成收服任务后，科尔获得接管两座产业的资格。',badge:'新章节 Banner · 第三章 内奸调查'},
       {id:'L19',title:'接管改装厂与废车回收厂',d:70,sub:'建筑接管 ×2 / 接管特效 ×2',mot:'把瓦尔特开放的产业权限转化为实际管理权',play:'点击接管两座建筑',sys:'建筑管理',steps:['打开大地图 · 10 秒','接管改装厂 · 30 秒','接管废车回收厂 · 30 秒'],rew:['建筑'],mem:'建筑接管特效表现',scene:'完成瓦尔特的收服任务后，科尔在大地图上依次点击改装厂与废车回收厂，触发两次接管特效，完成本帮内部管理权移交。',cls:'dc-loop-building'},
       {id:'L20',title:'模拟经营·回收厂生产',d:60,sub:'管理者派遣 ×1 / 自动运行 ×1',mot:'让废车回收厂从手动拆解转入自动生产',play:'派遣瓦尔特',sys:'模拟经营',steps:['打开派遣界面 · 10 秒','选择瓦尔特 · 10 秒','派遣进入回收厂 · 20 秒','确认自动拆解 Buff · 20 秒'],rew:['零件','新系统：模拟经营'],scene:'博引导科尔把刚收服的瓦尔特派遣到废车回收厂工作，解锁拆解自动运行 Buff。',cls:'dc-loop-building',badge:'新系统解锁 · 模拟经营首次出现'},
@@ -2890,28 +2890,29 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
       {id:'L22',title:'开启推关·清剿接头点',d:110,sub:'推关 ×5 / 抓捕黑手党 ×1',mot:'清剿内奸与黑手党的接头点，抓住知情人',play:'推关 1–5',sys:'推关战斗',steps:['推关第 1 关 · 20 秒','推关第 2 关 · 20 秒','推关第 3 关 · 20 秒','推关第 4 关 · 20 秒','推关第 5 关 · 20 秒','抓捕黑手党演出 · 10 秒'],rew:['声望','新系统：推关战斗'],scene:'在英雄兄弟的协助下，科尔完成 1–5 关推关，清剿黑手党与叛徒的接头点，并当场抓捕一名黑手党。',cls:'dc-loop-push',badge:'新系统解锁 · 推关首次出现'},
       {id:'L23',title:'迎风逼供',d:60,sub:'SUP 定制关卡 ×1 / 挡风玻璃逼供 ×1',mot:'逼迫被捕黑手党供出帮派内奸的名号',play:'开车避障逼供',sys:'SUP定制关卡',steps:['把俘虏固定在挡风玻璃 · 10 秒','公路避障狂飙 · 40 秒','逼问获得内奸名号 · 10 秒'],rew:['声望'],mem:'迎风逼供',scene:'英雄把抓获的黑手党固定在挡风玻璃上，在公路上狂飙。完成定制 SUP 后，受到惊吓的黑手党在科尔逼问下供出帮派内奸的名号。',cls:'dc-loop-sup'},
       {id:'L24',title:'晋升 Roadman',d:30,sub:'章节任务结算 ×1 / 点击晋升 ×1',mot:'把内奸调查进展转化为新的帮派职级',play:'领取声望、晋升',sys:'章节体任务 / 帮派树',steps:['领取任务声望 · 10 秒','晋升入口点亮 · 10 秒','点击晋升 Roadman · 10 秒'],rew:['声望'],scene:'科尔领取已完成章节任务的声望，晋升入口点亮；玩家点击晋升，帮派树等级上移一位，科尔成为 Roadman。',rank:'<span class="rc-tag rc-peace">和平</span>'},
-      {id:'L25',title:'帮派议会·制裁叛徒',d:90,sub:'议会投票 ×1 / 处决决议 ×1',mot:'确认内奸身份，并由全体正式决定叛徒的处置',play:'投票',sys:'议会',steps:['领取整章完成奖励 · 10 秒','杰森公布科腾身份 · 20 秒','说明叛徒处置规则与损失 · 20 秒','科尔首次参与投票 · 20 秒','敲槌宣布处决结果 · 20 秒'],rew:['声望'],mem:'转正后第一次参与投票',scene:'领取整章完成奖励后触发帮派议会。杰森宣布内奸正是商业街管理者科腾·万斯。按照帮派规矩，叛徒将被逐出或处决；科尔第一次以正式成员身份参与投票。成员权衡科腾造成的损失后，投票决定处决。'},
+      {id:'L25',title:'对话·锁定叛徒',d:20,sub:'剧情对话 ×1 / 新章引导 ×1',mot:'确认内奸身份并立即控制科腾',timeline:true,steps:['英雄汇报内奸代号 · 10 秒','杰森确认科腾身份并下令控制 · 10 秒'],mem:'锁定叛徒',scene:'英雄带回逼供结果，杰森确认内奸代号指向商业街管理者科腾·万斯。这里不召开议会、不发起投票，杰森直接命令科尔控制科腾；众人随即发现科腾已经失联，剧情转入下一章。'},
       {id:'L26',title:'开启救美女·追捕科腾',d:20,sub:'绑架通报 ×1 / 新章任务发布 ×1',mot:'救出梅丽尔，并代表帮派执行处决决议',timeline:true,sys:'章节体任务',steps:['通报科腾逃亡并绑走梅丽尔 · 10 秒','杰森发布营救与处决任务 · 10 秒'],scene:'帮派成员带来消息：科腾已经逃亡，还绑架了梅丽尔。杰森叮嘱科尔救出梅丽尔、拦截逃跑的科腾，并代表帮派执行处决。',badge:'新章节 Banner · 救出梅丽尔'},
       {id:'L27',title:'救美女·收服加油站管理者',d:60,sub:'收服任务 ×1 / 逃亡线索 ×1',mot:'从科腾旧部口中取得梅丽尔的关押位置',play:'完成收服任务',sys:'帮派树 / 章节体任务',steps:['找到科腾旧部 · 10 秒','完成收服任务 · 30 秒','取得小镇外落脚点线索 · 20 秒'],rew:['小人'],scene:'为了调查科腾的逃亡方向，科尔必须收服科腾的小弟。完成收服任务后，小弟告知科腾在小镇外的落脚点，梅丽尔很可能被藏在那里。'},
       {id:'L28',title:'接管加油站',d:30,sub:'建筑接管 ×1 / 接管特效 ×1',mot:'取得科腾小弟管理的加油站业务',play:'点击接管加油站',sys:'建筑管理',steps:['打开大地图 · 10 秒','点击接管加油站 · 10 秒','接管特效表现 · 10 秒'],rew:['建筑'],scene:'科腾的小弟是加油站管理者。完成收服后，科尔在大地图上点击接管加油站，完成本帮内部管理权移交。',cls:'dc-loop-building'},
       {id:'L29',title:'模拟经营·加油站生产',d:60,sub:'管理者派遣 ×1 / 自动产油 ×1',mot:'让加油站自动运行，为后续行动提供油料',play:'派遣管理者',sys:'模拟经营',steps:['选择新收服的管理者 · 10 秒','派遣进入加油站 · 20 秒','开启自动运行 · 20 秒','首次收取油 · 10 秒'],rew:['油'],scene:'科尔派遣刚收服的管理者进入加油站工作，解锁自动运行并开始产出油资源。',cls:'dc-loop-building'},
       {id:'L30',title:'救美女·推关追踪',d:100,sub:'推关 6–10 ×5',mot:'根据落脚点线索攻入梅丽尔的关押区域',play:'推关 6–10',sys:'推关战斗',steps:['推关第 6 关 · 20 秒','推关第 7 关 · 20 秒','推关第 8 关 · 20 秒','推关第 9 关 · 20 秒','推关第 10 关 · 20 秒'],rew:['声望'],scene:'根据科腾落脚点的线索，科尔展开追踪，完成推关 6–10，攻入关押梅丽尔的据点。',cls:'dc-loop-push'},
       {id:'L31',title:'重卡破墙·获得梅丽尔',d:50,sub:'重卡破墙演出 ×1 / 英雄加入 ×1',mot:'以强视觉记忆点救出梅丽尔，并获得科腾逃跑路线',timeline:true,steps:['重型越野车破墙突入 · 20 秒','救出梅丽尔 · 10 秒','梅丽尔提供路线并加入 · 20 秒'],rew:['英雄'],mem:'重卡破墙',scene:'科尔驾驶重型越野车破墙突入，救出梅丽尔。梅丽尔提供科腾的逃跑路线后加入科尔，玩家获得美女英雄。'},
-      {id:'L32',title:'追击并处决叛徒',d:180,sub:'SUP 枪战 ×1 / 处决 QTE ×1',mot:'追上逃亡的科腾，执行帮派议会的处决决定',play:'枪战、处决 QTE',sys:'SUP枪战 / QTE',steps:['锁定科腾逃亡车辆 · 10 秒','追击枪战 SUP · 140 秒','逼停并踢倒科腾 · 10 秒','一枪处决 QTE · 20 秒'],rew:['声望'],mem:'处决叛徒',scene:'科尔进入 SUP 追击逃亡的科腾。完成枪战关后开启处决交互：科尔一脚将科腾踢倒在地，随后一枪处决叛徒。',cls:'dc-loop-sup'},
+      {id:'L32',title:'追击并处决叛徒',d:180,sub:'SUP 枪战 ×1 / 处决 QTE ×1',mot:'追上逃亡的科腾，执行杰森下达的帮派制裁命令',play:'枪战、处决 QTE',sys:'SUP枪战 / QTE',steps:['锁定科腾逃亡车辆 · 10 秒','追击枪战 SUP · 140 秒','逼停并踢倒科腾 · 10 秒','一枪处决 QTE · 20 秒'],rew:['声望'],mem:'处决叛徒',scene:'科尔进入 SUP 追击逃亡的科腾。完成枪战关后开启处决交互：科尔一脚将科腾踢倒在地，随后一枪处决叛徒。',cls:'dc-loop-sup'},
       {id:'L33',title:'晋升 Road Captain·帮派树换位',d:30,sub:'章节任务结算 ×1 / 帮派树换位 ×1',mot:'以处决叛徒的成果接替 Road Captain 职级',play:'领取声望、晋升',sys:'章节体任务 / 帮派树',steps:['领取任务声望 · 10 秒','科腾头像划除消失 · 10 秒','科尔头像换位并晋升 · 10 秒'],rew:['声望'],scene:'领取章节任务声望后晋升入口点亮。帮派树演出中，被处决的科腾被红叉标记并移除，科尔头像上移到对应位置，晋升 Road Captain。',rank:'<span class="rc-tag rc-peace">帮派树</span>'},
-      {id:'L34',title:'收服 NPC·商业街管理者',d:60,sub:'收服任务 ×1',mot:'填补科腾长期失职留下的商业街管理空缺',play:'完成收服任务',sys:'帮派树 / 章节体任务',steps:['博说明商业街长期失修 · 10 秒','查看管理者收服任务 · 10 秒','完成收服任务 · 30 秒','确认商业街权限 · 10 秒'],rew:['小人'],scene:'博告知科尔：科腾长期尸位素餐，导致商业街在爆炸后一直没有复建。博指引科尔收服商业街管理者，完成收服任务。'},
-      {id:'L35',title:'接管并重建商业街',d:60,sub:'建筑接管 ×1 / 重建 QTE ×1',mot:'恢复爆炸后长期停摆的商业街',play:'接管、重建 QTE',sys:'建筑管理 / QTE',steps:['打开大地图 · 10 秒','点击接管商业街 · 10 秒','废墟重建 QTE · 30 秒','接管特效表现 · 10 秒'],rew:['建筑'],mem:'建筑接管特效表现',scene:'完成收服任务后，科尔在大地图点击商业街废墟，通过 QTE 重建建筑，并触发接管特效。',cls:'dc-loop-building'},
-      {id:'L36',title:'警长来访·灰警索贿',d:30,sub:'警长来访演出 ×1',mot:'建立必须尽快恢复现金产出的现实压力',timeline:true,steps:['警长带着目击证词来访 · 10 秒','指出科尔是处决案嫌疑人 · 10 秒','暗示需要获得报酬 · 10 秒'],mem:'灰警索贿',scene:'警长找到科尔：警方发现了科腾的尸体，还有目击证人，科尔已经成为嫌疑人——除非警长能获得应得的报酬。'},
+      {id:'L34',title:'帮派议会·筹集索贿物资',d:90,sub:'议会投票 ×1 / 筹资任务包 ×3',mot:'应对黑警索贿，决定恢复产业并筹集钱与物资',play:'投票、领取任务',sys:'议会',steps:['杰森说明黑警压力与索贿条件 · 20 秒','成员讨论恢复产业方案 · 20 秒','投票决定筹集钱与物资 · 20 秒','敲槌确认决议 · 10 秒','领取三个筹资任务包 · 20 秒'],mem:'黑警索贿',scene:'杰森召集议会：灰烬之子最近动静太大，黑警要求帮派交出足够的钱和物资，否则就会借科腾之死和近期冲突持续找麻烦。议会投票通过恢复商业街与物流中心、筹集索贿物资的方案。'},
+      {id:'L35',title:'收服 NPC·商业街管理者',d:60,sub:'收服任务 ×1',mot:'填补科腾长期失职留下的商业街管理空缺',play:'完成收服任务',sys:'帮派树 / 章节体任务',steps:['博说明商业街长期失修 · 10 秒','查看管理者收服任务 · 10 秒','完成收服任务 · 30 秒','确认商业街权限 · 10 秒'],rew:['小人'],scene:'博告知科尔：科腾长期尸位素餐，导致商业街在爆炸后一直没有复建。博指引科尔收服商业街管理者，完成收服任务。'},
+      {id:'L36',title:'接管并重建商业街',d:60,sub:'建筑接管 ×1 / 重建 QTE ×1',mot:'恢复爆炸后长期停摆的商业街',play:'接管、重建 QTE',sys:'建筑管理 / QTE',steps:['打开大地图 · 10 秒','点击接管商业街 · 10 秒','废墟重建 QTE · 30 秒','接管特效表现 · 10 秒'],rew:['建筑'],mem:'建筑接管特效表现',scene:'完成收服任务后，科尔在大地图点击商业街废墟，通过 QTE 重建建筑，并触发接管特效。',cls:'dc-loop-building'},
       {id:'L37',title:'模拟经营·商业街生产',d:180,sub:'管理者派遣 ×1 / 自动产钱 ×1',mot:'通过商业街获得足够现金，应付灰警索贿',play:'派遣、自动经营',sys:'模拟经营',steps:['派遣商业街管理者 · 20 秒','开启自动运行 · 20 秒','等待现金产出 · 120 秒','首次收取钱 · 20 秒'],rew:['钱'],scene:'为应付灰警，科尔需要通过商业街获得足够现金。玩家派遣刚收服的管理者进入商业街工作，解锁自动运行并产出钱。',cls:'dc-loop-building'},
       {id:'L38',title:'晋升 Treasurer',d:30,sub:'章节任务结算 ×1 / 点击晋升 ×1',mot:'以产业经营成果承担帮派财务职责',play:'领取声望、晋升',sys:'章节体任务 / 帮派树',steps:['领取任务声望 · 10 秒','晋升入口点亮 · 10 秒','点击晋升 Treasurer · 10 秒'],rew:['声望'],scene:'科尔领取已完成章节任务的声望，晋升入口点亮；玩家点击晋升，科尔成为 Treasurer。',rank:'<span class="rc-tag rc-peace">和平</span>'},
       {id:'L39',title:'收服 NPC·物流中心管理者',d:60,sub:'收服任务 ×1',mot:'取得物流运输中心的内部管理授权',play:'完成收服任务',sys:'帮派树 / 章节体任务',steps:['查看物流管理者任务 · 10 秒','完成收服任务 · 40 秒','确认物流中心权限 · 10 秒'],rew:['小人'],scene:'科尔以 Treasurer 身份收服物流中心管理者，完成收服任务并取得物流运输中心的接管资格。'},
       {id:'L40',title:'接管物流运输中心',d:60,sub:'建筑接管 ×1 / 接管 QTE ×1',mot:'把物流权限转化为实际管理权',play:'接管 QTE',sys:'建筑管理 / QTE',steps:['打开大地图 · 10 秒','点击物流中心 · 10 秒','接管 QTE · 30 秒','接管特效表现 · 10 秒'],rew:['建筑'],scene:'完成收服任务后，科尔在大地图点击物流运输中心，通过 QTE 完成本帮内部管理权交接。',cls:'dc-loop-building'},
       {id:'L41',title:'模拟经营·物流中心生产',d:180,sub:'管理者派遣 ×1 / 自动产出物资 ×1',mot:'让物流中心持续为帮派提供物资',play:'派遣、自动运输',sys:'模拟经营',steps:['派遣物流管理者 · 20 秒','开启自动运行 · 20 秒','等待首轮运输 · 120 秒','首次收取物资 · 20 秒'],rew:['物资'],scene:'科尔派遣刚收服的管理者进入物流中心工作，解锁自动运行并开始产出物资。',cls:'dc-loop-building'},
-      {id:'L42',title:'帮派议会·地下赛事',d:90,sub:'议会投票 ×1 / 赛事决议 ×1',mot:'决定帮派是否继续参加关系全年资金周转的地下赛事',play:'投票',sys:'议会',steps:['领取整章完成奖励 · 10 秒','杰森阐述地下赛事危机 · 20 秒','成员讨论参赛或弃权 · 20 秒','科尔参与投票 · 20 秒','敲槌宣布继续参赛 · 20 秒'],rew:['声望'],scene:'领取整章完成奖励后触发帮派议会。杰森说明：即将开始的地下赛事中，帮派与黑手党都下了重注，但原定车手遭袭无法参赛；成员必须重新选定人选或弃权。投票结果为继续参赛，帮派将全力确保车手获胜。'},
-      {id:'L43',title:'筹备地下赛事',d:20,sub:'赛事任务发布 ×1',mot:'把议会决议转化为车手与车辆的准备目标',timeline:true,sys:'章节体任务',steps:['杰森委托科尔负责筹备 · 10 秒','展示车手与车辆目标 · 10 秒'],scene:'新章 Banner 弹出。杰森委托科尔负责车手训练和车辆准备，正式开启地下赛事筹备任务。',badge:'新章节 Banner · 地下赛事'},
-      {id:'L44',title:'英雄、载具与武器养成任务',d:180,sub:'英雄养成 ×1 / 车辆养成 ×1 / 武器养成 ×1',mot:'把参赛车手和装备提升到地下赛事标准',play:'训练、升级装备',sys:'英雄养成 / 车辆养成 / 武器养成',steps:['英雄训练任务 · 60 秒','参赛车辆升级 · 60 秒','武器升级任务 · 60 秒'],rew:['调校材料'],scene:'科尔围绕地下赛事准备完成一系列训练和升级任务，依次强化英雄、参赛车辆与武器。'},
-      {id:'L45',title:'地下赛事',d:180,sub:'SUP 竞速 ×1–3',mot:'赢下帮派与黑手党重注的地下比赛',play:'赛事竞速',sys:'SUP竞速',steps:['选定车手与车辆 · 20 秒','赛事 SUP 竞速 · 60 秒','冠军演出与结算 · 20 秒','预留多轮赛事复玩 · 80 秒'],rew:['钱','声望'],scene:'科尔派出选定车手参赛，完成 SUP 竞速并赢得冠军。正式版本可按需要扩展为预选赛、淘汰赛与决赛多轮结构。',cls:'dc-loop-sup'},
-      {id:'L46',title:'晋升武装队长',d:30,sub:'章节任务结算 ×1 / 点击晋升 ×1',mot:'以地下赛事胜利晋升更高武装职级',play:'领取声望、晋升',sys:'章节体任务 / 帮派树',steps:['领取赛事章节声望 · 10 秒','晋升入口点亮 · 10 秒','点击晋升武装队长 · 10 秒'],rew:['声望'],scene:'科尔领取地下赛事章节任务声望，晋升入口点亮；玩家点击晋升，科尔成为武装队长。',rank:'<span class="rc-tag rc-peace">和平</span>'}
+      {id:'L42',title:'警长来访·收取钱与物资',d:30,sub:'索贿交付演出 ×1',mot:'把两条产业产出交给黑警，暂时压下警方调查',timeline:true,steps:['警长到场核对约定 · 10 秒','科尔提交钱与物资 · 10 秒','警长收货并暂时压下调查 · 10 秒'],mem:'灰警收钱',scene:'商业街与物流中心完成生产后，警长来到小镇收取约定的报酬。科尔将筹集到的钱和物资交给警长，警长确认数量后暂时压下科腾死亡与近期冲突的调查。'},
+      {id:'L43',title:'帮派议会·地下赛事',d:90,sub:'议会投票 ×1 / 赛事决议 ×1',mot:'决定帮派是否继续参加关系全年资金周转的地下赛事',play:'投票',sys:'议会',steps:['领取整章完成奖励 · 10 秒','杰森阐述地下赛事危机 · 20 秒','成员讨论参赛或弃权 · 20 秒','科尔参与投票 · 20 秒','敲槌宣布继续参赛 · 20 秒'],rew:['声望'],scene:'领取整章完成奖励后触发帮派议会。杰森说明：即将开始的地下赛事中，帮派与黑手党都下了重注，但原定车手遭袭无法参赛；成员必须重新选定人选或弃权。投票结果为继续参赛，帮派将全力确保车手获胜。'},
+      {id:'L44',title:'筹备地下赛事',d:20,sub:'赛事任务发布 ×1',mot:'把议会决议转化为车手与车辆的准备目标',timeline:true,sys:'章节体任务',steps:['杰森委托科尔负责筹备 · 10 秒','展示车手与车辆目标 · 10 秒'],scene:'新章 Banner 弹出。杰森委托科尔负责车手训练和车辆准备，正式开启地下赛事筹备任务。',badge:'新章节 Banner · 地下赛事'},
+      {id:'L45',title:'英雄、载具与武器养成任务',d:180,sub:'英雄养成 ×1 / 车辆养成 ×1 / 武器养成 ×1',mot:'把参赛车手和装备提升到地下赛事标准',play:'训练、升级装备',sys:'英雄养成 / 车辆养成 / 武器养成',steps:['英雄训练任务 · 60 秒','参赛车辆升级 · 60 秒','武器升级任务 · 60 秒'],rew:['调校材料'],scene:'科尔围绕地下赛事准备完成一系列训练和升级任务，依次强化英雄、参赛车辆与武器。'},
+      {id:'L46',title:'地下赛事',d:180,sub:'SUP 竞速 ×1–3',mot:'赢下帮派与黑手党重注的地下比赛',play:'赛事竞速',sys:'SUP竞速',steps:['选定车手与车辆 · 20 秒','赛事 SUP 竞速 · 60 秒','冠军演出与结算 · 20 秒','预留多轮赛事复玩 · 80 秒'],rew:['钱','声望'],scene:'科尔派出选定车手参赛，完成 SUP 竞速并赢得冠军。正式版本可按需要扩展为预选赛、淘汰赛与决赛多轮结构。',cls:'dc-loop-sup'},
+      {id:'L47',title:'晋升武装队长',d:30,sub:'章节任务结算 ×1 / 点击晋升 ×1',mot:'以地下赛事胜利晋升更高武装职级',play:'领取声望、晋升',sys:'章节体任务 / 帮派树',steps:['领取赛事章节声望 · 10 秒','晋升入口点亮 · 10 秒','点击晋升武装队长 · 10 秒'],rew:['声望'],scene:'科尔领取地下赛事章节任务声望，晋升入口点亮；玩家点击晋升，科尔成为武装队长。',rank:'<span class="rc-tag rc-peace">和平</span>'}
     ];
     const fmt = total => `${Math.floor(total / 60)}:${String(total % 60).padStart(2,'0')}`;
     const playCell = node => `<div class="dc-play-system"><div class="dc-play-line"><b>玩法</b><span>${node.timeline ? '<em class="dc-timeline-label">纯 Timeline 表现</em>' : (node.play || '-')}</span></div><div class="dc-play-line"><b>系统</b><span>${node.sys || '-'}</span></div><div class="dc-play-line dc-play-line-time"><b>耗时</b><span class="dc-time-steps">${node.steps.map(step => `<i>${step}</i>`).join('')}</span></div></div>`;
@@ -2930,11 +2931,11 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     const rowById = new Map(rows.map(row => [(row.querySelector('.dc-loop')?.textContent.match(/L\d{2}/) || [''])[0],row]));
     const specs = [
       {start:1,end:9,name:'序幕',title:'运货考验、转正庆祝与紧急议会',summary:'警匪追逐 → 摩托帮接应 → 后座枪战 → 返镇转正 → 改装氮气 → 1v1 庆祝 → 商业街爆炸 → 议会全面反击',rank:'Full Patch'},
-      {start:10,end:17,name:'第一幕',title:'反击行动与 Enforcer 晋升会议',summary:'收车拆车改装 → 获得定制枪 → 伏击黑手党 → 晋升 Enforcer → 议会启动内奸调查',rank:'Enforcer'},
-      {start:18,end:25,name:'第二幕',title:'第三章：内奸调查',summary:'收服瓦尔特 → 接管双厂并自动生产 → 收服调查英雄 → 推关清剿接头点 → 迎风逼供 → 晋升 Roadman → 议会决定处决科腾',rank:'Roadman'},
+      {start:10,end:17,name:'第一幕',title:'反击行动与 Enforcer 晋升',summary:'收车拆车改装 → 获得定制枪 → 伏击黑手党 → 晋升 Enforcer → 对话启动内奸调查',rank:'Enforcer'},
+      {start:18,end:25,name:'第二幕',title:'第三章：内奸调查',summary:'收服瓦尔特 → 接管双厂并自动生产 → 收服调查英雄 → 推关清剿接头点 → 迎风逼供 → 晋升 Roadman → 对话锁定科腾',rank:'Roadman'},
       {start:26,end:33,name:'第三幕',title:'营救梅丽尔与处决叛徒',summary:'科腾绑架梅丽尔 → 收服旧部并接管加油站 → 推关救人 → 重卡破墙 → 追击处决科腾 → 晋升 Road Captain',rank:'Road Captain'},
-      {start:34,end:42,name:'第四幕',title:'产业恢复、灰警索贿与地下赛事议会',summary:'收服商业街管理者 → 重建并自动产钱 → 灰警索贿 → 晋升 Treasurer → 接管物流中心并自动产物资 → 议会决定参加地下赛事',rank:'Treasurer'},
-      {start:43,end:46,name:'第五幕',title:'地下赛事筹备与武装队长晋升',summary:'接受赛事筹备任务 → 英雄、车辆与武器养成 → 赢得地下赛事 → 晋升武装队长',rank:'武装队长'}
+      {start:34,end:43,name:'第四幕',title:'黑警索贿、产业筹资与地下赛事议会',summary:'议会决定筹钱筹物资 → 恢复商业街与物流中心生产 → 向警长交付钱与物资 → 议会决定参加地下赛事',rank:'Treasurer'},
+      {start:44,end:47,name:'第五幕',title:'地下赛事筹备与武装队长晋升',summary:'接受赛事筹备任务 → 英雄、车辆与武器养成 → 赢得地下赛事 → 晋升武装队长',rank:'武装队长'}
     ];
     const playSummary = actRows => [...new Set(actRows.map(row => row.querySelector('.dc-play-line:first-child span')?.textContent.trim()).filter(value => value && !value.includes('纯 Timeline'))) ].join('、') || '纯剧情与 Timeline 表现';
     specs.forEach((spec,index) => {
@@ -2964,14 +2965,14 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     });
     const toc=root.querySelector('#dobe-toc-nav');
     specs.forEach((spec,index)=>{const href=index===0?'#dc-act-prologue':`#dc-act-${index}`;const link=toc?.querySelector(`a[href="${href}"]`);if(link)link.textContent=`${spec.name} · ${spec.title}`;});
-    const badge=root.querySelector('#dc-journey-map .dc-journey-badge'); if(badge)badge.textContent='L01–L42';
-    const journeyOutcome=root.querySelector('#dc-journey-map .dc-journey-outcome'); if(journeyOutcome)journeyOutcome.textContent='L18 开启内奸调查：产业侧收服瓦尔特、接管双厂并派遣自动生产；调查侧收服英雄、完成五关推关与迎风逼供。L25 议会决定处决科腾，L26–L33 完成营救梅丽尔与处决叛徒；L34–L42 接管商业街、物流中心并进入地下赛事议会。';
-    const journeyLink=toc?.querySelector('a[href="#dc-journey-map"]'); if(journeyLink)journeyLink.textContent='方案 D · 案件板（L01–L42）';
+    const badge=root.querySelector('#dc-journey-map .dc-journey-badge'); if(badge)badge.textContent='L01–L43';
+    const journeyOutcome=root.querySelector('#dc-journey-map .dc-journey-outcome'); if(journeyOutcome)journeyOutcome.textContent='L17 由普通对话直接启动内奸调查；产业线与调查线在 L24 晋升后汇合，L25 对话锁定科腾。L26–L33 完成营救梅丽尔与处决叛徒；L34 议会提出黑警索贿，L35–L42 恢复产业并交付钱与物资，L43 进入地下赛事议会。';
+    const journeyLink=toc?.querySelector('a[href="#dc-journey-map"]'); if(journeyLink)journeyLink.textContent='方案 D · 案件板（L01–L43）';
     const gangTaskUpdates={
       '瓦尔特·维尔':'L18 收服瓦尔特，开放改装厂与废车回收厂接管权限；L20 派遣回收厂自动生产。',
       '调查英雄（姓名待定）':'L21 完成收服任务并加入内奸调查；协助 L22–L23 推关与迎风逼供。',
       '比利·克鲁斯':'L27 完成收服任务取得科腾落脚点；L28 接管加油站，L29 派遣自动产油。',
-      '斯宾塞·曼森':'L34 完成收服任务；L35 接管并重建商业街，L37 派遣自动产钱。',
+      '斯宾塞·曼森':'L35 完成收服任务；L36 接管并重建商业街，L37 派遣自动产钱。',
       '科腾·万斯':'L32 被玩家追上并处决；L33 帮派树红叉划除，玩家接替 Road Captain。',
       '物流负责人（姓名待定）':'L39 完成收服任务；L40 接管物流中心，L41 派遣自动产出物资。'
     };
@@ -2993,14 +2994,15 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     L01:'chase-police.webp', L02:'cargo-ambush-rescue.webp', L03:'motorcycle-backseat-gunfight-v2.webp', L04:'l07-return-gang-wall.webp',
     L05:'full-patch-vest-ceremony-v2.webp', L06:'garage-repair-nitrous.webp', L07:'one-on-one-race.webp', L08:'commercial-street-explosion-v2.webp', L09:'council-promotion.webp',
     L10:'wreck-collection-map.webp', L11:'scrapyard-salvage.webp', L12:'member-bike-service.webp', L13:'l15-ambush-planning.webp',
-    L14:'highway-gunfight.webp', L15:'l17-allies-return-alive.webp', L16:'l18-task-settlement.webp', L17:'l19-promotion-traitor-meeting.webp',
+    L14:'highway-gunfight.webp', L15:'l17-allies-return-alive.webp', L16:'l18-task-settlement.webp', L17:'l15-ambush-planning.webp',
     L18:'l21-two-managers.webp', L19:'dual-factory-takeover-v2.webp', L20:'l23-scrapyard-automation.webp', L21:'investigation-hero-recruit-v2.webp',
-    L22:'l25-five-stage-investigation.webp', L23:'informant-interrogation.webp', L24:'l18-task-settlement.webp', L25:'council-promotion.webp',
+    L22:'l25-five-stage-investigation.webp', L23:'informant-interrogation.webp', L24:'l18-task-settlement.webp', L25:'informant-interrogation.webp',
     L26:'kenton-kidnaps-maryl-v2.webp', L27:'l29-gas-station-ledger-clue.webp', L28:'l28-gas-station-loyalty-handover.webp', L29:'gas-station-automation-v2.webp',
     L30:'l28-rescue-assault.webp', L31:'heavy-truck-wall-rescue-v2.webp', L32:'l30-kenton-pursuit.webp', L33:'l31-case-closed-promotion.webp',
-    L34:'commercial-manager-recruit-v2.webp', L35:'commercial-street-rebuild-v2.webp', L36:'corrupt-sheriff-bribe-v2.webp',
+    L34:'council-promotion.webp', L35:'commercial-manager-recruit-v2.webp', L36:'commercial-street-rebuild-v2.webp',
     L37:'commercial-street-automation-v2.webp', L38:'council-promotion.webp', L39:'logistics-manager-recruit-v2.webp',
-    L40:'logistics-center-takeover-v2.webp', L41:'logistics-center-automation-v2.webp', L42:'underground-race-council-v2.webp'
+    L40:'logistics-center-takeover-v2.webp', L41:'logistics-center-automation-v2.webp', L42:'corrupt-sheriff-bribe-v2.webp',
+    L43:'underground-race-council-v2.webp'
   };
   const css = `
     #dc-journey-map .dc-clue-wall{position:relative;overflow:hidden;padding:18px 18px 28px;border:1px solid #5b5044;border-radius:14px;background:radial-gradient(circle at 18% 12%,rgba(255,255,255,.055),transparent 25%),linear-gradient(135deg,#232421,#111310 68%,#1a1814);box-shadow:inset 0 0 50px #000,0 18px 36px rgba(0,0,0,.28);isolation:isolate}
@@ -3146,14 +3148,14 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     });
     const portraitIdentity={'比利·克鲁斯':8,'斯宾塞·曼森':11,'科腾·万斯':14};
     Object.entries(portraitIdentity).forEach(([name,index])=>{const person=[...doc.querySelectorAll('#dc-gang-tree .gw-person')].find(node=>node.querySelector('.gw-name')?.textContent.trim()===name);if(!person)return;person.style.setProperty('--gw-x',`${(index%4)*100/3}%`);person.style.setProperty('--gw-y',`${Math.floor(index/4)*100/7}%`);person.dataset.portraitIndex=index});
-    const maxClueId = 42;
+    const maxClueId = 43;
     const rows = [...doc.querySelectorAll('tr')].filter(row => { const id = text(row.querySelector('.dc-loop')).match(/L(\d+)/); return id && Number(id[1]) <= maxClueId; });
     if (!rows.length) { style.remove(); setTimeout(build, 120); return; }
     const makePhase = (kind,title,caption) => { const bar = doc.createElement('div'); bar.className = 'dc-phase-bar ' + kind; bar.innerHTML = '<b>' + title + '</b><span>' + caption + '</span>'; return bar; };
     const wall = doc.createElement('div');
     wall.className = 'dc-clue-wall';
     wall.setAttribute('aria-label','开局至第四幕地下赛事议会的剧情、玩法、系统与结果关系线索墙');
-    wall.innerHTML = '<div class="dc-clue-head"><div><b>方案 D 案件板 · 本地打工（叙事小改版）</b><br><small>L01–L42：转正庆祝、反击、内奸调查、救援处决、产业恢复、灰警索贿与地下赛事议会</small></div><div class="dc-clue-tools"><div class="dc-clue-legend"><span><i class="plot"></i>剧情因果</span><span><i class="play"></i>玩法承接</span><span><i class="gain"></i>身份/建筑/资源结果</span></div><div class="dc-clue-summary-actions"><button class="dc-clue-summary-all" data-action="expand" type="button">全部展开</button><button class="dc-clue-summary-all" data-action="collapse" type="button">全部收起</button></div><button class="dc-clue-fullscreen" type="button" aria-label="全屏查看案件板">⛶ 全屏查看</button></div></div><div class="dc-clue-viewport"><div class="dc-clue-canvas"><svg class="dc-clue-wire" aria-hidden="true"></svg><div class="dc-clue-grid"></div></div></div>';
+    wall.innerHTML = '<div class="dc-clue-head"><div><b>方案 D 案件板 · 本地打工（叙事小改版）</b><br><small>L01–L43：转正庆祝、反击、内奸调查、救援处决、黑警索贿、产业筹资与地下赛事议会</small></div><div class="dc-clue-tools"><div class="dc-clue-legend"><span><i class="plot"></i>剧情因果</span><span><i class="play"></i>玩法承接</span><span><i class="gain"></i>身份/建筑/资源结果</span></div><div class="dc-clue-summary-actions"><button class="dc-clue-summary-all" data-action="expand" type="button">全部展开</button><button class="dc-clue-summary-all" data-action="collapse" type="button">全部收起</button></div><button class="dc-clue-fullscreen" type="button" aria-label="全屏查看案件板">⛶ 全屏查看</button></div></div><div class="dc-clue-viewport"><div class="dc-clue-canvas"><svg class="dc-clue-wire" aria-hidden="true"></svg><div class="dc-clue-grid"></div></div></div>';
     const grid = wall.querySelector('.dc-clue-grid');
     const viewport = wall.querySelector('.dc-clue-viewport');
     const canvas = wall.querySelector('.dc-clue-canvas');
@@ -3164,10 +3166,10 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     grid.appendChild(makePhase('prologue','序幕：运货考验、转正庆祝与紧急议会 · L01–L09','警匪追逐 → 摩托帮接应 → 黑手党伏击与后座枪战 → 返镇转正 → 改装氮气 → 1v1 庆祝 → 商业街爆炸 → 议会投票全面反击'));
     const seenDrops = new Set();
     rows.forEach((row,index) => {
-      if (index === 9) grid.appendChild(makePhase('middle','第一幕：反击行动与 Enforcer 晋升会议 · L10–L17','L10 章节任务与反击准备 → 联手伏击黑手党 → 提交任务 → L17 会议晋升 Enforcer 并提出内奸调查'));
-      if (index === 17) grid.appendChild(makePhase('after','第二幕：内奸调查与制裁议会 · L18–L25','收服瓦尔特并接管双厂 → 回收厂自动生产 → 收服英雄 → 推关与迎风逼供 → 晋升 Roadman → 议会决定处决科腾'));
+      if (index === 9) grid.appendChild(makePhase('middle','第一幕：反击行动与 Enforcer 晋升 · L10–L17','L10 章节任务与反击准备 → 联手伏击黑手党 → 提交任务 → L16 晋升 Enforcer → L17 对话启动内奸调查'));
+      if (index === 17) grid.appendChild(makePhase('after','第二幕：内奸调查与锁定叛徒 · L18–L25','收服瓦尔特并接管双厂 → 回收厂自动生产 → 收服英雄 → 推关与迎风逼供 → 晋升 Roadman → 对话锁定科腾'));
       if (index === 25) grid.appendChild(makePhase('chapter','第三幕：营救梅丽尔与处决叛徒 · L26–L33','绑架通报 → 收服旧部并接管加油站 → 推关救人 → 重卡破墙 → 追击处决科腾 → 帮派树换位晋升'));
-      if (index === 33) grid.appendChild(makePhase('industry','第四幕：产业恢复、灰警索贿与地下赛事议会 · L34–L42','收服商业街管理者 → 重建并自动产钱 → 灰警索贿 → 晋升 Treasurer → 接管物流中心并自动产物资 → 议会决定参加地下赛事'));
+      if (index === 33) grid.appendChild(makePhase('industry','第四幕：黑警索贿、产业筹资与地下赛事议会 · L34–L43','议会提出黑警索贿 → 恢复商业街产钱 → 接管物流中心产物资 → 向警长交付钱与物资 → 议会决定参加地下赛事'));
       const cells = row.cells;
       const loop = row.querySelector('.dc-loop');
       const title = text(loop);
@@ -3201,16 +3203,16 @@ html&gt;body{padding:0}#dobe-compressed-loops .gw-person.gw-empty{display:none!i
     Object.entries(rankLinks).forEach(([tier,clue]) => { const source = doc.querySelector('#dc-gang-tree .gw-tier[data-tier="' + tier + '"]'); if (!source) return; const card = doc.createElement('article'); card.className = 'dc-rank-card'; card.dataset.clue = clue; const title = text(source.querySelector('.gw-promotion strong')); const rep = text(source.querySelector('.gw-rep')); const event = text(source.querySelector('.gw-event')); const people = [...source.querySelectorAll('.gw-person')].map(person => { const file = person.dataset.scene || 'tow-convoy.webp'; const name = text(person.querySelector('.gw-name')); const reward = [...person.querySelectorAll('.gw-drop')].map(text).join(' · '); const portraitIndex = Number(person.dataset.portraitIndex || 0); const px = (portraitIndex % 4) * 100 / 3; const py = Math.floor(portraitIndex / 4) * 100 / 7; const emptyClass = person.classList.contains('gw-empty') ? ' is-empty' : ''; return '<div class="dc-rank-person' + (name === '玩家角色' ? ' is-player' : '') + emptyClass + '"><div class="dc-rank-photo" style="background-image:linear-gradient(to top,rgba(12,13,11,.82),transparent 65%),url(&quot;' + portraitSheet + '&quot;);background-size:400% 800%;background-position:' + px + '% ' + py + '%">' + (emptyClass ? '空相框' : text(person.querySelector('.gw-photo-label'))) + '</div><b class="dc-rank-name">' + name + '</b><span class="dc-rank-reward">' + reward + '</span></div>'; }).join(''); card.innerHTML = '<div class="dc-rank-head"><b>' + title + '</b><span>' + rep + '</span></div><div class="dc-rank-event">' + event + (clue ? ' · 对应 ' + clue : ' · 本段未解锁') + '</div><div class="dc-rank-members">' + people + '</div>'; rankShelf.appendChild(card); });
     grid.appendChild(rankShelf);
     const rankPhase = rankShelf.previousElementSibling; const storyAxis = doc.createElement('section'); storyAxis.className = 'dc-story-axis';
-    const parallel = doc.createElement('section'); parallel.className = 'dc-parallel-board'; parallel.innerHTML = '<header><b>第三章 · 内奸调查</b><span>产业经营与外出调查共同推进</span></header><div class="dc-parallel-lane industry"><h4>产业经营 · L18–L20</h4></div><div class="dc-parallel-lane investigation"><h4>外出调查 · L21–L23</h4></div><footer><b>第二幕收束 · L24–L25</b><span>晋升 Roadman → 议会确认科腾是内奸并投票处决；下一章从 L26 开始</span></footer>';
+    const parallel = doc.createElement('section'); parallel.className = 'dc-parallel-board'; parallel.innerHTML = '<header><b>第三章 · 内奸调查</b><span>产业经营与外出调查共同推进</span></header><div class="dc-parallel-lane industry"><h4>产业经营 · L18–L20</h4></div><div class="dc-parallel-lane investigation"><h4>外出调查 · L21–L23</h4></div><footer><b>第二幕收束 · L24–L25</b><span>晋升 Roadman → 普通对话锁定科腾；下一章从 L26 开始</span></footer>';
     const cardById = id => grid.querySelector('[data-clue-id="' + id + '"]');
     ['L18','L19','L20'].forEach(id => { const card = cardById(id); if (card) parallel.querySelector('.industry').appendChild(card); });
     ['L21','L22','L23'].forEach(id => { const card = cardById(id); if (card) parallel.querySelector('.investigation').appendChild(card); });
     const chapterSpecs = [
       {key:'prologue',start:1,end:9,transition:'L09 议会通过全面反击并分派任务 → L10 开始收集废车、准备反击'},
-      {key:'middle',start:10,end:17,transition:'L17 会议晋升 Enforcer 并提出内奸调查 → L18 新章 Banner 与双线章节任务开启'},
-      {key:'after',start:18,end:25,transition:'L25 议会投票决定处决科腾 → L26 新章 Banner 出现并发布营救梅丽尔任务'},
-      {key:'chapter',start:26,end:33,transition:'L33 晋升 Road Captain → L34 开始处理科腾遗留的产业空缺'},
-      {key:'industry',start:34,end:42,transition:''}
+      {key:'middle',start:10,end:17,transition:'L17 普通对话直接提出内奸调查 → L18 新章 Banner 与双线章节任务开启'},
+      {key:'after',start:18,end:25,transition:'L25 普通对话锁定科腾 → L26 新章 Banner 出现并发布营救梅丽尔任务'},
+      {key:'chapter',start:26,end:33,transition:'L33 晋升 Road Captain → L34 召开筹集索贿物资议会'},
+      {key:'industry',start:34,end:43,transition:''}
     ];
     chapterSpecs.forEach(spec => { const chapter = doc.createElement('section'); chapter.className = 'dc-case-chapter'; chapter.dataset.chapter = spec.key; const body = doc.createElement('div'); body.className = 'dc-chapter-body'; const phase = grid.querySelector('.dc-phase-bar.' + spec.key); chapter.append(phase,body); for(let n=spec.start;n<=spec.end;n+=1){ const id='L'+String(n).padStart(2,'0'); if(spec.key==='after' && n===18){body.appendChild(parallel); n=23; continue;} const card=cardById(id); if(card) body.appendChild(card); } storyAxis.appendChild(chapter); if(spec.transition){ const link=doc.createElement('div'); link.className='dc-chapter-transition'; link.innerHTML='<b>章节承接</b><span>'+spec.transition+'</span><i>↓</i>'; storyAxis.appendChild(link); } });
     const rankPanel = doc.createElement('aside'); rankPanel.className = 'dc-rank-panel'; rankPanel.append(rankPhase,rankShelf); const caseSplit = doc.createElement('div'); caseSplit.className = 'dc-case-split'; caseSplit.append(storyAxis,rankPanel); grid.appendChild(caseSplit);
